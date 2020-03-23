@@ -1,5 +1,5 @@
 // Theme start!
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@700&family=Montserrat:wght@500&display=swap");
 
 $black:           #000 !default;
 $white:           #fff !default;
@@ -14,8 +14,9 @@ $marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
 $marko-web-node-list-padding: 15px !default;
 
 // Fonts (reset all to Roboto and Roboto Slab)
-$theme-font-family-sans-serif: "Roboto", sans-serif !default;
-$theme-font-family-serif: "Roboto Slab", sans-serif !default;
+
+$theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
+$theme-font-family-serif: "Roboto", sans-serif !default;
 
 // General
 $body-bg: #fff !default;
