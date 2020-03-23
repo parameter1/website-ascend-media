@@ -1,0 +1,25 @@
+{
+  "name": "@ascend-media/websites",
+  "version": "0.0.0",
+  "description": "Websites for Ascend Media",
+  "repository": "https://github.com/base-cms-websites/ascend-media.git",
+  "author": "Josh Worden <josh@limit0.io>",
+  "license": "MIT",
+  "private": true,
+  "root": true,
+  "workspaces": [
+    "packages/*",
+    "sites/*"
+  ],
+  "scripts": {
+    "compile": "lerna run compile",
+    "lint": "lerna run lint",
+    "lint:css": "lerna run lint:css",
+    "lint:js": "lerna run lint:js",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "@base-cms/marko-compiler": "^1.8.0",
+    "lerna": "^3.13.0"
+  }
+}
