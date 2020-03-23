@@ -4,4 +4,21 @@ $light: #e9ecef !default; // equivalent to default gray-200
 $dark: #212529 !default; // equivalent to default gray-900
 $info: #6c757d !default; // equivalent to default gray-600
 
+$theme-site-navbar-secondary-bg-color: #fff;
+$theme-site-navbar-secondary-type: light;
+
+// Site Section Colors
+$website-section-colors: (
+);
+
 @import "../../node_modules/@ascend-media/package-shared/scss/core";
+
+.site-navbar {
+  &__items {
+    &--secondary,
+    &--tertiary {
+      // Vertically center top navs
+      margin-bottom: auto;
+    }
+  }
+}
