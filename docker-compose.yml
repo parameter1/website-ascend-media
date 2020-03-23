@@ -65,10 +65,10 @@ services:
       <<: *env
       <<: *env-caprica
       PORT: 80
-      EXPOSED_PORT: 9710
-      LIVERELOAD_PORT: 19710
+      EXPOSED_PORT: 9810
+      LIVERELOAD_PORT: 19810
       TENANT_KEY: ascend_hearthub
       SITE_ID: 5e6a882568bf3bbe5f661e46
     ports:
-      - "9710:80"
-      - "19710:19710"
+      - "9810:80"
+      - "19810:19810"
