@@ -15,6 +15,9 @@ module.exports = {
   },
   tertiary: {
     items: [
+      { href: '#', label: 'Tertiary 1' },
+      { href: '#', label: 'Tertiary 2' },
+      { href: '#', label: 'Tertiary 3' },
       { href: '/search', label: 'Search', icon: 'search' },
     ],
   },
