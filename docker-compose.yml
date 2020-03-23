@@ -68,7 +68,7 @@ services:
       EXPOSED_PORT: 9810
       LIVERELOAD_PORT: 19810
       TENANT_KEY: ascend_hearthub
-      SITE_ID: 5e6a882568bf3bbe5f661e46
+      SITE_ID: 5e79147a9610c96162e3a0bc
     ports:
       - "9810:80"
       - "19810:19810"
