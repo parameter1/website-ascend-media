@@ -57,10 +57,10 @@ services:
     environment:
       <<: *env
 
-  hearthub.org:
+  hearthubs.org:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/hearthub.org
+    working_dir: /root/sites/hearthubs.org
     environment:
       <<: *env
       <<: *env-caprica
