@@ -1,9 +1,9 @@
 module.exports = {
   primary: {
     items: [
-      { href: '#', label: 'Primary 1' },
-      { href: '#', label: 'Primary 2' },
-      { href: '#', label: 'Primary 3' },
+      { href: '/ats', label: 'ATS' },
+      { href: '/qcor', label: 'QCOR' },
+      { href: '/vdgm', label: 'VDGM' },
     ],
   },
   secondary: {
