@@ -1,23 +1,16 @@
 module.exports = {
   primary: {
     items: [
-      { href: '/ats', label: 'ATS' },
       { href: '/qcor', label: 'QCOR' },
-      { href: '/vdgm', label: 'VDGM' },
+      { href: '/vascular', label: 'Vascular' },
     ],
   },
   secondary: {
     items: [
-      { href: '#', label: 'Secondary 1' },
-      { href: '#', label: 'Secondary 2' },
-      { href: '#', label: 'Secondary 3' },
     ],
   },
   tertiary: {
     items: [
-      { href: '#', label: 'Tertiary 1' },
-      { href: '#', label: 'Tertiary 2' },
-      { href: '#', label: 'Tertiary 3' },
       { href: '/search', label: 'Search', icon: 'search' },
     ],
   },
