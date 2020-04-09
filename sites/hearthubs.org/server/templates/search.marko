@@ -13,14 +13,15 @@ $ const apiKey = site.get("gcse.id");
       <marko-web-gtm-push data=context />
     </marko-web-gtm-default-context>
   </@head>
+  <@above-page>
+    <marko-web-gam-define-display-ad
+      ...GAM.getAdUnit({ name: "lb1" })
+      class="mb-block"
+      modifiers=["max-width-970", "margin-auto-x", "center"]
+    />
+  </@above-page>
   <@page>
     <marko-web-page-wrapper class="mb-block">
-      <@section>
-        <marko-web-gam-define-display-ad
-          ...GAM.getAdUnit({ name: "lb1" })
-          modifiers=["max-width-970", "margin-auto-x", "center"]
-        />
-      </@section>
       <@section>
         <div class="row">
           <div class="col">
