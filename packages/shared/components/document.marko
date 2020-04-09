@@ -1,8 +1,8 @@
-$ const {
-  site,
-  req,
-  GAM,
-} = out.global;
+import { getAsObject, get } from "@base-cms/object-path";
+
+$ const { site, req, GAM } = out.global;
+$ const section = getAsObject(input, "aboveContainer.section");
+$ const aboveContainer = get(input, "aboveContainer.renderBody");
 
 <marko-web-document ...input>
   <@head>
@@ -22,9 +22,19 @@ $ const {
     <marko-web-browser-component name="TriggerScreenChangeEvent" />
     <marko-web-gtm-track-bus-event on="screen_change" />
     <marko-web-gtm-track-load-more />
-    <default-theme-site-header />
-    <default-theme-site-menu />
-    <${input.aboveContainer} />
+    <shared-section-header>
+      <@section
+        id=section.id
+        name=section.name
+        alias=section.alias
+        logo=section.logo
+        hierarchy=section.hierarchy
+      />
+    </shared-section-header>
+    <shared-section-menu section=section modifiers=["right"] />
+    <if(aboveContainer)>
+      <${aboveContainer} />
+    </if>
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
