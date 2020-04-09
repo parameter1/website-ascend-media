@@ -9,6 +9,14 @@ fragment WebsiteSectionPageFragment on WebsiteSection {
     id
     alias
     name
+    logo {
+      id
+      src(input: { options: { h: 100 } })
+    }
+  }
+  logo {
+    id
+    src(input: { options: { h: 100 } })
   }
 }
 `;
