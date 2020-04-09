@@ -1,0 +1,73 @@
+.site-navbar {
+  $self: &;
+  &__items {
+    text-transform: none;
+    &--secondary {
+      #{ $self } {
+        &__link {
+          color: $primary;
+        }
+      }
+    }
+    &--tertiary {
+      margin-left: 0;
+      #{ $self } {
+        &__link {
+          color: $primary;
+        }
+      }
+    }
+    &--secondary,
+    &--tertiary {
+      // Vertically center top navs
+      margin-bottom: auto;
+    }
+  }
+
+  &__brand {
+    margin-right: auto;
+  }
+
+  & svg {
+    fill: $primary !important;
+  }
+
+  &__toggler {
+    &--right {
+      margin-left: $theme-site-navbar-brand-margin-x;
+    }
+  }
+
+  &__logo {
+    filter: none;
+  }
+
+  &--primary,
+  &--secondary {
+    #{ $self } {
+      &__link {
+        &--active {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &--secondary {
+    border-bottom: 3px solid $primary;
+  }
+}
+
+.site-menu {
+  $self: &;
+  // @todo work this into the calculation, need to reduce current calc by 20px
+  // top: calculate-navbar-height-for(default);
+  top: calc(124px + 2rem);
+  &--right {
+    right: 0;
+    transform: translateX(#{$theme-site-navbar-menu-width});
+    &#{ $self }--open {
+      transform: translateX(0);
+    }
+  }
+}

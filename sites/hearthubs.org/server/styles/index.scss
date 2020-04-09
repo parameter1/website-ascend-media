@@ -1,24 +1,87 @@
-$primary: #c10e21 !default;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@700&family=Montserrat:wght@500;600&display=swap");
+
+$black:           #000 !default;
+$white:           #fff !default;
+$body-color:      $black !default;
+$block-spacer:    1.25rem !default;
+
+$primary: #ce232b !default;
 $secondary: #495057; // equivalent to default gray-700
 $light: #e9ecef !default; // equivalent to default gray-200
 $dark: #212529 !default; // equivalent to default gray-900
 $info: #6c757d !default; // equivalent to default gray-600
 
+// Settings
+$enable-shadows: false !default;
+$enable-rounded: false !default;
+$body-bg: #ebebeb;
+$border-radius: none;
+
+// Marko Web Settings
+$marko-web-document-container-max-width: 1100px !default;
+$marko-web-document-container-gutter: 10px !default;
+$marko-web-page-padding: 0 !default;
+$marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
+$marko-web-node-list-padding: 15px !default;
+
+// Fonts (reset all to Montserrat & Roboto (from Heart.org)
+$theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
+$theme-font-family-serif: "Roboto", sans-serif !default;
 $theme-site-navbar-secondary-bg-color: #fff;
 $theme-site-navbar-secondary-type: light;
+$theme-site-navbar-logo-height: 100px;
+$theme-site-navbar-logo-drop-shadow: none;
+$theme-site-navbar-brand-margin-y: 1rem;
+$theme-site-navbar-brand-margin-x: 1rem;
+$theme-site-navbar-primary-link-padding: 0;
+$theme-item-description-max-lines: 5 !default;
+$theme-content-heading-large-margin-bottom:     11px !default;
+$theme-content-heading-large-margin-bottom-sm:  11px !default;
+$theme-content-heading-h4-margin-bottom:        11px !default;
+$theme-content-heading-h4-margin-bottom-sm:     11px !default;
+$theme-content-heading-h5-margin-bottom:        11px !default;
+$theme-content-heading-h5-margin-bottom-sm:     11px !default;
+$theme-content-heading-h6-margin-bottom:        11px !default;
+$theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin-bottom !default;
+$theme-related-content-bg-color: #f8f9fa;
+$theme-related-content-border-color: #dee2e6;
 
-// Site Section Colors
-$website-section-colors: (
-);
+@import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
+@import "../../../../node_modules/@base-cms/marko-web-gam/scss/fixed-ad-bottom";
+@import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
+@import "../../../../node_modules/@base-cms/marko-web-reveal-ad/scss/reveal-ad";
+@import "../../../../node_modules/@ascend-media/package-contact-us/scss/index";
+@import "./site-navbar";
 
-@import "../../node_modules/@ascend-media/package-shared/scss/core";
+body {
+  letter-spacing: .1px;
+}
 
-.site-navbar {
-  &__items {
-    &--secondary,
-    &--tertiary {
-      // Vertically center top navs
-      margin-bottom: auto;
+
+.ldp {
+  display: flex;
+  align-items: center;
+  &__logo {
+    img {
+      margin: 0 1rem;
     }
   }
+}
+
+.content-section-header {
+  display: block;
+  color: $gray-600;
+  text-align: left;
+  text-transform: uppercase;
+  &--border {
+    padding-bottom: .25rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+  }
+  &:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+}
+
+.document-container {
+  padding-bottom: 3rem;
 }
