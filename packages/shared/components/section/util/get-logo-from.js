@@ -1,11 +1,13 @@
+const getChannel = require('./get-channel');
+
 module.exports = (section, site) => {
-  // @todo traverse to root-level sections
+  const channel = getChannel(section.hierarchy, site);
   const defaultSrc = site.get('logos.navbar.src');
   const defaultSrcSet = site.getAsArray('logos.navbar.srcset').join(',');
 
-  if (section.logo) {
-    const { src } = section.logo;
-    const srcSet = `${section.logo.src} 2x`;
+  if (channel && channel.logo) {
+    const { src } = channel.logo;
+    const srcSet = `${channel.logo.src} 2x`;
     return { src, srcSet };
   }
 

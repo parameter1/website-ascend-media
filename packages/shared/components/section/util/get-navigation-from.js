@@ -1,12 +1,13 @@
+const getChannel = require('./get-channel');
+
 module.exports = (section, site) => {
-  // console.info('getNavigationFrom', section);
-  // @todo traverse to root-level sections
-  if (section.alias && site.get(`navigation.${section.alias}`)) {
+  const channel = getChannel(section.hierarchy, site);
+  if (channel && channel.alias) {
     return {
-      primary: site.getAsArray(`navigation.${section.alias}.primary.items`),
-      secondary: site.getAsArray(`navigation.${section.alias}.secondary.items`),
-      tertiary: site.getAsArray(`navigation.${section.alias}.tertiary.items`),
-      menu: site.getAsArray(`navigation.${section.alias}.menu`),
+      primary: site.getAsArray(`navigation.${channel.alias}.primary.items`),
+      secondary: site.getAsArray(`navigation.${channel.alias}.secondary.items`),
+      tertiary: site.getAsArray(`navigation.${channel.alias}.tertiary.items`),
+      menu: site.getAsArray(`navigation.${channel.alias}.menu`),
     };
   }
   return {
