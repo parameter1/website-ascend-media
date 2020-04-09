@@ -15,7 +15,6 @@ $ const {
 } = input;
 
 $ const loader = getAsObject(input, "loader");
-
 $ const rightRailHeader = defaultValue(input.rightRailHeader, "Top Headlines");
 $ const withOopAds = defaultValue(input.withOopAds, true);
 
@@ -31,49 +30,51 @@ $ const promise = websiteSectionContentLoader(apollo, {
   standardParams: loader.standardParams,
   withStandardQuery: defaultValue(loader.withStandardQuery, true),
 });
+
 <marko-web-resolve|{ resolved: sectionContent }| promise=promise>
   $ const { featured, standard } = sectionContent;
-  <marko-web-website-section-page-layout id=id alias=alias name=name>
-    <@head>
-      <if(input.head)>
-        <${input.head} section-content=sectionContent />
-      </if>
-      <else>
-        <marko-web-gtm-website-section-context|{ context }| alias=alias>
-          <marko-web-gtm-push data=context />
-        </marko-web-gtm-website-section-context>
-        <marko-web-resolve-page|{ data: section }| node=pageNode>
-          $ const aliases = hierarchyAliases(section);
-          <marko-web-gam-slots slots=adSlots({ aliases }) />
-        </marko-web-resolve-page>
-        <if(input.inHead)>
-          <${input.inHead} section-content=sectionContent />
+  <marko-web-resolve|{ resolved: { data: section } }| promise=pageNode.load()>
+    $ const aliases = hierarchyAliases(section);
+    $ const slots = adSlots({ aliases });
+    <marko-web-website-section-page-layout id=id alias=alias name=name>
+      <@head>
+        <if(input.head)>
+          <${input.head} section-content=sectionContent />
         </if>
-      </else>
-    </@head>
+        <else>
+          <marko-web-gtm-website-section-context|{ context }| alias=alias>
+            <marko-web-gtm-push data=context />
+          </marko-web-gtm-website-section-context>
+          <marko-web-gam-slots slots=slots />
+          <if(input.inHead)>
+            <${input.inHead} section-content=sectionContent />
+          </if>
+        </else>
+      </@head>
 
-    <@above-container>
-      <if(input.aboveContainer)>
-        <${input.aboveContainer} section-content=sectionContent />
-      </if>
-      <else>
-        <if(withOopAds)>
-          <marko-web-resolve-page|{ data: section }| node=pageNode>
-            $ const aliases = hierarchyAliases(section);
+      <@above-container>
+        <@section
+          id=section.id
+          name=section.name
+          alias=section.alias
+          logo=section.logo
+          hierarchy=section.hierarchy
+        />
+        <if(input.aboveContainer)>
+          <${input.aboveContainer} section-content=sectionContent />
+        </if>
+        <else>
+          <if(withOopAds)>
             <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-          </marko-web-resolve-page>
-        </if>
-      </else>
-    </@above-container>
+          </if>
+        </else>
+      </@above-container>
 
-    <@page>
-      <if(input.page)>
-        <${input.page} section-content=sectionContent />
-      </if>
-      <else>
-        <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
-          $ const aliases = hierarchyAliases(section);
-          $ const slots = adSlots({ aliases });
+      <@page>
+        <if(input.page)>
+          <${input.page} section-content=sectionContent />
+        </if>
+        <else>
           <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
             <@section>
               <div class="row">
@@ -119,22 +120,18 @@ $ const promise = websiteSectionContentLoader(apollo, {
               </div>
             </@section>
           </marko-web-page-wrapper>
-        </marko-web-resolve-page>
-      </else>
-    </@page>
+        </else>
+      </@page>
 
-    <@below-page>
-      <if(input.belowPage)>
-        <${input.belowPage} section-content=sectionContent />
-      </if>
-      <else>
-        <marko-web-page-container for="website-section" tag="div" id=id modifiers=["below"]>
-          <!-- Refresh sticky, right-rail infinite scroll ad -->
-          <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+      <@below-page>
+        <if(input.belowPage)>
+          <${input.belowPage} section-content=sectionContent />
+        </if>
+        <else>
+          <marko-web-page-container for="website-section" tag="div" id=id modifiers=["below"]>
+            <!-- Refresh sticky, right-rail infinite scroll ad -->
+            <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
 
-          <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
-            $ const aliases = hierarchyAliases(section);
-            $ const slots = adSlots({ aliases });
             <marko-web-page-wrapper>
               <@section>
                 <div class="row">
@@ -172,16 +169,14 @@ $ const promise = websiteSectionContentLoader(apollo, {
                 </div>
               </@section>
             </marko-web-page-wrapper>
-          </marko-web-resolve-page>
 
-        </marko-web-page-container>
-      </else>
-    </@below-page>
+          </marko-web-page-container>
+        </else>
+      </@below-page>
 
-    <@foot>
-      <marko-web-resolve-page|{ data: section }| node=pageNode>
-        <shared-fixed-ad-bottom aliases=hierarchyAliases(section) />
-      </marko-web-resolve-page>
-    </@foot>
-  </marko-web-website-section-page-layout>
+      <@foot>
+        <shared-fixed-ad-bottom aliases=aliases />
+      </@foot>
+    </marko-web-website-section-page-layout>
+  </marko-web-resolve>
 </marko-web-resolve>
