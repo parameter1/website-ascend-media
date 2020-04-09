@@ -17,9 +17,5 @@
     },
     "<below-container>": {},
     "<foot>": {}
-  },
-  "<shared-fixed-ad-bottom>": {
-    "template": "./fixed-ad-bottom.marko",
-    "@aliases": "array"
   }
 }
