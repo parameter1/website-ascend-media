@@ -19,7 +19,7 @@ $ const title = defaultValue(section.name, config.website("name"));
 >
   <${input.aboveNav} />
   <default-theme-site-navbar modifiers=["secondary"]>
-    <default-theme-site-navbar-brand title=`${title} Homepage` href=`/${section.alias}`>
+    <default-theme-site-navbar-brand title=`${title} Homepage` href=`/${section.alias || ''}`>
       <default-theme-site-navbar-logo alt=title src=src srcset=srcset />
     </default-theme-site-navbar-brand>
     <default-theme-site-navbar-items
