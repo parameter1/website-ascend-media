@@ -1,0 +1,5 @@
+{
+  "taglib-imports": [
+    "./company-profile/marko.json"
+  ]
+}
