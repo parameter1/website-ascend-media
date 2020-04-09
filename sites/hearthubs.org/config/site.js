@@ -7,9 +7,9 @@ module.exports = {
   company: 'Ascend Media',
   logos: {
     navbar: {
-      src: 'https://base.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=45',
+      src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=100',
       srcset: [
-        'https://base.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=90 2x',
+        'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=200 2x',
       ],
     },
     footer: {

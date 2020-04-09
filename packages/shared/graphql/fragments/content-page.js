@@ -31,11 +31,17 @@ fragment ContentPageFragment on Content {
     name
     alias
     canonicalPath
+    logo {
+      src
+    }
     hierarchy {
       id
       name
       alias
       canonicalPath
+      logo {
+        src
+      }
     }
   }
   primaryImage {

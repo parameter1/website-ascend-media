@@ -1,16 +1,13 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../graphql/fragments/content-list";
+import queryFragment from "../../../graphql/fragments/content-list";
 
 $ const { site, GAM } = out.global;
 $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-billboard1": GAM.getAdUnit({ name: "billboard1", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
-  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
-  "gpt-ad-rail-infinite": GAM.getAdUnit({ name: "infinite-rail", aliases }),
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
@@ -22,44 +19,42 @@ $ const displayInquiry = (content) => {
 }
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
-$ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
-$ const isShortForm = ["contact"].includes(type) ? true : false;
-$ const injectAds = ["article", "news", "press-release", "blog"].includes(type) ? true : false;
+$ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
 
-<marko-web-content-page-layout id=id type=type>
-  <@head>
-    <marko-web-gtm-content-context|{ context }| id=id>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-content-context>
-    <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
+<marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+  $ const section = resolved.getAsObject("primarySection");
+  $ const aliases = hierarchyAliases(section);
+  $ const slots = adSlots({ aliases });
+
+  <marko-web-content-page-layout id=id type=type>
+    <@head>
+      <marko-web-gtm-content-context|{ context }| id=id>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-content-context>
+      <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
       <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </marko-web-resolve-page>
-  </@head>
-  <@above-container>
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
-    </marko-web-resolve-page>
-  </@above-container>
-  <@page>
-    <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-      $ const section = resolved.getAsObject("primarySection");
-      $ const aliases = hierarchyAliases(section);
-      $ const slots = adSlots({ aliases });
+    </@head>
+
+    <@above-container>
+      <@section
+        id=section.id
+        name=section.name
+        alias=section.alias
+        logo=section.logo
+        hierarchy=section.hierarchy
+      />
+    </@above-container>
+
+    <@above-page>
+      <marko-web-gam-display-ad
+        id="gpt-ad-lb1"
+        slots=slots
+        class="mb-block"
+        modifiers=["max-width-970", "margin-auto-x", "center"]
+      />
+    </@above-page>
+    <@page>
       <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
-        <@section>
-          <div class="row">
-            <div class="col">
-              <marko-web-gam-display-ad
-                id="gpt-ad-lb1"
-                slots=slots
-                modifiers=["max-width-970", "margin-auto-x", "center"]
-              />
-            </div>
-          </div>
-        </@section>
 
         <@section>
           <div class="row">
@@ -144,31 +139,6 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
 
               $ const bodyId = `content-body-${id}`;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
-              <if(injectAds)>
-                $ const atCount = 1750;
-                <marko-web-gam-inject-ads selector=`#${bodyId}`>
-                  <@inject
-                    at=atCount
-                    modifiers=["max-width-300", "in-content"]
-                    ...GAM.getAdUnit({ name: "in-content", aliases })
-                  />
-                  <@inject
-                    at=(atCount * 2)
-                    modifiers=["max-width-300", "in-content"]
-                    ...GAM.getAdUnit({ name: "in-content", aliases })
-                  />
-                  <@inject
-                    at=(atCount * 3)
-                    modifiers=["max-width-300", "in-content"]
-                    ...GAM.getAdUnit({ name: "in-content", aliases })
-                  />
-                  <@inject
-                    at=(atCount * 4)
-                    modifiers=["max-width-300", "in-content"]
-                    ...GAM.getAdUnit({ name: "in-content", aliases })
-                  />
-                </marko-web-gam-inject-ads>
-              </if>
 
               <marko-web-content-sidebars block-name=blockName obj=content />
               <if(type === "document" || type === "whitepaper")>
@@ -195,26 +165,19 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
               <shared-related-content-block content-id=id />
 
             </default-theme-page-contents>
-            <aside class="col-lg-4 page-rail">
-              <shared-latest-in-section-block>
-                <@content id=id />
-                <@section id=section.id name=section.name />
-              </shared-latest-in-section-block>
 
+            <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
                 modifiers=["max-width-300", "margin-auto-x"]
                 slots=slots
               />
-
-              <if(!isShortForm)>
-                <marko-web-gam-display-ad
-                  id="gpt-ad-rail2"
-                  modifiers=["sticky-top", "max-width-300", "margin-auto-x"]
-                  slots=slots
-                />
-              </if>
+              <shared-latest-in-section-block>
+                <@content id=id />
+                <@section id=section.id name=section.name />
+              </shared-latest-in-section-block>
             </aside>
+
             <if(displayPhotoswipe)>
               <marko-web-photoswipe-images images=resolved.getEdgeNodesFor("images")>
                 <@props thumbnail-click-selectors=`[data-gallery-id="${id}"] [data-image-id]` />
@@ -222,53 +185,22 @@ $ const injectAds = ["article", "news", "press-release", "blog"].includes(type) 
             </if>
           </div>
         </@section>
+
       </marko-web-page-wrapper>
-    </marko-web-resolve-page>
-  </@page>
-  <@below-page>
-    <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["below"]>
-      <!-- Refresh sticky, right-rail infinite scroll ad -->
-      <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" />
+    </@page>
 
-      <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-        $ const section = resolved.getAsObject("primarySection");
-        $ const aliases = hierarchyAliases(section);
-        $ const slots = adSlots({ aliases });
-        <marko-web-page-wrapper>
-          <@section>
-            <div class="row">
-              <div class="col">
-                <marko-web-gam-display-ad
-                  id="gpt-ad-billboard1"
-                  slots=slots
-                  modifiers=["max-width-970", "margin-auto-x", "center"]
-                />
-              </div>
-            </div>
-          </@section>
+    <!-- <@below-page>
+      <website-content-load-more-block
+        id=id
+        type=type
+        name=content.name
+        aliases=aliases
+        section-id=section.id
+        section-name=section.name
+        section-skip=4
+      >
+      </website-content-load-more-block>
+    </@below-page> -->
 
-          <@section>
-            <div class="row">
-              <div class="col-lg-8 infinite-scroll-target">
-                <shared-content-page-load-more-block aliases=aliases limit=12 skip=4>
-                  <@content id=id type=type name=content.name />
-                  <@section id=section.id name=section.name />
-                </shared-content-page-load-more-block>
-              </div>
-              <aside class="col-lg-4 page-rail">
-                <shared-follow-us-block />
-                <shared-most-recent-block />
-
-                <marko-web-gam-display-ad
-                  id="gpt-ad-rail-infinite"
-                  modifiers=["sticky-top", "max-width-300", "margin-auto-x"]
-                  slots=slots
-                />
-              </aside>
-            </div>
-          </@section>
-        </marko-web-page-wrapper>
-      </marko-web-resolve-page>
-    </marko-web-page-container>
-  </@below-page>
-</marko-web-content-page-layout>
+  </marko-web-content-page-layout>
+</marko-web-resolve-page>
