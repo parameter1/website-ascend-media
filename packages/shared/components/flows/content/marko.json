@@ -2,6 +2,7 @@
   "<shared-content-list-flow>": {
     "template": "./list.marko",
     "<header>": {},
+    "<footer>": {},
     "<body>": {},
     "<node>": {
       "<attribution>": {},
