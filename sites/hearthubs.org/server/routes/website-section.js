@@ -1,7 +1,7 @@
 const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
-const section = require('@ascend-media/package-shared/templates/website-section');
 const contactUs = require('@ascend-media/package-shared/templates/website-section/contact-us');
 const queryFragment = require('@ascend-media/package-shared/graphql/fragments/website-section-page');
+const section = require('../templates/website-section');
 
 module.exports = (app) => {
   app.get('/:alias(contact-us)', withWebsiteSection({
