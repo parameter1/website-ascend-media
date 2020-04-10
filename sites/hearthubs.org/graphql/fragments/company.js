@@ -14,7 +14,15 @@ fragment WebsiteContentCompanyFragment on Content {
     name
     alias
     logo {
-      src(input: { options: { h: 100 } })
+      src
+    }
+    hierarchy {
+      id
+      name
+      alias
+      logo {
+        src
+      }
     }
   }
 
