@@ -71,3 +71,35 @@
     }
   }
 }
+
+.site-footer {
+  $self: &;
+  &__copyright {
+    text-align: left;
+  }
+  &__logo {
+    // Is there a setting for this?
+    filter: none;
+  }
+  &__wrapper {
+    @media (min-width: $marko-web-document-container-max-width) {
+      max-width: $marko-web-document-container-max-width;
+      margin: 0 auto;
+    }
+  }
+  &__container {
+    &--secondary {
+      background-color: #999;
+    }
+    &--primary {
+      #{ $self }__wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__social-icons {
+    justify-content: flex-end;
+    margin: auto 0;
+  }
+}
