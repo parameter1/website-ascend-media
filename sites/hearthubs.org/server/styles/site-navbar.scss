@@ -2,20 +2,8 @@
   $self: &;
   &__items {
     text-transform: none;
-    &--secondary {
-      #{ $self } {
-        &__link {
-          color: $primary;
-        }
-      }
-    }
     &--tertiary {
       margin-left: 0;
-      #{ $self } {
-        &__link {
-          color: $primary;
-        }
-      }
     }
     &--secondary,
     &--tertiary {
@@ -27,10 +15,6 @@
 
   &__brand {
     margin-right: auto;
-  }
-
-  & svg {
-    fill: $primary !important;
   }
 
   &__toggler {
