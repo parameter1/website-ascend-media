@@ -73,7 +73,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
         <marko-web-gam-display-ad
           id="gpt-ad-lb1"
           slots=slots
-          class="mb-block"
+          class="mt-block"
           modifiers=["max-width-970", "margin-auto-x", "center"]
         />
       </@above-page>
@@ -82,7 +82,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           <${input.page} section-content=sectionContent />
         </if>
         <else>
-          <div class="row">
+          <div class="row mt-block">
             <div class="col-lg-8">
               <marko-web-query|{ nodes }|
                 name="website-optioned-content"

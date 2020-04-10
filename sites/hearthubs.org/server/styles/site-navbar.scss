@@ -20,6 +20,7 @@
     &--secondary,
     &--tertiary {
       // Vertically center top navs
+      margin-top: auto;
       margin-bottom: auto;
     }
   }
@@ -60,9 +61,6 @@
 
 .site-menu {
   $self: &;
-  // @todo work this into the calculation, need to reduce current calc by 20px
-  // top: calculate-navbar-height-for(default);
-  top: calc(124px + 2rem);
   &--right {
     right: 0;
     transform: translateX(#{$theme-site-navbar-menu-width});
