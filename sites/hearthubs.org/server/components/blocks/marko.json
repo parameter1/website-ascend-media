@@ -1,0 +1,5 @@
+{
+  "<website-content-hero-block>": {
+    "template": "./content-hero.marko"
+  }
+}
