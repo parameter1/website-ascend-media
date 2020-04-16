@@ -42,6 +42,7 @@ module.exports = {
       },
     ],
   },
+
   /**
    * Vascular
    */
@@ -85,8 +86,46 @@ module.exports = {
       },
     ],
   },
+
+  /**
+   * Default
+   */
+  default: {
+    secondary: {
+      // List available conferences
+      items: [
+        { href: '/qcor', label: 'QCOR 2020 Conference' },
+        { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
+      ],
+    },
+    tertiary: {
+      items: [
+        { href: '/search', label: 'Search', icon: 'search' },
+      ],
+    },
+    menu: [
+      {
+        label: '2020 Conferences',
+        items: [
+          { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
+          { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
+        ],
+      },
+      {
+        label: 'User Tools',
+        items: [
+          { href: '/page/about-us', label: 'About Us' },
+          { href: '/contact-us', label: 'Contact Us' },
+          { href: '/page/privacy-policy', label: 'Privacy Policy' },
+          { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+        ],
+      },
+    ],
+  },
+
   /**
    * Site defaults -- when not actively under a conference
+   * @todo reemove this.
    */
   primary: {
     items: [
