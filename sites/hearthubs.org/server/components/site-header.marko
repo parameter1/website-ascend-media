@@ -25,6 +25,13 @@ $ const navigation = {
 $ const tertiaryMods = ["tertiary"];
 $ if (navigation.secondary.length) tertiaryMods.push("no-left-margin");
 
+$ const logoContexts = site.getAsArray("logos.navbar.contexts");
+$ const contextualLogo = logoContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+$ const logo = {
+  src: contextualLogo ? contextualLogo.src : site.get("logos.navbar.src"),
+  srcset: contextualLogo ? asArray(contextualLogo.srcset) : site.get("logos.navbar.srcset"),
+};
+
 <marko-web-block
   name=blockName
   tag=(input.tag || "header")
@@ -37,8 +44,8 @@ $ if (navigation.secondary.length) tertiaryMods.push("no-left-margin");
     <default-theme-site-navbar-brand title=`${config.website("name")} Homepage`>
       <default-theme-site-navbar-logo
         alt=config.website("name")
-        src=site.get("logos.navbar.src")
-        srcset=site.getAsArray("logos.navbar.srcset").join(",")
+        src=logo.src
+        srcset=logo.srcset.join(",")
       />
     </default-theme-site-navbar-brand>
     <default-theme-site-navbar-items
