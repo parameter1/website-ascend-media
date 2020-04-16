@@ -1,5 +1,8 @@
 {
   "<website-document>": {
     "template": "./document.marko"
+  },
+  "<website-contextual-header>": {
+    "template": "./site-header/contextual.marko"
   }
 }
