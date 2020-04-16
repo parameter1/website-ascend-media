@@ -29,6 +29,8 @@ $font-weight-light: 300 !default;
 $theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
 $theme-font-family-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
 
+$theme-site-header-box-shadow: none;
+
 $theme-site-navbar-logo-height: 90px;
 $theme-site-navbar-logo-height-sm: 50px;
 
@@ -97,6 +99,10 @@ $theme-site-navbar-primary-link-active-decoration: none;
 .site-navbar {
   $self: &;
   letter-spacing: .1px;
+
+  &__logo {
+    filter: none;
+  }
 
   &__items {
     &--primary {
