@@ -1,6 +1,7 @@
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
 import { getAsArray } from "@base-cms/object-path";
 import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { config, site, req } = out.global;
 
@@ -30,6 +31,8 @@ $ const contextualLogo = logoContexts.find(({ when }) => asArray(when).some(path
 $ const logo = {
   src: contextualLogo ? contextualLogo.src : site.get("logos.navbar.src"),
   srcset: contextualLogo ? asArray(contextualLogo.srcset) : site.get("logos.navbar.srcset"),
+  href: contextualLogo ? contextualLogo.href : site.get("logos.navbar.href"),
+  alt: contextualLogo ? contextualLogo.title : site.get("logos.navbar.title"),
 };
 
 <marko-web-block
@@ -41,9 +44,9 @@ $ const logo = {
 >
   <${input.aboveNav} />
   <default-theme-site-navbar modifiers=["secondary"]>
-    <default-theme-site-navbar-brand title=`${config.website("name")} Homepage`>
+    <default-theme-site-navbar-brand href=logo.href>
       <default-theme-site-navbar-logo
-        alt=config.website("name")
+        alt=defaultValue(logo.alt, config.website("name"));
         src=logo.src
         srcset=logo.srcset.join(",")
       />
