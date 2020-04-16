@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/functions";
 
 $black: #000;
 $white: #fff;
@@ -53,7 +54,7 @@ $theme-responsive-max-lines: 4;
 $theme-site-header-box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
 
 $theme-site-navbar-logo-height: 90px;
-$theme-site-navbar-logo-height-sm: 70px;
+$theme-site-navbar-logo-height-sm: 50px;
 
 $theme-site-footer-logo-height: 90px;
 $theme-site-footer-logo-height-sm: 90px;
@@ -81,6 +82,10 @@ $theme-box-shadow-sm:  1px 1px 5px rgba(0, 0, 0, .15);
 $theme-card-header-border: none;
 $theme-card-header-font-weight: 600;
 
+$theme-item-title-font-size: 18px;
+$theme-item-title-font-size-sm: 17px;
+$theme-item-title-font-weight: $font-weight-normal;
+
 $theme-item-description-font-family:          $theme-font-family-sans-serif;
 $theme-item-description-font-size-sm:         14px;
 $theme-item-description-font-size:            15px;
@@ -94,6 +99,12 @@ $theme-site-header-breakpoints: (
   small-text-primary: 564px,
   small-text-secondary: 0
 );
+
+$theme-hero-teaser-font-size: 18px;
+$theme-hero-teaser-font-size-sm: 16px;
+$theme-hero-teaser-font-weight: $font-weight-bold;
+$theme-hero-teaser-line-height: get-line-height($theme-hero-teaser-font-size, 20px);
+$theme-hero-teaser-line-height-sm: get-line-height($theme-hero-teaser-font-size-sm, 20px);
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
@@ -129,14 +140,20 @@ $theme-site-header-breakpoints: (
   }
 }
 
+.ad-container {
+  &--max-width-970 {
+    max-width: 970px;
+  }
+  &--center {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
 // stylelint-disable
 .node {
   $self: &;
-
-  &__title {
-    font-size: 18px;
-    font-weight: $font-weight-normal;
-  }
 
   &__text {
     &--content-action {
@@ -163,6 +180,10 @@ $theme-site-header-breakpoints: (
           top: 45%;
           width: 75px;
           height: 75px;
+          @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+            width: 50px;
+            height: 50px;
+          }
         }
       }
     }
@@ -180,19 +201,41 @@ $theme-site-header-breakpoints: (
           font-weight: 700;
           color: #fff;
           text-transform: uppercase;
+
+          @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+            font-size: 17px;
+          }
         }
       }
       &__body {
         &--overlay {
           padding: 1.25rem;
           background-color: rgba(0, 0, 0, .65);
+          @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+            padding: $marko-web-node-padding;
+          }
 
           #{ $self } {
             &__text {
               &--teaser {
+                @include theme-apply-fonts(
+                  $font-size-sm: $theme-hero-teaser-font-size-sm,
+                  $font-size: $theme-hero-teaser-font-size,
+                  $font-weight: $theme-hero-teaser-font-weight,
+                  $line-height-sm: $theme-hero-teaser-line-height-sm,
+                  $line-height: $theme-hero-teaser-line-height
+                );
+
                 font-weight: $font-weight-bold;
                 font-size: 18px;
                 a {
+                  @include theme-max-lines(
+                    $font-size: $theme-hero-teaser-font-size,
+                    $font-size-sm: $theme-hero-teaser-font-size-sm,
+                    $line-height: $theme-hero-teaser-line-height,
+                    $line-height-sm: $theme-hero-teaser-line-height-sm,
+                    $num: 2
+                  );
                   color: #fff;
                 }
               }
