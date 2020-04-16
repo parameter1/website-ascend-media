@@ -1,33 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 
-$black:           #000 !default;
-$white:           #fff !default;
-$dark: #222328 !default;
-$light: #e9ecef !default;
+$black: #000;
+$white: #fff;
+$dark: #222328;
+$light: #e9ecef;
 
-$body-color:      $dark !default;
-$block-spacer:    1.25rem !default;
+$body-color: $dark;
+$block-spacer: 1.25rem;
 
-$primary: #c10e21 !default;
+$primary: #c10e21;
 $secondary: #495057; // equivalent to default gray-700
-$light: #e9ecef !default; // equivalent to default gray-200
-$info: #6c757d !default; // equivalent to default gray-600
+$light: #e9ecef; // equivalent to default gray-200
+$info: #6c757d; // equivalent to default gray-600
 
 // Icons
 $marko-web-icon-fill-dark: $dark;
 
 // Settings
-$enable-shadows: true !default;
-$enable-rounded: false !default;
-$body-bg: $white !default;
+$enable-shadows: true;
+$enable-rounded: false;
+$body-bg: $white;
 $border-radius: none;
-$font-weight-bold: 500 !default;
-$font-weight-normal: 400 !default;
-$font-weight-light: 300 !default;
+$font-weight-bold: 500;
+$font-weight-normal: 400;
+$font-weight-light: 300;
 
 // Fonts (reset all to Montserrat & Roboto (from Heart.org)
-$theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
-$theme-font-family-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
+$theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif;
+$theme-font-family-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif;
 
 $theme-site-header-box-shadow: none;
 
@@ -39,8 +39,8 @@ $theme-site-footer-logo-height-sm: 50px;
 
 $theme-site-navbar-secondary-bg-color: $white;
 $theme-site-navbar-secondary-type: light;
-$theme-site-navbar-dark-color: rgba($white, .9) !default;
-$theme-site-navbar-light-color: rgba($dark, .95) !default;
+$theme-site-navbar-dark-color: rgba($white, .9);
+$theme-site-navbar-light-color: rgba($dark, .95);
 
 $theme-item-footer-color: $dark;
 $theme-site-footer-copyright-color: $dark;
