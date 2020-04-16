@@ -5,16 +5,16 @@ $white:           #fff !default;
 $body-color:      $black !default;
 $block-spacer:    1.25rem !default;
 
-$primary: #c10e21 !default;
+$primary: #cb3333 !default;
 $secondary: #495057; // equivalent to default gray-700
 $light: #e9ecef !default; // equivalent to default gray-200
 $dark: #212529 !default; // equivalent to default gray-900
 $info: #6c757d !default; // equivalent to default gray-600
 
 // Settings
-$enable-shadows: false !default;
+$enable-shadows: true !default;
 $enable-rounded: false !default;
-$body-bg: #ebebeb;
+$body-bg: $white !default;
 $border-radius: none;
 
 // Marko Web Settings
@@ -50,6 +50,9 @@ $theme-content-heading-h6-margin-bottom:        11px !default;
 $theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin-bottom !default;
 $theme-related-content-bg-color: #f8f9fa;
 $theme-related-content-border-color: #dee2e6;
+
+$theme-card-header-border: none !default;
+$theme-box-shadow-sm: 0 1px 7px rgba(0, 0, 0, .2) !default;
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
@@ -87,4 +90,10 @@ body {
 
 .document-container {
   padding-bottom: 3rem;
+}
+
+.node {
+  &__image-inner-wrapper {
+    box-shadow: none;
+  }
 }
