@@ -34,14 +34,6 @@ $ if (navigation.secondary.length) tertiaryMods.push("no-left-margin");
 >
   <${input.aboveNav} />
   <default-theme-site-navbar modifiers=["secondary"]>
-    <if(navigation.menu.length)>
-      <default-theme-menu-toggle-button
-        class-name="site-navbar__toggler"
-        targets=[".site-menu"]
-        toggle-class="site-menu--open"
-        icon-modifiers=["lg"]
-      />
-    </if>
     <default-theme-site-navbar-brand title=`${config.website("name")} Homepage`>
       <default-theme-site-navbar-logo
         alt=config.website("name")
@@ -61,6 +53,14 @@ $ if (navigation.secondary.length) tertiaryMods.push("no-left-margin");
       reg-enabled=input.regEnabled
       has-user=input.hasUser
     />
+    <if(navigation.menu.length)>
+      <default-theme-menu-toggle-button
+        class-name="site-navbar__toggler site-navbar__toggler"
+        targets=[".site-menu"]
+        toggle-class="site-menu--open"
+        icon-modifiers=["lg"]
+      />
+    </if>
   </default-theme-site-navbar>
 
   <default-theme-site-navbar modifiers=["primary"]>

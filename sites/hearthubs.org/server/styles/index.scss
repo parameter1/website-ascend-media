@@ -39,23 +39,22 @@ $theme-site-footer-logo-height-sm: 50px;
 
 $theme-site-navbar-secondary-bg-color: $white;
 $theme-site-navbar-secondary-type: light;
-$theme-site-navbar-dark-color: rgba($white, .9);
-$theme-site-navbar-light-color: rgba($dark, .95);
+$theme-site-navbar-dark-color: $white;
+$theme-site-navbar-light-color: $dark;
+
+$theme-site-navbar-menu-width: 300px;
+$theme-site-navbar-menu-active-item-font-weight: $font-weight-normal;
 
 $theme-item-footer-color: $dark;
 $theme-site-footer-copyright-color: $dark;
 $theme-site-footer-primary-bg-color: $light;
 $theme-site-footer-box-shadow: none;
 
-// $theme-site-navbar-tertiary-link-color: $dark;
-// $theme-site-navbar-secondary-link-color: $dark;
-
 $theme-site-navbar-secondary-link-active-decoration: none;
 $theme-site-navbar-primary-link-active-decoration: none;
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
-// @import "./site-navbar";
 
 // body {
 //   letter-spacing: .1px;
@@ -98,6 +97,7 @@ $theme-site-navbar-primary-link-active-decoration: none;
 
 .site-navbar {
   $self: &;
+  $top-nav-bottom-margin: 1rem;
 
   &__logo {
     filter: none;
@@ -110,13 +110,14 @@ $theme-site-navbar-primary-link-active-decoration: none;
 
     &--secondary {
       margin-top: auto;
-      margin-bottom: 1rem;
+      margin-bottom: $top-nav-bottom-margin;
       margin-left: auto;
     }
 
     &--tertiary {
+      padding-right: $theme-site-navbar-padding-x;
       margin-top: auto;
-      margin-bottom: 1rem;
+      margin-bottom: $top-nav-bottom-margin;
     }
 
     &--no-left-margin {
@@ -140,23 +141,61 @@ $theme-site-navbar-primary-link-active-decoration: none;
     }
   }
 
+  &__toggler {
+    margin-bottom: $top-nav-bottom-margin;
+  }
+
   &--primary {
     #{ $self } {
       &__item {
         padding: 8px 20px;
 
         &:first-child {
-          padding-left: 0;
+          padding-left: $theme-site-navbar-brand-margin-x;
         }
         &:last-child {
-          padding-right: 0;
+          padding-right: $theme-site-navbar-brand-margin-x;
         }
       }
     }
   }
 }
 
+.site-menu {
+  $self: &;
+  &__header {
+    font-weight: $font-weight-bold;
+    background-color: $light;
+    border-bottom: none;
+  }
 
+  &__section {
+    &--social-icons {
+      border-top: 1px solid $light;
+    }
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item {
+    border-color: $light;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &--right {
+    right: 0;
+    transform: translateX(#{$theme-site-navbar-menu-width});
+    &#{ $self }--open {
+      transform: translateX(0);
+    }
+  }
+}
 
 .site-footer {
   $self: &;

@@ -1,10 +1,15 @@
-import { asObject } from "@base-cms/utils";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asObject, asArray } from "@base-cms/utils";
+import { getAsArray } from "@base-cms/object-path";
 
 $ const blockName = input.blockName || "site-menu";
 
-$ const { site } = out.global;
-$ const menu = site.getAsArray("navigation.menu");
+$ const { site, req } = out.global;
 $ const socialLinks = site.getAsArray("socialMediaLinks").map(link => asObject(link));
+
+$ const contexts = site.getAsArray("navigation.contexts");
+$ const contextualNav = contexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+$ const menu = contextualNav ? getAsArray(contextualNav, "menu") : site.getAsArray("navigation.default.menu")
 
 $ const regEnabled = input.regEnabled != null ? input.regEnabled : false;
 $ const hasUser = input.hasUser != null ? input.hasUser : false;
