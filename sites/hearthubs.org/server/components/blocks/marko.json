@@ -1,5 +1,8 @@
 {
   "<website-content-hero-block>": {
     "template": "./content-hero.marko"
+  },
+  "<website-content-featured-block>": {
+    "template": "./content-featured.marko"
   }
 }

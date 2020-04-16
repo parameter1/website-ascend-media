@@ -50,7 +50,7 @@ $ const queryParams = {
     </@hero>
     <@list|{ nodes }|>
       <if(nodes.length)>
-        <for|content| of=nodes>
+        <for|content, index| of=nodes>
           $ let action = "Read";
           $ if (content.type === "video") action = "Watch";
           $ if (content.type === "podcast") action = "Listen";
@@ -60,7 +60,7 @@ $ const queryParams = {
             card=true
             flush=false
             full-height=false
-            class="mb-block"
+            class=(index + 1 === nodes.length || "mb-block")
           >
             <@image
               ar="1:1"
