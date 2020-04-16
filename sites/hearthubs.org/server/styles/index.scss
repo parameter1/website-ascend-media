@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 $black: #000;
 $white: #fff;
@@ -15,9 +15,7 @@ $info: #6c757d; // equivalent to default gray-600
 
 // Core marko
 $marko-web-document-container-max-width: 1150px;
-$marko-web-node-overlay-image-text-shadow: 1px 1px 8px rgba(0, 0, 0, .5);
-
-// 0 1px 9px rgba(0,0,0,.25)
+$marko-web-node-overlay-image-text-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
 
 // Icons
 $marko-web-icon-fill-dark: $dark;
@@ -61,7 +59,7 @@ $theme-site-navbar-secondary-link-active-decoration: none;
 $theme-site-navbar-primary-link-active-decoration: none;
 
 $theme-ad-box-shadow: none;
-$theme-box-shadow-sm:   0 1px 9px rgba(0, 0, 0, .25);
+$theme-box-shadow-sm:  1px 1px 5px rgba(0, 0, 0, .15);
 
 $theme-site-header-breakpoints: (
   hide-primary: 0,
@@ -73,11 +71,6 @@ $theme-site-header-breakpoints: (
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
-
-// body {
-//   letter-spacing: .1px;
-// }
-
 
 // .ldp {
 //   display: flex;
@@ -103,16 +96,38 @@ $theme-site-header-breakpoints: (
 //   }
 // }
 
-// .document-container {
-//   padding-bottom: 3rem;
-// }
-
 // stylelint-disable
 .node {
   $self: &;
 
+  &__text {
+    &--content-action {
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &--content-title {
+      a {
+        color: $dark;
+      }
+    }
+  }
+
   &__image-inner-wrapper {
     box-shadow: none;
+  }
+
+  &--video-content-type {
+    #{ $self } {
+      &__image-inner-wrapper {
+        &::after {
+          top: 45%;
+          width: 75px;
+          height: 75px;
+        }
+      }
+    }
   }
 
   &--hero {
