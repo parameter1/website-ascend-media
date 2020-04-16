@@ -2,11 +2,11 @@
   "<website-document>": {
     "template": "./document.marko"
   },
-  "<website-contextual-header>": {
-    "template": "./site-header/contextual.marko"
+  "<website-header>": {
+    "template": "./site-header.marko"
   },
-  "<website-contextual-menu>": {
-    "template": "./site-menu/contextual.marko"
+  "<website-menu>": {
+    "template": "./site-menu.marko"
   },
   "<website-footer>": {
     "template": "./site-footer.marko"
