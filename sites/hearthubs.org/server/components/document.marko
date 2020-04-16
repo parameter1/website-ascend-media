@@ -21,26 +21,12 @@ $ const aboveContainer = get(input, "aboveContainer.renderBody");
     <marko-web-browser-component name="TriggerScreenChangeEvent" />
     <marko-web-gtm-track-bus-event on="screen_change" />
     <marko-web-gtm-track-load-more />
-    <!-- <shared-section-header>
-      <@section
-        id=section.id
-        name=section.name
-        alias=section.alias
-        logo=section.logo
-        hierarchy=section.hierarchy
-      />
-    </shared-section-header> -->
-    <!-- <shared-section-menu section=section modifiers=["right"] /> -->
-    <!-- <if(aboveContainer)>
-      <${aboveContainer} />
-    </if> -->
-    <website-contextual-header />
 
-    <!-- @todo need contextual menu -->
-    <default-theme-site-menu />
+    <website-contextual-header />
+    <website-contextual-menu />
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
-    <shared-site-footer />
+    <website-footer />
   </@below-container>
 </marko-web-document>

@@ -4,5 +4,11 @@
   },
   "<website-contextual-header>": {
     "template": "./site-header/contextual.marko"
+  },
+  "<website-contextual-menu>": {
+    "template": "./site-menu/contextual.marko"
+  },
+  "<website-footer>": {
+    "template": "./site-footer.marko"
   }
 }

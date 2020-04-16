@@ -13,9 +13,9 @@ module.exports = {
       ],
     },
     footer: {
-      src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer_white.png?h=60',
+      src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
       srcset: [
-        'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer_white.png?h=120 2x',
+        'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=180 2x',
       ],
     },
   },

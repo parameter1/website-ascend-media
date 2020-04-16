@@ -1,35 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Roboto:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
 
 $black:           #000 !default;
 $white:           #fff !default;
-$body-color:      $black !default;
+$dark: #222328 !default;
+$light: #e9ecef !default;
+
+$body-color:      $dark !default;
 $block-spacer:    1.25rem !default;
 
-$primary: #c10e21 !default; // ce242c cb3333 c10e21
+$primary: #c10e21 !default;
 $secondary: #495057; // equivalent to default gray-700
 $light: #e9ecef !default; // equivalent to default gray-200
-$dark: #212529 !default; // equivalent to default gray-900
 $info: #6c757d !default; // equivalent to default gray-600
+
+// Icons
+$marko-web-icon-fill-dark: $dark;
 
 // Settings
 $enable-shadows: true !default;
 $enable-rounded: false !default;
 $body-bg: $white !default;
 $border-radius: none;
+$font-weight-bold: 500 !default;
+$font-weight-normal: 400 !default;
+$font-weight-light: 300 !default;
 
 // Fonts (reset all to Montserrat & Roboto (from Heart.org)
 $theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
-$theme-font-family-serif: "Roboto", sans-serif !default;
+$theme-font-family-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
 
 $theme-site-navbar-logo-height: 90px;
 $theme-site-navbar-logo-height-sm: 50px;
 
+$theme-site-footer-logo-height: 90px;
+$theme-site-footer-logo-height-sm: 50px;
+
 $theme-site-navbar-secondary-bg-color: $white;
 $theme-site-navbar-secondary-type: light;
 $theme-site-navbar-dark-color: rgba($white, .9) !default;
+$theme-site-navbar-light-color: rgba($dark, .95) !default;
 
-$theme-site-navbar-tertiary-link-color: $primary;
-$theme-site-navbar-secondary-link-color: $primary;
+$theme-item-footer-color: $dark;
+$theme-site-footer-copyright-color: $dark;
+$theme-site-footer-primary-bg-color: $light;
+$theme-site-footer-box-shadow: none;
+
+// $theme-site-navbar-tertiary-link-color: $dark;
+// $theme-site-navbar-secondary-link-color: $dark;
 
 $theme-site-navbar-secondary-link-active-decoration: none;
 $theme-site-navbar-primary-link-active-decoration: none;
@@ -153,7 +170,7 @@ $theme-site-navbar-primary-link-active-decoration: none;
   }
   &__container {
     &--secondary {
-      background-color: #999;
+      background-color: $light;
     }
     &--primary {
       #{ $self }__wrapper {
@@ -165,18 +182,5 @@ $theme-site-navbar-primary-link-active-decoration: none;
   &__social-icons {
     justify-content: flex-end;
     margin: auto 0;
-  }
-
-  .marko-web-icon {
-    &--twitter,
-    &--instagram,
-    &--youtube,
-    &--pinterest,
-    &--linkedin,
-    &--facebook {
-      svg:hover {
-        fill: $gray-400;
-      }
-    }
   }
 }
