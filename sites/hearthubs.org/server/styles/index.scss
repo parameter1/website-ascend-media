@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Roboto:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:wght@700&family=Montserrat:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Roboto:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@500;600&display=swap");
 
 $black:           #000 !default;
 $white:           #fff !default;
 $body-color:      $black !default;
 $block-spacer:    1.25rem !default;
 
-$primary: #cb3333 !default;
+$primary: #c10e21 !default; // ce242c cb3333 c10e21
 $secondary: #495057; // equivalent to default gray-700
 $light: #e9ecef !default; // equivalent to default gray-200
 $dark: #212529 !default; // equivalent to default gray-900
@@ -17,83 +17,163 @@ $enable-rounded: false !default;
 $body-bg: $white !default;
 $border-radius: none;
 
-// Marko Web Settings
-$marko-web-document-container-max-width: 1100px !default;
-$marko-web-document-container-gutter: 10px !default;
-$marko-web-page-padding: 0 !default;
-$marko-web-page-wrapper-padding: $marko-web-document-container-gutter !default;
-$marko-web-node-list-padding: 15px !default;
-
 // Fonts (reset all to Montserrat & Roboto (from Heart.org)
 $theme-font-family-sans-serif: "Montserrat", "Helvetica Neue", "Arial", sans-serif !default;
 $theme-font-family-serif: "Roboto", sans-serif !default;
-$theme-site-navbar-primary-font-size:       4px;
-$theme-site-navbar-primary-font-size-sm:    4px;
-$theme-site-navbar-primary-line-height:     1;
-$theme-site-navbar-primary-line-height-sm:  1;
-$theme-site-navbar-light-color: $primary;
-$theme-site-navbar-secondary-bg-color: #fff;
-$theme-site-navbar-secondary-type: light;
-$theme-site-navbar-logo-height: 100px;
-$theme-site-navbar-logo-drop-shadow: none;
-$theme-site-navbar-brand-margin-y: 1rem;
-$theme-site-navbar-brand-margin-x: 1rem;
-$theme-site-navbar-primary-link-padding: 0;
-$theme-item-description-max-lines: 5 !default;
-$theme-content-heading-large-margin-bottom:     11px !default;
-$theme-content-heading-large-margin-bottom-sm:  11px !default;
-$theme-content-heading-h4-margin-bottom:        11px !default;
-$theme-content-heading-h4-margin-bottom-sm:     11px !default;
-$theme-content-heading-h5-margin-bottom:        11px !default;
-$theme-content-heading-h5-margin-bottom-sm:     11px !default;
-$theme-content-heading-h6-margin-bottom:        11px !default;
-$theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin-bottom !default;
-$theme-related-content-bg-color: #f8f9fa;
-$theme-related-content-border-color: #dee2e6;
 
-$theme-card-header-border: none !default;
-$theme-box-shadow-sm: 0 1px 7px rgba(0, 0, 0, .2) !default;
+$theme-site-navbar-logo-height: 90px;
+$theme-site-navbar-logo-height-sm: 50px;
+
+$theme-site-navbar-secondary-bg-color: $white;
+$theme-site-navbar-secondary-type: light;
+$theme-site-navbar-dark-color: rgba($white, .9) !default;
+
+$theme-site-navbar-tertiary-link-color: $primary;
+$theme-site-navbar-secondary-link-color: $primary;
+
+$theme-site-navbar-secondary-link-active-decoration: none;
+$theme-site-navbar-primary-link-active-decoration: none;
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
-@import "../../../../node_modules/@ascend-media/package-contact-us/scss/index";
-@import "./site-navbar";
+// @import "./site-navbar";
 
-body {
-  letter-spacing: .1px;
-}
+// body {
+//   letter-spacing: .1px;
+// }
 
 
-.ldp {
-  display: flex;
-  align-items: center;
-  &__logo {
-    img {
-      margin: 0 1rem;
-    }
-  }
-}
+// .ldp {
+//   display: flex;
+//   align-items: center;
+//   &__logo {
+//     img {
+//       margin: 0 1rem;
+//     }
+//   }
+// }
 
-.content-section-header {
-  display: block;
-  color: $gray-600;
-  text-align: left;
-  text-transform: uppercase;
-  &--border {
-    padding-bottom: .25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, .25);
-  }
-  &:not(:first-child) {
-    margin-top: 1.5rem;
-  }
-}
+// .content-section-header {
+//   display: block;
+//   color: $gray-600;
+//   text-align: left;
+//   text-transform: uppercase;
+//   &--border {
+//     padding-bottom: .25rem;
+//     border-bottom: 1px solid rgba(0, 0, 0, .25);
+//   }
+//   &:not(:first-child) {
+//     margin-top: 1.5rem;
+//   }
+// }
 
-.document-container {
-  padding-bottom: 3rem;
-}
+// .document-container {
+//   padding-bottom: 3rem;
+// }
 
 .node {
   &__image-inner-wrapper {
     box-shadow: none;
+  }
+}
+
+.site-navbar {
+  $self: &;
+  letter-spacing: .1px;
+
+  &__items {
+    &--primary {
+      width: auto;
+    }
+
+    &--secondary {
+      margin-top: auto;
+      margin-bottom: 1rem;
+      margin-left: auto;
+    }
+
+    &--tertiary {
+      margin-top: auto;
+      margin-bottom: 1rem;
+      margin-left: 0;
+    }
+
+    #{ $self } {
+      &__link {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__item {
+    &--search-icon {
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  &--primary {
+    #{ $self } {
+      &__item {
+        padding: 8px 20px;
+        font-weight: $font-weight-bold;
+
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+.site-footer {
+  $self: &;
+  &__copyright {
+    text-align: left;
+  }
+  &__logo {
+    filter: none;
+  }
+  &__wrapper {
+    @media (min-width: $marko-web-document-container-max-width) {
+      max-width: $marko-web-document-container-max-width;
+      margin: 0 auto;
+    }
+  }
+  &__container {
+    &--secondary {
+      background-color: #999;
+    }
+    &--primary {
+      #{ $self }__wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__social-icons {
+    justify-content: flex-end;
+    margin: auto 0;
+  }
+
+  .marko-web-icon {
+    &--twitter,
+    &--instagram,
+    &--youtube,
+    &--pinterest,
+    &--linkedin,
+    &--facebook {
+      svg:hover {
+        fill: $gray-400;
+      }
+    }
   }
 }

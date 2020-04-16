@@ -129,10 +129,11 @@ module.exports = {
    */
   primary: {
     items: [
+      { href: '/qcor', label: 'QCOR 2020 Conference' },
+      { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
     ],
   },
   secondary: {
-    // List available conferences
     items: [
       { href: '/qcor', label: 'QCOR 2020 Conference' },
       { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
@@ -140,7 +141,12 @@ module.exports = {
   },
   tertiary: {
     items: [
-      { href: '/search', label: 'Search', icon: 'search' },
+      {
+        href: '/search',
+        label: 'Search',
+        icon: 'search',
+        modifiers: ['search-icon'],
+      },
     ],
   },
   menu: [
