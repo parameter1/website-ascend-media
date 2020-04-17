@@ -4,7 +4,9 @@ import queryFragment from "../../graphql/fragments/content-list";
 $ const { site } = out.global;
 $ const { id, type, content } = input;
 
-<marko-web-page-wrapper class="mt-block">
+<!-- @todo this page does not use the latest components -->
+
+<marko-web-page-wrapper modifiers=["shadow"]>
   <@section>
     <div class="row">
       <div class="col-md-9 col-sm-12 col-lg-10">

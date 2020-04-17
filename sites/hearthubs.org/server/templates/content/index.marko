@@ -36,31 +36,14 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
       <marko-web-gam-slots slots=adSlots({ aliases }) />
     </@head>
 
-    <@above-container>
-      <@section
-        id=section.id
-        name=section.name
-        alias=section.alias
-        logo=section.logo
-        hierarchy=section.hierarchy
-      />
-    </@above-container>
-
-    <@above-page>
-      <marko-web-gam-display-ad
-        id="gpt-ad-lb1"
-        slots=slots
-        class="mt-block"
-        modifiers=["max-width-970", "margin-auto-x", "center"]
-      />
-    </@above-page>
     <@page>
-      <marko-web-page-wrapper class="mt-block">
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
-        <@section>
+      <marko-web-page-wrapper>
+        <@section modifiers=["content-header"]>
           <div class="row">
             <div class="col">
-              <default-theme-website-section-breadcrumbs section=section />
+              <!-- <default-theme-website-section-breadcrumbs section=section /> -->
               <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
               <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
 
