@@ -1,6 +1,5 @@
 {
-  "taglib-id": "@ascend-media/hearthubs.org",
   "taglib-imports": [
-    "./components/marko.json"
+    "./server/components/marko.json"
   ]
 }

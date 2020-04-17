@@ -1,21 +1,22 @@
-const configureGAM = require('@ascend-media/package-shared/config/gam');
+const GAMConfiguration = require('@base-cms/marko-web-gam/config');
 
-const config = configureGAM({ basePath: 'demo', accountId: '21687441225' });
+const config = new GAMConfiguration('21687441225', { basePath: 'demo' });
+
+config
+  .setTemplate('LB', {
+    size: [[970, 90], [970, 66], [728, 90], [320, 50], [300, 50], [300, 100]],
+    sizeMapping: [
+      { viewport: [980, 0], size: [[970, 90], [970, 66], [728, 90]] },
+      { viewport: [750, 0], size: [728, 90] },
+      { viewport: [320, 0], size: [[300, 50], [320, 50], [300, 100]] },
+    ],
+  })
+  .setTemplate('RAIL1', { size: [[300, 250]] });
 
 config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'LB', path: 'default/lb1' },
-    { name: 'lb-sticky-bottom', templateName: 'LB-STICKY-BOTTOM', path: 'default/lb1' },
     { name: 'rail1', templateName: 'RAIL1', path: 'default/rail1' },
-    { name: 'rail2', templateName: 'RAIL2', path: 'default/rail1' },
-
-    { name: 'billboard1', templateName: 'BILLBOARD', path: 'default/lb2' },
-
-    { name: 'infinite-rail', templateName: 'INFINITE-RAIL', path: 'default/rail1' },
-    { name: 'infinite-interstitial', templateName: 'INFINITE-INTERSTITIAL', path: 'default/rail1' },
-    { name: 'in-content', templateName: 'IN-CONTENT', path: 'default/rail1' },
-
-    { name: 'reskin', path: 'default/reskin' },
   ]);
 
 module.exports = config;

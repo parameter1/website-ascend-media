@@ -2,10 +2,11 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment WebsiteContentContactUsFragment on Content {
+fragment WebsiteContentFeaturedFragment on Content {
   id
   type
-  name
+  shortName
+  teaser(input: { useFallback: false, maxLength: null })
   siteContext {
     path
   }
@@ -14,11 +15,6 @@ fragment WebsiteContentContactUsFragment on Content {
     src
     alt
     isLogo
-  }
-  ... on ContentContact {
-    title
-    phone
-    publicEmail
   }
 }
 

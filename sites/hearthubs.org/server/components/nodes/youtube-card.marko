@@ -2,7 +2,6 @@ import { getAsObject, get } from "@base-cms/object-path";
 
 $ const video = getAsObject(input, "node");
 $ const primaryImage = getAsObject(video, "primaryImage");
-$ const withDescription = input.withDescription != null ? input.withDescription : true;
 
 $ const { linkAttrs } = input;
 
@@ -11,7 +10,6 @@ $ const { linkAttrs } = input;
   image-position="top"
   card=false
   full-height=false
-  attrs=input.attrs
 >
   <@image
     src=video.thumbnail
@@ -21,10 +19,10 @@ $ const { linkAttrs } = input;
     link={ href: video.url, target: "_blank", attrs: linkAttrs }
   />
   <@body>
-    <@title tag="h5" modifiers=input.titleModifiers>
+    <@title tag="h5">
       <marko-web-obj-text type="content" obj=video field="title" tag=null link={ href: video.url, target: "_blank", attrs: linkAttrs } />
     </@title>
-    <@text modifiers=["teaser"] show=(withDescription && video.description)>
+    <@text modifiers=["teaser"] show=(video.description)>
       <marko-web-obj-text type="content" obj=video field="description" tag=null />
     </@text>
     <@footer>

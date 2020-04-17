@@ -1,5 +1,5 @@
 const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
-const queryFragment = require('@ascend-media/package-shared/graphql/fragments/website-section-page');
+const queryFragment = require('../graphql/fragments/website-section-page');
 
 const home = require('../templates/index');
 

@@ -1,4 +1,4 @@
-import { get, getAsObject } from "@base-cms/object-path";
+import { getAsObject } from "@base-cms/object-path";
 import { buildImgixUrl } from "@base-cms/image";
 
 $ const { content } = input;
@@ -8,8 +8,8 @@ $ const blockName = "company-logo";
 $ const hasImage = Boolean(image.src);
 
 <if(hasImage)>
-  $ const src = buildImgixUrl(image.src, { h: 125 }, {}, true);
-  $ const srcset = [`${buildImgixUrl(src, { h: 125, dpr: 2 }, {}, true)} 2x`];
+  $ const src = buildImgixUrl(image.src, { h: 125 });
+  $ const srcset = [`${buildImgixUrl(src, { h: 125, dpr: 2 })} 2x`];
   <marko-web-img
     src=src
     srcset=srcset

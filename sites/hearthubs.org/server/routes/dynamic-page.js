@@ -1,5 +1,5 @@
 const { withDynamicPage } = require('@base-cms/marko-web/middleware');
-const queryFragment = require('@ascend-media/package-shared/graphql/fragments/dynamic-page');
+const queryFragment = require('../graphql/fragments/dynamic-page');
 const page = require('../templates/dynamic-page');
 
 module.exports = (app) => {

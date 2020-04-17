@@ -1,24 +1,12 @@
 const navigation = require('./navigation');
 const gam = require('./gam');
+const logos = require('./logos');
 
 module.exports = {
+  logos,
   navigation,
   gam,
   company: 'Ascend Media',
-  logos: {
-    navbar: {
-      src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=100',
-      srcset: [
-        'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=200 2x',
-      ],
-    },
-    footer: {
-      src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer_white.png?h=60',
-      srcset: [
-        'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer_white.png?h=120 2x',
-      ],
-    },
-  },
   socialMediaLinks: [
     { provider: 'twitter', href: 'http://www.twitter.com/American_Heart' },
     { provider: 'facebook', href: 'https://www.facebook.com/AmericanHeart' },

@@ -4,4 +4,6 @@ $ const { id, name } = getAsObject(input, "company");
 $ const href = get(input, "company.website");
 $ const props = { companyId: id, companyName: name, href };
 
-<marko-web-browser-component name="CompanyProfileWebsiteLink" props=props />
+<if(href)>
+  <marko-web-browser-component name="CompanyProfileWebsiteLink" props=props />
+</if>

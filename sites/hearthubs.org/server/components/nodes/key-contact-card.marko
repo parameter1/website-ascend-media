@@ -8,7 +8,6 @@ $ const withTitle = input.withTitle != null ? input.withTitle : true;
   image-position="left"
   card=false
   full-height=false
-  attrs=input.attrs
   modifiers=["image-headshot"]
 >
   <@image
@@ -21,7 +20,7 @@ $ const withTitle = input.withTitle != null ? input.withTitle : true;
     use-placeholder=false
   />
   <@body>
-    <@title tag="h5" modifiers=input.titleModifiers>
+    <@title tag="h5">
       <marko-web-content-name tag=null obj=content link=false />
     </@title>
     <@text modifiers=["teaser"] show=(withTitle && content.title)>

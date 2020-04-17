@@ -1,124 +1,119 @@
+const searchItem = {
+  href: '/search',
+  label: 'Search',
+  icon: 'search',
+  modifiers: ['search-icon'],
+};
+
+const userTools = [
+  { href: '/page/about-us', label: 'About Us' },
+  { href: '/page/privacy-policy', label: 'Privacy Policy' },
+  { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+];
+
+const conferences = [
+  { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
+  { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
+];
+
+const vascularTopics = [
+  { href: '/vascular/science-news', label: 'Science News' },
+  { href: '/vascular/2020-program', label: '2020 Program' },
+  { href: '#', label: 'Membership' },
+  { href: '/vascular/exhibitors', label: 'Exhibitors' },
+];
+
+const qcorTopics = [
+  { href: '/qcor/science-news', label: 'Science News' },
+  { href: '/qcor/2020-program', label: '2020 Program' },
+  { href: '/qcor/learning-studios', label: 'Learning Studios' },
+];
+
 module.exports = {
   /**
-   * QCOR
+   * Default
    */
-  qcor: {
+  default: {
+    primary: {
+      items: [
+        { href: '/qcor', label: 'QCOR 2020 Conference' },
+        { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
+      ],
+    },
+    // @todo remove these
     secondary: {
       items: [
-        { href: '/qcor/science-news', label: 'Science News' },
-        { href: '/qcor/2020-program', label: 'QCOR 2020 Program' },
-        { href: '/qcor/learning-studios', label: 'Learning Studios' },
+        { href: '#', label: 'Science News' },
+        { href: '#', label: 'Learning Studios' },
       ],
     },
     tertiary: {
-      items: [
-        { href: '/search', label: 'Search', icon: 'search' },
-      ],
+      items: [searchItem],
     },
     menu: [
       {
-        label: 'Topics',
-        items: [
-          { href: '/qcor/science-news', label: 'Science News' },
-          { href: '/qcor/2020-program', label: 'QCOR 2020 Program' },
-          { href: '/qcor/learning-studios', label: 'Learning Studios' },
-        ],
-      },
-      {
         label: '2020 Conferences',
-        items: [
-          { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
-          { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
-        ],
+        items: [...conferences],
       },
       {
         label: 'User Tools',
-        items: [
-          { href: '/page/about-us', label: 'About Us' },
-          { href: '/contact-us', label: 'Contact Us' },
-          { href: '/page/privacy-policy', label: 'Privacy Policy' },
-          { href: '/page/terms-conditions', label: 'Terms & Conditions' },
-        ],
+        items: [...userTools],
       },
     ],
   },
-  /**
-   * Vascular
-   */
-  vascular: {
-    secondary: {
-      items: [
-        { href: '/vascular/science-news', label: 'Science News' },
-        { href: '/vascular/2020-program', label: 'Vascular Discovery 2020 Program' },
-        { href: '/vascular/learning-studios', label: 'Learning Studios' },
-      ],
-    },
-    tertiary: {
-      items: [
-        { href: '/search', label: 'Search', icon: 'search' },
-      ],
-    },
-    menu: [
-      {
-        label: 'Topics',
-        items: [
-          { href: '/vascular/science-news', label: 'Science News' },
-          { href: '/vascular/2020-program', label: 'Vascular Discovery 2020 Program' },
-          { href: '/vascular/learning-studios', label: 'Learning Studios' },
-        ],
-      },
-      {
-        label: '2020 Conferences',
-        items: [
-          { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
-          { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
-        ],
-      },
-      {
-        label: 'User Tools',
-        items: [
-          { href: '/page/about-us', label: 'About Us' },
-          { href: '/contact-us', label: 'Contact Us' },
-          { href: '/page/privacy-policy', label: 'Privacy Policy' },
-          { href: '/page/terms-conditions', label: 'Terms & Conditions' },
-        ],
-      },
-    ],
-  },
-  /**
-   * Site defaults -- when not actively under a conference
-   */
-  primary: {
-    items: [
-    ],
-  },
-  secondary: {
-    // List available conferences
-    items: [
-      { href: '/qcor', label: 'QCOR 2020 Conference' },
-      { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
-    ],
-  },
-  tertiary: {
-    items: [
-      { href: '/search', label: 'Search', icon: 'search' },
-    ],
-  },
-  menu: [
+
+  contexts: [
+    /**
+     * Vascular
+     */
     {
-      label: '2020 Conferences',
-      items: [
-        { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
-        { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
+      when: ['/vascular'],
+      primary: {
+        items: [...vascularTopics],
+      },
+      tertiary: {
+        items: [searchItem],
+      },
+      menu: [
+        {
+          label: 'Topics',
+          items: [...vascularTopics],
+        },
+        {
+          label: '2020 Conferences',
+          items: [...conferences],
+        },
+        {
+          label: 'User Tools',
+          items: [...userTools],
+        },
       ],
     },
+
+    /**
+     * QCOR
+     */
     {
-      label: 'User Tools',
-      items: [
-        { href: '/page/about-us', label: 'About Us' },
-        { href: '/contact-us', label: 'Contact Us' },
-        { href: '/page/privacy-policy', label: 'Privacy Policy' },
-        { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+      when: ['/qcor'],
+      primary: {
+        items: [...qcorTopics],
+      },
+      tertiary: {
+        items: [searchItem],
+      },
+      menu: [
+        {
+          label: 'Topics',
+          items: [...qcorTopics],
+        },
+        {
+          label: '2020 Conferences',
+          items: [...conferences],
+        },
+        {
+          label: 'User Tools',
+          items: [...userTools],
+        },
       ],
     },
   ],

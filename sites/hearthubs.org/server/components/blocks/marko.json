@@ -1,0 +1,20 @@
+{
+  "<website-content-hero-block>": {
+    "template": "./content-hero.marko"
+  },
+  "<website-content-featured-block>": {
+    "template": "./content-featured.marko"
+  },
+  "<website-content-callout-block>": {
+    "template": "./content-callout.marko"
+  },
+  "<website-featured-exhibitors-block>": {
+    "template": "./featured-exhibitors.marko"
+  },
+  "<website-featured-exhibitors-full-block>": {
+    "template": "./featured-exhibitors-full.marko"
+  },
+  "<website-section-list-block>": {
+    "template": "./section-list.marko"
+  }
+}
