@@ -23,18 +23,5 @@ $ const { id, type, pageNode } = data;
     <@page>
       <company-profile-page-wrapper id=id type=type content=resolved.data />
     </@page>
-
-  <!--
-    <@below-page>
-      <marko-web-load-more
-        header=`More from ${content.name}`
-        component-name="content-load-more-flow"
-        fragment-name="content-list"
-        query-name="all-company-content"
-        query-params={ companyId: id, limit: 9 }
-        page-input={ for: "content", id, type }
-      />
-    </@below-page>
-   -->
   </marko-web-content-page-layout>
 </marko-web-resolve-page>

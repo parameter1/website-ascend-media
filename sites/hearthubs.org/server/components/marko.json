@@ -1,6 +1,7 @@
 {
   "taglib-imports": [
     "./blocks/marko.json",
+    "./company-profile/marko.json",
     "./elements/marko.json"
   ],
   "<website-document>": {

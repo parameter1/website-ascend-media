@@ -1,5 +1,5 @@
 const home = require('./home');
-// const content = require('./content');
+const content = require('./content');
 // const dynamicPages = require('./dynamic-page');
 // const search = require('./search');
 const websiteSections = require('./website-section');
@@ -12,7 +12,7 @@ module.exports = (app) => {
   // dynamicPages(app);
 
   // Content Pages
-  // content(app);
+  content(app);
 
   // Search
   // search(app);
