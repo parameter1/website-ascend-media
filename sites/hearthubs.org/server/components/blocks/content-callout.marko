@@ -1,0 +1,54 @@
+import { getAsObject, get } from "@base-cms/object-path";
+import queryFragment from "../../graphql/fragments/content-callout";
+
+$ const { sectionAlias } = input;
+
+$ const queryParams = {
+  optionName: "Callout",
+  limit: 1,
+  queryFragment,
+  sectionBubbling: false,
+  ...getAsObject(input, "queryParams"),
+  sectionAlias,
+};
+
+<marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+  $ const content = nodes[0];
+  $ const primaryImage = getAsObject(content, "primaryImage");
+  <marko-web-node
+    type=`${content.type}-content`
+    image-position="top"
+    card=true
+    flush=false
+    full-height=false
+    modifiers=["callout"]
+  >
+    <@image
+      ar="16:9"
+      width="300"
+      fluid=true
+      use-placeholder=false
+      src=primaryImage.src
+      alt=primaryImage.alt
+      is-logo=primaryImage.isLogo
+      link={ href: get(content, "siteContext.path") }
+    />
+
+    <@body>
+      <@text modifiers=["content-action"]>
+        ${content.type}
+      </@text>
+
+      <@text modifiers=["content-title", "content-title-primary"]>
+        <marko-web-content-short-name tag=null obj=content link=true />
+      </@text>
+
+      <@footer>
+        <@left>
+          <marko-web-content-published obj=content />
+        </@left>
+      </@footer>
+    </@body>
+
+  </marko-web-node>
+</marko-web-query>

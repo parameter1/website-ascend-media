@@ -103,8 +103,14 @@ $theme-site-header-breakpoints: (
 $theme-hero-teaser-font-size: 18px;
 $theme-hero-teaser-font-size-sm: 16px;
 $theme-hero-teaser-font-weight: $font-weight-bold;
-$theme-hero-teaser-line-height: get-line-height($theme-hero-teaser-font-size, 20px);
+$theme-hero-teaser-line-height: get-line-height($theme-hero-teaser-font-size, 24px);
 $theme-hero-teaser-line-height-sm: get-line-height($theme-hero-teaser-font-size-sm, 20px);
+
+$theme-node-content-title-text-font-size: 16px;
+$theme-node-content-title-text-font-size-sm: 16px;
+$theme-node-content-title-text-font-weight: $font-weight-normal;
+$theme-node-content-title-text-line-height: get-line-height($theme-node-content-title-text-font-size, 24px);
+$theme-node-content-title-text-line-height-sm: get-line-height($theme-node-content-title-text-font-size-sm, 24px);
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
@@ -157,16 +163,42 @@ $theme-hero-teaser-line-height-sm: get-line-height($theme-hero-teaser-font-size-
 
   &__text {
     &--content-action {
+      margin-bottom: .25rem;
       font-size: 15px;
       font-weight: 700;
       text-transform: uppercase;
     }
 
     &--content-title {
+      @include theme-apply-fonts(
+        $font-size-sm: $theme-node-content-title-text-font-size-sm,
+        $font-size: $theme-node-content-title-text-font-size,
+        $font-weight: $theme-node-content-title-text-font-weight,
+        $line-height-sm: $theme-node-content-title-text-line-height-sm,
+        $line-height: $theme-node-content-title-text-line-height
+      );
       a {
+        @include theme-max-lines(
+          $font-size: $theme-node-content-title-text-font-size,
+          $font-size-sm: $theme-node-content-title-text-font-size-sm,
+          $line-height: $theme-node-content-title-text-line-height,
+          $line-height-sm: $theme-node-content-title-text-line-height-sm,
+          $num: 4
+        );
         color: $dark;
       }
     }
+
+    &--content-title-primary {
+      font-weight: 600;
+      a {
+        color: $primary;
+      }
+    }
+  }
+
+  &__footer {
+    color: $gray-700;
   }
 
   &__image-inner-wrapper {

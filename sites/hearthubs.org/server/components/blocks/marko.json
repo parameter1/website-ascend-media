@@ -4,5 +4,8 @@
   },
   "<website-content-featured-block>": {
     "template": "./content-featured.marko"
+  },
+  "<website-content-callout-block>": {
+    "template": "./content-callout.marko"
   }
 }
