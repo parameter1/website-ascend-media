@@ -51,7 +51,7 @@ $ const adSlots = ({ aliases }) => ({
 
       <div class="row">
         <div class="col-lg-8 mb-block">
-          <website-company-page-overview content=content class="mb-block" />
+          <!-- <website-company-page-overview content=content class="mb-block" /> -->
           <website-company-page-details content=content class="mb-block" />
         </div>
 
@@ -60,6 +60,15 @@ $ const adSlots = ({ aliases }) => ({
             contacts=resolved.getEdgeNodesFor("publicContacts")
             class="mb-block"
           />
+
+          <if(resolved.get("enableRmi"))>
+            <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
+              <@header>Request More Information</@header>
+              <@body>
+                <marko-web-inquiry-form content=content with-header=false modifiers=["right-rail"] />
+              </@body>
+            </marko-web-node-list>
+          </if>
         </div>
       </div>
     </marko-web-resolve-page>

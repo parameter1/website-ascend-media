@@ -98,6 +98,9 @@ fragment WebsiteContentCompanyFragment on Content {
       label
     }
   }
+  ... on Inquirable {
+    enableRmi
+  }
 }
 
 `;

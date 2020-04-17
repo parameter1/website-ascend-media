@@ -181,6 +181,8 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 
+@import "./components/inquiry-form";
+
 // @todo vet this
 .ldp {
   display: flex;
@@ -339,6 +341,13 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
         margin-bottom: 0;
       }
     }
+  }
+}
+
+.node-list {
+  &--sticky-top {
+    position: sticky;
+    top: calc(150px + #{$block-spacer});
   }
 }
 
