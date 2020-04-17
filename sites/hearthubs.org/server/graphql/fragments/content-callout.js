@@ -17,6 +17,13 @@ fragment WebsiteContentCalloutFragment on Content {
     alt
     isLogo
   }
+  ... on ContentWebinar {
+    starts
+  }
+  ... on ContentEvent {
+    starts
+    ends
+  }
 }
 
 `;

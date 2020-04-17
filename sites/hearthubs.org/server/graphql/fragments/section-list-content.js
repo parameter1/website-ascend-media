@@ -9,7 +9,6 @@ fragment WebsiteSectionListContentFragment on Content {
   siteContext {
     path
   }
-  published
   primaryImage {
     id
     src
