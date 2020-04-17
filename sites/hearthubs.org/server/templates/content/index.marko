@@ -22,23 +22,22 @@ $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
 
-<marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-  $ const section = resolved.getAsObject("primarySection");
-  $ const aliases = hierarchyAliases(section);
-  $ const slots = adSlots({ aliases });
-
-  <marko-web-content-page-layout id=id type=type>
-    <@head>
-      <marko-web-gtm-content-context|{ context }| id=id>
-        <marko-web-gtm-push data=context />
-      </marko-web-gtm-content-context>
-      <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
+<marko-web-content-page-layout id=id type=type>
+  <@head>
+    <marko-web-gtm-content-context|{ context }| id=id>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-content-context>
+    <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </@head>
+    </marko-web-resolve-page>
+  </@head>
 
-    <@page>
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
+  <@page>
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
+    <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
@@ -137,21 +136,13 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                   target="_blank"
                 />
               </if>
-
-              <!-- <shared-related-content-block content-id=id /> -->
-
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
                 modifiers=["max-width-300", "center", "sticky-top"]
-                slots=slots
               />
-              <!-- <shared-latest-in-section-block>
-                <@content id=id />
-                <@section id=section.id name=section.name />
-              </shared-latest-in-section-block> -->
             </aside>
 
             <if(displayPhotoswipe)>
@@ -163,6 +154,6 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
         </@section>
 
       </marko-web-page-wrapper>
-    </@page>
-  </marko-web-content-page-layout>
-</marko-web-resolve-page>
+    </marko-web-resolve-page>
+  </@page>
+</marko-web-content-page-layout>
