@@ -161,6 +161,20 @@ $theme-node-content-title-text-line-height-sm: get-line-height($theme-node-conte
     margin-left: auto;
     text-align: center;
   }
+  &--mb-block-lg {
+    margin-bottom: $block-spacer-lg;
+  }
+}
+
+.card-deck-flow {
+  $self: &;
+  &--featured-exhibitors {
+    #{ $self } {
+      &__node {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 // stylelint-disable
@@ -282,6 +296,10 @@ $theme-node-content-title-text-line-height-sm: get-line-height($theme-node-conte
         }
       }
     }
+  }
+
+  &--no-shadow {
+    box-shadow: none;
   }
 }
 
