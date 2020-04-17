@@ -152,6 +152,30 @@ $theme-node-content-title-text-line-height-sm: get-line-height($theme-node-conte
   }
 }
 
+.marko-web-icon {
+  &--primary {
+    svg {
+      fill: $primary;
+    }
+  }
+}
+
+.btn {
+  &--early-career-blog {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    border-width: 2px;
+
+    &:hover {
+      svg {
+        fill: $white;
+      }
+    }
+  }
+}
+
 .ad-container {
   &--max-width-970 {
     max-width: 970px;
