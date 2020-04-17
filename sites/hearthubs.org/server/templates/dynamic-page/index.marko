@@ -1,4 +1,5 @@
-$ const { GAM } = out.global;
+import GAM from "../../../config/gam";
+
 $ const { id, alias, pageNode } = data;
 
 <marko-web-dynamic-page-layout id=id alias=alias>
@@ -7,25 +8,21 @@ $ const { id, alias, pageNode } = data;
       <marko-web-gtm-push data=context />
     </marko-web-gtm-dynamic-page-context>
   </@head>
-  <@above-page>
+
+  <@page>
     <marko-web-gam-define-display-ad
       ...GAM.getAdUnit({ name: "lb1" })
       class="mt-block"
-      modifiers=["max-width-970", "center"]
+      modifiers=["max-width-970", "top-of-page", "center"]
     />
-  </@above-page>
-  <@page>
+
     <marko-web-resolve-page|{ data: page }| node=pageNode>
       <marko-web-page-wrapper class="mt-block">
         <@section>
           <div class="row">
             <div class="col">
-              <default-theme-breadcrumbs-with-home>
-                <@item>${page.name}</@item>
-              </default-theme-breadcrumbs-with-home>
-              <div class="page-wrapper__title">
-                ${page.name}
-              </div>
+              <h1 class="page-wrapper__title">${page.name}</h1>
+              <hr>
             </div>
           </div>
         </@section>
