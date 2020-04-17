@@ -346,8 +346,19 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 
 .node-list {
   &--sticky-top {
-    position: sticky;
-    top: calc(150px + #{$block-spacer});
+    @media (min-height: 710px) {
+      position: sticky;
+
+      $sorted: sort-map-by-values($theme-site-header-breakpoints, desc);
+      $highest: nth($sorted, 1);
+      top: calculate-navbar-height-for($highest, 20px);
+
+      @each $breakpoint, $width in sort-map-by-values($theme-site-header-breakpoints, desc) {
+        @media (max-width: $width) {
+          top: calculate-navbar-height-for($breakpoint, 20px);
+        }
+      }
+    }
   }
 }
 
