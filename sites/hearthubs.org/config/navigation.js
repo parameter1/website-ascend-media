@@ -19,7 +19,6 @@ const conferences = [
 const vascularTopics = [
   { href: '/vascular/science-news', label: 'Science News' },
   { href: '/vascular/2020-program', label: '2020 Program' },
-  { href: '/vascular/learning-studios', label: 'Learning Studios' },
   { href: '#', label: 'Membership' },
   { href: '/vascular/exhibitors', label: 'Exhibitors' },
 ];
