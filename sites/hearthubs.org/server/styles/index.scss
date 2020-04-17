@@ -32,6 +32,7 @@ $light: #e9ecef;
 $marko-web-document-container-max-width: 1150px;
 $marko-web-node-overlay-image-text-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
 $marko-web-node-list-border-color: transparent;
+$marko-web-page-image-margin: 1rem;
 
 // Icons
 $marko-web-icon-fill-dark: $dark;
@@ -232,6 +233,9 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 .page-contents {
   &__content-header {
     margin-bottom: 1.875rem;
+  }
+  &__content-embed-code {
+    margin-bottom: $marko-web-page-image-margin;
   }
 }
 
