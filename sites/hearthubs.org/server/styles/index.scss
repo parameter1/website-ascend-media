@@ -202,7 +202,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   box-shadow: none;
 
   &__section {
-    &--content-header, {
+    &--content-header {
       max-width: 900px;
     }
     &--page-header {
