@@ -1,5 +1,6 @@
 import { getAsObject, get } from "@base-cms/object-path";
 import queryFragment from "../../graphql/fragments/featured-exhibitors";
+import shuffle from "../../utils/shuffle-array";
 
 $ const { sectionAlias } = input;
 
@@ -14,12 +15,13 @@ $ const queryParams = {
 };
 
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+  $ const shuffled = shuffle(nodes);
   <marko-web-node-list>
     <@header>
       Featured Exhibitors
     </@header>
-    <@nodes nodes=nodes>
-      <default-theme-card-deck-flow cols=4 nodes=nodes modifiers=["featured-exhibitors"]>
+    <@nodes nodes=shuffled>
+      <default-theme-card-deck-flow cols=4 nodes=shuffled modifiers=["featured-exhibitors"]>
         <@slot|{ node: content }|>
           $ const primaryImage = getAsObject(content, "primaryImage");
           <marko-web-node
