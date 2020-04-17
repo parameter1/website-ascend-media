@@ -1,0 +1,7 @@
+{
+  "<website-key-contact-card-node>": {
+    "template": "./key-contact-card.marko",
+    "@node": "object",
+    "@with-email": "boolean"
+  }
+}

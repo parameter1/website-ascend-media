@@ -13,17 +13,17 @@ fragment WebsiteContentCompanyFragment on Content {
     id
     name
     alias
-    logo {
-      src(input: { options: { h: 100 } })
-    }
     hierarchy {
       id
       name
       alias
-      logo {
-        src(input: { options: { h: 100 } })
-      }
     }
+  }
+
+  primaryImage {
+    id
+    src
+    alt
   }
 
   siteContext {
@@ -63,13 +63,6 @@ fragment WebsiteContentCompanyFragment on Content {
     serviceInformation
     trainingInformation
     warrantyInformation
-
-    # circle image
-    primaryImage {
-      id
-      src
-      alt
-    }
 
     contacts: publicContacts {
       edges {

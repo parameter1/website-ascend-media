@@ -187,20 +187,16 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   justify-content: space-between;
 }
 
-// @todo vet this
-.content-section-header {
+.company-section-label {
   display: block;
+  padding-bottom: .25rem;
+  font-weight: 600;
   color: $gray-600;
   text-align: left;
   text-transform: uppercase;
-  &--border {
-    padding-bottom: .25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, .25);
-  }
-  &:not(:first-child) {
-    margin-top: 1.5rem;
-  }
+  border-bottom: 1px solid $light;
 }
+
 
 .page-wrapper {
   box-shadow: none;
