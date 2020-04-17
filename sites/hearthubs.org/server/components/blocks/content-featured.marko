@@ -1,12 +1,11 @@
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../../graphql/fragments/content-hero";
+import queryFragment from "../../graphql/fragments/content-featured";
 
 $ const { sectionAlias } = input;
 
 $ const queryParams = {
   optionName: "Pinned",
   limit: 4,
-  requiresImage: true,
   queryFragment,
   sectionBubbling: false,
   ...getAsObject(input, "queryParams"),
