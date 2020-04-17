@@ -202,8 +202,11 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   box-shadow: none;
 
   &__section {
-    &--content-header {
+    &--content-header, {
       max-width: 900px;
+    }
+    &--page-header {
+      margin-bottom: 1.875rem;
     }
   }
 
@@ -459,6 +462,28 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 
   &--no-shadow {
     box-shadow: none;
+  }
+
+  &--image-push {
+    @include media-breakpoint-down(xs) {
+      #{ $self } {
+        &__image-wrapper + #{ $self }__body {
+          margin-top: $marko-web-node-spacer * 2;
+          margin-left: 0;
+        }
+        &__body {
+          &--overlay {
+            margin-top: 0;
+          }
+        }
+        &__contents {
+          flex-direction: column;
+          &--body {
+            flex-direction: column;
+          }
+        }
+      }
+    }
   }
 }
 

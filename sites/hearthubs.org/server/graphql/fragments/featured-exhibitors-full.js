@@ -2,9 +2,11 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment WebsiteContentFeaturedExhibitorsFragment on Content {
+fragment WebsiteContentFeaturedExhibitorsFullFragment on Content {
   id
   type
+  name
+  teaser(input: { useFallback: false, maxLength: null })
   primaryImage {
     id
     src
