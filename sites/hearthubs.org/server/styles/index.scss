@@ -146,6 +146,12 @@ $theme-node-content-title-text-line-height-sm: get-line-height($theme-node-conte
   }
 }
 
+.page-rail {
+  > * {
+    margin-bottom: $block-spacer-lg;
+  }
+}
+
 .ad-container {
   &--max-width-970 {
     max-width: 970px;
