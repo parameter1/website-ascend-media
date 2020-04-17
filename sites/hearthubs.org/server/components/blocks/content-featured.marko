@@ -25,6 +25,7 @@ $ const queryParams = {
       <@slot|{ node: content }|>
         $ const primaryImage = getAsObject(content, "primaryImage");
         <marko-web-node
+          type=`${content.type}-content`
           image-position="left"
           flush=true
           full-height=false

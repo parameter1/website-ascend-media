@@ -384,22 +384,6 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
     box-shadow: none;
   }
 
-  &--video-content-type {
-    #{ $self } {
-      &__image-inner-wrapper {
-        &::after {
-          top: 45%;
-          width: 75px;
-          height: 75px;
-          @include media-breakpoint-down($theme-responsive-text-breakpoint) {
-            width: 50px;
-            height: 50px;
-          }
-        }
-      }
-    }
-  }
-
   &--hero {
     #{ $self } {
       &__header {
@@ -418,6 +402,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
           }
         }
       }
+
       &__body {
         &--overlay {
           padding: 1.25rem;
@@ -451,6 +436,18 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
                 }
               }
             }
+          }
+        }
+      }
+
+      &__image-inner-wrapper {
+        &::after {
+          top: 45%;
+          width: 75px;
+          height: 75px;
+          @include media-breakpoint-down($theme-responsive-text-breakpoint) {
+            width: 50px;
+            height: 50px;
           }
         }
       }
