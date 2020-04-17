@@ -98,7 +98,11 @@ $theme-page-title-font-size: 40px;
 $theme-page-title-font-weight: $font-weight-bold;
 $theme-page-title-line-height: get-line-height($theme-page-title-font-size, $theme-page-title-font-size * 1.2);
 
-$theme-page-deck-font-weight: $font-weight-light;
+$theme-page-deck-font-weight:           $font-weight-light;
+$theme-page-deck-font-size:             22px;
+$theme-page-deck-font-size-sm:          20px;
+$theme-page-deck-line-height:           get-line-height($theme-page-deck-font-size, $theme-page-deck-font-size * 1.5);
+$theme-page-deck-line-height-sm:        get-line-height($theme-page-deck-font-size-sm, $theme-page-deck-font-size-sm * 1.5);
 
 $theme-site-header-breakpoints: (
   hide-primary: 569px,
@@ -120,19 +124,60 @@ $theme-node-content-title-text-font-weight: $font-weight-normal;
 $theme-node-content-title-text-line-height: get-line-height($theme-node-content-title-text-font-size, 24px);
 $theme-node-content-title-text-line-height-sm: get-line-height($theme-node-content-title-text-font-size-sm, 24px);
 
-$theme-content-heading-large-margin-bottom:     11px !default;
-$theme-content-heading-large-margin-bottom-sm:  11px !default;
+$theme-content-heading-large-margin-bottom:     .5rem;
+$theme-content-heading-large-margin-bottom-sm:  .5rem;
 
-$theme-content-heading-h4-margin-bottom:        11px !default;
-$theme-content-heading-h4-margin-bottom-sm:     11px !default;
+$theme-content-heading-h4-margin-bottom:        .5rem;
+$theme-content-heading-h4-margin-bottom-sm:     .5rem;
 
-$theme-content-heading-h5-margin-bottom:        11px !default;
-$theme-content-heading-h5-margin-bottom-sm:     11px !default;
+$theme-content-heading-h5-margin-bottom:        .5rem;
+$theme-content-heading-h5-margin-bottom-sm:     .5rem;
 
-$theme-content-heading-h6-margin-bottom:        11px !default;
-$theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin-bottom !default;
+$theme-content-heading-h6-margin-bottom:        .5rem;
+$theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin-bottom;
+
+$theme-heading-large-font-size:       28px;
+$theme-heading-large-font-size-sm:    24px;
+$theme-heading-large-line-height:     get-line-height($theme-heading-large-font-size, $theme-heading-large-font-size * 1.2);
+$theme-heading-large-line-height-sm:  get-line-height($theme-heading-large-font-size-sm, $theme-heading-large-font-size-sm * 1.2);
+
+$theme-heading-h1-font-weight: 600;
+$theme-heading-h2-font-weight: 600;
+$theme-heading-h3-font-weight: 600;
+
+$theme-heading-h4-font-size:          22px;
+$theme-heading-h4-font-size-sm:       20px;
+$theme-heading-h4-line-height:        get-line-height($theme-heading-h4-font-size, $theme-heading-h4-font-size * 1.2);
+$theme-heading-h4-line-height-sm:     get-line-height($theme-heading-h4-font-size-sm, $theme-heading-h4-font-size-sm * 1.2);
+
+$theme-heading-h5-font-size:          20px;
+$theme-heading-h5-font-size-sm:       18px;
+$theme-heading-h5-line-height:        get-line-height($theme-heading-h5-font-size, $theme-heading-h5-font-size * 1.2);
+$theme-heading-h5-line-height-sm:     get-line-height($theme-heading-h5-font-size-sm, $theme-heading-h5-font-size-sm * 1.2);
+
+$theme-heading-h6-font-size:          18px;
+$theme-heading-h6-font-size-sm:       16px;
+$theme-heading-h6-line-height:        get-line-height($theme-heading-h6-font-size, $theme-heading-h6-font-size * 1.2);
+
+$theme-heading-h6-line-height-sm:     get-line-height($theme-heading-h6-font-size-sm, $theme-heading-h6-font-size-sm * 1.2);
+
+$theme-page-body-font-size: 17px;
+
+$theme-content-paragraph-margin-bottom:         1.5rem;
+$theme-content-paragraph-margin-bottom-sm:      1.25rem;
+
+$theme-content-paragraph-strong-font-weight: $font-weight-bold;
+
+$theme-content-published-date-font-weight: 600;
+
+$theme-content-attribution-prefix-font-weight: $font-weight-normal;
+$theme-content-attribution-prefix-spacer-content: "";
 
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
+
+$pswp__root-z-index: $theme-site-header-z-index + 1 !default;
+@import "../../../../node_modules/@base-cms/marko-web-photoswipe/scss/main";
+
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 
 // @todo vet this
@@ -165,8 +210,34 @@ $theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin
     }
   }
 
+  &__title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__deck {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__above-title {
+    margin-bottom: 1.875rem;
+  }
+
   &--shadow {
     box-shadow: $theme-box-shadow-sm;
+  }
+}
+
+.page-contents {
+  &__content-header {
+    margin-bottom: 1.875rem;
+  }
+}
+
+.page-attribution {
+  a {
+    color: $dark;
   }
 }
 
@@ -191,6 +262,10 @@ $theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin
   }
 }
 
+.social-sharing {
+  margin-bottom: 1rem;
+}
+
 .btn {
   &--early-career-blog {
     display: flex;
@@ -198,11 +273,36 @@ $theme-content-heading-h6-margin-bottom-sm:     $theme-content-heading-h6-margin
     font-size: 18px;
     font-weight: 600;
     border-width: 2px;
+    box-shadow: $theme-box-shadow-sm;
 
     &:hover {
       svg {
         fill: $white;
       }
+    }
+  }
+}
+
+.page-dates {
+  font-weight: 600;
+
+  &__content-type {
+    margin-right: .25rem;
+  }
+
+  &__content-published {
+    &::before {
+      content: "Published: ";
+    }
+  }
+  &__content-start-date {
+    &::before {
+      content: "Starts: ";
+    }
+  }
+  &__content-end-date {
+    &::before {
+      content: "Ends: ";
     }
   }
 }

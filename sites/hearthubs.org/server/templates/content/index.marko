@@ -20,7 +20,7 @@ $ const displayInquiry = (content) => {
 }
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
-$ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
+$ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
 
 <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
   $ const section = resolved.getAsObject("primarySection");
@@ -40,15 +40,17 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
       <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
       <marko-web-page-wrapper>
-        <@section modifiers=["content-header"]>
+        <@section>
           <div class="row">
-            <div class="col">
-              <!-- <default-theme-website-section-breadcrumbs section=section /> -->
-              <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
-              <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
-
-              <div class="page-attribution-wrapper">
+            <default-theme-page-contents|{ blockName }|
+              class="col-lg-8 mb-3 mb-lg-0"
+              attrs={ "data-gallery-id": id }
+            >
+              <marko-web-element name="content-header" block-name=blockName>
                 <default-theme-page-dates|{ blockName }|>
+                  <marko-web-element tag="span" name="content-type" block-name=blockName>
+                    ${content.typeTitled}
+                  </marko-web-element>
                   <if(content.type === "event")>
                     <marko-web-content-start-date block-name=blockName obj=content />
                     <marko-web-content-end-date block-name=blockName obj=content />
@@ -60,25 +62,21 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
                     <marko-web-content-published block-name=blockName obj=content />
                   </if>
                 </default-theme-page-dates>
+
+                <hr class="page-wrapper__above-title">
+                <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
+                <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
                 <default-theme-content-attribution obj=content />
-              </div>
+                <hr>
+              </marko-web-element>
 
               <if(displaySocialShare)>
                 <marko-web-social-sharing
                   path=content.siteContext.path
-                  providers=["email", "facebook", "linkedin", "twitter"]
+                  providers=["facebook", "twitter", "pinterest", "linkedin", "email"]
                 />
               </if>
-            </div>
-          </div>
-        </@section>
 
-        <@section>
-          <div class="row">
-            <default-theme-page-contents|{ blockName }|
-              class="col-lg-8 mb-3 mb-lg-0"
-              attrs={ "data-gallery-id": id }
-            >
               <if(content.embedCode)>
                 <marko-web-content-embed-code block-name=blockName obj=content />
               </if>
@@ -131,12 +129,6 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
                   <@link class="btn btn-lg btn-primary" />
                 </default-theme-content-download>
               </if>
-              <if(displaySocialShare)>
-                <marko-web-social-sharing
-                  path=content.siteContext.path
-                  providers=["email", "facebook", "linkedin", "twitter"]
-                />
-              </if>
               <if(type === "webinar")>
                 $ const isUpcoming = content.startDate > Date.now();
                 <default-theme-content-link-url
@@ -146,7 +138,7 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
                 />
               </if>
 
-              <shared-related-content-block content-id=id />
+              <!-- <shared-related-content-block content-id=id /> -->
 
             </default-theme-page-contents>
 
@@ -156,10 +148,10 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
                 modifiers=["max-width-300", "margin-auto-x"]
                 slots=slots
               />
-              <shared-latest-in-section-block>
+              <!-- <shared-latest-in-section-block>
                 <@content id=id />
                 <@section id=section.id name=section.name />
-              </shared-latest-in-section-block>
+              </shared-latest-in-section-block> -->
             </aside>
 
             <if(displayPhotoswipe)>
@@ -172,19 +164,5 @@ $ const displayPhotoswipe = false; //["contact"].includes(type) ? false : true;
 
       </marko-web-page-wrapper>
     </@page>
-
-    <!-- <@below-page>
-      <website-content-load-more-block
-        id=id
-        type=type
-        name=content.name
-        aliases=aliases
-        section-id=section.id
-        section-name=section.name
-        section-skip=4
-      >
-      </website-content-load-more-block>
-    </@below-page> -->
-
   </marko-web-content-page-layout>
 </marko-web-resolve-page>
