@@ -315,6 +315,9 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   &--max-width-970 {
     max-width: 970px;
   }
+  &--max-width-300 {
+    max-width: 300px;
+  }
   &--center {
     margin-right: auto;
     margin-left: auto;
@@ -322,6 +325,10 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   }
   &--mb-block-lg {
     margin-bottom: $block-spacer-lg;
+  }
+  &--sticky-top {
+    position: sticky;
+    top: calc(150px + #{$block-spacer});
   }
 }
 
