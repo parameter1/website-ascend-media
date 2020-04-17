@@ -143,7 +143,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 modifiers=["max-width-300", "center"]
               />
 
-              <if(displayInquiry)>
+              <if(displayInquiry(content))>
                 <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
                   <@header>Request More Information</@header>
                   <@body>
