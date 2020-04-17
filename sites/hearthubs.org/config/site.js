@@ -33,7 +33,15 @@ module.exports = {
       logo: 'https://base.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=60',
     },
     support: {
-      email: 'reply@hearthub.org',
+      email: 'reply@hearthubs.org',
     },
+  },
+  inquiry: {
+    enabled: true,
+    directSend: true,
+    sendTo: 'basecmsdev@gmail.com',
+    sendFrom: 'HeartHubs <reply@hearthubs.org>',
+    logo: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
+    bgColor: '#ffffff',
   },
 };

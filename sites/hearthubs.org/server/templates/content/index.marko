@@ -14,7 +14,7 @@ $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includ
 $ const displayFeatured = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = (content) => {
   if (type === "company" && get(content, "enableRmi")) return true;
-  if (type === "product" && get(content, "company.enableRmi")) return true;
+  if (get(content, "company.enableRmi")) return true;
   return false;
 }
 $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
@@ -140,8 +140,17 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
-                modifiers=["max-width-300", "center", "sticky-top"]
+                modifiers=["max-width-300", "center"]
               />
+
+              <if(displayInquiry(content))>
+                <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
+                  <@header>Request More Information</@header>
+                  <@body>
+                    <marko-web-inquiry-form content=content with-header=false modifiers=["right-rail"] />
+                  </@body>
+                </marko-web-node-list>
+              </if>
             </aside>
 
             <if(displayPhotoswipe)>

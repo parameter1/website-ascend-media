@@ -1,26 +1,20 @@
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../graphql/fragments/content-featured";
-
-$ const { sectionAlias } = input;
+import queryFragment from "../../graphql/fragments/content-list";
 
 $ const queryParams = {
-  optionName: "Pinned",
   limit: 5,
   queryFragment,
-  sectionBubbling: false,
   ...getAsObject(input, "queryParams"),
-  sectionAlias,
+  companyId: input.companyId,
 };
 
-<marko-web-query|{ nodes }| name="website-optioned-content" params=queryParams>
+<marko-web-query|{ nodes }| name="all-company-content" params=queryParams>
   <marko-web-node-list
     inner-justified=false
     flush-x=false
     flush-y=false
+    header=input.header
   >
-    <@header>
-      Today's Schedule
-    </@header>
     <@nodes nodes=nodes>
       <@slot|{ node: content }|>
         $ const primaryImage = getAsObject(content, "primaryImage");
@@ -29,10 +23,11 @@ $ const queryParams = {
           image-position="left"
           flush=true
           full-height=false
+          modifiers=["image-push"]
         >
           <@image
-            ar="1:1"
-            width="125"
+            ar="16:9"
+            width="175"
             use-placeholder=false
             src=primaryImage.src
             link={ href: get(content, "siteContext.path") }

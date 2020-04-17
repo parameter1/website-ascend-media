@@ -1,0 +1,30 @@
+.page-wrapper {
+  box-shadow: none;
+
+  &__section {
+    &--content-header {
+      max-width: 900px;
+    }
+    &--page-header {
+      margin-bottom: 1.875rem;
+    }
+  }
+
+  &__title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__deck {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__above-title {
+    margin-bottom: 1.875rem;
+  }
+
+  &--shadow {
+    box-shadow: $theme-box-shadow-sm;
+  }
+}
