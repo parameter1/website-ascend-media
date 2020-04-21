@@ -42,6 +42,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
           <div class="row">
             <default-theme-page-contents|{ blockName }|
               class="col-lg-8 mb-3 mb-lg-0"
+              modifiers=[type]
               attrs={ "data-gallery-id": id }
             >
               <marko-web-element name="content-header" block-name=blockName>
