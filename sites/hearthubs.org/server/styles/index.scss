@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;300i;400;500;600;700&display=swap");
 
 @import "./variables";
+@import "./mixins";
 @import "../../../../node_modules/@base-cms/marko-web-theme-default/scss/theme";
 
 $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
@@ -8,6 +9,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 
 @import "./components/ad-container";
+@import "./components/body-wrapper";
 @import "./components/btn";
 @import "./components/card-deck-flow";
 @import "./components/hero-flow";

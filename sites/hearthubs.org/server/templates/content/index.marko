@@ -37,21 +37,36 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
             <default-theme-page-contents|{ blockName }|
               class="col-lg-8 mb-3 mb-lg-0"
+              modifiers=[type]
               attrs={ "data-gallery-id": id }
             >
               <marko-web-element name="content-header" block-name=blockName>
                 <default-theme-page-dates|{ blockName }|>
-                  <marko-web-element tag="span" name="content-type" block-name=blockName>
-                    ${content.typeTitled}
-                  </marko-web-element>
+                  <if(type === "event")>
+                    <marko-web-content-start-date
+                      class=`${blockName}__event-day`
+                      format="dddd"
+                      obj=content
+                    />
+                  </if>
+                  <else>
+                    <marko-web-element tag="span" name="content-type" block-name=blockName>
+                      ${content.typeTitled}
+                    </marko-web-element>
+                  </else>
                   <if(content.type === "event")>
-                    <marko-web-content-start-date block-name=blockName obj=content />
-                    <marko-web-content-end-date block-name=blockName obj=content />
+                    <div class=`${blockName}__content-event-times`>
+                      <marko-web-content-start-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                      <marko-web-content-end-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                      <span> (Central) </span>
+                      <marko-web-content-start-date tag="span" format="MMM D, YYYY" block-name=blockName obj=content />
+                    </div>
                   </if>
                   <if(content.type === "webinar")>
                     <marko-web-content-start-date block-name=blockName obj=content />
@@ -138,9 +153,10 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail1"
+              <marko-web-gam-define-display-ad
+                ...GAM.getAdUnit({ name: "rail1", aliases })
                 modifiers=["max-width-300", "center"]
+                collapse-before-ad-fetch=true
               />
 
               <if(displayInquiry(content))>
@@ -151,6 +167,12 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                   </@body>
                 </marko-web-node-list>
               </if>
+
+              <marko-web-gam-define-display-ad
+                ...GAM.getAdUnit({ name: "rail2", aliases })
+                modifiers=["max-width-300", "center"]
+                collapse-before-ad-fetch=true
+              />
             </aside>
 
             <if(displayPhotoswipe)>

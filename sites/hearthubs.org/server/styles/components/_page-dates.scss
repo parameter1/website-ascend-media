@@ -10,14 +10,25 @@
       content: "Published: ";
     }
   }
-  &__content-start-date {
+  &__content-event-times {
+    font-size: 18px;
+  }
+  &__content-start-date,
+  &__content-end-date {
+    font-size: 18px;
     &::before {
-      content: "Starts: ";
+      content: "";
     }
   }
-  &__content-end-date {
+
+  &__content-start-date + &__content-end-date {
     &::before {
-      content: "Ends: ";
+      content: "\2013";
     }
+  }
+
+  &__event-day {
+    @include event-day-label();
+    font-size: 14px;
   }
 }

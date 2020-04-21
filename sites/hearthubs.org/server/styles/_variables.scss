@@ -89,8 +89,7 @@ $theme-item-title-font-size-sm: 17px;
 $theme-item-title-font-weight: $font-weight-normal;
 
 $theme-item-description-font-family:          $theme-font-family-sans-serif;
-$theme-item-description-font-size-sm:         14px;
-$theme-item-description-font-size:            15px;
+$theme-item-description-font-size-sm:         15px;
 $theme-item-description-font-weight:          $font-weight-light;
 $theme-item-description-color:                $gray-800;
 
@@ -105,11 +104,12 @@ $theme-page-deck-line-height:           get-line-height($theme-page-deck-font-si
 $theme-page-deck-line-height-sm:        get-line-height($theme-page-deck-font-size-sm, $theme-page-deck-font-size-sm * 1.5);
 
 $theme-site-header-breakpoints: (
-  hide-primary: 569px,
+  hide-primary: 918px,
   hide-secondary: 0,
   small-logo: 500px,
-  small-text-primary: 634px,
+  small-text-primary: 1014px,
   small-text-secondary: 0,
+  small-primary-padding: 1140px,
 );
 
 $theme-hero-teaser-font-size: 18px;

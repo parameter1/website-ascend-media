@@ -1,6 +1,10 @@
 .node {
   $self: &;
 
+  &__title {
+    font-weight: 500;
+  }
+
   &__text {
     &--content-action {
       margin-bottom: .25rem;
@@ -45,7 +49,14 @@
     box-shadow: none;
   }
 
+  &__content-start-date + &__content-end-date {
+    &::before {
+      content: "\2013";
+    }
+  }
+
   &--hero {
+    margin-bottom: map-get($spacers, block-lg);
     #{ $self } {
       &__header {
         padding: $marko-web-node-padding;
@@ -112,6 +123,27 @@
           @include media-breakpoint-down($theme-responsive-text-breakpoint) {
             width: 50px;
             height: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  &--event-content-type {
+    background-color: transparent;
+    #{ $self } {
+      &__title {
+        font-weight: 500;
+      }
+
+      &__text {
+        // stylelint-disable-next-line
+        &--teaser {
+          margin-top: .375rem;
+          // stylelint-disable-next-line
+          a {
+            font-style: italic;
+            color: $gray-600;
           }
         }
       }

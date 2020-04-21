@@ -1,31 +1,37 @@
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../graphql/fragments/content-featured";
-
-$ const { sectionAlias } = input;
+import queryFragment from "../../graphql/fragments/event-schedule";
 
 $ const queryParams = {
-  optionName: "Pinned",
-  limit: 3,
+  limit: 4,
   queryFragment,
-  requiresImage: true,
-  sectionBubbling: false,
-  excludeContentTypes: ["Event"],
+  includeContentTypes: ["Event"],
+  endingAfter: Date.now(),
+  sortField: "startDate",
+  sortOrder: "asc",
   ...getAsObject(input, "queryParams"),
-  sectionAlias,
 };
 
-<marko-web-query|{ nodes }| name="website-optioned-content" params=queryParams>
+<marko-web-query|{ nodes }| name="all-published-content" params=queryParams>
   <marko-web-node-list
     inner-justified=false
     flush-x=false
     flush-y=false
+    class=input.class
+    modifiers=["event-schedule"]
+    footer=input.footer
   >
     <@header>
-      Featured Content
+      Today's Schedule
     </@header>
     <@nodes nodes=nodes>
       <@slot|{ node: content }|>
         $ const primaryImage = getAsObject(content, "primaryImage");
+        <marko-web-content-start-date
+          class="node-list__event-day"
+          format="dddd"
+          obj=content
+        />
+
         <marko-web-node
           type=`${content.type}-content`
           image-position="left"
@@ -41,8 +47,16 @@ $ const queryParams = {
           />
           <@body>
             <@title tag="h5">
-              <marko-web-content-short-name tag=null obj=content link=true />
+              <marko-web-content-name tag=null obj=content link=true />
             </@title>
+            <@text|{ blockName }|>
+              <div class=`${blockName}__content-event-times`>
+                <marko-web-content-start-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                <marko-web-content-end-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                <span> (Central) </span>
+                <marko-web-content-start-date tag="span" format="MMM D, YYYY" block-name=blockName obj=content />
+              </div>
+            </@text>
             <@text modifiers=["teaser"] show=Boolean(content.teaser)>
               <marko-web-content-teaser tag=null obj=content link=true />
             </@text>
