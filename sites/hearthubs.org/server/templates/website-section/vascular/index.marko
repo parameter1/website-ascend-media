@@ -28,12 +28,15 @@ $ const adSlots = ({ aliases }) => ({
   <@page>
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
 
-    <website-content-hero-block section-id=id />
+    <!-- <website-content-hero-block section-id=id /> -->
 
     <div class="row">
       <div class="col-lg-8 mb-block-lg">
+
+        <website-content-hero-card-block section-id=id />
+
         <website-content-featured-block section-alias=alias>
-          <@query-params skip=4 />
+          <@query-params skip=1 />
         </website-content-featured-block>
       </div>
       <div class="col-lg-4 mb-block-lg page-rail">
