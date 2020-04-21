@@ -5,9 +5,10 @@ $ const { sectionAlias } = input;
 
 $ const queryParams = {
   optionName: "Pinned",
-  limit: 5,
+  limit: 3,
   queryFragment,
   sectionBubbling: false,
+  excludeContentTypes: ["Event"],
   ...getAsObject(input, "queryParams"),
   sectionAlias,
 };
@@ -19,7 +20,7 @@ $ const queryParams = {
     flush-y=false
   >
     <@header>
-      Today's Schedule
+      Featured Content
     </@header>
     <@nodes nodes=nodes>
       <@slot|{ node: content }|>
