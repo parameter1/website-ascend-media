@@ -23,7 +23,7 @@ const vascularTopics = [
   { href: 'https://professional.heart.org/professional/index.jsp', label: 'Professional Heart Daily', target: '_blank' },
   { href: '/vascular/partners', label: 'Partners' },
   { href: '#', label: 'CME' },
-  { href: '#', label: 'ePosters' },
+  { href: '#', label: 'ePOSTERS', modifiers: ['text-transform-none'] },
 ];
 
 const qcorTopics = [
