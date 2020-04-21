@@ -37,6 +37,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
@@ -152,9 +153,10 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad
-                id="gpt-ad-rail1"
+              <marko-web-gam-define-display-ad
+                ...GAM.getAdUnit({ name: "rail1", aliases })
                 modifiers=["max-width-300", "center"]
+                collapse-before-ad-fetch=true
               />
 
               <if(displayInquiry(content))>
@@ -165,6 +167,12 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                   </@body>
                 </marko-web-node-list>
               </if>
+
+              <marko-web-gam-define-display-ad
+                ...GAM.getAdUnit({ name: "rail2", aliases })
+                modifiers=["max-width-300", "center"]
+                collapse-before-ad-fetch=true
+              />
             </aside>
 
             <if(displayPhotoswipe)>
