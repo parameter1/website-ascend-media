@@ -17,4 +17,7 @@
     position: sticky;
     top: calc(150px + #{$block-spacer});
   }
+  &--top-of-page {
+    margin-bottom: $block-spacer-lg;
+  }
 }

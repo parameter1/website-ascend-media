@@ -8,6 +8,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "../../../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 
 @import "./components/ad-container";
+@import "./components/body-wrapper";
 @import "./components/btn";
 @import "./components/card-deck-flow";
 @import "./components/hero-flow";
