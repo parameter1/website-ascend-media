@@ -2,6 +2,9 @@
   "<website-content-hero-block>": {
     "template": "./content-hero.marko"
   },
+  "<website-content-hero-card-block>": {
+    "template": "./content-hero-card.marko"
+  },
   "<website-content-featured-block>": {
     "template": "./content-featured.marko"
   },

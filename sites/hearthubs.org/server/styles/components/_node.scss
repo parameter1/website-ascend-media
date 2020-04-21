@@ -46,6 +46,7 @@
   }
 
   &--hero {
+    margin-bottom: map-get($spacers, block-lg);
     #{ $self } {
       &__header {
         padding: $marko-web-node-padding;
