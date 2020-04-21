@@ -28,7 +28,13 @@ $ const {
         <div class="col-lg-8 mb-block-lg">
           <website-content-hero-card-block section-id=id />
 
-          <website-event-schedule-block class="mb-block-lg" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@footer>
+              <marko-web-link href="/vascular/2020-program">
+                View More Events >
+              </marko-web-link>
+            </@footer>
+          </website-event-schedule-block>
 
           <website-content-featured-block section-alias=alias>
             <@query-params skip=1 />

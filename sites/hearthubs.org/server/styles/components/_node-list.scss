@@ -17,6 +17,7 @@
   }
 
   &--event-schedule {
+    $row-gray: #f1f1f1;
     #{ $self } {
       &__nodes {
         padding-top: 0;
@@ -28,7 +29,7 @@
       &__node {
         padding: $marko-web-node-list-padding * 1.25;
         &:nth-of-type(odd) {
-          background-color: #f1f1f1;
+          background-color: $row-gray;
         }
         &:first-child {
           padding-top: $marko-web-node-list-padding;
@@ -37,6 +38,11 @@
           padding-bottom: $marko-web-node-list-padding;
           border-bottom: none;
         }
+      }
+      &__footer {
+        font-size: 17px;
+        text-align: center;
+        border-top: 1px solid $row-gray;
       }
     }
   }
