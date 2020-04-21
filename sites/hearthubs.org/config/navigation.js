@@ -22,8 +22,13 @@ const vascularTopics = [
   { href: 'https://professional.heart.org/professional/General/UCM_477021_View-All-Science-News.jsp', label: 'Science News', target: '_blank' },
   { href: 'https://professional.heart.org/professional/index.jsp', label: 'Professional Heart Daily', target: '_blank' },
   { href: '/vascular/partners', label: 'Partners' },
-  { href: '#', label: 'CME' },
-  { href: '#', label: 'ePOSTERS', modifiers: ['text-transform-none'] },
+  { href: 'https://aha.ondemand.org/aha/live/53/page/513', label: 'CME', target: '_blank' },
+  {
+    href: 'https://aha.ondemand.org/aha/live/53/page/513',
+    label: 'ePOSTERS',
+    modifiers: ['text-transform-none'],
+    target: '_blank',
+  },
 ];
 
 const qcorTopics = [
