@@ -22,5 +22,8 @@
   },
   "<website-company-content-list-block>": {
     "template": "./company-content-list.marko"
+  },
+  "<website-event-schedule-block>": {
+    "template": "./event-schedule.marko"
   }
 }
