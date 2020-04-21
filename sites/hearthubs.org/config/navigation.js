@@ -87,10 +87,10 @@ module.exports = {
           label: 'Topics',
           items: [...vascularTopics],
         },
-        {
-          label: '2020 Conferences',
-          items: [...conferences],
-        },
+        // {
+        //   label: '2020 Conferences',
+        //   items: [...conferences],
+        // },
         {
           label: 'User Tools',
           items: [...userTools],
