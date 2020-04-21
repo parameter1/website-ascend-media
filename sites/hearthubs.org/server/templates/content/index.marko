@@ -46,12 +46,25 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
             >
               <marko-web-element name="content-header" block-name=blockName>
                 <default-theme-page-dates|{ blockName }|>
-                  <marko-web-element tag="span" name="content-type" block-name=blockName>
-                    ${content.typeTitled}
-                  </marko-web-element>
+                  <if(type === "event")>
+                    <marko-web-content-start-date
+                      class=`${blockName}__event-day`
+                      format="dddd"
+                      obj=content
+                    />
+                  </if>
+                  <else>
+                    <marko-web-element tag="span" name="content-type" block-name=blockName>
+                      ${content.typeTitled}
+                    </marko-web-element>
+                  </else>
                   <if(content.type === "event")>
-                    <marko-web-content-start-date block-name=blockName obj=content />
-                    <marko-web-content-end-date block-name=blockName obj=content />
+                    <div class=`${blockName}__content-event-times`>
+                      <marko-web-content-start-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                      <marko-web-content-end-date tag="span" format="h:mm a" block-name=blockName obj=content />
+                      <span> (Central) </span>
+                      <marko-web-content-start-date tag="span" format="MMM D, YYYY" block-name=blockName obj=content />
+                    </div>
                   </if>
                   <if(content.type === "webinar")>
                     <marko-web-content-start-date block-name=blockName obj=content />
