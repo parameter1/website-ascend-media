@@ -17,10 +17,13 @@ const conferences = [
 ];
 
 const vascularTopics = [
-  { href: '/vascular/science-news', label: 'Science News' },
   { href: '/vascular/2020-program', label: '2020 Program' },
-  { href: '#', label: 'Membership' },
-  { href: '/vascular/exhibitors', label: 'Exhibitors' },
+  { href: '/vascular/exhibitors', label: 'Virtual Exhibits' },
+  { href: 'https://professional.heart.org/professional/General/UCM_477021_View-All-Science-News.jsp', label: 'Science News', target: '_blank' },
+  { href: 'https://professional.heart.org/professional/index.jsp', label: 'Professional Heart Daily', target: '_blank' },
+  { href: '/vascular/partners', label: 'Partners' },
+  { href: '#', label: 'CME' },
+  { href: '#', label: 'ePosters' },
 ];
 
 const qcorTopics = [
