@@ -1,5 +1,12 @@
 .body-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   &[data-path="/vascular"] {
+    display: block;
+    height: auto;
+
     @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
       background: url("https://base.imgix.net/files/base/ascend/hearthub/image/static/conference-background.jpg?w=2000") no-repeat 50% 150px;
 
