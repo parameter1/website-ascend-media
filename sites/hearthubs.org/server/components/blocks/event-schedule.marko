@@ -1,4 +1,5 @@
 import { getAsObject, get } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/event-schedule";
 
 $ const queryParams = {
@@ -11,6 +12,8 @@ $ const queryParams = {
   ...getAsObject(input, "queryParams"),
 };
 
+$ const displayEventDay = defaultValue(input.displayEventDay, true);
+
 <marko-web-query|{ nodes }| name="all-published-content" params=queryParams>
   <marko-web-node-list
     inner-justified=false
@@ -18,19 +21,20 @@ $ const queryParams = {
     flush-y=false
     class=input.class
     modifiers=["event-schedule"]
+    header=input.header
     footer=input.footer
   >
-    <@header>
-      Today's Schedule
-    </@header>
     <@nodes nodes=nodes>
       <@slot|{ node: content }|>
         $ const primaryImage = getAsObject(content, "primaryImage");
-        <marko-web-content-start-date
-          class="node-list__event-day"
-          format="dddd"
-          obj=content
-        />
+
+        <if(displayEventDay)>
+          <marko-web-content-start-date
+            class="node-list__event-day"
+            format="dddd"
+            obj=content
+          />
+        </if>
 
         <marko-web-node
           type=`${content.type}-content`

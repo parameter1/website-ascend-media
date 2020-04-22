@@ -25,5 +25,8 @@
   },
   "<website-event-schedule-block>": {
     "template": "./event-schedule.marko"
+  },
+  "<website-global-right-rail-block>": {
+    "template": "./global-right-rail.marko"
   }
 }

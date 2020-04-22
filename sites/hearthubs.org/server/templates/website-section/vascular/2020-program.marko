@@ -1,0 +1,82 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import GAM from "../../../../config/gam";
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = input;
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+  </@head>
+
+  <@page>
+    <a class="anchor" name="top" />
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-define-display-ad
+        ...GAM.getAdUnit({ name: "lb1", aliases })
+        collapse-before-ad-fetch=true
+        modifiers=["top-of-page", "center", "max-width-970"]
+      />
+
+      <div class="mb-2 font-weight-bold">
+        View Sessions For
+      </div>
+      <div class="d-flex mb-block-lg">
+        <a href="#tuesday" class="btn btn-primary">Tuesday</a>
+        <a href="#wednesday" class="btn btn-primary ml-2">Wednesday</a>
+        <a href="#thursday" class="btn btn-primary ml-2">Thursday</a>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 mb-block-lg">
+          <a class="anchor" name="tuesday" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@header>Tuesday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1588654800000))
+              ending-before=(new Date(1588741199999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </website-event-schedule-block>
+
+          <a class="anchor" name="wednesday" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@header>Wednesday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1588741200000))
+              ending-before=(new Date(1588827599999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </website-event-schedule-block>
+
+          <a class="anchor" name="thursday" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@header>Thursday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1588827600000))
+              ending-before=(new Date(1588913999999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </website-event-schedule-block>
+        </div>
+
+        <div class="col-lg-4 mb-block-lg page-rail">
+          <website-global-right-rail-block aliases=aliases />
+        </div>
+      </div>
+    </marko-web-resolve-page>
+  </@page>
+</marko-web-website-section-page-layout>
