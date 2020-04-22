@@ -153,12 +153,6 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-define-display-ad
-                ...GAM.getAdUnit({ name: "rail1", aliases })
-                modifiers=["max-width-300", "center"]
-                collapse-before-ad-fetch=true
-              />
-
               <if(displayInquiry(content))>
                 <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
                   <@header>Request More Information</@header>
@@ -168,11 +162,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 </marko-web-node-list>
               </if>
 
-              <marko-web-gam-define-display-ad
-                ...GAM.getAdUnit({ name: "rail2", aliases })
-                modifiers=["max-width-300", "center"]
-                collapse-before-ad-fetch=true
-              />
+              <website-global-right-rail-block aliases=aliases />
             </aside>
 
             <if(displayPhotoswipe)>
