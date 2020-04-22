@@ -32,6 +32,9 @@ $ const adSlots = ({ aliases }) => ({
           <div class="row">
             <div class="col">
               <h1 class="page-wrapper__title">${name}</h1>
+              <if(section.description)>
+                <p class="page-wrapper__deck">$!{section.description}</p>
+              </if>
               <hr>
             </div>
           </div>
