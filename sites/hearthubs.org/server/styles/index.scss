@@ -27,10 +27,17 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "./components/site-navbar";
 @import "./components/social-sharing";
 
-// @todo vet this
 .ldp {
   display: flex;
   justify-content: space-between;
+}
+
+.anchor {
+  // offset link anchors to account for fixed header
+  position: relative;
+  top: -174px;
+  display: block;
+  visibility: hidden;
 }
 
 .company-section-label {

@@ -16,6 +16,7 @@ $ const {
   </@head>
 
   <@page>
+    <a class="anchor" name="top" />
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-gam-define-display-ad
@@ -34,6 +35,7 @@ $ const {
               ending-before=(new Date(1588741199999))
               ending-after=null
             />
+            <@footer><a href="#top">Return to Top</a></@footer>
           </website-event-schedule-block>
 
           <website-event-schedule-block class="mb-block-lg">
@@ -44,6 +46,7 @@ $ const {
               ending-before=(new Date(1588827599999))
               ending-after=null
             />
+            <@footer><a href="#top">Return to Top</a></@footer>
           </website-event-schedule-block>
 
           <website-event-schedule-block class="mb-block-lg">
@@ -54,6 +57,7 @@ $ const {
               ending-before=(new Date(1588913999999))
               ending-after=null
             />
+            <@footer><a href="#top">Return to Top</a></@footer>
           </website-event-schedule-block>
         </div>
 
