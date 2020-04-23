@@ -24,17 +24,17 @@ jobs:
     - stage: test
       env: [NODE_ENV=test]
 
-    - stage: production-started
-      name: Deployment Started
-      script: npx @base-cms/website-deployment-tool notify-started
-      install: skip
-      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+    # - stage: production-started
+    #   name: Deployment Started
+    #   script: npx @base-cms/website-deployment-tool notify-started
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
 
-    - stage: staging-started
-      name: Deployment Started
-      script: npx @base-cms/website-deployment-tool notify-started
-      install: skip
-      env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
+    # - stage: staging-started
+    #   name: Deployment Started
+    #   script: npx @base-cms/website-deployment-tool notify-started
+    #   install: skip
+    #   env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
 
     #############################
     ### vvv ADD SITES HERE vvv ##
@@ -56,14 +56,14 @@ jobs:
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
 
-    - stage: production-finished
-      name: Deployment Finished
-      script: npx @base-cms/website-deployment-tool notify-finished
-      install: skip
-      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+    # - stage: production-finished
+    #   name: Deployment Finished
+    #   script: npx @base-cms/website-deployment-tool notify-finished
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
 
-    - stage: staging-finished
-      name: Deployment Finished
-      script: npx @base-cms/website-deployment-tool notify-finished
-      install: skip
-      env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
+    # - stage: staging-finished
+    #   name: Deployment Finished
+    #   script: npx @base-cms/website-deployment-tool notify-finished
+    #   install: skip
+    #   env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
