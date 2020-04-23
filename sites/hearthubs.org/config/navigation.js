@@ -19,16 +19,10 @@ const conferences = [
 const vascularTopics = [
   { href: '/vascular/2020-program', label: '2020 Program' },
   { href: '/vascular/exhibitors', label: 'Virtual Exhibits' },
-  { href: 'https://professional.heart.org/professional/General/UCM_477021_View-All-Science-News.jsp', label: 'Science News', target: '_blank' },
-  { href: 'https://professional.heart.org/professional/Journals/UCM_316898_Journals.jsp', label: 'Journals', target: '_blank' },
-  { href: '/vascular/partners', label: 'Partners' },
-  { href: 'https://aha.ondemand.org/aha/live/53/page/513', label: 'CME', target: '_blank' },
-  {
-    href: 'https://aha.ondemand.org/aha/live/53/page/513',
-    label: 'ePOSTERS',
-    modifiers: ['text-transform-none'],
-    target: '_blank',
-  },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp', label: 'Science News', target: '_blank' },
+  { href: 'https://www.ahajournals.org/vascular-discovery', label: 'Journals', target: '_blank' },
+  { href: '/vascular/membership', label: 'Membership' },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316972_Programming-ATVB-PVD.jsp', label: 'Claim CME', target: '_blank' },
 ];
 
 const qcorTopics = [
