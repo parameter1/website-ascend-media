@@ -28,4 +28,8 @@
   &--shadow {
     box-shadow: $theme-box-shadow-sm;
   }
+
+  &--transparent {
+    background-color: transparent;
+  }
 }
