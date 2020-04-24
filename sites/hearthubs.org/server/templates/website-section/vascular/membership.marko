@@ -1,0 +1,58 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import GAM from "../../../../config/gam";
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = input;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+});
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+
+  <@page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-define-display-ad
+        ...GAM.getAdUnit({ name: "lb1", aliases })
+        collapse-before-ad-fetch=true
+        modifiers=["top-of-page", "center", "max-width-970"]
+      />
+
+      <div class="row">
+        <div class="col-lg-8 mb-block-lg">
+          <website-content-hero-card-block section-id=id />
+
+
+
+          <website-section-list-block section-alias="vascular/membership/videos">
+            <@header>
+              <marko-web-link href="/vascular/membership/videos">More Videos</marko-web-link>
+            </@header>
+          </website-section-list-block>
+        </div>
+
+        <div class="col-lg-4 mb-block-lg page-rail">
+          <website-section-list-block
+            section-alias="vascular/membership/benefits"
+            image-position="right"
+            with-teaser=true
+          />
+        </div>
+      </div>
+    </marko-web-resolve-page>
+  </@page>
+</marko-web-website-section-page-layout>
