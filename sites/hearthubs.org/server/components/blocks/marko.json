@@ -28,5 +28,8 @@
   },
   "<website-global-right-rail-block>": {
     "template": "./global-right-rail.marko"
+  },
+  "<website-science-news-block>": {
+    "template": "./science-news.marko"
   }
 }
