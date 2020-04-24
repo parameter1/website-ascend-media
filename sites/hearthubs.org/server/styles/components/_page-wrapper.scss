@@ -1,5 +1,5 @@
 .page-wrapper {
-  box-shadow: none;
+  box-shadow: $theme-box-shadow-sm;
 
   &__section {
     &--content-header {
