@@ -27,22 +27,15 @@ $ const adSlots = ({ aliases }) => ({
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] />
 
     <marko-web-resolve-page|{ data: section }| node=pageNode>
-      <marko-web-page-wrapper class="mb-block">
-        <@section modifiers=["page-header"]>
-          <div class="row">
-            <div class="col">
-              <h1 class="page-wrapper__title">${name}</h1>
-              <if(section.description)>
-                <p class="page-wrapper__deck">$!{section.description}</p>
-              </if>
-              <hr>
-            </div>
-          </div>
-        </@section>
-        <@section>
-          <website-featured-exhibitors-full-block section-alias="vascular/exhibitors" />
-        </@section>
-      </marko-web-page-wrapper>
+      <marko-web-node-list collapsible=false class="mb-block">
+        <@body>
+          <h1 class="page-wrapper__title">${name}</h1>
+          <if(section.description)>
+            <p class="page-wrapper__deck">$!{section.description}</p>
+          </if>
+        </@body>
+      </marko-web-node-list>
+      <website-featured-exhibitors-full-block section-alias="vascular/exhibitors" />
     </marko-web-resolve-page>
   </@page>
 </marko-web-website-section-page-layout>

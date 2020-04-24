@@ -18,7 +18,8 @@
     "template": "./featured-exhibitors-full.marko"
   },
   "<website-section-list-block>": {
-    "template": "./section-list.marko"
+    "template": "./section-list.marko",
+    "<list>": {}
   },
   "<website-company-content-list-block>": {
     "template": "./company-content-list.marko"
@@ -28,5 +29,8 @@
   },
   "<website-global-right-rail-block>": {
     "template": "./global-right-rail.marko"
+  },
+  "<website-science-news-block>": {
+    "template": "./science-news.marko"
   }
 }

@@ -176,3 +176,35 @@
     }
   }
 }
+
+.node--video-content-type.node--hero {
+  background-color: transparent;
+  // stylelint-disable-next-line
+  .node__text--teaser {
+
+    @include theme-apply-fonts(
+      $font-size-sm: $theme-hero-teaser-font-size-sm,
+      $font-size: $theme-hero-teaser-font-size,
+      $font-weight: $theme-hero-teaser-font-weight,
+      $line-height-sm: $theme-hero-teaser-line-height-sm,
+      $line-height: $theme-hero-teaser-line-height
+    );
+    padding: $marko-web-node-padding;
+
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+    background-color: rgba(0, 0, 0, .65);
+
+    // stylelint-disable-next-line
+    a {
+      @include theme-max-lines(
+        $font-size: $theme-hero-teaser-font-size,
+        $font-size-sm: $theme-hero-teaser-font-size-sm,
+        $line-height: $theme-hero-teaser-line-height,
+        $line-height-sm: $theme-hero-teaser-line-height-sm,
+        $num: 2
+      );
+      color: #fff;
+    }
+  }
+}
