@@ -9,50 +9,51 @@ $ const queryParams = {
   ...getAsObject(input, "queryParams"),
 };
 
-$ const modifiers = ["callout"];
-$ if (input.noShadow) modifiers.push("no-shadow");
-
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
-  $ const content = nodes[0];
-  $ const primaryImage = getAsObject(content, "primaryImage");
-  <marko-web-node
-    type=`${content.type}-content`
-    image-position="top"
-    card=true
-    flush=false
-    full-height=false
-    modifiers=modifiers
-  >
-    <@image
-      ar="16:9"
-      width="300"
-      fluid=true
-      use-placeholder=false
-      src=primaryImage.src
-      alt=primaryImage.alt
-      is-logo=primaryImage.isLogo
-      link={ href: get(content, "siteContext.path") }
-    />
+  <marko-web-node-list collapsible=false>
+    <@header>
+      Early Career Center
+    </@header>
+    <@nodes nodes=nodes>
+      <@slot|{ node: content }|>
+        $ const primaryImage = getAsObject(content, "primaryImage");
+        <marko-web-node
+          type=`${content.type}-content`
+          image-position="top"
+          card=true
+          flush=true
+          full-height=false
+          modifiers=["callout", "no-shadow"]
+        >
+          <@image
+            ar="16:9"
+            width="300"
+            fluid=true
+            use-placeholder=false
+            src=primaryImage.src
+            alt=primaryImage.alt
+            is-logo=primaryImage.isLogo
+            link={ href: get(content, "siteContext.path") }
+          />
 
-    <@body>
-      <@text modifiers=["content-action"]>
-        ${content.type}
-      </@text>
+          <@body>
+            <@text modifiers=["content-action"]>
+              ${content.type}
+            </@text>
 
-      <@text modifiers=["content-title", "content-title-primary"]>
-        <marko-web-content-short-name tag=null obj=content link=true />
-      </@text>
+            <@text modifiers=["content-title", "content-title-primary"]>
+              <marko-web-content-short-name tag=null obj=content link=true />
+            </@text>
 
-      <@text modifiers=["teaser"] show=Boolean(content.teaser)>
-        <marko-web-content-teaser tag=null obj=content link=true />
-      </@text>
-
-      <@footer>
-        <@left modifiers=["early-career-button"]>
-          <website-early-career-blogs-button />
-        </@left>
-      </@footer>
-    </@body>
-
-  </marko-web-node>
+            <@text modifiers=["teaser"] show=Boolean(content.teaser)>
+              <marko-web-content-teaser tag=null obj=content link=true />
+            </@text>
+          </@body>
+        </marko-web-node>
+      </@slot>
+    </@nodes>
+    <@footer>
+      <website-early-career-blogs-button />
+    </@footer>
+  </marko-web-node-list>
 </marko-web-query>
