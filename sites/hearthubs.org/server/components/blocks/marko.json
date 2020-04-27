@@ -32,5 +32,8 @@
   },
   "<website-science-news-block>": {
     "template": "./science-news.marko"
+  },
+  "<website-watch-listen-block>": {
+    "template": "./watch-listen.marko"
   }
 }
