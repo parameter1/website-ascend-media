@@ -44,12 +44,6 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   box-shadow: $theme-box-shadow-sm;
 }
 
-.page--content {
-  .twitter-timeline-rendered {
-    box-shadow: none;
-  }
-}
-
 .company-section-label {
   display: block;
   padding-bottom: .25rem;
