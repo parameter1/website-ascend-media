@@ -6,9 +6,9 @@ const searchItem = {
 };
 
 const userTools = [
-  { href: '/page/about-us', label: 'About Us' },
-  { href: '/page/privacy-policy', label: 'Privacy Policy' },
-  { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+  // { href: '/page/about-us', label: 'About Us' },
+  // { href: '/page/privacy-policy', label: 'Privacy Policy' },
+  // { href: '/page/terms-conditions', label: 'Terms & Conditions' },
 ];
 
 const conferences = [
