@@ -149,6 +149,15 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                   target="_blank"
                 />
               </if>
+              <if(type === "event" && get(content, "primarySection.alias") === "vascular")>
+                <a
+                  href="https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp"
+                  target="_blank"
+                  class="mt-3 btn btn-primary"
+                >
+                  Access Sessions
+                </a>
+              </if>
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
