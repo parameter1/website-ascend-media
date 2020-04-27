@@ -45,6 +45,13 @@
     color: $gray-600;
   }
 
+  &__footer-left {
+    &--early-career-button {
+      width: 100%;
+      padding-top: map-get($spacers, block);
+    }
+  }
+
   &__image-inner-wrapper {
     box-shadow: none;
   }

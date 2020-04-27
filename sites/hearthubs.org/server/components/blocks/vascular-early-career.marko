@@ -1,17 +1,16 @@
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../graphql/fragments/content-callout";
-
-$ const { sectionAlias } = input;
+import queryFragment from "../../graphql/fragments/vascular-early-career";
 
 $ const queryParams = {
-  optionName: "Callout",
   limit: 1,
   queryFragment,
-  requiresImage: true,
   sectionBubbling: false,
+  sectionAlias: 'vascular/early-career',
   ...getAsObject(input, "queryParams"),
-  sectionAlias,
 };
+
+$ const modifiers = ["callout"];
+$ if (input.noShadow) modifiers.push("no-shadow");
 
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
   $ const content = nodes[0];
@@ -22,7 +21,7 @@ $ const queryParams = {
     card=true
     flush=false
     full-height=false
-    modifiers=["callout"]
+    modifiers=modifiers
   >
     <@image
       ar="16:9"
@@ -44,9 +43,13 @@ $ const queryParams = {
         <marko-web-content-short-name tag=null obj=content link=true />
       </@text>
 
+      <@text modifiers=["teaser"] show=Boolean(content.teaser)>
+        <marko-web-content-teaser tag=null obj=content link=true />
+      </@text>
+
       <@footer>
-        <@left>
-          <website-content-dates obj=content />
+        <@left modifiers=["early-career-button"]>
+          <website-early-career-blogs-button />
         </@left>
       </@footer>
     </@body>

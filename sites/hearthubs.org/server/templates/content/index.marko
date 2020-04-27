@@ -7,7 +7,6 @@ $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
@@ -162,7 +161,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 </marko-web-node-list>
               </if>
 
-              <website-global-right-rail-block aliases=aliases />
+              <website-global-right-rail-block aliases=aliases no-shadow=true />
             </aside>
 
             <if(displayPhotoswipe)>

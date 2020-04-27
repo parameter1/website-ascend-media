@@ -1,4 +1,7 @@
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
 $ const { obj: content, blockName } = input;
+$ const displayPublishedDate = defaultValue(input.displayPublishedDate, true);
 
 <if(content.type === "event" || content.type === "webinar")>
   <div class=`${blockName}__content-event-dates`>
@@ -6,6 +9,6 @@ $ const { obj: content, blockName } = input;
     <marko-web-content-ends tag="span" block-name=blockName obj=content />
   </div>
 </if>
-<else>
+<else-if(displayPublishedDate)>
   <marko-web-content-published obj=content />
-</else>
+</else-if>

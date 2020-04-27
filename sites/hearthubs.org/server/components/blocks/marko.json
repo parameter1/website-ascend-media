@@ -8,8 +8,8 @@
   "<website-content-featured-block>": {
     "template": "./content-featured.marko"
   },
-  "<website-content-callout-block>": {
-    "template": "./content-callout.marko"
+  "<website-vascular-early-career-block>": {
+    "template": "./vascular-early-career.marko"
   },
   "<website-featured-exhibitors-block>": {
     "template": "./featured-exhibitors.marko"
@@ -32,5 +32,8 @@
   },
   "<website-science-news-block>": {
     "template": "./science-news.marko"
+  },
+  "<website-watch-listen-block>": {
+    "template": "./watch-listen.marko"
   }
 }
