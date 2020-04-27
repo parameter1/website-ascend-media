@@ -19,6 +19,10 @@
     max-width: 900px;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    &--margin-auto-x {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   &__above-title {
