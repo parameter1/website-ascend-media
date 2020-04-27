@@ -44,6 +44,7 @@ $ const adSlots = ({ aliases }) => ({
             requiresImage: true,
             excludeContentTypes: ["Contact", "Promotion", "TextAd", "Event"],
             limit: 2,
+            sectionId: id,
             queryFragment,
           }>
             <default-theme-card-deck-flow cols=2 nodes=nodes class="mb-3">
