@@ -1,14 +1,12 @@
 import { getAsObject, get } from "@base-cms/object-path";
-import queryFragment from "../../graphql/fragments/content-callout";
-
-$ const { sectionAlias } = input;
+import queryFragment from "../../graphql/fragments/vascular-early-career";
 
 $ const queryParams = {
   limit: 1,
   queryFragment,
   sectionBubbling: false,
+  sectionAlias: 'vascular/early-career',
   ...getAsObject(input, "queryParams"),
-  sectionAlias,
 };
 
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
