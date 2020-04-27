@@ -9,6 +9,9 @@ $ const queryParams = {
   ...getAsObject(input, "queryParams"),
 };
 
+$ const modifiers = ["callout"];
+$ if (input.noShadow) modifiers.push("no-shadow");
+
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
   $ const content = nodes[0];
   $ const primaryImage = getAsObject(content, "primaryImage");
@@ -18,7 +21,7 @@ $ const queryParams = {
     card=true
     flush=false
     full-height=false
-    modifiers=["callout"]
+    modifiers=modifiers
   >
     <@image
       ar="16:9"

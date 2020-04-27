@@ -1,6 +1,6 @@
 import GAM from "../../../config/gam";
 
-$ const { aliases } = input;
+$ const { aliases, noShadow } = input;
 
 <marko-web-gam-define-display-ad
   ...GAM.getAdUnit({ name: "rail1", aliases })
@@ -19,7 +19,7 @@ $ const { aliases } = input;
   collapse-before-ad-fetch=true
 />
 
-<website-vascular-early-career-block />
+<website-vascular-early-career-block no-shadow=noShadow />
 
 <marko-web-gam-define-display-ad
   ...GAM.getAdUnit({ name: "rail2", aliases })
