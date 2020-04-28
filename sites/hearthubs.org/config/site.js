@@ -28,7 +28,7 @@ module.exports = {
     description: '',
   },
   contactUs: {
-    to: 'basecmsdev@gmail.com',
+    to: 'DSanford@ascendintegratedmedia.com',
     branding: {
       logo: 'https://base.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=60',
     },
@@ -39,7 +39,7 @@ module.exports = {
   inquiry: {
     enabled: true,
     directSend: true,
-    sendTo: 'basecmsdev@gmail.com',
+    sendTo: 'DSanford@ascendintegratedmedia.com',
     sendFrom: 'HeartHubs <reply@hearthubs.org>',
     logo: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
     bgColor: '#ffffff',
