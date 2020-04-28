@@ -15,8 +15,8 @@ $ const queryParams = {
 };
 
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
-  $ const shuffled = shuffle(nodes);
-  <default-theme-card-deck-flow cols=2 nodes=shuffled>
+  <!-- $ const shuffled = shuffle(nodes); -->
+  <default-theme-card-deck-flow cols=2 nodes=nodes>
     <@slot|{ node: content }|>
       $ const primaryImage = getAsObject(content, "primaryImage");
       <marko-web-node
