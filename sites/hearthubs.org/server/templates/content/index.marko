@@ -169,8 +169,9 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                   </@body>
                 </marko-web-node-list>
               </if>
-
-              <website-global-right-rail-block aliases=aliases no-shadow=true />
+              <else>
+                <website-global-right-rail-block aliases=aliases no-shadow=true />
+              </else>
             </aside>
 
             <if(displayPhotoswipe)>
