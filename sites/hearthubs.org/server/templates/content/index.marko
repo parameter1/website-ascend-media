@@ -135,6 +135,11 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
 
               <marko-web-content-sidebars block-name=blockName obj=content />
+
+              <if(type === "podcast")>
+                <marko-web-content-audio block-name=blockName obj=content />
+              </if>
+
               <if(type === "document" || type === "whitepaper")>
                 <default-theme-content-download obj=content>
                   <@wufoo user-name=site.get("wufoo.userName") />
