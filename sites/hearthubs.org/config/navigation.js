@@ -6,9 +6,8 @@ const searchItem = {
 };
 
 const userTools = [
-  // { href: '/page/about-us', label: 'About Us' },
-  // { href: '/page/privacy-policy', label: 'Privacy Policy' },
-  // { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+  { href: '/page/privacy-policy', label: 'Privacy Policy' },
+  { href: '/page/terms-conditions', label: 'Terms & Conditions' },
 ];
 
 const conferences = [
@@ -25,6 +24,11 @@ const vascularTopics = [
   { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316972_Programming-ATVB-PVD.jsp', label: 'Claim CME', target: '_blank' },
 ];
 
+const vascularSecondary = [
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: 'https://atvb.apprisor.org/epsWelcome.cfm?CFID=7228878&CFTOKEN=6bd6a3b1644b521d-0AB2008E-B509-9A77-C30CC77ABC062245', label: 'ePosters Access', target: '_blank' },
+];
+
 const qcorTopics = [
   { href: '/qcor/science-news', label: 'Science News' },
   { href: '/qcor/2020-program', label: '2020 Schedule' },
@@ -37,26 +41,23 @@ module.exports = {
    */
   default: {
     primary: {
-      items: [
-        { href: '/qcor', label: 'QCOR 2020 Conference' },
-        { href: '/vascular', label: 'Vascular Discovery 2020 Conference' },
-      ],
+      items: [...vascularTopics],
     },
-    // @todo remove these
     secondary: {
-      items: [
-        { href: '#', label: 'Science News' },
-        { href: '#', label: 'Learning Studios' },
-      ],
+      items: [...vascularSecondary],
     },
     tertiary: {
       items: [searchItem],
     },
     menu: [
       {
-        label: '2020 Conferences',
-        items: [...conferences],
+        label: 'Topics',
+        items: [...vascularTopics],
       },
+      // {
+      //   label: '2020 Conferences',
+      //   items: [...conferences],
+      // },
       {
         label: 'User Tools',
         items: [...userTools],
@@ -72,6 +73,9 @@ module.exports = {
       when: ['/vascular'],
       primary: {
         items: [...vascularTopics],
+      },
+      secondary: {
+        items: [...vascularSecondary],
       },
       tertiary: {
         items: [searchItem],

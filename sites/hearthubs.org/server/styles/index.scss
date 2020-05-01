@@ -53,3 +53,35 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   text-transform: uppercase;
   border-bottom: 1px solid $light;
 }
+
+.error-page {
+  padding-bottom: 1.25rem;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: $white;
+
+  &__title {
+    color: $primary;
+    @include theme-apply-fonts(
+      $font-family: $theme-page-title-font-family,
+      $font-size-sm: $theme-page-title-font-size-sm,
+      $font-size: 5rem,
+      $font-weight: 100,
+      $line-height-sm: $theme-page-title-line-height-sm,
+      $line-height: $theme-page-title-line-height,
+    );
+  }
+
+  &__image,
+  &__text {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__image {
+    max-width: 800px;
+  }
+  &__text {
+    max-width: 600px;
+  }
+}
