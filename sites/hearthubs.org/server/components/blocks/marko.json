@@ -35,5 +35,14 @@
   },
   "<website-watch-listen-block>": {
     "template": "./watch-listen.marko"
+  },
+  "<website-vascular-cme-leaderboard-block>": {
+    "template": "./vascular-cme-leaderboard.marko"
+  },
+  "<website-vascular-exhibits-mr-block>": {
+    "template": "./vascular-exhibits-mr.marko"
+  },
+  "<website-vascular-eposters-mr-block>": {
+    "template": "./vascular-eposters-mr.marko"
   }
 }
