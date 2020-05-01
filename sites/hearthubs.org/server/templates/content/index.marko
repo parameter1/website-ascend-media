@@ -132,14 +132,14 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
               </if>
               <default-theme-content-contact-details obj=content />
 
+              <if(type === "podcast")>
+                <marko-web-content-audio class="my-block" block-name=blockName obj=content />
+              </if>
+
               $ const bodyId = `content-body-${id}`;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
 
               <marko-web-content-sidebars block-name=blockName obj=content />
-
-              <if(type === "podcast")>
-                <marko-web-content-audio block-name=blockName obj=content />
-              </if>
 
               <if(type === "document" || type === "whitepaper")>
                 <default-theme-content-download obj=content>
