@@ -200,6 +200,7 @@
 
     font-size: 18px;
     font-weight: $font-weight-bold;
+    color: $white;
     background-color: rgba(0, 0, 0, .65);
 
     // stylelint-disable-next-line
@@ -211,7 +212,9 @@
         $line-height-sm: $theme-hero-teaser-line-height-sm,
         $num: 2
       );
+      display: inline;
       color: #fff;
+      text-decoration: underline;
     }
   }
 }
