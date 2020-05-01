@@ -6,6 +6,7 @@ const routes = require('./server/routes');
 const siteConfig = require('./config/site');
 const coreConfig = require('./config/core');
 const document = require('./server/components/document');
+const errorTemplate = require('./server/templates/error');
 
 const { log } = console;
 
@@ -13,6 +14,7 @@ module.exports = startServer({
   rootDir: __dirname,
   coreConfig,
   siteConfig,
+  errorTemplate,
   routes,
   document,
   onStart: async (app) => {
