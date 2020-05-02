@@ -10,7 +10,7 @@ $ const fields = [
   { key: "warrantyInformation", label: "Warranty/Guarantee", tag: "p" },
   { key: "serviceInformation", label: "Service, support & spare parts", tag: "p" },
   { key: "trainingInformation", label: "Training", tag: "p" },
-  { key: "servicesProvided", label: "Other services", tag: "p" },
+  { key: "servicesProvided", label: "Services", tag: "p" },
 ];
 
 $ const mapped = fields.map(field => ({ ...field, value: get(content, field.key) })).filter(f => f.value);
