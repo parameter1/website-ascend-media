@@ -54,6 +54,18 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   border-bottom: 1px solid $light;
 }
 
+.vascular-cme-leaderboard {
+  @media (max-width: 990px) {
+    width: 800px;
+  }
+  @media (max-width: 850px) {
+    width: 600px;
+  }
+  @media (max-width: 650px) {
+    width: 300px;
+  }
+}
+
 .error-page {
   padding-bottom: 1.25rem;
   margin-top: 2rem;
