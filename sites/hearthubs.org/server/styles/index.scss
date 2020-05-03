@@ -56,13 +56,13 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 
 .vascular-cme-leaderboard {
   @media (max-width: 990px) {
-    height: 200px;
+    width: 800px;
   }
-  @media (max-width: 800px) {
-    height: 150px;
+  @media (max-width: 850px) {
+    width: 600px;
   }
-  @media (max-width: 600px) {
-    height: 100px;
+  @media (max-width: 650px) {
+    width: 300px;
   }
 }
 
