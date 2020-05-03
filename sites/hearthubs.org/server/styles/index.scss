@@ -54,6 +54,18 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   border-bottom: 1px solid $light;
 }
 
+.static-leaderboard {
+  @media (max-width: 990px) {
+    height: 200px;
+  }
+  @media (max-width: 800px) {
+    height: 150px;
+  }
+  @media (max-width: 600px) {
+    height: 100px;
+  }
+}
+
 .error-page {
   padding-bottom: 1.25rem;
   margin-top: 2rem;
