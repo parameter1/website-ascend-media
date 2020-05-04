@@ -21,7 +21,7 @@ const vascularTopics = [
   { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp', label: 'Science News', target: '_blank' },
   { href: 'https://www.ahajournals.org/vascular-discovery', label: 'Journals', target: '_blank' },
   { href: '/vascular/membership', label: 'Membership' },
-  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316972_Programming-ATVB-PVD.jsp', label: 'Claim CME', target: '_blank' },
+  { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
 ];
 
 const vascularSecondary = [
