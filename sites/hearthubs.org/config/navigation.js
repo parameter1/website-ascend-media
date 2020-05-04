@@ -54,10 +54,10 @@ module.exports = {
         label: 'Topics',
         items: [...vascularTopics],
       },
-      // {
-      //   label: '2020 Conferences',
-      //   items: [...conferences],
-      // },
+      {
+        label: 'Resources',
+        items: [...vascularSecondary],
+      },
       {
         label: 'User Tools',
         items: [...userTools],
@@ -85,10 +85,10 @@ module.exports = {
           label: 'Topics',
           items: [...vascularTopics],
         },
-        // {
-        //   label: '2020 Conferences',
-        //   items: [...conferences],
-        // },
+        {
+          label: 'Resources',
+          items: [...vascularSecondary],
+        },
         {
           label: 'User Tools',
           items: [...userTools],
