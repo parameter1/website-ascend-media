@@ -67,6 +67,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 }
 
 .exhibitor-disclaimer {
+  margin: 0 map-get($spacers, 3);
   font-size: .5rem;
   text-align: center;
 }
