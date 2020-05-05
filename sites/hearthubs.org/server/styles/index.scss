@@ -66,6 +66,11 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   }
 }
 
+.exhibitor-disclaimer {
+  font-size: .75rem;
+  text-align: center;
+}
+
 .error-page {
   padding-bottom: 1.25rem;
   margin-top: 2rem;
