@@ -54,7 +54,7 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   border-bottom: 1px solid $light;
 }
 
-.vascular-cme-leaderboard {
+.cme-leaderboard {
   @media (max-width: 990px) {
     width: 800px;
   }
