@@ -10,11 +10,6 @@ const userTools = [
   { href: '/page/terms-conditions', label: 'Terms & Conditions' },
 ];
 
-const conferences = [
-  { href: '/qcor', label: 'Quality of Care & Outcomes Reasearch (QCOR)' },
-  { href: '/vascular', label: 'Vascular Discovery: From Genes to Medicine' },
-];
-
 const vascularTopics = [
   { href: '/vascular/2020-program', label: '2020 Schedule' },
   { href: '/vascular/exhibitors', label: 'Exhibits' },
@@ -30,9 +25,17 @@ const vascularSecondary = [
 ];
 
 const qcorTopics = [
-  { href: '/qcor/science-news', label: 'Science News' },
   { href: '/qcor/2020-program', label: '2020 Schedule' },
-  { href: '/qcor/learning-studios', label: 'Learning Studios' },
+  { href: '/qcor/exhibitors', label: 'Exhibits' },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp', label: 'Science News', target: '_blank' },
+  { href: 'https://www.ahajournals.org/vascular-discovery', label: 'Journals', target: '_blank' },
+  { href: '/qcor/membership', label: 'Membership' },
+  { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
+];
+
+const qcorSecondary = [
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: 'https://atvb.apprisor.org/epsWelcome.cfm?CFID=7228878&CFTOKEN=6bd6a3b1644b521d-0AB2008E-B509-9A77-C30CC77ABC062245', label: 'ePosters Access', target: '_blank' },
 ];
 
 module.exports = {
@@ -104,6 +107,9 @@ module.exports = {
       primary: {
         items: [...qcorTopics],
       },
+      secondary: {
+        items: [...qcorSecondary],
+      },
       tertiary: {
         items: [searchItem],
       },
@@ -113,8 +119,8 @@ module.exports = {
           items: [...qcorTopics],
         },
         {
-          label: '2020 Conferences',
-          items: [...conferences],
+          label: 'Resources',
+          items: [...qcorSecondary],
         },
         {
           label: 'User Tools',

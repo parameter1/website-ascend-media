@@ -44,5 +44,14 @@
   },
   "<website-vascular-eposters-mr-block>": {
     "template": "./vascular-eposters-mr.marko"
+  },
+  "<website-qcor-cme-leaderboard-block>": {
+    "template": "./qcor-cme-leaderboard.marko"
+  },
+  "<website-qcor-exhibits-mr-block>": {
+    "template": "./qcor-exhibits-mr.marko"
+  },
+  "<website-qcor-eposters-mr-block>": {
+    "template": "./qcor-eposters-mr.marko"
   }
 }
