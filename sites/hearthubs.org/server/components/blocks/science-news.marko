@@ -1,5 +1,15 @@
-import { getAsObject, get } from "@base-cms/object-path";
+import { getAsObject, get, getAsArray } from "@base-cms/object-path";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/science-news";
+
+$ const { site, req } = out.global;
+
+$ const blockContexts = site.getAsArray("blocks.science-news.contexts");
+$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const scienceNewsLink = contextualBlock ? contextualBlock.href : site.get("blocks.science-news.href");
 
 $ const queryParams = {
   limit: 5,
@@ -45,7 +55,7 @@ $ const queryParams = {
       </@slot>
     </@nodes>
     <@footer>
-      <marko-web-link href="https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp" target="_blank">
+      <marko-web-link href=scienceNewsLink target="_blank">
         More Science News &gt;
       </marko-web-link>
     </@footer>

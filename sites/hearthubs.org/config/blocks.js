@@ -76,4 +76,17 @@ module.exports = {
       },
     ],
   },
+  'science-news': {
+    href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp',
+    contexts: [
+      {
+        when: ['/qcor'],
+        href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_503971_QCOR-2020-Science-News.jsp',
+      },
+      {
+        when: ['/vascular'],
+        href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp',
+      },
+    ],
+  },
 };
