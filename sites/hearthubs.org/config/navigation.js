@@ -27,7 +27,7 @@ const vascularSecondary = [
 const qcorTopics = [
   { href: '/qcor/2020-program', label: '2020 Schedule' },
   { href: '/qcor/exhibitors', label: 'Exhibits' },
-  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp', label: 'Science News', target: '_blank' },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_503971_QCOR-2020-Science-News.jsp', label: 'Science News', target: '_blank' },
   { href: 'https://www.ahajournals.org/vascular-discovery', label: 'Journals', target: '_blank' },
   { href: '/qcor/membership', label: 'Membership' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
