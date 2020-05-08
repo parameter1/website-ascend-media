@@ -15,4 +15,17 @@
       }
     }
   }
+
+  &[data-path^="/qcor"] {
+    display: block;
+    height: auto;
+
+    @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
+      background: url("https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-background.jpg?w=1850") no-repeat 50% 150px;
+
+      .page {
+        background-color: transparent;
+      }
+    }
+  }
 }
