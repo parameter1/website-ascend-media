@@ -1,15 +1,23 @@
-import { getAsObject, get } from "@base-cms/object-path";
+import { getAsObject, get, getAsArray } from "@base-cms/object-path";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/watch-listen";
 
-$ const { sectionAlias } = input;
+$ const { site, req } = out.global;
+
+$ const blockContexts = site.getAsArray("blocks.watch-listen.contexts");
+$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.watch-listen.sectionAlias");
 
 $ const queryParams = {
   limit: 2,
   queryFragment,
   sectionBubbling: false,
   includeContentTypes: ["Video", "Podcast"],
+  sectionAlias: sectionAlias,
   ...getAsObject(input, "queryParams"),
-  sectionAlias,
 };
 
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>

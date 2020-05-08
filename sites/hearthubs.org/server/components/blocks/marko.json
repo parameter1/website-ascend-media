@@ -8,8 +8,8 @@
   "<website-content-featured-block>": {
     "template": "./content-featured.marko"
   },
-  "<website-vascular-early-career-block>": {
-    "template": "./vascular-early-career.marko"
+  "<website-early-career-block>": {
+    "template": "./early-career.marko"
   },
   "<website-featured-exhibitors-block>": {
     "template": "./featured-exhibitors.marko"
@@ -36,22 +36,13 @@
   "<website-watch-listen-block>": {
     "template": "./watch-listen.marko"
   },
-  "<website-vascular-cme-leaderboard-block>": {
-    "template": "./vascular-cme-leaderboard.marko"
+  "<website-leaderboard-block>": {
+    "template": "./leaderboard.marko"
   },
-  "<website-vascular-exhibits-mr-block>": {
-    "template": "./vascular-exhibits-mr.marko"
+  "<website-exhibits-mr-block>": {
+    "template": "./exhibits-mr.marko"
   },
-  "<website-vascular-eposters-mr-block>": {
-    "template": "./vascular-eposters-mr.marko"
-  },
-  "<website-qcor-cme-leaderboard-block>": {
-    "template": "./qcor-cme-leaderboard.marko"
-  },
-  "<website-qcor-exhibits-mr-block>": {
-    "template": "./qcor-exhibits-mr.marko"
-  },
-  "<website-qcor-eposters-mr-block>": {
-    "template": "./qcor-eposters-mr.marko"
+  "<website-eposters-mr-block>": {
+    "template": "./eposters-mr.marko"
   }
 }

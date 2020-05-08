@@ -19,13 +19,7 @@ $ const {
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
 
-      <website-qcor-cme-leaderboard-block />
-
-      <!-- <marko-web-gam-define-display-ad
-        ...GAM.getAdUnit({ name: "lb1", aliases })
-        collapse-before-ad-fetch=true
-        modifiers=["top-of-page", "center", "max-width-970"]
-      /> -->
+      <website-leaderboard-block />
 
       <div class="row">
         <div class="col-lg-8 mb-block-lg">
@@ -40,7 +34,7 @@ $ const {
             </@footer>
           </website-event-schedule-block>
 
-          <website-science-news-block class="mb-block-lg" />
+          <website-science-news-block queryParams={ sectionAlias: "qcor/science-news" } class="mb-block-lg" />
 
           <website-content-featured-block section-alias="qcor/featured" link-header=false />
         </div>

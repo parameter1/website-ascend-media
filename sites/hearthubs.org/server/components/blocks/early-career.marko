@@ -1,11 +1,21 @@
-import { getAsObject, get } from "@base-cms/object-path";
+import { getAsObject, get, getAsArray } from "@base-cms/object-path";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/vascular-early-career";
+
+$ const { site, req } = out.global;
+
+$ const blockContexts = site.getAsArray("blocks.early-career.contexts");
+$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.early-career.sectionAlias");
 
 $ const queryParams = {
   limit: 3,
   queryFragment,
   sectionBubbling: false,
-  sectionAlias: 'vascular/early-career',
+  sectionAlias: sectionAlias,
   ...getAsObject(input, "queryParams"),
 };
 
