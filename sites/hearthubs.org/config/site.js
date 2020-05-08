@@ -1,8 +1,10 @@
 const navigation = require('./navigation');
 const gam = require('./gam');
 const logos = require('./logos');
+const blocks = require('./blocks');
 
 module.exports = {
+  blocks,
   logos,
   navigation,
   gam,
