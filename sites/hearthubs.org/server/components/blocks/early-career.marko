@@ -10,6 +10,7 @@ $ const blockContexts = site.getAsArray("blocks.early-career.contexts");
 $ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
 
 $ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.early-career.sectionAlias");
+$ const earlyCareerLink = contextualBlock ? contextualBlock.href : site.get("blocks.early-career.href");
 
 $ const queryParams = {
   limit: 3,
@@ -63,7 +64,7 @@ $ const queryParams = {
       </@slot>
     </@nodes>
     <@footer>
-      <website-early-career-blogs-button />
+      <website-early-career-blogs-button href=earlyCareerLink />
     </@footer>
   </marko-web-node-list>
 </marko-web-query>
