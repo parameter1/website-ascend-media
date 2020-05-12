@@ -1,16 +1,16 @@
 module.exports = {
   leaderboard: {
-    src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-cme-billboard.png',
+    src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
     contexts: [
       {
         when: ['/qcor'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-cme-billboard.png',
+        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_316906_QCOR-Scientific-Sessions.jsp',
       },
       {
         when: ['/vascular'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-cme-billboard.png',
+        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
       },
     ],
