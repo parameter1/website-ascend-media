@@ -136,7 +136,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 <marko-web-content-audio class="my-block" block-name=blockName obj=content />
               </if>
 
-              <if(type === "event" && get(content, "primarySection.alias") === "vascular")>
+              <if(type === "event" && ["vascular", "qcor/2020-program"].includes(get(content, "primarySection.alias")))>
                 <a
                   href="https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp"
                   target="_blank"
