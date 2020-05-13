@@ -54,7 +54,7 @@ module.exports = {
       {
         when: ['/qcor'],
         sectionAlias: 'qcor/early-career',
-        href: 'https://www.google.com',
+        href: 'https://earlycareervoice.professional.heart.org',
       },
       {
         when: ['/vascular'],
