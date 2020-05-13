@@ -1,8 +1,10 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import { getAsObject, get } from "@base-cms/object-path";
+import { getAsArray, getAsObject, get } from "@base-cms/object-path";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asArray } from "@base-cms/utils";
 import GAM from "../../../config/gam";
 
-$ const { site } = out.global;
+$ const { site, req } = out.global;
 $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
@@ -137,8 +139,10 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
               </if>
 
               <if(type === "event" && ["vascular", "qcor/2020-program"].includes(get(content, "primarySection.alias")))>
+                $ const accessSessionsContexts = site.getAsArray("blocks.access-sessions.contexts");
+                $ const accessSessionsBlock = accessSessionsContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
                 <a
-                  href="https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp"
+                  href=accessSessionsBlock.href
                   target="_blank"
                   class="mt-1 mb-3 btn btn-primary"
                 >
