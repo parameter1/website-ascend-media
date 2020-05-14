@@ -10,7 +10,7 @@ $ const { id, type, pageNode } = data;
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
 });
-$ const displayPrimaryImage = ["whitepaper", "media-gallery", "video"].includes(type) ? false : true;
+$ const displayPrimaryImage = ["whitepaper", "media-gallery", "video", "event"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayFeatured = ["company", "product", "contact"].includes(type) ? false : true;
 $ const displayInquiry = (content) => {
