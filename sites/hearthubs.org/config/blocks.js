@@ -20,11 +20,6 @@ module.exports = {
     href: 'https://www.hearthubs.org/vascular/exhibitors',
     contexts: [
       {
-        when: ['/qcor'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-exhibits.png',
-        href: '/qcor/exhibitors',
-      },
-      {
         when: ['/vascular'],
         src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
         href: 'https://www.hearthubs.org/vascular/exhibitors',
