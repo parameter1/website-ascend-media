@@ -29,6 +29,14 @@ $ const aboveContainer = get(input, "aboveContainer.renderBody");
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
-    <website-footer />
+    <!-- <website-footer /> -->
+    <footer id="aha-footer" class="l-footer" />
+    <script>
+      $.getScript('https://static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js', function() {
+        if ($.prototype.ahaHeaderFooterSitecore) {
+          $('.body-wrapper').ahaHeaderFooterSitecore();
+        }
+      });
+    </script>
   </@below-container>
 </marko-web-document>

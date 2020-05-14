@@ -6,6 +6,7 @@ import GAM from '@base-cms/marko-web-gam/browser';
 import GCSE from '@base-cms/marko-web-gcse/browser';
 import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
 import PhotoSwipe from '@base-cms/marko-web-photoswipe/browser';
+import jQuery from '@base-cms/marko-web/browser/jquery-full';
 
 DefaultTheme(Browser);
 GTM(Browser);
@@ -25,5 +26,8 @@ Browser.register('CompanyProfileWebsiteLink', CompanyProfileWebsiteLink, {
 Browser.register('CompanyProfileSocialLink', CompanyProfileSocialLink, {
   on: { action: (...args) => EventBus.$emit('leaders-action', ...args) },
 });
+
+window.jQuery = jQuery;
+window.$ = jQuery;
 
 export default Browser;
