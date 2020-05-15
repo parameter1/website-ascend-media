@@ -66,6 +66,15 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   }
 }
 
+.qcor-chat-button {
+  @media (max-width: 1100px) {
+    width: 600px;
+  }
+  @media (max-width: 650px) {
+    width: 300px;
+  }
+}
+
 .exhibitor-disclaimer {
   margin: 0 map-get($spacers, 3);
   font-size: .5rem;

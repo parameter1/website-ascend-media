@@ -47,5 +47,8 @@
   },
   "<website-eposters-mr-block>": {
     "template": "./eposters-mr.marko"
+  },
+  "<website-qcor-chat-button-block>": {
+    "template": "./qcor-chat-button.marko"
   }
 }
