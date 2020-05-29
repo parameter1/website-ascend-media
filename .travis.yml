@@ -12,23 +12,23 @@ stages:
   - name: production-finished
     if: tag =~ /^v\d+\.\d+\.\d+$/
 
-  - name: staging-started
-    if: tag is present
-  - name: staging
-    if: tag is present
-  - name: staging-finished
-    if: tag is present
+  # - name: staging-started
+  #   if: tag is present
+  # - name: staging
+  #   if: tag is present
+  # - name: staging-finished
+  #   if: tag is present
 
 jobs:
   include:
     - stage: test
       env: [NODE_ENV=test]
 
-    # - stage: production-started
-    #   name: Deployment Started
-    #   script: npx @base-cms/website-deployment-tool notify-started
-    #   install: skip
-    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+    - stage: production-started
+      name: Deployment Started
+      script: npx @base-cms/website-deployment-tool notify-started
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging-started
     #   name: Deployment Started
@@ -44,23 +44,23 @@ jobs:
       name: hearthubs.org
       script: npx @base-cms/website-deployment-tool deploy hearthubs.org caprica
       install: skip
-      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
-    - stage: staging
-      name: hearthubs.org
-      script: npx @base-cms/website-deployment-tool deploy hearthubs.org caprica
-      install: skip
-      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+    # - stage: staging
+    #   name: hearthubs.org
+    #   script: npx @base-cms/website-deployment-tool deploy hearthubs.org caprica
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
 
-    # - stage: production-finished
-    #   name: Deployment Finished
-    #   script: npx @base-cms/website-deployment-tool notify-finished
-    #   install: skip
-    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-gxsr7]
+    - stage: production-finished
+      name: Deployment Finished
+      script: npx @base-cms/website-deployment-tool notify-finished
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging-finished
     #   name: Deployment Finished
