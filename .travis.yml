@@ -42,13 +42,13 @@ jobs:
 
     - stage: production
       name: hearthubs.org
-      script: npx @base-cms/website-deployment-tool deploy hearthubs.org caprica
+      script: npx @base-cms/website-deployment-tool deploy hearthubs.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: hearthubs.org
-    #   script: npx @base-cms/website-deployment-tool deploy hearthubs.org caprica
+    #   script: npx @base-cms/website-deployment-tool deploy hearthubs.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 

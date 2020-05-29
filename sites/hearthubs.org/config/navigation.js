@@ -39,7 +39,7 @@ const qcorSecondary = [
 
 module.exports = {
   /**
-   * Default
+   * Default!
    */
   default: {
     primary: {
