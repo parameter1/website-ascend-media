@@ -918,10 +918,10 @@
   dependencies:
     "@base-cms/utils" "^1.25.0"
 
-"@base-cms/marko-web-theme-default@^1.26.1":
-  version "1.26.1"
-  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-theme-default/-/marko-web-theme-default-1.26.1.tgz#5b205c1ca36746dc7f4b617e833923d055f73141"
-  integrity sha512-U2jYsQF1WSj5dxuXUN6Qd/cOHtApnxc2GqkO2TGycSnlwd3AxSkJ1+M5zG/h80xUiudgYrpsLdwhINGFW62P5w==
+"@base-cms/marko-web-theme-default@^1.27.6":
+  version "1.27.6"
+  resolved "https://registry.yarnpkg.com/@base-cms/marko-web-theme-default/-/marko-web-theme-default-1.27.6.tgz#e86d8762da8b7af927e47b4a627d11de346726b4"
+  integrity sha512-Bkk77H6aU1vOFcHyvlNApb95/R83+j+19Na/NyKgp9GLHx+RJhMaURFl+1ZzGKoj8NpeEZ59GNccqcWWJJx8+g==
   dependencies:
     "@base-cms/marko-web-icons" "^1.24.0"
     "@base-cms/object-path" "^1.25.0"

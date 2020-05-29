@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "basecms-website dev index.js",
     "build": "basecms-website build",
-    "compile": "basecms-marko-compile compile --dir ./ --silent true",
+    "compile": "basecms-marko-compile compile --dir ./ --silent false",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "eslint --ext .js --ext .vue --max-warnings 5 --ignore-path ../../.eslintignore ./",
     "lint:css": "stylelint ./**/*.scss --max-warnings 5",
@@ -25,7 +25,7 @@
     "@base-cms/marko-web-inquiry": "^1.27.3",
     "@base-cms/marko-web-photoswipe": "^1.25.0",
     "@base-cms/marko-web-social-sharing": "^1.25.0",
-    "@base-cms/marko-web-theme-default": "^1.26.1",
+    "@base-cms/marko-web-theme-default": "^1.27.6",
     "@base-cms/object-path": "^1.25.0",
     "@base-cms/utils": "^1.25.0",
     "@base-cms/web-cli": "^1.27.3",
