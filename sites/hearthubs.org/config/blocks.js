@@ -1,43 +1,43 @@
 module.exports = {
   leaderboard: {
-    src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
     contexts: [
       {
         when: ['/qcor'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_316906_QCOR-Scientific-Sessions.jsp',
       },
       {
         when: ['/vascular'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
       },
     ],
   },
   exhibits: {
-    src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
     href: 'https://www.hearthubs.org/vascular/exhibitors',
     contexts: [
       {
         when: ['/vascular'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
         href: 'https://www.hearthubs.org/vascular/exhibitors',
       },
     ],
   },
   eposters: {
-    src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
     href: 'https://atvb.apprisor.org',
     contexts: [
       {
         when: ['/qcor'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/qcor-eposters.png',
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-eposters.png',
         href: 'https://qcor.apprisor.org',
       },
       {
         when: ['/vascular'],
-        src: 'https://base.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
         href: 'https://atvb.apprisor.org',
       },
     ],
