@@ -27,14 +27,16 @@ $ const {
 
           <website-qcor-chat-button-block />
 
-          <website-event-schedule-block class="mb-block-lg">
+          <!-- <website-event-schedule-block class="mb-block-lg">
             <@header>
               <marko-web-link href="/qcor/2020-program">Today's Schedule</marko-web-link>
             </@header>
             <@footer>
               <marko-web-link href="/qcor/2020-program">View More Sessions &gt;</marko-web-link>
             </@footer>
-          </website-event-schedule-block>
+          </website-event-schedule-block> -->
+
+          <website-announcements-block queryParams={ sectionAlias: "qcor/announcements" } class="mb-block-lg" />
 
           <website-science-news-block queryParams={ sectionAlias: "qcor/science-news" } class="mb-block-lg" />
 
