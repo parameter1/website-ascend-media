@@ -50,5 +50,8 @@
   },
   "<website-qcor-chat-button-block>": {
     "template": "./qcor-chat-button.marko"
+  },
+  "<website-qcor-early-career-plenary-buttons-block>": {
+    "template": "./qcor-early-career-plenary-buttons.marko"
   }
 }

@@ -75,6 +75,16 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
   }
 }
 
+.qcor-early-career-button,
+.qcor-plenary-button {
+  margin-right: .25rem;
+  margin-left: .25rem;
+  @media (max-width: 1140px) {
+    margin-top: 1rem;
+  }
+}
+
+
 .exhibitor-disclaimer {
   margin: 0 map-get($spacers, 3);
   font-size: .75rem;
