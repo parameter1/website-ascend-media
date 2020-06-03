@@ -11,18 +11,20 @@ $ const srcset2 = [`${buildImgixUrl(imgixUrl2, { h: 90, dpr: 2 })} 2x`];
 $ const href2 = 'https://drive.google.com/file/d/1Jm6kpBtYOBB3hWm14Td7uZgTsHGgnwXz/view';
 
 <div class="ad-container ad-container--top-of-page ad-container--max-width-728">
-  <marko-web-img
-    src=imgixUrl1
-    srcset=srcset1
-    lazyload=true
-    class="qcor-early-career-button"
-    link={ href1 }
-  />
-  <marko-web-img
-    src=imgixUrl2
-    srcset=srcset2
-    lazyload=true
-    class="qcor-plenary-button"
-    link={ href2 }
-  />
+  <marko-web-link href=href1 target="_blank">
+    <marko-web-img
+      src=imgixUrl1
+      srcset=srcset1
+      lazyload=true
+      class="qcor-early-career-button"
+    />
+  </marko-web-link>
+  <marko-web-link href=href2 target="_blank">
+    <marko-web-img
+      src=imgixUrl2
+      srcset=srcset2
+      lazyload=true
+      class="qcor-plenary-button"
+    />
+  </marko-web-link>
 </div>
