@@ -13,6 +13,16 @@ module.exports = {
         src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
       },
+      {
+        when: ['/bcvs'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-billboard.png',
+        href: '/',
+      },
+      {
+        when: ['/hypertension'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard.png',
+        href: '/',
+      },
     ],
   },
   exhibits: {
@@ -23,6 +33,16 @@ module.exports = {
         when: ['/vascular'],
         src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
         href: 'https://www.hearthubs.org/vascular/exhibitors',
+      },
+      {
+        when: ['/bcvs'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-exhibits.png',
+        href: 'https://www.hearthubs.org/bcvs/exhibitors',
+      },
+      {
+        when: ['/hypertension'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
+        href: 'https://www.hearthubs.org/hypertension/exhibitors',
       },
     ],
   },
@@ -40,6 +60,16 @@ module.exports = {
         src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
         href: 'https://atvb.apprisor.org',
       },
+      {
+        when: ['/bcvs'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
+        href: '/',
+      },
+      {
+        when: ['/hypertension'],
+        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
+        href: '/',
+      },
     ],
   },
   'early-career': {
@@ -56,6 +86,16 @@ module.exports = {
         sectionAlias: 'vascular/early-career',
         href: 'https://earlycareervoice.professional.heart.org/blog',
       },
+      {
+        when: ['/bcvs'],
+        sectionAlias: 'bcvs/early-career',
+        href: 'https://earlycareervoice.professional.heart.org/blog',
+      },
+      {
+        when: ['/hypertension'],
+        sectionAlias: 'hypertension/early-career',
+        href: 'https://earlycareervoice.professional.heart.org/blog',
+      },
     ],
   },
   'watch-listen': {
@@ -68,6 +108,14 @@ module.exports = {
       {
         when: ['/vascular'],
         sectionAlias: 'vascular/watch-listen',
+      },
+      {
+        when: ['/bcvs'],
+        sectionAlias: 'bcvs/watch-listen',
+      },
+      {
+        when: ['/hypertension'],
+        sectionAlias: 'hypertension/watch-listen',
       },
     ],
   },
@@ -82,6 +130,14 @@ module.exports = {
         when: ['/vascular'],
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
       },
+      {
+        when: ['/bcvs'],
+        href: '/',
+      },
+      {
+        when: ['/hypertension'],
+        href: '/',
+      },
     ],
   },
   'science-news': {
@@ -94,6 +150,14 @@ module.exports = {
       {
         when: ['/vascular'],
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp',
+      },
+      {
+        when: ['/bcvs'],
+        href: '/',
+      },
+      {
+        when: ['/hypertension'],
+        href: '/',
       },
     ],
   },
