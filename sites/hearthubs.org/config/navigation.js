@@ -37,6 +37,32 @@ const qcorSecondary = [
   { href: 'https://qcor.apprisor.org', label: 'ePosters Access', target: '_blank' },
 ];
 
+const bcvsTopics = [
+  { href: '/bcvs/2020-program', label: '2020 Schedule' },
+  { href: '/', label: 'Science News', target: '_blank' },
+  { href: '/', label: 'Journals', target: '_blank' },
+  { href: '/bcvs/membership', label: 'Membership' },
+  { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
+];
+
+const bcvsSecondary = [
+  { href: '/', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: '/', label: 'ePosters Access', target: '_blank' },
+];
+
+const hypertensionTopics = [
+  { href: '/hypertension/2020-program', label: '2020 Schedule' },
+  { href: '/', label: 'Science News', target: '_blank' },
+  { href: '/', label: 'Journals', target: '_blank' },
+  { href: '/hypertension/membership', label: 'Membership' },
+  { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
+];
+
+const hypertensionSecondary = [
+  { href: '/', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: '/', label: 'ePosters Access', target: '_blank' },
+];
+
 module.exports = {
   /**
    * Default!
@@ -120,6 +146,66 @@ module.exports = {
         {
           label: 'Resources',
           items: [...qcorSecondary],
+        },
+        {
+          label: 'User Tools',
+          items: [...userTools],
+        },
+      ],
+    },
+
+    /**
+     * BCVS
+     */
+    {
+      when: ['/bcvs'],
+      primary: {
+        items: [...bcvsTopics],
+      },
+      secondary: {
+        items: [...bcvsSecondary],
+      },
+      tertiary: {
+        items: [searchItem],
+      },
+      menu: [
+        {
+          label: 'Topics',
+          items: [...bcvsTopics],
+        },
+        {
+          label: 'Resources',
+          items: [...bcvsSecondary],
+        },
+        {
+          label: 'User Tools',
+          items: [...userTools],
+        },
+      ],
+    },
+
+    /**
+     * Hypertension
+     */
+    {
+      when: ['/hypertension'],
+      primary: {
+        items: [...hypertensionTopics],
+      },
+      secondary: {
+        items: [...hypertensionSecondary],
+      },
+      tertiary: {
+        items: [searchItem],
+      },
+      menu: [
+        {
+          label: 'Topics',
+          items: [...hypertensionTopics],
+        },
+        {
+          label: 'Resources',
+          items: [...hypertensionSecondary],
         },
         {
           label: 'User Tools',
