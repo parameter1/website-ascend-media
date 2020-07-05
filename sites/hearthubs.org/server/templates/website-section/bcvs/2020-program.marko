@@ -36,8 +36,10 @@ $ const {
               <div class="row">
                 <div class="col-md-7">
                   <div class="d-flex">
-                    <a href="#friday" class="btn btn-primary">Friday</a>
-                    <a href="#saturday" class="btn btn-primary ml-2">Saturday</a>
+                    <a href="#monday" class="btn btn-primary">Monday</a>
+                    <a href="#tuesday" class="btn btn-primary ml-2">Tuesday</a>
+                    <a href="#wednesday" class="btn btn-primary ml-2">Wednesday</a>
+                    <a href="#thursday" class="btn btn-primary ml-2">Thursday</a>
                   </div>
                 </div>
 
@@ -48,25 +50,49 @@ $ const {
             </@body>
           </marko-web-node-list>
 
-          <a class="anchor" name="friday" />
+          <a class="anchor" name="monday" />
           <website-event-schedule-block class="mb-block-lg">
-            <@header>Friday</@header>
+            <@header>Monday</@header>
             <@query-params
               limit=0
-              beginning-after=(new Date(1589518800000))
-              ending-before=(new Date(1589605199999))
+              beginning-after=(new Date(1595808000000))
+              ending-before=(new Date(1595894399999))
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
           </website-event-schedule-block>
 
-          <a class="anchor" name="saturday" />
+          <a class="anchor" name="tuesday" />
           <website-event-schedule-block class="mb-block-lg">
-            <@header>Saturday</@header>
+            <@header>Tuesday</@header>
             <@query-params
               limit=0
-              beginning-after=(new Date(1589605200000))
-              ending-before=(new Date(1589691599999))
+              beginning-after=(new Date(1595894400000))
+              ending-before=(new Date(1595980799999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </website-event-schedule-block>
+
+          <a class="anchor" name="wednesday" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@header>Wednesday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1595980800000))
+              ending-before=(new Date(1596067199999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </website-event-schedule-block>
+
+          <a class="anchor" name="thursday" />
+          <website-event-schedule-block class="mb-block-lg">
+            <@header>Thursday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1596067200000))
+              ending-before=(new Date(1596153599999))
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
