@@ -39,6 +39,7 @@ const qcorSecondary = [
 
 const bcvsTopics = [
   { href: '/bcvs/2020-program', label: '2020 Schedule' },
+  { href: '/bcvs/exhibitors', label: 'Exhibits' },
   { href: '/', label: 'Science News', target: '_blank' },
   { href: '/', label: 'Journals', target: '_blank' },
   { href: '/bcvs/membership', label: 'Membership' },
