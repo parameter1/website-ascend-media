@@ -41,6 +41,11 @@
         i, em {
           color: $gray-600;
         }
+
+        // stylelint-disable-next-line
+        b {
+          color: $dark;
+        }
       }
     }
   }
