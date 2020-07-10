@@ -40,7 +40,7 @@ const qcorSecondary = [
 const bcvsTopics = [
   { href: '/bcvs/2020-program', label: '2020 Schedule' },
   { href: '/bcvs/exhibitors', label: 'Exhibits' },
-  { href: '/', label: 'Science News', target: '_blank' },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/EducationMeetings/UCM_505357_Science-News-for-BCVS-2020.jsp', label: 'Science News', target: '_blank' },
   { href: 'https://www.ahajournals.org', label: 'Journals', target: '_blank' },
   { href: '/bcvs/membership', label: 'Membership' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
