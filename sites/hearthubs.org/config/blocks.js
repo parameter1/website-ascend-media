@@ -153,7 +153,7 @@ module.exports = {
       },
       {
         when: ['/bcvs'],
-        href: '/',
+        href: 'https://professional.heart.org/professional/EducationMeetings/EducationMeetings/UCM_505357_Science-News-for-BCVS-2020.jsp',
       },
       {
         when: ['/hypertension'],
