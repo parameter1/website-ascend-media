@@ -41,7 +41,7 @@ const bcvsTopics = [
   { href: '/bcvs/2020-program', label: '2020 Schedule' },
   { href: '/bcvs/exhibitors', label: 'Exhibits' },
   { href: '/', label: 'Science News', target: '_blank' },
-  { href: '/', label: 'Journals', target: '_blank' },
+  { href: 'https://www.ahajournals.org', label: 'Journals', target: '_blank' },
   { href: '/bcvs/membership', label: 'Membership' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
 ];
@@ -54,7 +54,7 @@ const bcvsSecondary = [
 const hypertensionTopics = [
   { href: '/hypertension/2020-program', label: '2020 Schedule' },
   { href: '/', label: 'Science News', target: '_blank' },
-  { href: '/', label: 'Journals', target: '_blank' },
+  { href: 'https://www.ahajournals.org', label: 'Journals', target: '_blank' },
   { href: '/hypertension/membership', label: 'Membership' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
 ];
