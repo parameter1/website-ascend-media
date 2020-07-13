@@ -1,3 +1,3 @@
 module.exports = (app) => {
-  app.get('/', (_, res) => res.redirect(302, '/qcor'));
+  app.get('/', (_, res) => res.redirect(302, '/bcvs'));
 };
