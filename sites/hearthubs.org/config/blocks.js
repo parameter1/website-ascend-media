@@ -16,7 +16,7 @@ module.exports = {
       {
         when: ['/bcvs'],
         src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-billboard.png',
-        href: '/',
+        href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/BCVS/UCM_316903_BCVS-Scientific-Sessions.jsp',
       },
       {
         when: ['/hypertension'],
@@ -63,7 +63,7 @@ module.exports = {
       {
         when: ['/bcvs'],
         src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
-        href: '/',
+        href: 'https://bcvs.apprisor.org',
       },
       {
         when: ['/hypertension'],
@@ -132,7 +132,7 @@ module.exports = {
       },
       {
         when: ['/bcvs'],
-        href: '/',
+        href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/BCVS/UCM_316903_BCVS-Scientific-Sessions.jsp',
       },
       {
         when: ['/hypertension'],
