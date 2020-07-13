@@ -138,7 +138,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 <marko-web-content-audio class="my-block" block-name=blockName obj=content />
               </if>
 
-              <if(type === "event" && ["vascular", "qcor/2020-program"].includes(get(content, "primarySection.alias")))>
+              <if(type === "event" && ["vascular", "qcor/2020-program", "bcvs/2020-program", "hypertension/2020-program", "2020-program"].includes(get(content, "primarySection.alias")))>
                 $ const accessSessionsContexts = site.getAsArray("blocks.access-sessions.contexts");
                 $ const accessSessionsBlock = accessSessionsContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
                 <a
