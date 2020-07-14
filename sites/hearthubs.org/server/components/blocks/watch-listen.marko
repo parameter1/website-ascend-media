@@ -12,10 +12,10 @@ $ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(pa
 $ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.watch-listen.sectionAlias");
 
 $ const queryParams = {
-  limit: 2,
+  limit: 3,
   queryFragment,
   sectionBubbling: false,
-  includeContentTypes: ["Video", "Podcast"],
+  includeContentTypes: ["Video", "Podcast", "Promotion"],
   sectionAlias: sectionAlias,
   ...getAsObject(input, "queryParams"),
 };
@@ -31,6 +31,10 @@ $ const queryParams = {
     $ if (content.type === "podcast") {
       action = "Listen";
       src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/listen-icon.png";
+    }
+    $ if (content.type === "promotion") {
+      action = "Navigation Tips";
+      src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/navigation-icon.png";
     }
     <marko-web-node
       image-position="left"
