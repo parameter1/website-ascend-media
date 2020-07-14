@@ -47,8 +47,8 @@ const bcvsTopics = [
 ];
 
 const bcvsSecondary = [
-  { href: '/', label: 'Virtual Sessions Access', target: '_blank' },
-  { href: '/', label: 'ePosters Access', target: '_blank' },
+  { href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/BCVS/UCM_316903_BCVS-Scientific-Sessions.jsp', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: 'https://bcvs.apprisor.org/epsWelcome.cfm?CFID=7409211&CFTOKEN=adb08ae7478bc8e5-186A09A9-ECE6-5163-C70E450D52629833', label: 'ePosters Access', target: '_blank' },
 ];
 
 const hypertensionTopics = [
