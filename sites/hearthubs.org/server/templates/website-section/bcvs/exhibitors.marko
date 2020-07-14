@@ -1,5 +1,10 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { getAsArray } from "@base-cms/object-path";
+import { asArray } from "@base-cms/utils";
 import GAM from "../../../../config/gam";
+
+$ const { site, req } = out.global;
 
 $ const {
   id,
@@ -11,6 +16,11 @@ $ const {
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
 });
+
+$ const messageContexts = site.getAsArray("blocks.message.contexts");
+$ const messageBlock = messageContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
@@ -24,6 +34,10 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
 
   <@page>
+
+    <if(messageAlias)>
+      <website-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
+    </if>
     <!-- <website-leaderboard-block /> -->
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] /> -->
 

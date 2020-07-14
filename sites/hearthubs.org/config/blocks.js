@@ -161,4 +161,12 @@ module.exports = {
       },
     ],
   },
+  message: {
+    contexts: [
+      {
+        when: ['/bcvs'],
+        sectionAlias: 'bcvs/message',
+      },
+    ],
+  },
 };

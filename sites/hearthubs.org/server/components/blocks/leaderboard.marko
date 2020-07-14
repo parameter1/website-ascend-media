@@ -14,6 +14,15 @@ $ const imgixUrl = buildImgixUrl(src, { h: 250 });
 $ const srcset = [`${buildImgixUrl(imgixUrl, { h: 250, dpr: 2 })} 2x`];
 $ const href = contextualBlock ? contextualBlock.href : site.get("blocks.leaderboard.href");
 
+$ const messageContexts = site.getAsArray("blocks.message.contexts");
+$ const messageBlock = messageContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+$ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
+
+<if(messageAlias)>
+  <website-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
+</if>
+
 <div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-970">
   <marko-web-img
     src=imgixUrl
