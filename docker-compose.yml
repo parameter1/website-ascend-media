@@ -72,3 +72,19 @@ services:
     ports:
       - "9810:80"
       - "19810:19810"
+
+  qcor.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/qcor.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9811
+      LIVERELOAD_PORT: 19811
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f09f138c6eb965e078b4568
+    ports:
+      - "9811:80"
+      - "19811:19811"

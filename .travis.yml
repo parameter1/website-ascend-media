@@ -52,6 +52,18 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: qcor.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy qcor.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: qcor.hub.heart.org
+    #   script: npx @base-cms/website-deployment-tool deploy qcor.hub.heart.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
