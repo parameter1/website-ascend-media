@@ -1,0 +1,12 @@
+{
+  "<website-key-contact-card-node>": {
+    "template": "./key-contact-card.marko",
+    "@node": "object",
+    "@with-email": "boolean"
+  },
+  "<website-youtube-card-node>": {
+    "template": "./youtube-card.marko",
+    "@node": "object",
+    "@link-attrs": "object"
+  }
+}

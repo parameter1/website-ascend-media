@@ -1,0 +1,60 @@
+{
+  "<website-content-hero-block>": {
+    "template": "./content-hero.marko"
+  },
+  "<website-content-hero-card-block>": {
+    "template": "./content-hero-card.marko"
+  },
+  "<website-content-featured-block>": {
+    "template": "./content-featured.marko"
+  },
+  "<website-early-career-block>": {
+    "template": "./early-career.marko"
+  },
+  "<website-featured-exhibitors-block>": {
+    "template": "./featured-exhibitors.marko"
+  },
+  "<website-featured-exhibitors-full-block>": {
+    "template": "./featured-exhibitors-full.marko"
+  },
+  "<website-section-list-block>": {
+    "template": "./section-list.marko",
+    "<list>": {}
+  },
+  "<website-company-content-list-block>": {
+    "template": "./company-content-list.marko"
+  },
+  "<website-event-schedule-block>": {
+    "template": "./event-schedule.marko"
+  },
+  "<website-global-right-rail-block>": {
+    "template": "./global-right-rail.marko"
+  },
+  "<website-science-news-block>": {
+    "template": "./science-news.marko"
+  },
+  "<website-message-block>": {
+    "template": "./message.marko"
+  },
+  "<website-announcements-block>": {
+    "template": "./announcements.marko"
+  },
+  "<website-watch-listen-block>": {
+    "template": "./watch-listen.marko"
+  },
+  "<website-leaderboard-block>": {
+    "template": "./leaderboard.marko"
+  },
+  "<website-exhibits-mr-block>": {
+    "template": "./exhibits-mr.marko"
+  },
+  "<website-eposters-mr-block>": {
+    "template": "./eposters-mr.marko"
+  },
+  "<website-qcor-chat-button-block>": {
+    "template": "./qcor-chat-button.marko"
+  },
+  "<website-qcor-early-career-plenary-buttons-block>": {
+    "template": "./qcor-early-career-plenary-buttons.marko"
+  }
+}

@@ -1,0 +1,95 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import { getAsObject, get } from "@base-cms/object-path";
+import GAM from "../../../config/gam";
+
+$ const { site } = out.global;
+$ const { id, type, pageNode } = data;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+});
+
+<marko-web-content-page-layout id=id type=type>
+  <@head>
+    <marko-web-gtm-content-context|{ context }| id=id>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-content-context>
+    <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+
+  <@page>
+    <website-leaderboard-block />
+    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+
+    <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
+        <@section>
+          <div class="row">
+            <div class="col-md-9 col-sm-12 col-lg-10">
+              <div class="ldp">
+                <div class="ldp__logo">
+                  <website-company-page-logo content=content />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-2 col-sm-12 justify-content-center d-flex flex-column px-3 py-3">
+              <div class="ldp__social">
+                <website-company-page-website-link company=content />
+                <div class="mt-2 d-flex justify-content-around">
+                  <for|item| of=resolved.getAsArray("socialLinks")>
+                    <website-company-page-social-link company=content item=item />
+                  </for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
+
+      <div class="row">
+        <div class="col-lg-8 mb-block">
+          <!-- <website-company-page-overview content=content class="mb-block" /> -->
+          <website-company-page-details content=content class="mb-block" />
+
+          <website-company-content-list-block company-id=id>
+            <@header>Videos & Resources</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Video", "Whitepaper", "Webinar", "Document", "MediaGallery", "Podcast"] />
+          </website-company-content-list-block>
+
+          <website-company-content-list-block company-id=id>
+            <@header>Products & Press Releases</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Product", "PressRelease"] />
+          </website-company-content-list-block>
+
+          <website-company-content-list-block company-id=id>
+            <@header>Articles & News</@header>
+            <@list class="mb-block" />
+            <@query-params include-content-types=["Article", "Blog", "News"] />
+          </website-company-content-list-block>
+        </div>
+
+        <div class="col-lg-4 mb-block page-rail">
+          <website-company-page-key-contacts
+            contacts=resolved.getEdgeNodesFor("publicContacts")
+            class="mb-block"
+          />
+
+          <if(resolved.get("enableRmi"))>
+            <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
+              <@header>Request More Information</@header>
+              <@body>
+                <marko-web-inquiry-form content=content with-header=false modifiers=["right-rail"] />
+              </@body>
+            </marko-web-node-list>
+          </if>
+        </div>
+      </div>
+    </marko-web-resolve-page>
+  </@page>
+</marko-web-content-page-layout>
