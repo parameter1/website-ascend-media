@@ -1,24 +1,19 @@
 import { buildImgixUrl } from "@base-cms/image";
-import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
-import { getAsArray } from "@base-cms/object-path";
-import { asArray } from "@base-cms/utils";
-import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { site, req } = out.global;
 
-$ const blockContexts = site.getAsArray("blocks.eposters.contexts");
-$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
-$ const src = contextualBlock ? contextualBlock.src : site.get("blocks.eposters.src");
+$ const src = site.get("blocks.eposters.src") ? site.get("blocks.eposters.src") : false;
 $ const imgixUrl = buildImgixUrl(src, { h: 250 });
 $ const srcset = [`${buildImgixUrl(imgixUrl, { h: 250, dpr: 2 })} 2x`];
-$ const href = contextualBlock ? contextualBlock.href : site.get("blocks.eposters.href");
+$ const href = site.get("blocks.eposters.href") ? site.get("blocks.eposters.href") : false;
 
-<div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-300">
-  <marko-web-img
-    src=imgixUrl
-    srcset=srcset
-    lazyload=true
-    link={ href, target: "_blank" }
-  />
-</div>
+<if(src && href)>
+  <div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-300">
+    <marko-web-img
+      src=imgixUrl
+      srcset=srcset
+      lazyload=true
+      link={ href, target: "_blank" }
+    />
+  </div>
+</if>

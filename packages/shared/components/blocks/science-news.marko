@@ -6,10 +6,7 @@ import queryFragment from "../../graphql/fragments/science-news";
 
 $ const { site, req } = out.global;
 
-$ const blockContexts = site.getAsArray("blocks.science-news.contexts");
-$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
-$ const scienceNewsLink = contextualBlock ? contextualBlock.href : site.get("blocks.science-news.href");
+$ const scienceNewsLink = site.get("blocks.science-news.href");
 
 $ const queryParams = {
   limit: 5,

@@ -6,22 +6,13 @@ import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { site, req } = out.global;
 
-$ const blockContexts = site.getAsArray("blocks.leaderboard.contexts");
-$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
-$ const src = contextualBlock ? contextualBlock.src : site.get("blocks.leaderboard.src");
+$ const src = site.get("blocks.leaderboard.src");
 $ const imgixUrl = buildImgixUrl(src, { h: 250 });
 $ const srcset = [`${buildImgixUrl(imgixUrl, { h: 250, dpr: 2 })} 2x`];
-$ const href = contextualBlock ? contextualBlock.href : site.get("blocks.leaderboard.href");
+$ const href = site.get("blocks.leaderboard.href");
 
-$ const messageContexts = site.getAsArray("blocks.message.contexts");
-$ const messageBlock = messageContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
 
-$ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
-
-<if(messageAlias)>
-  <shared-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
-</if>
+<shared-message-block queryParams={ sectionAlias: "message" } class="mb-block-lg" />
 
 <div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-970">
   <marko-web-img

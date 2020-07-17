@@ -16,11 +16,6 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
 });
 
-$ const messageContexts = site.getAsArray("blocks.message.contexts");
-$ const messageBlock = messageContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
-$ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
-
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
     <marko-web-gtm-website-section-context|{ context }| alias=alias>
@@ -34,9 +29,7 @@ $ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
 
   <@page>
 
-    <if(messageAlias)>
-      <website-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
-    </if>
+    <website-message-block queryParams={ sectionAlias: 'message' } class="mb-block-lg" />
     <!-- <shared-leaderboard-block /> -->
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] /> -->
 
