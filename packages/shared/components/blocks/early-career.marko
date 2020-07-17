@@ -1,0 +1,70 @@
+import { getAsObject, get, getAsArray } from "@base-cms/object-path";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+import queryFragment from "../../graphql/fragments/vascular-early-career";
+
+$ const { site, req } = out.global;
+
+$ const blockContexts = site.getAsArray("blocks.early-career.contexts");
+$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
+
+<!-- $ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.early-career.sectionAlias"); -->
+$ const earlyCareerLink = contextualBlock ? contextualBlock.href : site.get("blocks.early-career.href");
+
+$ const queryParams = {
+  limit: 3,
+  queryFragment,
+  sectionBubbling: false,
+  sectionAlias: 'early-career',
+  ...getAsObject(input, "queryParams"),
+};
+
+<marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
+  <marko-web-node-list collapsible=false>
+    <@header>
+      Early Career Center
+    </@header>
+    <@nodes nodes=nodes>
+      <@slot|{ node: content }|>
+        $ const primaryImage = getAsObject(content, "primaryImage");
+        <marko-web-node
+          type=`${content.type}-content`
+          image-position="top"
+          card=true
+          flush=true
+          full-height=false
+          modifiers=["callout", "no-shadow"]
+        >
+          <@image
+            ar="16:9"
+            width="300"
+            fluid=true
+            use-placeholder=false
+            src=primaryImage.src
+            alt=primaryImage.alt
+            is-logo=primaryImage.isLogo
+            link={ href: get(content, "siteContext.path") }
+          />
+
+          <@body>
+            <@text modifiers=["content-action"]>
+              ${content.type}
+            </@text>
+
+            <@text modifiers=["content-title", "content-title-primary"]>
+              <marko-web-content-short-name tag=null obj=content link=true />
+            </@text>
+
+            <@text modifiers=["teaser"] show=Boolean(content.teaser)>
+              <marko-web-content-teaser tag=null obj=content link=true />
+            </@text>
+          </@body>
+        </marko-web-node>
+      </@slot>
+    </@nodes>
+    <@footer>
+      <shared-early-career-blogs-button href=earlyCareerLink />
+    </@footer>
+  </marko-web-node-list>
+</marko-web-query>

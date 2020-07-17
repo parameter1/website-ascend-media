@@ -72,3 +72,67 @@ services:
     ports:
       - "9810:80"
       - "19810:19810"
+
+  qcor.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/qcor.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9811
+      LIVERELOAD_PORT: 19811
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f09f138c6eb965e078b4568
+    ports:
+      - "9811:80"
+      - "19811:19811"
+
+  bcvs.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/bcvs.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9812
+      LIVERELOAD_PORT: 19812
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f09c343c6eb96c0068b4573
+    ports:
+      - "9812:80"
+      - "19812:19812"
+
+  vasculardiscovery.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/vasculardiscovery.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9813
+      LIVERELOAD_PORT: 19813
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f09f15dc6eb965f078b456f
+    ports:
+      - "9813:80"
+      - "19813:19813"
+
+  hypertension.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/hypertension.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9814
+      LIVERELOAD_PORT: 19814
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f09c37bc6eb96a9058b4579
+    ports:
+      - "9814:80"
+      - "19814:19814"

@@ -72,5 +72,15 @@
   "<shared-contact-us-list-node>": {
     "template": "./contact-us-list.marko",
     "@node": "object"
+  },
+  "<shared-key-contact-card-node>": {
+    "template": "./key-contact-card.marko",
+    "@node": "object",
+    "@with-email": "boolean"
+  },
+  "<shared-youtube-card-node>": {
+    "template": "./youtube-card.marko",
+    "@node": "object",
+    "@link-attrs": "object"
   }
 }

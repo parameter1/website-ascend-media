@@ -1,0 +1,64 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import GAM from "../../../../config/gam";
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = input;
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+  </@head>
+
+  <@page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+
+      <shared-leaderboard-block />
+
+      <div class="row">
+        <div class="col-lg-8 mb-block-lg">
+          <shared-content-hero-card-block section-id=id />
+
+          <shared-event-schedule-block class="mb-block-lg">
+            <@header>
+              <marko-web-link href="/hypertension/2020-program">Today's Schedule</marko-web-link>
+            </@header>
+            <@footer>
+              <marko-web-link href="/hypertension/2020-program">View More Sessions &gt;</marko-web-link>
+            </@footer>
+          </shared-event-schedule-block>
+
+          <website-announcements-block queryParams={ sectionAlias: "hypertension/announcements" } class="mb-block-lg" />
+
+          <shared-science-news-block queryParams={ sectionAlias: "hypertension/science-news" } class="mb-block-lg" />
+
+          <shared-content-featured-block section-alias="hypertension/featured" link-header=false />
+        </div>
+
+        <div class="col-lg-4 mb-block-lg page-rail">
+          <shared-global-right-rail-block aliases=aliases />
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-lg-4 mb-block-lg">
+          <shared-section-list-block section-alias="hypertension/circulation-cv-quality-outcomes" />
+        </div>
+
+        <div class="col-lg-4 mb-block-lg">
+          <shared-section-list-block section-alias="hypertension/health-care-covid-19" />
+        </div>
+
+        <div class="col-lg-4 mb-block-lg">
+          <shared-section-list-block section-alias="hypertension/recent-statements-guidelines" />
+        </div>
+      </div> -->
+    </marko-web-resolve-page>
+  </@page>
+</marko-web-website-section-page-layout>
