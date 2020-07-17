@@ -64,6 +64,42 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: bcvs.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy bcvs.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: bcvs.hub.heart.org
+    #   script: npx @base-cms/website-deployment-tool deploy bcvs.hub.heart.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    - stage: production
+      name: vasculardiscovery.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: vasculardiscovery.hub.heart.org
+    #   script: npx @base-cms/website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    - stage: production
+      name: hypertension.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy hypertension.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: hypertension.hub.heart.org
+    #   script: npx @base-cms/website-deployment-tool deploy hypertension.hub.heart.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
