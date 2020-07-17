@@ -138,15 +138,16 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
               </if>
 
               <if(type === "event" && ["2020-program"].includes(get(content, "primarySection.alias")))>
-                $ const accessSessionsContexts = site.getAsArray("blocks.access-sessions.contexts");
-                $ const accessSessionsBlock = accessSessionsContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-                <a
-                  href=accessSessionsBlock.href
-                  target="_blank"
-                  class="mt-1 mb-3 btn btn-primary"
-                >
-                  Access Sessions
-                </a>
+                $ const accessSessionsHref = site.get("blocks.access-sessions.href");
+                <if(accessSessionsHref)>
+                  <a
+                    href=accessSessionsHref
+                    target="_blank"
+                    class="mt-1 mb-3 btn btn-primary"
+                  >
+                    Access Sessions
+                  </a>
+                </if>
               </if>
 
               $ const bodyId = `content-body-${id}`;
