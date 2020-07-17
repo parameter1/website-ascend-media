@@ -1,7 +1,8 @@
 import { getAsObject, get } from "@base-cms/object-path";
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import queryFragment from "../../../graphql/fragments/content-list";
-import GAM from "../../../../config/gam";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
 
 $ const {
   id,
@@ -20,7 +21,7 @@ $ const {
   <@page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
-      <website-leaderboard-block />
+      <shared-leaderboard-block />
       <!-- <marko-web-gam-define-display-ad
         ...GAM.getAdUnit({ name: "lb1", aliases })
         collapse-before-ad-fetch=true
@@ -29,7 +30,7 @@ $ const {
 
       <div class="row">
         <div class="col-lg-8 mb-block-lg">
-          <website-content-hero-card-block section-id=id />
+          <shared-content-hero-card-block section-id=id />
 
           <marko-web-query|{ nodes }| name="website-optioned-content" params={
             skip: 1,
@@ -74,22 +75,22 @@ $ const {
             </default-theme-card-deck-flow>
           </marko-web-query>
 
-          <website-section-list-block section-alias="qcor/membership/videos">
+          <shared-section-list-block section-alias="membership/videos">
             <@list inner-justified=false />
             <@header>
-              <marko-web-link href="/qcor/membership/videos">More Videos</marko-web-link>
+              <marko-web-link href="/membership/videos">More Videos</marko-web-link>
             </@header>
-          </website-section-list-block>
+          </shared-section-list-block>
         </div>
 
         <div class="col-lg-4 mb-block-lg page-rail">
-          <website-section-list-block
-            section-alias="qcor/membership/benefits"
+          <shared-section-list-block
+            section-alias="membership/benefits"
             image-position="right"
             with-teaser=true
           >
             <@list inner-justified=false />
-          </website-section-list-block>
+          </shared-section-list-block>
         </div>
       </div>
     </marko-web-resolve-page>

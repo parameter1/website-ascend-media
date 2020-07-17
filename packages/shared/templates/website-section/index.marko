@@ -1,5 +1,6 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import GAM from "../../../config/gam";
+
+$ const { GAM } = out.global;
 
 $ const {
   id,
@@ -24,9 +25,9 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
 
   <@page>
-    <website-leaderboard-block />
+    <shared-leaderboard-block />
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
 
-    <website-content-hero-block section-id=id />
+    <shared-content-hero-block section-id=id />
   </@page>
 </marko-web-website-section-page-layout>

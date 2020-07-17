@@ -19,44 +19,44 @@ $ const {
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
 
-      <website-leaderboard-block />
+      <shared-leaderboard-block />
 
       <div class="row">
         <div class="col-lg-8 mb-block-lg">
-          <website-content-hero-card-block section-id=id />
+          <shared-content-hero-card-block section-id=id />
 
-          <website-event-schedule-block class="mb-block-lg">
+          <shared-event-schedule-block class="mb-block-lg">
             <@header>
               <marko-web-link href="/bcvs/2020-program">Today's Schedule</marko-web-link>
             </@header>
             <@footer>
               <marko-web-link href="/bcvs/2020-program">View More Sessions &gt;</marko-web-link>
             </@footer>
-          </website-event-schedule-block>
+          </shared-event-schedule-block>
 
           <website-announcements-block queryParams={ sectionAlias: "bcvs/announcements" } class="mb-block-lg" />
 
-          <website-science-news-block queryParams={ sectionAlias: "bcvs/science-news" } class="mb-block-lg" />
+          <shared-science-news-block queryParams={ sectionAlias: "bcvs/science-news" } class="mb-block-lg" />
 
-          <website-content-featured-block section-alias="bcvs/featured" link-header=false />
+          <shared-content-featured-block section-alias="bcvs/featured" link-header=false />
         </div>
 
         <div class="col-lg-4 mb-block-lg page-rail">
-          <website-global-right-rail-block aliases=aliases />
+          <shared-global-right-rail-block aliases=aliases />
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-4 mb-block-lg">
-          <website-section-list-block section-alias="bcvs/circulation-research" />
+          <shared-section-list-block section-alias="bcvs/circulation-research" />
         </div>
 
         <div class="col-lg-4 mb-block-lg">
-          <website-section-list-block section-alias="bcvs/special-review-issues" />
+          <shared-section-list-block section-alias="bcvs/special-review-issues" />
         </div>
 
         <div class="col-lg-4 mb-block-lg">
-          <website-section-list-block section-alias="bcvs/recent-journal-highlights" />
+          <shared-section-list-block section-alias="bcvs/recent-journal-highlights" />
         </div>
       </div>
     </marko-web-resolve-page>

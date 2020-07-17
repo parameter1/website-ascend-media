@@ -19,7 +19,7 @@ $ const {
     <a class="anchor" name="top" />
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
-      <website-leaderboard-block />
+      <shared-leaderboard-block />
       <!-- <marko-web-gam-define-display-ad
         ...GAM.getAdUnit({ name: "lb1", aliases })
         collapse-before-ad-fetch=true
@@ -51,7 +51,7 @@ $ const {
           </marko-web-node-list>
 
           <a class="anchor" name="monday" />
-          <website-event-schedule-block class="mb-block-lg">
+          <shared-event-schedule-block class="mb-block-lg">
             <@header>Monday</@header>
             <@query-params
               limit=0
@@ -60,10 +60,10 @@ $ const {
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
-          </website-event-schedule-block>
+          </shared-event-schedule-block>
 
           <a class="anchor" name="tuesday" />
-          <website-event-schedule-block class="mb-block-lg">
+          <shared-event-schedule-block class="mb-block-lg">
             <@header>Tuesday</@header>
             <@query-params
               limit=0
@@ -72,10 +72,10 @@ $ const {
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
-          </website-event-schedule-block>
+          </shared-event-schedule-block>
 
           <a class="anchor" name="wednesday" />
-          <website-event-schedule-block class="mb-block-lg">
+          <shared-event-schedule-block class="mb-block-lg">
             <@header>Wednesday</@header>
             <@query-params
               limit=0
@@ -84,10 +84,10 @@ $ const {
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
-          </website-event-schedule-block>
+          </shared-event-schedule-block>
 
           <a class="anchor" name="thursday" />
-          <website-event-schedule-block class="mb-block-lg">
+          <shared-event-schedule-block class="mb-block-lg">
             <@header>Thursday</@header>
             <@query-params
               limit=0
@@ -96,11 +96,11 @@ $ const {
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
-          </website-event-schedule-block>
+          </shared-event-schedule-block>
         </div>
 
         <div class="col-lg-4 mb-block-lg page-rail">
-          <website-global-right-rail-block aliases=aliases />
+          <shared-global-right-rail-block aliases=aliases />
         </div>
       </div>
     </marko-web-resolve-page>

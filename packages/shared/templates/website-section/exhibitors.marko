@@ -1,5 +1,6 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import GAM from "../../../../config/gam";
+
+$ const { GAM } = out.global;
 
 $ const {
   id,
@@ -24,7 +25,7 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
 
   <@page>
-    <website-leaderboard-block />
+    <shared-leaderboard-block />
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page"] /> -->
 
     <marko-web-resolve-page|{ data: section }| node=pageNode>
@@ -36,7 +37,7 @@ $ const adSlots = ({ aliases }) => ({
           </if>
         </@body>
       </marko-web-node-list>
-      <website-featured-exhibitors-full-block section-alias="qcor/exhibitors" />
+      <shared-featured-exhibitors-full-block section-alias="exhibitors" />
       <p class="exhibitor-disclaimer">The AHA does NOT endorse companies, products or services, and strictly prohibits any suggestion of endorsement, recommendation, or superiority of one company, product or service over another company, product or service.</p>
     </marko-web-resolve-page>
   </@page>

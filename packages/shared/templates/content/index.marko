@@ -2,9 +2,8 @@ import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import { getAsArray, getAsObject, get } from "@base-cms/object-path";
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
 import { asArray } from "@base-cms/utils";
-import GAM from "../../../config/gam";
 
-$ const { site, req } = out.global;
+$ const { site, req, GAM } = out.global;
 $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
@@ -35,7 +34,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
   </@head>
 
   <@page>
-    <website-leaderboard-block />
+    <shared-leaderboard-block />
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
@@ -138,7 +137,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 <marko-web-content-audio class="my-block" block-name=blockName obj=content />
               </if>
 
-              <if(type === "event" && ["vascular", "qcor/2020-program", "bcvs/2020-program", "hypertension/2020-program", "2020-program"].includes(get(content, "primarySection.alias")))>
+              <if(type === "event" && ["2020-program"].includes(get(content, "primarySection.alias")))>
                 $ const accessSessionsContexts = site.getAsArray("blocks.access-sessions.contexts");
                 $ const accessSessionsBlock = accessSessionsContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
                 <a
@@ -181,7 +180,7 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
                 </marko-web-node-list>
               </if>
               <else>
-                <website-global-right-rail-block aliases=aliases no-shadow=true />
+                <shared-global-right-rail-block aliases=aliases no-shadow=true />
               </else>
             </aside>
 

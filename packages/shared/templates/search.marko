@@ -1,7 +1,6 @@
 import { warn } from "@base-cms/utils";
-import GAM from "../../config/gam";
 
-$ const { config, site } = out.global;
+$ const { config, site, GAM } = out.global;
 
 $ const type = "search";
 $ const title = "Search";
@@ -16,7 +15,7 @@ $ const apiKey = site.get("gcse.id");
   </@head>
 
   <@page>
-    <website-leaderboard-block />
+    <shared-leaderboard-block />
     <!-- <marko-web-gam-define-display-ad
       ...GAM.getAdUnit({ name: "lb1" })
       modifiers=["max-width-970", "top-of-page", "center"]
