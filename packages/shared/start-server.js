@@ -7,6 +7,7 @@ const contactUsHandler = require('@ascend-media/package-contact-us');
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
+const errorTemplate = require('./templates/error');
 
 const routes = siteRoutes => (app) => {
   // Handle contact submissions on /__contact-us
@@ -23,6 +24,7 @@ module.exports = (options = {}) => {
     document: options.document || document,
     components: options.components || components,
     fragments: options.fragments || fragments,
+    errorTemplate: options.errorTemplate || errorTemplate,
     onStart: async (app) => {
       if (typeof onStart === 'function') await onStart(app);
       app.set('trust proxy', 'loopback, linklocal, uniquelocal');
