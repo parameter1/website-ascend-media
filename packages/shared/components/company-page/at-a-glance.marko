@@ -22,7 +22,7 @@ $ const mapped = fields.map(field => ({ ...field, value: get(content, field.key)
         <${input.header} />
       </if>
       <else>
-        <website-company-page-label>At-a-glance</website-company-page-label>
+        <shared-company-page-label>At-a-glance</shared-company-page-label>
       </else>
       <for|field| of=mapped>
         <marko-web-element name="field" block-name=blockName>

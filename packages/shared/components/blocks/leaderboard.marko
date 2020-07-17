@@ -20,7 +20,7 @@ $ const messageBlock = messageContexts.find(({ when }) => asArray(when).some(pat
 $ const messageAlias = messageBlock ? messageBlock.sectionAlias : false;
 
 <if(messageAlias)>
-  <website-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
+  <shared-message-block queryParams={ sectionAlias: messageAlias } class="mb-block-lg" />
 </if>
 
 <div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-970">

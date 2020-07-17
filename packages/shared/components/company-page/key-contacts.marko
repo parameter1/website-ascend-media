@@ -8,7 +8,7 @@ $ if (contacts.length > 1) header = `${header}s`;
   <@header>${header}</@header>
   <@nodes|{ nodes }| nodes=contacts>
     <for|node| of=nodes>
-      <website-key-contact-card-node node=node with-email=true />
+      <shared-key-contact-card-node node=node with-email=true />
     </for>
   </@nodes>
 </marko-web-node-list>

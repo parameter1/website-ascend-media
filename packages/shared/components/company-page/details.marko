@@ -29,15 +29,15 @@ $ const hasContactValues = contactNeeds.map(field => get(content, field)).some(v
   >
     <@header>Company Details</@header>
     <@body>
-      <website-company-page-at-a-glance content=content />
+      <shared-company-page-at-a-glance content=content />
 
       <if(hasContactValues)>
-        <website-company-page-label>Contact</website-company-page-label>
+        <shared-company-page-label>Contact</shared-company-page-label>
         <default-theme-content-contact-details obj=contentSansSocial />
       </if>
 
       <marko-web-content-body|{ value }| obj=content>
-        <website-company-page-label>More info on $!{content.name}</website-company-page-label>
+        <shared-company-page-label>More info on $!{content.name}</shared-company-page-label>
         $!{value}
       </marko-web-content-body>
     </@body>

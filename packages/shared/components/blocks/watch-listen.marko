@@ -6,17 +6,12 @@ import queryFragment from "../../graphql/fragments/watch-listen";
 
 $ const { site, req } = out.global;
 
-$ const blockContexts = site.getAsArray("blocks.watch-listen.contexts");
-$ const contextualBlock = blockContexts.find(({ when }) => asArray(when).some(path => isActiveLink(req.path, path)));
-
-$ const sectionAlias = contextualBlock ? contextualBlock.sectionAlias : site.get("blocks.watch-listen.sectionAlias");
-
 $ const queryParams = {
   limit: 3,
   queryFragment,
   sectionBubbling: false,
   includeContentTypes: ["Video", "Podcast", "Promotion"],
-  sectionAlias: sectionAlias,
+  sectionAlias: 'watch-listen',
   ...getAsObject(input, "queryParams"),
 };
 
