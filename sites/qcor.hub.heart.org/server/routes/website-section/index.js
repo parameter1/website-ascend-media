@@ -1,19 +1,25 @@
 const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
-const queryFragment = require('../../graphql/fragments/website-section-page');
-const section = require('../../templates/website-section');
-const vascular = require('./vascular');
-const qcor = require('./qcor');
-const bcvs = require('./bcvs');
-const hypertension = require('./hypertension');
+const queryFragment = require('@ascend-media/package-shared/graphql/fragments/website-section-page');
+const section = require('@ascend-media/package-shared/templates/website-section');
+const exhibitors = require('@ascend-media/package-shared/templates/website-section/exhibitors');
+const membership = require('@ascend-media/package-shared/templates/website-section/membership');
+const program2020 = require('../../templates/website-section/2020-program');
 
 module.exports = (app) => {
-  vascular(app);
+  app.get('/:alias(2020-program)', withWebsiteSection({
+    template: program2020,
+    queryFragment,
+  }));
 
-  qcor(app);
+  app.get('/:alias(exhibitors)', withWebsiteSection({
+    template: exhibitors,
+    queryFragment,
+  }));
 
-  bcvs(app);
-
-  hypertension(app);
+  app.get('/:alias(membership)', withWebsiteSection({
+    template: membership,
+    queryFragment,
+  }));
 
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
     template: section,
