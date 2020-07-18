@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/bcvs.hub.heart.org",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
   "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/bcvs.hub.heart.org",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@ascend-media/package-shared": "^0.2.4",
+    "@ascend-media/package-shared": "^0.2.6",
     "@base-cms/marko-core": "^1.26.2",
     "@base-cms/marko-web": "^1.27.3",
     "@base-cms/marko-web-gam": "^1.25.10",
