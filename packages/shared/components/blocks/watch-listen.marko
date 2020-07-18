@@ -19,6 +19,7 @@ $ const queryParams = {
   <for|content, index| of=nodes>
     $ let action = "Read";
     $ let src;
+    $ let link = true;
     $ if (content.type === "video") {
       action = "Watch";
       src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/watch-icon.png";
@@ -30,6 +31,7 @@ $ const queryParams = {
     $ if (content.type === "promotion") {
       action = "Navigation Tips";
       src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/navigation-icon.png";
+      link = { target: '_blank' };
     }
     <marko-web-node
       image-position="left"
@@ -52,7 +54,7 @@ $ const queryParams = {
           ${action}
         </@text>
         <@text modifiers=["content-title"]>
-          <marko-web-content-name tag=null obj=content link=true />
+          <marko-web-content-name tag=null obj=content link=link />
         </@text>
       </@body>
     </marko-web-node>
