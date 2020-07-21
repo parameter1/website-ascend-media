@@ -14,7 +14,7 @@ const topics = [
   { href: '/2020-program', label: '2020 Schedule' },
   { href: '/exhibitors', label: 'Exhibits' },
   { href: 'https://professional.heart.org/professional/EducationMeetings/EducationMeetings/UCM_505357_Science-News-for-BCVS-2020.jsp', label: 'Science News', target: '_blank' },
-  { href: 'https://www.ahajournals.org', label: 'Journals', target: '_blank' },
+  { href: 'https://www.ahajournals.org/bcvs', label: 'Journals', target: '_blank' },
   { href: '/membership', label: 'Membership' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
 ];
