@@ -24,4 +24,8 @@ module.exports = {
   'science-news': {
     href: 'https://professional.heart.org/professional/EducationMeetings/EducationMeetings/UCM_505357_Science-News-for-BCVS-2020.jsp',
   },
+  'exhibitors-banner': {
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-exhibitors-banner.jpg',
+    href: '/exhibitors',
+  },
 };

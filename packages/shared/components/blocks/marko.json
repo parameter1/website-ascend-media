@@ -75,6 +75,9 @@
   "<shared-eposters-mr-block>": {
     "template": "./eposters-mr.marko"
   },
+  "<shared-exhibitors-banner-block>": {
+    "template": "./exhibitors-banner.marko"
+  },
   "<shared-early-career-block>": {
     "template": "./early-career.marko"
   },
