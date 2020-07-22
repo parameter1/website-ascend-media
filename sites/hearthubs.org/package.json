@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/hearthubs.org",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": "Josh Worden <josh@limit0.io>",
   "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/hearthubs.org",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@ascend-media/package-shared": "^0.2.7",
+    "@ascend-media/package-shared": "^0.2.8",
     "@base-cms/marko-core": "^1.26.2",
     "@base-cms/marko-web": "^1.27.3",
     "@base-cms/marko-web-gam": "^1.25.10",
