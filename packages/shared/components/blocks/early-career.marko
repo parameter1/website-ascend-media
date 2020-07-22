@@ -21,6 +21,7 @@ $ const queryParams = {
     <@nodes nodes=nodes>
       <@slot|{ node: content }|>
         $ const primaryImage = getAsObject(content, "primaryImage");
+        $ const contentType = content.type === 'promotion' ? '' : content.type;
         <marko-web-node
           type=`${content.type}-content`
           image-position="top"
@@ -42,7 +43,7 @@ $ const queryParams = {
 
           <@body>
             <@text modifiers=["content-action"]>
-              ${content.type}
+              ${contentType}
             </@text>
 
             <@text modifiers=["content-title", "content-title-primary"]>
