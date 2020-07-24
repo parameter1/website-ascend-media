@@ -25,6 +25,12 @@ fragment ContentPageFragment on Content {
       credit
       isLogo
     }
+    website
+    socialLinks {
+      provider
+      url
+      label
+    }
   }
   primarySection {
     id
