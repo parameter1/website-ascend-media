@@ -90,6 +90,9 @@
   "<shared-company-content-list-block>": {
     "template": "./company-content-list.marko"
   },
+  "<shared-company-header-block>": {
+    "template": "./company-header.marko"
+  },
   "<shared-featured-exhibitors-block>": {
     "template": "./featured-exhibitors.marko"
   },
