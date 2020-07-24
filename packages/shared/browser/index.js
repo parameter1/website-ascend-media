@@ -1,4 +1,5 @@
-import Inquiry from '@base-cms/marko-web-inquiry/browser';
+import Vue from '@base-cms/marko-web/browser/vue';
+import VModal from 'vue-js-modal/dist/index.nocss';
 import jQuery from '@base-cms/marko-web/browser/jquery-full';
 
 import Inquiry from '@base-cms/marko-web-inquiry/browser';
@@ -8,6 +9,8 @@ import GAM from '@base-cms/marko-web-gam/browser';
 import GCSE from '@base-cms/marko-web-gcse/browser';
 import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
 import PhotoSwipe from '@base-cms/marko-web-photoswipe/browser';
+
+Vue.use(VModal);
 
 const CompanyProfileWebsiteLink = () => import(/* webpackChunkName: "company-profile-website-link" */ './website-link.vue');
 const CompanyProfileSocialLink = () => import(/* webpackChunkName: "company-profile-social-link" */ './social-link.vue');
@@ -27,4 +30,5 @@ export default (Browser) => {
 
   Browser.register('CompanyProfileWebsiteLink', CompanyProfileWebsiteLink);
   Browser.register('CompanyProfileSocialLink', CompanyProfileSocialLink);
+  Browser.register('JumpModal', JumpModal);
 };
