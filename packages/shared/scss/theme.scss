@@ -8,6 +8,9 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
 @import "../../node_modules/@base-cms/marko-web-photoswipe/scss/main";
 @import "../../node_modules/@base-cms/marko-web-social-sharing/scss/buttons";
 
+// vue-modal styles
+@import "./components/vue-modal";
+
 @import "./components/ad-container";
 @import "./components/body-wrapper";
 @import "./components/btn";
