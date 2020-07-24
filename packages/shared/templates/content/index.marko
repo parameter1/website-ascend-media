@@ -21,6 +21,12 @@ $ const displayCompanyImage = ["product", "press-release"].includes(type) ? true
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
 
+$ const displayCompanyHeader = (content) => {
+  const company = get(content, "company");
+  if (get(content, "company")) return true;
+  return false;
+}
+
 <marko-web-content-page-layout id=id type=type>
   <@head>
     <marko-web-gtm-content-context|{ context }| id=id>
@@ -34,10 +40,21 @@ $ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
   </@head>
 
   <@page>
-    <shared-leaderboard-block />
-    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+
+    <if(displayCompanyHeader(content))>
+      <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
+        <@section>
+          <shared-company-header-block company=content.company />
+        </@section>
+      </marko-web-page-wrapper>
+    </if>
+    <else>
+      <shared-leaderboard-block />
+    </else>
+    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
