@@ -24,7 +24,7 @@
             &times;
           </button>
         </div>
-        <img :src="imgSrc" :style="{ width: '200px' }">
+        <img :src="imgSrc" :style="{ width: '200px', marginTop: '-24px' }">
         <hr>
         <p>{{ message }}</p>
         <p>{{ href }}</p>
