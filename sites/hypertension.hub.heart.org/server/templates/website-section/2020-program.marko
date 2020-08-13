@@ -37,9 +37,10 @@ $ const {
               <div class="row">
                 <div class="col-md-7">
                   <div class="d-flex">
-                    <a href="#tuesday" class="btn btn-primary">Tuesday</a>
-                    <a href="#wednesday" class="btn btn-primary ml-2">Wednesday</a>
-                    <a href="#thursday" class="btn btn-primary ml-2">Thursday</a>
+                    <a href="#thursday" class="btn btn-primary">Thursday</a>
+                    <a href="#friday" class="btn btn-primary ml-2">Friday</a>
+                    <a href="#saturday" class="btn btn-primary ml-2">Saturday</a>
+                    <a href="#sunday" class="btn btn-primary ml-2">Sunday</a>
                   </div>
                 </div>
 
@@ -50,37 +51,49 @@ $ const {
             </@body>
           </marko-web-node-list>
 
-          <a class="anchor" name="tuesday" />
-          <shared-event-schedule-block class="mb-block-lg">
-            <@header>Tuesday</@header>
-            <@query-params
-              limit=0
-              beginning-after=(new Date(1588654800000))
-              ending-before=(new Date(1588741199999))
-              ending-after=null
-            />
-            <@footer><a href="#top">Return to Top</a></@footer>
-          </shared-event-schedule-block>
-
-          <a class="anchor" name="wednesday" />
-          <shared-event-schedule-block class="mb-block-lg">
-            <@header>Wednesday</@header>
-            <@query-params
-              limit=0
-              beginning-after=(new Date(1588741200000))
-              ending-before=(new Date(1588827599999))
-              ending-after=null
-            />
-            <@footer><a href="#top">Return to Top</a></@footer>
-          </shared-event-schedule-block>
-
-          <a class="anchor" name="thursday" />
+          <a class="anchor" name="thurdsay" />
           <shared-event-schedule-block class="mb-block-lg">
             <@header>Thursday</@header>
             <@query-params
               limit=0
-              beginning-after=(new Date(1588827600000))
-              ending-before=(new Date(1588913999999))
+              beginning-after=(new Date(1599714000000))
+              ending-before=(new Date(1599800399999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </shared-event-schedule-block>
+
+          <a class="anchor" name="friday" />
+          <shared-event-schedule-block class="mb-block-lg">
+            <@header>Friday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1599800400000))
+              ending-before=(new Date(1599886799999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </shared-event-schedule-block>
+
+          <a class="anchor" name="saturday" />
+          <shared-event-schedule-block class="mb-block-lg">
+            <@header>Saturday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1599886800000))
+              ending-before=(new Date(1599973199999))
+              ending-after=null
+            />
+            <@footer><a href="#top">Return to Top</a></@footer>
+          </shared-event-schedule-block>
+
+          <a class="anchor" name="sunday" />
+          <shared-event-schedule-block class="mb-block-lg">
+            <@header>Sunday</@header>
+            <@query-params
+              limit=0
+              beginning-after=(new Date(1599973200000))
+              ending-before=(new Date(1600059599999))
               ending-after=null
             />
             <@footer><a href="#top">Return to Top</a></@footer>
