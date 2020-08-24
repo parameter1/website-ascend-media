@@ -20,8 +20,8 @@ const topics = [
 ];
 
 const secondary = [
-  { href: '/', label: 'Virtual Sessions Access', target: '_blank' },
-  { href: '/', label: 'ePosters Access', target: '_blank' },
+  { href: 'https://professional.heart.org/en/meetings/hypertension', label: 'Virtual Sessions Access', target: '_blank' },
+  { href: 'https://htn.apprisor.org', label: 'ePosters Access', target: '_blank' },
 ];
 
 module.exports = {
