@@ -1,0 +1,6 @@
+{
+  "taglib-id": "@ascend-media/package-common",
+  "taglib-imports": [
+    "./components/marko.json"
+  ]
+}
