@@ -24,6 +24,12 @@ x-env-defaults: &env
   SENDGRID_DEV_TO: basecmsdev@gmail.com
   YARN_CACHE_FOLDER: /.yarn-cache
 
+x-env-leonis: &env-leonis
+  GRAPHQL_URI: ${GRAPHQL_URI-https://leonis.graphql.base.parameter1.com}
+  OEMBED_URI: ${OEMBED_URI-https://leonis.oembed.base.parameter1.com}
+  RSS_URI: ${RSS_URI-https://leonis.rss.base.parameter1.com}
+  SITEMAPS_URI: ${SITEMAPS_URI-https://leonis.sitemaps.base.parameter1.com}
+
 x-env-tauron: &env-tauron
   GRAPHQL_URI: ${GRAPHQL_URI-https://tauron.graphql.base.parameter1.com}
   OEMBED_URI: ${OEMBED_URI-https://tauron.oembed.base.parameter1.com}
@@ -137,3 +143,19 @@ services:
     ports:
       - "9814:80"
       - "19814:19814"
+
+  minexpo.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/minexpo.com
+    environment:
+      <<: *env
+      <<: *env-leonis
+      PORT: 80
+      EXPOSED_PORT: 9815
+      LIVERELOAD_PORT: 19815
+      TENANT_KEY: ascend_minex
+      SITE_ID: 5f2c4e7900d6f47b4ca70040
+    ports:
+      - "9815:80"
+      - "19815:19815"
