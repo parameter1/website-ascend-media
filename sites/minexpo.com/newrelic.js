@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['base-cms-websites/pmmi-media-group'],
+  app_name: ['base-cms-websites/ascend-media'],
   /**
    * Your New Relic license key.
    */

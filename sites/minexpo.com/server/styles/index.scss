@@ -23,8 +23,8 @@ $theme-site-header-breakpoints: (
   small-text-secondary: 875px
 );
 
-@import "../../node_modules/@pmmi-media-group/package-common/scss/common";
-@import "../../node_modules/@pmmi-media-group/package-shared/scss/index";
+@import "../../node_modules/@ascend-media/package-common/scss/common";
+@import "../../node_modules/@ascend-media/package-minexpo/scss/index";
 
 .load-more-trigger > button:hover {
   background-color: $light-bg-color;

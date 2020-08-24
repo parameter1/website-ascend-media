@@ -1,5 +1,5 @@
-const contactUsHandler = require('@pmmi-media-group/package-common/contact-us');
-const inquiryHandler = require('@pmmi-media-group/package-shared/inquiry-handler');
+const contactUsHandler = require('@ascend-media/package-common/contact-us');
+const inquiryHandler = require('@ascend-media/package-minexpo/inquiry-handler');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');

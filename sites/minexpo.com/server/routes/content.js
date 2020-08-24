@@ -1,8 +1,8 @@
 const { withContent } = require('@base-cms/marko-web/middleware');
-const queryFragment = require('@pmmi-media-group/package-common/graphql/fragments/content-page');
-const companyQueryFragment = require('@pmmi-media-group/package-common/graphql/fragments/content-company');
-const contactQueryFragment = require('@pmmi-media-group/package-shared/graphql/fragments/content-contact');
-const company = require('@pmmi-media-group/package-shared/templates/content/company');
+const queryFragment = require('@ascend-media/package-common/graphql/fragments/content-page');
+const companyQueryFragment = require('@ascend-media/package-common/graphql/fragments/content-company');
+const contactQueryFragment = require('@ascend-media/package-minexpo/graphql/fragments/content-contact');
+const company = require('@ascend-media/package-minexpo/templates/content/company');
 const content = require('../templates/content');
 const contact = require('../templates/content/contact');
 const podcast = require('../templates/content/podcast');

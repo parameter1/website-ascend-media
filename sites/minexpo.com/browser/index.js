@@ -4,8 +4,8 @@ import GTM from '@base-cms/marko-web-gtm/browser';
 import GAM from '@base-cms/marko-web-gam/browser';
 import GCSE from '@base-cms/marko-web-gcse/browser';
 import RevealAd from '@base-cms/marko-web-reveal-ad/browser';
-import Common from '@pmmi-media-group/package-common/browser';
-import Shared from '@pmmi-media-group/package-shared/browser';
+import Common from '@ascend-media/package-common/browser';
+import Shared from '@ascend-media/package-minexpo/browser';
 
 Shared(Browser);
 DefaultTheme(Browser);
