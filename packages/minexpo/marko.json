@@ -1,0 +1,6 @@
+{
+  "taglib-id": "@ascend-media/package-minexpo",
+  "taglib-imports": [
+    "./components/marko.json"
+  ]
+}
