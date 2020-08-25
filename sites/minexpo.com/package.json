@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/minexpo.com",
-  "version": "1.0.0",
+  "version": "0.2.16",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
   "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/minexpo.com",
   "license": "MIT",
@@ -15,6 +15,8 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
+    "@ascend-media/package-common": "^0.2.16",
+    "@ascend-media/package-minexpo": "^0.2.16",
     "@base-cms/marko-core": "^1.30.2",
     "@base-cms/marko-web": "^1.30.2",
     "@base-cms/marko-web-gam": "^1.30.0",
@@ -27,8 +29,6 @@
     "@base-cms/object-path": "^1.25.0",
     "@base-cms/utils": "^1.25.0",
     "@base-cms/web-cli": "^1.30.2",
-    "@ascend-media/package-common": "^1.0.0",
-    "@ascend-media/package-minexpo": "^1.0.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
     "newrelic": "^5.11.0"
