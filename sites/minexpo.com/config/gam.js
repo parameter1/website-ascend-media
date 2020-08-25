@@ -1,6 +1,6 @@
 const GAMConfiguration = require('@base-cms/marko-web-gam/config');
 
-const config = new GAMConfiguration('152023730');
+const config = new GAMConfiguration('6407152');
 
 config
   .setTemplate('leaderboard', {
