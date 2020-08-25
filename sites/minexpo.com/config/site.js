@@ -6,32 +6,32 @@ module.exports = {
   leaders,
   navigation,
   nativeX,
-  company: 'PMMI Media Group',
+  company: 'MINExpo Show Directory',
   logos: {
     navbar: {
-      src: 'https://img.packworld.com/files/base/pmmi/pw/pw_logo.png?h=45',
+      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
       srcset: [
-        'https://img.packworld.com/files/base/pmmi/pw/pw_logo.png?h=90 2x',
+        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90 2x',
       ],
     },
     footer: {
-      src: 'https://img.packworld.com/files/base/pmmi/pw/pw_logo.png?h=60',
+      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
       srcset: [
-        'https://img.packworld.com/files/base/pmmi/pw/pw_logo.png?h=120 2x',
+        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90 2x',
       ],
     },
   },
   socialMediaLinks: [
-    { provider: 'facebook', href: 'https://www.facebook.com/PackagingWorld' },
-    { provider: 'twitter', href: 'https://twitter.com/packagingworld' },
-    { provider: 'linkedin', href: 'https://www.linkedin.com/showcase/packaging-world' },
+    // { provider: 'facebook', href: 'https://www.facebook.com/PackagingWorld' },
+    // { provider: 'twitter', href: 'https://twitter.com/packagingworld' },
+    // { provider: 'linkedin', href: 'https://www.linkedin.com/showcase/packaging-world' },
   ],
   gtm: {
-    containerId: process.env.GTM_CONTAINER_ID || 'GTM-TK8WXJR',
+    containerId: process.env.GTM_CONTAINER_ID || 'NOT_SET',
     slotPrefix: 'pw',
   },
   wufoo: {
-    userName: 'pmmimediagroup',
+    userName: 'NOT_SET',
   },
   magazines: {
     description: '',
@@ -39,10 +39,10 @@ module.exports = {
   inquiry: {
     enabled: true,
     directSend: false,
-    sendTo: 'info-request@pmmimediagroup.com',
-    replyTo: 'info-request@pmmimediagroup.com',
-    sendFrom: 'Packaging World <noreply@baseplatform.io>',
-    logo: 'https://img.packworld.com/files/base/pmmi/pw/pw_logo.png?h=45',
+    sendTo: 'support@parameter1.com',
+    replyTo: 'support@parameter1.com',
+    sendFrom: 'MINExpo Show Directory <noreply@parameter1.com>',
+    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
     bgColor: '#000',
   },
 };
