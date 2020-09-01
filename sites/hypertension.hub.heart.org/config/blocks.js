@@ -22,6 +22,6 @@ module.exports = {
     href: 'https://professional.heart.org/en/meetings/hypertension',
   },
   'science-news': {
-    href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_506015_Science-News-for-Vascular-Discovery-2020.jsp',
+    href: 'https://professional.heart.org/en/meetings/hypertension/science-news-from-hypertension-2020',
   },
 };
