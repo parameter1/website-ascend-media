@@ -24,4 +24,8 @@ module.exports = {
   'science-news': {
     href: 'https://professional.heart.org/en/meetings/hypertension/science-news-from-hypertension-2020',
   },
+  'exhibitors-banner': {
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png',
+    href: '/exhibitors',
+  },
 };
