@@ -19,7 +19,7 @@ module.exports = {
     sectionAlias: 'watch-listen',
   },
   'access-sessions': {
-    href: 'https://professional.heart.org/en/meetings/hypertension',
+    href: 'https://aha.ondemand.org/aha/login',
   },
   'science-news': {
     href: 'https://professional.heart.org/en/meetings/hypertension/science-news-from-hypertension-2020',
