@@ -1,7 +1,7 @@
 module.exports = {
   leaderboard: {
     src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard.png',
-    href: 'https://professional.heart.org/en/meetings/hypertension',
+    href: 'https://aha.ondemand.org/aha/login',
   },
   exhibits: {
     src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
@@ -19,7 +19,7 @@ module.exports = {
     sectionAlias: 'watch-listen',
   },
   'access-sessions': {
-    href: 'https://professional.heart.org/en/meetings/hypertension',
+    href: 'https://aha.ondemand.org/aha/login',
   },
   'science-news': {
     href: 'https://professional.heart.org/en/meetings/hypertension/science-news-from-hypertension-2020',
