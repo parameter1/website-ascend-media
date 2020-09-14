@@ -1,6 +1,6 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png',
     href: 'https://aha.ondemand.org/aha/login',
   },
   exhibits: {
