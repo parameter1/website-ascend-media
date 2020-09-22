@@ -159,3 +159,35 @@ services:
     ports:
       - "9815:80"
       - "19815:19815"
+
+  sessions.hub.heart.org:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/sessions.hub.heart.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9816
+      LIVERELOAD_PORT: 19816
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f69318496e7bf68228b4597
+    ports:
+      - "9816:80"
+      - "19816:19816"
+
+  imex.ascendmedia.com:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/imex.ascendmedia.com
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9817
+      LIVERELOAD_PORT: 19817
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5f69316296e7bf68228b4595
+    ports:
+      - "9817:80"
+      - "19817:19817"
