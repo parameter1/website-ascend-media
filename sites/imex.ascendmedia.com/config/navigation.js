@@ -11,11 +11,18 @@ const userTools = [
 ];
 
 const topics = [
-  { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
+  { href: '/cvb-cities', label: 'CVB/Cities' },
+  { href: '/hotels', label: 'Hotels' },
+  { href: '/venues', label: 'Venues' },
+  { href: '/travel', label: 'Travel' },
+  { href: '/', label: 'Safety Standards' },
+  { href: '/', label: 'Program' },
+  { href: '/', label: 'Planet IMEX' },
 ];
 
 const secondary = [
-  { href: 'https://htn.apprisor.org', label: 'ePosters Access', target: '_blank' },
+  { href: '/', label: 'IMEX Group', target: '_blank' },
+  { href: '/', label: 'Planet IMEX', target: '_blank' },
 ];
 
 module.exports = {
