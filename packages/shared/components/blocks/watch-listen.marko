@@ -15,6 +15,12 @@ $ const queryParams = {
   ...getAsObject(input, "queryParams"),
 };
 
+$ const rootImageSrc = 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static';
+$ const watchSrc = defaultValue(site.get("blocks.watch.src"), `${rootImageSrc}/watch-icon.png`);
+$ const listenSrc = defaultValue(site.get("blocks.watch.src"), `${rootImageSrc}/listen-icon.png`);
+$ const navigationSrc = defaultValue(site.get("blocks.navigation.src"), `${rootImageSrc}/navigation-icon.png`);
+
+
 <marko-web-query|{ nodes }| name="website-scheduled-content" params=queryParams>
   <for|content, index| of=nodes>
     $ let action = "Read";
@@ -22,15 +28,15 @@ $ const queryParams = {
     $ let link = true;
     $ if (content.type === "video") {
       action = "Watch";
-      src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/watch-icon.png";
+      src = watchSrc;
     }
     $ if (content.type === "podcast") {
       action = "Listen";
-      src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/listen-icon.png";
+      src = listenSrc;
     }
     $ if (content.type === "promotion") {
       action = "Navigation Tips";
-      src = "https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/navigation-icon.png";
+      src = navigationSrc;
       link = { target: '_blank' };
     }
     <marko-web-node
