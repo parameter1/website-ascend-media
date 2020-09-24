@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png',
+    src: '',
     href: '/',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
+    src: '',
     href: '/',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
+    src: '',
     href: '/',
   },
   'early-career': {
@@ -25,7 +25,16 @@ module.exports = {
     href: '/',
   },
   'exhibitors-banner': {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png',
+    src: '',
     href: '/exhibitors',
+  },
+  watch: {
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-watch-icon.png',
+  },
+  listen: {
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-listen-icon.png',
+  },
+  navigation: {
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-navigation-icon.png',
   },
 };
