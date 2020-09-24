@@ -212,7 +212,7 @@
     font-size: 18px;
     font-weight: $font-weight-bold;
     color: $white;
-    background-color: rgba(0, 0, 0, .65);
+    background-color: $theme-hero-teaser-bg-color;
 
     // stylelint-disable-next-line
     a {
