@@ -1,8 +1,8 @@
 {
-  "name": "@ascend-media/imes.ascendmedia.com",
+  "name": "@ascend-media/imex.ascendmedia.com",
   "version": "0.2.25",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
-  "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/imes.ascendmedia.com",
+  "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/imex.ascendmedia.com",
   "license": "MIT",
   "private": true,
   "scripts": {
