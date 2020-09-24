@@ -4,5 +4,5 @@
 User-agent: *
 Disallow: /__load-more
 
-Sitemap: https://www.hearthubs.org/sitemap.xml
-Sitemap: https://www.hearthubs.org/sitemap-google-news.xml
+Sitemap: https://vasculardiscovery.hub.heart.org/sitemap.xml
+Sitemap: https://vasculardiscovery.hub.heart.org/sitemap-google-news.xml

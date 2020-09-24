@@ -4,5 +4,5 @@
 User-agent: *
 Disallow: /__load-more
 
-Sitemap: https://www.hearthubs.org/sitemap.xml
-Sitemap: https://www.hearthubs.org/sitemap-google-news.xml
+Sitemap: https://imex.ascendmedia.com/sitemap.xml
+Sitemap: https://imex.ascendmedia.com/sitemap-google-news.xml
