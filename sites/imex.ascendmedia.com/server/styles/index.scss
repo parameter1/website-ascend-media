@@ -1,3 +1,16 @@
+@import "../../node_modules/@ascend-media/package-shared/scss/variables";
+
+$primary: #1616ac;
+$secondary: #0c0c5f;
+
+$theme-site-navbar-logo-height: 60px;
+$theme-site-navbar-logo-height-sm: 40px;
+$theme-site-navbar-primary-bg-color: $secondary;
+$theme-site-navbar-secondary-bg-color: $primary;
+$theme-site-navbar-secondary-type: dark;
+$theme-hero-teaser-bg-color: #0c0c5f;
+
+
 @import "../../node_modules/@ascend-media/package-shared/scss/theme";
 
 .body-wrapper {
@@ -6,10 +19,16 @@
   height: auto;
 
   @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
-    background: url("https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-background.jpg?w=1850") no-repeat 50% 150px;
+    background: url("https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-background.jpg?w=1850") no-repeat 50% 120px;
 
     .page {
       background-color: transparent;
     }
+  }
+}
+
+.site-navbar {
+  &--secondary {
+    background: linear-gradient(0deg, #082138 0%, $primary 100%);
   }
 }
