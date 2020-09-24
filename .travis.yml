@@ -124,6 +124,18 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: imex.ascendmedia.com
+      script: npx @base-cms/website-deployment-tool deploy imex.ascendmedia.com websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: imex.ascendmedia.com
+    #   script: npx @base-cms/website-deployment-tool deploy imex.ascendmedia.com websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
