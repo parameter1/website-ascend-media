@@ -1,7 +1,7 @@
 const { withContent } = require('@base-cms/marko-web/middleware');
-const companyFragment = require('@ascend-media/package-shared/graphql/fragments/company-page');
-const queryFragment = require('@ascend-media/package-shared/graphql/fragments/content-page');
-const company = require('@ascend-media/package-shared/templates/content/company');
+const companyFragment = require('@ascend-media/package-daily/graphql/fragments/company-page');
+const queryFragment = require('@ascend-media/package-daily/graphql/fragments/content-page');
+const company = require('@ascend-media/package-daily/templates/content/company');
 const content = require('../templates/content');
 
 module.exports = (app) => {
