@@ -8,9 +8,9 @@ module.exports = {
     title: 'PlanetIMEX',
   },
   footer: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=45',
     srcset: [
-      'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=180 2x',
+      'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=90 2x',
     ],
   },
 };
