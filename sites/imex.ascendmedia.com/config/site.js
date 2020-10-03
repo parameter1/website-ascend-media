@@ -24,7 +24,7 @@ module.exports = {
     id: 'fd935a2199580a49c',
   },
   wufoo: {
-    userName: 'notset',
+    userName: 'NOT-SET',
   },
   magazines: {
     description: '',
