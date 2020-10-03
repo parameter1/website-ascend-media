@@ -2,7 +2,7 @@
   "name": "@ascend-media/minexpo.com",
   "version": "0.2.25",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
-  "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/sites/minexpo.com",
+  "repository": "https://github.com/parameter1/ascend-media-websites/tree/master/sites/minexpo.com",
   "license": "MIT",
   "private": true,
   "scripts": {

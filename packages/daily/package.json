@@ -2,7 +2,7 @@
   "name": "@ascend-media/package-daily",
   "version": "0.2.25",
   "author": "Brandon Krigbaum <brandon@parameter1.com>",
-  "repository": "https://github.com/base-cms-websites/ascend-media/tree/master/packages/daily",
+  "repository": "https://github.com/parameter1/ascend-media-websites/tree/master/packages/daily",
   "license": "MIT",
   "private": true,
   "scripts": {
