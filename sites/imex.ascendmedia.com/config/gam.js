@@ -1,6 +1,6 @@
 const configureGAM = require('@ascend-media/package-shared/config/gam');
 
-const config = configureGAM({ basePath: 'hearthubs' });
+const config = configureGAM({ basePath: 'imex' });
 
 config
   .setAliasAdUnits('default', [
