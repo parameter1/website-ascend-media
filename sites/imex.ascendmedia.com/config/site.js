@@ -18,7 +18,7 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/imex/', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-NG2THPN',
+    containerId: 'GTM-T2DKCX7',
   },
   gcse: {
     id: '003355913687346718228:arteokcijaj',
