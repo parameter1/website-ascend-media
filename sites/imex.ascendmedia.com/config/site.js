@@ -39,11 +39,11 @@ module.exports = {
     },
   },
   inquiry: {
-    enabled: true,
+    enabled: false,
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
-    sendFrom: 'HeartHubs <reply@hearthubs.org>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
+    sendFrom: 'IMEX <noreply@ascendintegratedmedia.com>',
+    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=90',
     bgColor: '#ffffff',
   },
 };
