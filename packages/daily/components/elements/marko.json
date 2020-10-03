@@ -1,0 +1,8 @@
+{
+  "<daily-content-dates>": {
+    "template": "./content-dates.marko"
+  },
+  "<daily-early-career-blogs-button>": {
+    "template": "./early-career-blogs-button.marko"
+  }
+}

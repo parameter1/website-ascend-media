@@ -1,0 +1,90 @@
+{
+  "taglib-imports": [
+    "./load-more/marko.json"
+  ],
+  "<daily-latest-content-feed-block>": {
+    "template": "./latest-content-feed.marko",
+    "<query-params>": {},
+    "<flow>": {},
+    "@section-id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "<daily-latest-content-card-deck-block>": {
+    "template": "./latest-content-card-deck.marko",
+    "<query-params>": {},
+    "<flow>": {},
+    "@section-id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "<daily-follow-us-block>": {
+    "template": "./follow-us.marko"
+  },
+  "<daily-most-recent-block>": {
+    "template": "./most-recent.marko"
+  },
+  "<daily-magazine-publications-block>": {
+    "template": "./magazine-publications.marko",
+    "<publication-params>": {}
+  },
+  "<daily-related-content-block>": {
+    "template": "./related-content.marko",
+    "@content-id": "number"
+  },
+  "<daily-latest-in-section-block>": {
+    "template": "./latest-in-section.marko",
+    "<content>": {
+      "@id": "number"
+    },
+    "<section>": {
+      "@id": "number",
+      "@name": "string"
+    }
+  },
+  "<daily-site-footer>": {
+    "template": "./site-footer.marko"
+  },
+  "<daily-leaderboard-block>": {
+    "template": "./leaderboard.marko"
+  },
+  "<daily-announcements-block>": {
+    "template": "./announcements.marko"
+  },
+  "<daily-message-block>": {
+    "template": "./message.marko"
+  },
+  "<daily-content-hero-card-block>": {
+    "template": "./content-hero-card.marko"
+  },
+  "<daily-content-featured-block>": {
+    "template": "./content-featured.marko"
+  },
+  "<daily-section-list-block>": {
+    "template": "./section-list.marko",
+    "<list>": {}
+  },
+  "<daily-watch-listen-block>": {
+    "template": "./watch-listen.marko"
+  },
+  "<daily-featured-exhibitors-full-block>": {
+    "template": "./featured-exhibitors-full.marko"
+  },
+  "<daily-company-content-list-block>": {
+    "template": "./company-content-list.marko"
+  },
+  "<daily-company-header-block>": {
+    "template": "./company-header.marko"
+  },
+  "<daily-featured-exhibitors-block>": {
+    "template": "./featured-exhibitors.marko"
+  },
+  "<daily-content-hero-block>": {
+    "template": "./content-hero.marko"
+  },
+  "<daily-global-right-rail-block>": {
+    "template": "./global-right-rail.marko"
+  }
+}
