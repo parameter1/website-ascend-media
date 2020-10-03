@@ -21,7 +21,7 @@ module.exports = {
     containerId: 'GTM-T2DKCX7',
   },
   gcse: {
-    id: '003355913687346718228:arteokcijaj',
+    id: 'fd935a2199580a49c',
   },
   wufoo: {
     userName: 'notset',
