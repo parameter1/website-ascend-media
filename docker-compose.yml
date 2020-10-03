@@ -64,7 +64,7 @@ services:
     environment:
       <<: *env
 
-  hearthubs.org:
+  hh:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/hearthubs.org
@@ -80,7 +80,7 @@ services:
       - "9810:80"
       - "19810:19810"
 
-  qcor.hub.heart.org:
+  qcor:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/qcor.hub.heart.org
@@ -96,7 +96,7 @@ services:
       - "9811:80"
       - "19811:19811"
 
-  bcvs.hub.heart.org:
+  bcvs:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/bcvs.hub.heart.org
@@ -112,7 +112,7 @@ services:
       - "9812:80"
       - "19812:19812"
 
-  vasculardiscovery.hub.heart.org:
+  vasculardiscovery:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/vasculardiscovery.hub.heart.org
@@ -128,7 +128,7 @@ services:
       - "9813:80"
       - "19813:19813"
 
-  hypertension.hub.heart.org:
+  hypertension:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/hypertension.hub.heart.org
@@ -144,7 +144,7 @@ services:
       - "9814:80"
       - "19814:19814"
 
-  minexpo.com:
+  minexpo:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/minexpo.com
@@ -160,7 +160,7 @@ services:
       - "9815:80"
       - "19815:19815"
 
-  sessions.hub.heart.org:
+  sessions:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/sessions.hub.heart.org
@@ -176,7 +176,7 @@ services:
       - "9816:80"
       - "19816:19816"
 
-  imex.ascendmedia.com:
+  imex:
     <<: *node
     <<: *site-cmd
     working_dir: /root/sites/imex.ascendmedia.com
