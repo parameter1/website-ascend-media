@@ -10,12 +10,12 @@ module.exports = {
   gam,
   company: 'Ascend Media',
   socialMediaLinks: [
-    { provider: 'twitter', href: 'http://www.twitter.com/American_Heart', target: '_blank' },
-    { provider: 'facebook', href: 'https://www.facebook.com/AmericanHeart', target: '_blank' },
-    { provider: 'instagram', href: 'https://instagram.com/american_heart', target: '_blank' },
-    { provider: 'youtube', href: 'https://www.youtube.com/user/americanheartassoc', target: '_blank' },
-    { provider: 'pinterest', href: 'https://www.pinterest.com/americanheart/', target: '_blank' },
-    { provider: 'linkedin', href: 'https://www.linkedin.com/company/american-heart-association', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/imex_group', target: '_blank' },
+    { provider: 'facebook', href: 'https://www.facebook.com/IMEXGroup/', target: '_blank' },
+    { provider: 'instagram', href: 'https://www.instagram.com/imex_group', target: '_blank' },
+    { provider: 'youtube', href: 'https://www.youtube.com/channel/UCfis5mhkdeEh4IQS_-AKusw', target: '_blank' },
+    // { provider: 'pinterest', href: 'https://www.pinterest.com/americanheart/', target: '_blank' },
+    { provider: 'linkedin', href: 'https://www.linkedin.com/company/imex/', target: '_blank' },
   ],
   gtm: {
     containerId: 'GTM-NG2THPN',
