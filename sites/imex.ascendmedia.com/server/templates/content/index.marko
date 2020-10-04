@@ -8,7 +8,10 @@ $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
+
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video", "event"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayFeatured = ["company", "product", "contact"].includes(type) ? false : true;
@@ -46,14 +49,14 @@ $ const displayCompanyHeader = (content) => {
     <if(displayCompanyHeader(content))>
       <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
         <@section>
-          <shared-company-header-block company=content.company />
+          <daily-company-header-block company=content.company />
         </@section>
       </marko-web-page-wrapper>
     </if>
     <else>
-      <shared-leaderboard-block />
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
     </else>
-    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+
 
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>

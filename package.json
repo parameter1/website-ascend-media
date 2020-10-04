@@ -2,7 +2,7 @@
   "name": "@ascend-media/websites",
   "version": "0.0.0",
   "description": "Websites for Ascend Media",
-  "repository": "https://github.com/base-cms-websites/ascend-media.git",
+  "repository": "https://github.com/parameter1/ascend-media-websites.git",
   "author": "Josh Worden <josh@limit0.io>",
   "license": "MIT",
   "private": true,

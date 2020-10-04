@@ -15,14 +15,14 @@ const topics = [
   { href: '/hotels', label: 'Hotels' },
   { href: '/venues', label: 'Venues' },
   { href: '/travel', label: 'Travel' },
-  { href: '/', label: 'Safety Standards' },
-  { href: '/', label: 'Program' },
-  { href: '/', label: 'Planet IMEX' },
+  { href: '/safety-standards', label: 'Safety Standards' },
+  { href: '/program', label: 'Program' },
+  { href: 'https://www.planetimex.com', label: 'Planet IMEX', target: '_blank' },
 ];
 
 const secondary = [
-  { href: '/', label: 'IMEX Group', target: '_blank' },
-  { href: '/', label: 'Planet IMEX', target: '_blank' },
+  { href: 'https://www.imexexhibitions.com', label: 'IMEX Group', target: '_blank' },
+  { href: 'https://www.planetimex.com', label: 'Planet IMEX', target: '_blank' },
 ];
 
 module.exports = {

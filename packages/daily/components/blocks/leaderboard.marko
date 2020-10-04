@@ -1,0 +1,27 @@
+import { buildImgixUrl } from "@base-cms/image";
+import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
+import { getAsArray } from "@base-cms/object-path";
+import { asArray } from "@base-cms/utils";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const { site, req } = out.global;
+
+$ const src = site.get("blocks.leaderboard.src");
+$ const imgixUrl = buildImgixUrl(src, { h: 250 });
+$ const srcset = [`${buildImgixUrl(imgixUrl, { h: 250, dpr: 2 })} 2x`];
+$ const href = site.get("blocks.leaderboard.href");
+
+
+<daily-message-block queryParams={ sectionAlias: "message" } class="mb-block-lg" />
+
+<!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+
+<!-- <div class="ad-container ad-container--top-of-page ad-container--center ad-container--max-width-970">
+  <marko-web-img
+    src=imgixUrl
+    srcset=srcset
+    lazyload=true
+    class="cme-leaderboard"
+    link={ href, target: "_blank" }
+  />
+</div> -->

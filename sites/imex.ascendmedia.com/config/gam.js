@@ -1,12 +1,13 @@
-const configureGAM = require('@ascend-media/package-shared/config/gam');
+const configureGAM = require('@ascend-media/package-daily/config/gam');
 
-const config = configureGAM({ basePath: 'hearthubs' });
+const config = configureGAM({ basePath: 'imex' });
 
 config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'LB', path: 'lb1' },
     { name: 'rail1', templateName: 'RAIL1', path: 'rail1' },
     { name: 'rail2', templateName: 'RAIL1', path: 'rail2' },
+    { name: 'column1', templateName: 'COLUMN1', path: 'column1' },
   ]);
 
 module.exports = config;

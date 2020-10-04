@@ -10,21 +10,21 @@ module.exports = {
   gam,
   company: 'Ascend Media',
   socialMediaLinks: [
-    { provider: 'twitter', href: 'http://www.twitter.com/American_Heart', target: '_blank' },
-    { provider: 'facebook', href: 'https://www.facebook.com/AmericanHeart', target: '_blank' },
-    { provider: 'instagram', href: 'https://instagram.com/american_heart', target: '_blank' },
-    { provider: 'youtube', href: 'https://www.youtube.com/user/americanheartassoc', target: '_blank' },
-    { provider: 'pinterest', href: 'https://www.pinterest.com/americanheart/', target: '_blank' },
-    { provider: 'linkedin', href: 'https://www.linkedin.com/company/american-heart-association', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/imex_group', target: '_blank' },
+    { provider: 'facebook', href: 'https://www.facebook.com/IMEXGroup/', target: '_blank' },
+    { provider: 'instagram', href: 'https://www.instagram.com/imex_group', target: '_blank' },
+    { provider: 'youtube', href: 'https://www.youtube.com/channel/UCfis5mhkdeEh4IQS_-AKusw', target: '_blank' },
+    // { provider: 'pinterest', href: 'https://www.pinterest.com/americanheart/', target: '_blank' },
+    { provider: 'linkedin', href: 'https://www.linkedin.com/company/imex/', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-NG2THPN',
+    containerId: 'GTM-T2DKCX7',
   },
   gcse: {
-    id: '003355913687346718228:arteokcijaj',
+    id: 'fd935a2199580a49c',
   },
   wufoo: {
-    userName: 'notset',
+    userName: 'NOT-SET',
   },
   magazines: {
     description: '',
@@ -39,11 +39,11 @@ module.exports = {
     },
   },
   inquiry: {
-    enabled: true,
+    enabled: false,
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
-    sendFrom: 'HeartHubs <reply@hearthubs.org>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
+    sendFrom: 'IMEX <noreply@ascendintegratedmedia.com>',
+    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=90',
     bgColor: '#ffffff',
   },
 };
