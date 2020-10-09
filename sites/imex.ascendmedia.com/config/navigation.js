@@ -13,7 +13,7 @@ const userTools = [
 const topics = [
   { href: '/cvb-cities', label: 'CVB/Cities' },
   { href: '/hotels', label: 'Hotels' },
-  { href: '/venues', label: 'Venues' },
+  // { href: '/venues', label: 'Venues' },
   { href: '/travel', label: 'Travel' },
   { href: '/safety-standards', label: 'Safety Standards' },
   { href: 'https://planetimex.com', label: 'Program', target: '_blank' },
