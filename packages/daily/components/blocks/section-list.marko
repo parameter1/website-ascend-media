@@ -52,6 +52,7 @@ $ const queryParams = {
             alt=primaryImage.alt
             is-logo=primaryImage.isLogo
             link={ href: get(content, "siteContext.path") }
+            ...input.image
           />
           <@body>
             <@header>
