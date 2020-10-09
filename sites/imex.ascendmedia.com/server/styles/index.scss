@@ -3,8 +3,8 @@
 $primary: #1616ac;
 $secondary: #0c0c5f;
 
-$theme-site-navbar-logo-height: 60px;
-$theme-site-navbar-logo-height-sm: 40px;
+$theme-site-navbar-logo-height: 16px;
+$theme-site-navbar-logo-height-sm: 16px;
 $theme-site-footer-logo-height: 45px;
 $theme-site-footer-primary-bg-color: $secondary;
 $theme-site-footer-secondary-bg-color: $secondary;
@@ -23,7 +23,7 @@ $theme-hero-teaser-bg-color: #0c0c5f;
   height: auto;
 
   @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
-    background: url("https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-background.jpg?w=1850") no-repeat 50% 120px;
+    background: url("https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-background.jpg?w=1850") no-repeat 50% 85px;
 
     .page {
       background-color: transparent;
