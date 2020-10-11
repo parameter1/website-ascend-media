@@ -1,4 +1,5 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "../../graphql/fragments/content-list";
 
 $ const { GAM } = out.global;
 
@@ -25,9 +26,29 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
 
   <@page>
-    <shared-leaderboard-block />
-    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
-    <shared-content-hero-block section-id=id />
+    <shared-hero-block section-id=id />
+
+    <marko-web-query|{ nodes }|
+      name="website-optioned-content"
+      params={ sectionId: id, optionName: "Pinned", limit: 10, skip: 1, requiresImage: true, queryFragment }
+    >
+      <shared-content-card-deck-flow nodes=nodes cols=3 ad-index=4 ad-name="rail1" />
+    </marko-web-query>
   </@page>
+  <@below-page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-load-more
+        component-name="content-load-more-flow"
+        component-input={ aliases }
+        fragment-name="content-list"
+        query-name="website-scheduled-content"
+        query-params={ sectionId: id, limit: 10, skip: 1, requiresImage: true }
+        max-pages=3
+        page-input={ for: "website-section", id }
+      />
+    </marko-web-resolve-page>
+  </@below-page>
 </marko-web-website-section-page-layout>
