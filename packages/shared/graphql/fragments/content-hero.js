@@ -10,6 +10,13 @@ fragment WebsiteContentHeroFragment on Content {
   siteContext {
     path
   }
+  primarySection {
+    id
+    name
+    alias
+    fullName
+    canonicalPath
+  }
   primaryImage {
     id
     src
