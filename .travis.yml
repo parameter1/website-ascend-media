@@ -100,11 +100,11 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
-    # - stage: production
-    #   name: sessions.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy sessions.hub.heart.org websites
-    #   install: skip
-    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+    - stage: production
+      name: sessions.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy sessions.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: sessions.hub.heart.org
