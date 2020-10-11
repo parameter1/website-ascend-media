@@ -35,7 +35,10 @@
     "@tag": "string",
     "@class": "string",
     "@modifiers": "array",
-    "@attrs": "object"
+    "@attrs": "object",
+    "@ad-index": "number",
+    "@ad-name": "string",
+    "@ad-position": "string"
   },
   "<shared-content-list-feed-flow>": {
     "template": "./list-feed.marko",
