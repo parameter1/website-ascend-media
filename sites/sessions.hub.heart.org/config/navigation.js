@@ -11,11 +11,16 @@ const userTools = [
 ];
 
 const topics = [
+  { href: '/late-breaking-science', label: 'Late-Breaking Science' },
+  { href: '/sessions-news', label: 'Sessions News' },
+  { href: '/exhibit-hall', label: 'Exhibit Hall' },
+  { href: '#', label: 'Program' },
   { href: 'https://learn.heart.org', label: 'Claim CME', target: '_blank' },
 ];
 
 const secondary = [
-  { href: 'https://htn.apprisor.org', label: 'ePosters Access', target: '_blank' },
+  { href: '#', label: 'Virtual Experience Access', target: '_blank' },
+  { href: '#', label: 'ePosters Access', target: '_blank' },
 ];
 
 module.exports = {
