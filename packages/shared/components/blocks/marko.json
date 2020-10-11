@@ -99,6 +99,9 @@
   "<shared-content-hero-block>": {
     "template": "./content-hero.marko"
   },
+  "<shared-hero-block>": {
+    "template": "./hero.marko"
+  },
   "<shared-qcor-chat-button-block>": {
     "template": "./qcor-chat-button.marko"
   },

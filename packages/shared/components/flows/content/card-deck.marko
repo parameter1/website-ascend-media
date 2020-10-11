@@ -1,6 +1,10 @@
 import { getAsObject } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
+$ const { GAM } = out.global;
+
+$ const { aliases, adIndex, adName } = input;
+$ const adPosition = input.adPosition || "after";
 $ const image = getAsObject(input, "node.image");
 
 <default-theme-card-deck-flow
@@ -14,4 +18,9 @@ $ const image = getAsObject(input, "node.image");
   <@slot|{ node, index }|>
     <shared-content-card-node ...input.node node=node />
   </@slot>
+  <if(adIndex !== null)>
+    <@slot position=adPosition index=adIndex>
+      <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: adName, size: [300, 250], aliases }) modifiers=["in-card"] />
+    </@slot>
+  </if>
 </default-theme-card-deck-flow>
