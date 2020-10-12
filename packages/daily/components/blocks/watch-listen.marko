@@ -35,8 +35,8 @@ $ const navigationSrc = defaultValue(site.get("blocks.navigation.src"), `${rootI
       src = listenSrc;
     }
     $ if (content.type === "promotion") {
-      action = "Navigation Tips";
-      src = navigationSrc;
+      action = get(content, "linkText") || "Navigation Tips";
+      src = (action === 'Listen') ? listenSrc : (action === 'Watch') ? watchSrc : navigationSrc;
       link = { target: '_blank' };
     }
     <marko-web-node

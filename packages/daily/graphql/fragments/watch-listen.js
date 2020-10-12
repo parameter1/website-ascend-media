@@ -10,6 +10,10 @@ fragment WebsiteContentWatchListenFragment on Content {
   siteContext {
     path
   }
+  ... on ContentPromotion {
+    linkText
+    linkUrl
+  }
 }
 
 `;
