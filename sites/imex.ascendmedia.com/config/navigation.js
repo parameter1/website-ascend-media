@@ -1,13 +1,13 @@
 const searchItem = {
-  href: '/search',
-  label: 'Search',
-  icon: 'search',
-  modifiers: ['search-icon'],
+  // href: '/search',
+  // label: 'Search',
+  // icon: 'search',
+  // modifiers: ['search-icon'],
 };
 
 const userTools = [
-  { href: '/page/privacy-policy', label: 'Privacy Policy' },
-  { href: '/page/terms-conditions', label: 'Terms & Conditions' },
+  { href: 'https://www.heart.org/en/about-us/statements-and-policies/privacy-statement', label: 'Privacy Policy', target: '_blank' },
+  // { href: '/page/terms-conditions', label: 'Terms & Conditions' },
 ];
 
 const topics = [

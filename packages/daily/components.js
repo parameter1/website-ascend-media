@@ -1,9 +1,11 @@
-const SharedContentListFeedFlow = require('./components/flows/content/list-feed');
-const SharedContentCardDeckFeedFlow = require('./components/flows/content/card-deck-feed');
-const SharedMagazineIssueArchiveFlow = require('./components/flows/magazine-issue-archive');
+const DailyContentListFeedFlow = require('./components/flows/content/list-feed');
+const DailyContentCardDeckFeedFlow = require('./components/flows/content/card-deck-feed');
+const DailyContentCardDeckFlow = require('./components/flows/content/card-deck');
+const DailyMagazineIssueArchiveFlow = require('./components/flows/magazine-issue-archive');
 
 module.exports = {
-  SharedContentListFeedFlow,
-  SharedContentCardDeckFeedFlow,
-  SharedMagazineIssueArchiveFlow,
+  DailyContentListFeedFlow,
+  DailyContentCardDeckFeedFlow,
+  DailyContentCardDeckFlow,
+  DailyMagazineIssueArchiveFlow,
 };

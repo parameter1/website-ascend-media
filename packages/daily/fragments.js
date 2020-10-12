@@ -1,9 +1,9 @@
-const sharedContentList = require('./graphql/fragments/content-list');
-const sharedContentLatest = require('./graphql/fragments/content-latest');
-const sharedMagazineIssueArchive = require('./graphql/fragments/magazine-issue-archive');
+const dailyContentList = require('./graphql/fragments/content-list');
+const dailyContentLatest = require('./graphql/fragments/content-latest');
+const dailyMagazineIssueArchive = require('./graphql/fragments/magazine-issue-archive');
 
 module.exports = {
-  sharedContentList,
-  sharedContentLatest,
-  sharedMagazineIssueArchive,
+  dailyContentList,
+  dailyContentLatest,
+  dailyMagazineIssueArchive,
 };
