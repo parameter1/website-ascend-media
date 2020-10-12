@@ -1,8 +1,8 @@
 const searchItem = {
-  href: '/search',
-  label: 'Search',
-  icon: 'search',
-  modifiers: ['search-icon'],
+  // href: '/search',
+  // label: 'Search',
+  // icon: 'search',
+  // modifiers: ['search-icon'],
 };
 
 const userTools = [
