@@ -10,7 +10,7 @@ $ const withTeaser = defaultValue(input.withTeaser, false);
 $ const innerJustified = defaultValue(input.innerJustified, true);
 
 $ const queryParams = {
-  limit: 4,
+  limit: input.limit || 4,
   queryFragment,
   sectionFragment,
   requiresImage: true,
