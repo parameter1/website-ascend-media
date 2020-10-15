@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/imex.ascendmedia.com",
-  "version": "0.2.38",
+  "version": "0.2.39",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
   "repository": "https://github.com/parameter1/ascend-media-websites/tree/master/sites/imex.ascendmedia.com",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "test": "yarn lint && yarn compile && yarn build"
   },
   "dependencies": {
-    "@ascend-media/package-daily": "^0.2.38",
+    "@ascend-media/package-daily": "^0.2.39",
     "@base-cms/marko-core": "^1.38.0",
     "@base-cms/marko-web": "^1.37.0",
     "@base-cms/marko-web-gam": "^1.37.0",
