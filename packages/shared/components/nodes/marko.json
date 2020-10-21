@@ -50,6 +50,9 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
+  "<shared-content-hero-node>": {
+    "template": "./content-hero.marko"
+  },
   "<shared-magazine-latest-issue-node>": {
     "template": "./magazine-latest-issue.marko",
     "@node": "object",
