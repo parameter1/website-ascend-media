@@ -33,7 +33,7 @@ $ const { linkAttrs } = input;
 >
   <if(defaultValue(input.displayImage, true))>
     <@image
-      width=75
+      width=100
       align="top"
       use-placeholder=false
       fluid=false
@@ -42,10 +42,11 @@ $ const { linkAttrs } = input;
       src=primaryImage.src
       alt=primaryImage.alt
       is-logo=(isEbook ? true : primaryImage.isLogo)
-      link={ href: content.siteContext.path, attrs: linkAttrs }
+      link={ href: get(content, "siteContext.path"), attrs: linkAttrs }
     />
   </if>
   <@body>
+
     <if(withSection || isEvent)>
       <@header>
         <@left|{ blockName }|>
