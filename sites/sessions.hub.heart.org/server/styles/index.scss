@@ -17,4 +17,10 @@ $theme-site-navbar-secondary-type: dark;
       background-color: transparent;
     }
   }
+
+  .site-navbar {
+    &--secondary {
+      background: linear-gradient(90deg, $black 0%, $primary 100%);
+    }
+  }
 }
