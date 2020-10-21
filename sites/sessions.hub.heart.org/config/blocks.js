@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png?auto=format,compress&q=70',
     href: '/',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png?auto=format,compress&q=70',
     href: '/',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png?auto=format,compress&q=70',
     href: '/',
   },
   'early-career': {
@@ -25,7 +25,7 @@ module.exports = {
     href: '/',
   },
   'exhibitors-banner': {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png',
+    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png?auto=format,compress&q=70',
     href: '/exhibitors',
   },
 };
