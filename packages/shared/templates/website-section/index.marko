@@ -12,6 +12,7 @@ $ const {
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
 });
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
@@ -36,6 +37,9 @@ $ const adSlots = ({ aliases }) => ({
     >
       <shared-content-card-deck-flow nodes=nodes cols=3 ad-index=4 ad-name="rail1" />
     </marko-web-query>
+
+    <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
+
   </@page>
   <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>

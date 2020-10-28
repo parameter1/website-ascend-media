@@ -12,6 +12,7 @@ $ const {
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
   "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
@@ -68,6 +69,9 @@ $ const adSlots = ({ aliases }) => ({
           <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
+
+      <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
+
     </marko-web-resolve-page>
   </@page>
   <@below-page>
