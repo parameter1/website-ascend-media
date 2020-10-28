@@ -8,6 +8,7 @@ $ const { id, type, pageNode } = data;
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
   "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
@@ -212,6 +213,7 @@ $ const displayCompanyHeader = (content) => {
         </@section>
 
       </marko-web-page-wrapper>
+       <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
     </marko-web-resolve-page>
   </@page>
 </marko-web-content-page-layout>
