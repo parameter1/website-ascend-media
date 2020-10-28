@@ -45,9 +45,9 @@ $ const adSlots = ({ aliases }) => ({
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
-        component-name="content-load-more-flow"
-        component-input={ aliases }
-        fragment-name="content-list"
+        component-name="shared-content-card-deck-flow"
+        component-input={ aliases, cols: 3 }
+        fragment-name="shared-content-list"
         query-name="website-scheduled-content"
         query-params={ sectionId: id, limit: 10, skip: 1, requiresImage: true }
         max-pages=3
