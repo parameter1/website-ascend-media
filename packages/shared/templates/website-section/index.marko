@@ -33,9 +33,10 @@ $ const adSlots = ({ aliases }) => ({
 
     <marko-web-query|{ nodes }|
       name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 11, skip: 5, requiresImage: true, queryFragment }
+      params={ sectionId: id, optionName: "Pinned", limit: 10, skip: 5, requiresImage: true, queryFragment }
     >
-      <shared-content-card-deck-flow nodes=nodes cols=3 ad-index=4 ad-name="rail1" />
+      <shared-content-card-deck-flow nodes=nodes.slice(0, 5) cols=3 ad-index=4 ad-name="rail1" />
+      <shared-content-card-deck-flow nodes=nodes.slice(5, 10) cols=3 ad-index=4 ad-name="rail2" />
     </marko-web-query>
 
     <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
