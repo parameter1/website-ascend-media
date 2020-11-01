@@ -1,6 +1,6 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
-const { set, get } = require('@base-cms/object-path');
+const { set, get, getAsObject } = require('@base-cms/object-path');
 const cleanResponse = require('@base-cms/marko-core/middleware/clean-marko-response');
 const contactUsHandler = require('@ascend-media/package-contact-us');
 
@@ -8,6 +8,8 @@ const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
 const errorTemplate = require('./templates/error');
+
+const buildNativeXConfig = require('./native-x/build-config');
 
 const routes = siteRoutes => (app) => {
   // Handle contact submissions on /__contact-us
@@ -32,6 +34,10 @@ module.exports = (options = {}) => {
       // Setup GAM.
       const gamConfig = get(options, 'siteConfig.gam');
       if (gamConfig) set(app.locals, 'GAM', gamConfig);
+
+      // Setup NativeX.
+      const nativeXConfig = getAsObject(options, 'siteConfig.nativeX');
+      set(app.locals, 'nativeX', buildNativeXConfig(nativeXConfig));
 
       // Clean all response bodies.
       app.use(cleanResponse());
