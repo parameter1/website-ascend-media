@@ -18,7 +18,7 @@ module.exports = {
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/american-heart-association', target: '_blank' },
   ],
   gtm: {
-    containerId: 'GTM-TXG3S5L',
+    containerId: 'GTM-TV97VDV',
   },
   gcse: {
     id: '8fda9b5d0e7f9c0d5',
