@@ -2,11 +2,13 @@ const navigation = require('./navigation');
 const gam = require('./gam');
 const logos = require('./logos');
 const blocks = require('./blocks');
+const nativeX = require('./native-x');
 
 module.exports = {
   blocks,
   logos,
   navigation,
+  nativeX,
   gam,
   company: 'Ascend Media',
   socialMediaLinks: [
