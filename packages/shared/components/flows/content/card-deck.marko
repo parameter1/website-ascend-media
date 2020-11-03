@@ -8,8 +8,6 @@ $ const adPosition = input.adPosition || "after";
 $ const image = getAsObject(input, "node.image");
 $ const nativeX = getAsObject(input, "nativeX");
 
-$ console.log(nativeX);
-
 <default-theme-card-deck-flow
   tag=input.tag
   class=input.class
@@ -20,7 +18,6 @@ $ console.log(nativeX);
 >
   <@slot|{ node, index }|>
     <if(nxConfig)>
-      $ console.log(index, nativeX.index);
       <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
         ...nativeX
         when=(index === nativeX.index)
