@@ -1,11 +1,14 @@
 import { getAsObject } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
-$ const { GAM } = out.global;
+$ const { GAM, nativeX: nxConfig } = out.global;
 
 $ const { aliases, adIndex, adName } = input;
 $ const adPosition = input.adPosition || "after";
 $ const image = getAsObject(input, "node.image");
+$ const nativeX = getAsObject(input, "nativeX");
+
+$ console.log(nativeX);
 
 <default-theme-card-deck-flow
   tag=input.tag
@@ -16,7 +19,25 @@ $ const image = getAsObject(input, "node.image");
   nodes=input.nodes
 >
   <@slot|{ node, index }|>
-    <shared-content-card-node ...input.node node=node />
+    <if(nxConfig)>
+      $ console.log(index, nativeX.index);
+      <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
+        ...nativeX
+        when=(index === nativeX.index)
+        node=node
+        config=nxConfig
+      >
+        <shared-content-card-node
+          ...input.node
+          node=nxNode
+          attrs=containerAttrs
+          link-attrs=linkAttrs
+        />
+      </marko-web-native-x-render>
+    </if>
+    <else>
+      <shared-content-card-node ...input.node node=node />
+    </else>
   </@slot>
   <if(adIndex !== null)>
     <@slot position=adPosition index=adIndex>
