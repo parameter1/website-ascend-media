@@ -14,8 +14,8 @@ const topics = [
   { href: '/late-breaking-science', label: 'Late-Breaking Science' },
   { href: '/daily-coverage', label: 'Daily Coverage' },
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
-  { href: 'https://eventpilotadmin.com/web/planner.php?id=AHA20', label: 'Program' },
-  { href: 'https://professional.heart.org/en/meetings/scientific-sessions/programming/cme-ce-credit', label: 'Claim CME', target: '_blank' },
+  { href: '#', label: 'Program' },
+  { href: '#', label: 'Claim CME', target: '_blank' },
   { href: '#', label: 'OnDemand' },
   { href: '/previews', label: 'Previews' },
 ];
