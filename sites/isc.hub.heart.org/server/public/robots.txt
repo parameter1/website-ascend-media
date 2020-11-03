@@ -5,5 +5,5 @@ User-agent: *
 Disallow: *
 Disallow: /__load-more
 
-Sitemap: https://sessions.hub.heart.org/sitemap.xml
-Sitemap: https://sessions.hub.heart.org/sitemap-google-news.xml
+Sitemap: https://isc.hub.heart.org/sitemap.xml
+Sitemap: https://isc.hub.heart.org/sitemap-google-news.xml
