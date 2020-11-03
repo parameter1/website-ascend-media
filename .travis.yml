@@ -113,6 +113,18 @@ jobs:
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
+      name: isc.hub.heart.org
+      script: npx @base-cms/website-deployment-tool deploy isc.hub.heart.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: isc.hub.heart.org
+    #   script: npx @base-cms/website-deployment-tool deploy isc.hub.heart.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
+    - stage: production
       name: minexpo.com
       script: npx @base-cms/website-deployment-tool deploy minexpo.com leonis-websites
       install: skip
