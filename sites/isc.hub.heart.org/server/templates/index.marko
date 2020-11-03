@@ -1,0 +1,90 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
+
+$ const { GAM } = out.global;
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = input;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
+});
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
+  </@head>
+
+  <@page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-970", "center"] />
+        <marko-web-query|{ nodes }|
+          name="website-optioned-content"
+          params={ sectionId: id, optionName: "Pinned", limit: 13, skip: 0, requiresImage: true, queryFragment }
+        >
+          <shared-standard-hero-block nodes=nodes.slice(0, 5) />
+
+        <div class="row">
+          <div class="col-lg-12 mb-block">
+              <shared-content-card-deck-flow nodes=nodes.slice(5, 13) cols=3 ad-index=3 ad-name="rail1" />
+          </div>
+        </div>
+      </marko-web-query>
+
+      <div class="row">
+        <div class="col-lg-8 mb-block">
+          <marko-web-query|{ nodes }|
+            name="website-optioned-content"
+            params={ sectionId: id, optionName: "Pinned", limit: 3, skip: 13, requiresImage: true, queryFragment }
+          >
+            <shared-content-card-deck-flow nodes=nodes cols=2 ad-index=0 ad-position="before" ad-name="rail2" />
+          </marko-web-query>
+        </div>
+        <div class="col-lg-4 mb-block page-rail">
+          <a
+            class="twitter-timeline btn btn-primary btn-block"
+            data-height="650"
+            data-theme="light"
+            href="https://twitter.com/AHAmeetings?ref_src=twsrc%5Etfw"
+            target="_blank"
+          >
+            Tweets by AHAScience
+          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+      </div>
+
+      <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
+
+    </marko-web-resolve-page>
+  </@page>
+  <@below-page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-load-more
+        component-name="shared-content-card-deck-flow"
+        component-input={ aliases, cols: 3 }
+        fragment-name="shared-content-list"
+        query-name="website-scheduled-content"
+        query-params={ sectionId: id, limit: 10, skip: 15, requiresImage: true }
+        max-pages=3
+        page-input={ for: "website-section", id }
+      />
+    </marko-web-resolve-page>
+  </@below-page>
+</marko-web-website-section-page-layout>
