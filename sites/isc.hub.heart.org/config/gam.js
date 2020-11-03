@@ -1,6 +1,6 @@
 const configureGAM = require('@ascend-media/package-shared/config/gam');
 
-const config = configureGAM({ basePath: 'sessions' });
+const config = configureGAM({ basePath: 'isc' });
 
 config
   .setAliasAdUnits('default', [
