@@ -16,7 +16,7 @@ const topics = [
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
   { href: 'https://eventpilotadmin.com/web/planner.php?id=AHA20', label: 'Program' },
   { href: 'https://professional.heart.org/en/meetings/scientific-sessions/programming/cme-ce-credit', label: 'Claim CME', target: '_blank' },
-  { href: '#', label: 'OnDemand' },
+  { href: 'https://AHASessions.heart.org/sessions/on-demand', label: 'OnDemand', target: '_blank' },
   { href: '/previews', label: 'Previews' },
 ];
 
