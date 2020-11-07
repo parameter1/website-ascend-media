@@ -42,6 +42,7 @@
     "@modifiers": "array",
     "@attrs": "object",
     "@ad-index": "number",
+    "@ad-modifiers": "array",
     "@ad-name": "string",
     "@ad-position": "string",
     "@aliases": "array"
