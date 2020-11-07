@@ -1,4 +1,4 @@
-import { getAsObject } from "@base-cms/object-path";
+import { getAsObject, getAsArray } from "@base-cms/object-path";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { GAM, nativeX: nxConfig } = out.global;
@@ -33,7 +33,12 @@ $ const nativeX = getAsObject(input, "nativeX");
   </@slot>
   <if(adIndex !== null)>
     <@slot position=adPosition index=adIndex>
-      <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: adName, size: [300, 250], aliases }) modifiers=["in-card"] />
+      $ const adModifiers = ["in-card"].concat(getAsArray(input.adModifiers));
+      <marko-web-gam-define-display-ad
+        ...GAM.getAdUnit({ name: adName, size: [300, 250], aliases })
+        collapse-before-ad-fetch=true
+        with-wrapper=true
+        modifiers=adModifiers />
     </@slot>
   </if>
 </default-theme-card-deck-flow>
