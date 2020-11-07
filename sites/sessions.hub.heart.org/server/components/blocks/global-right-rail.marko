@@ -1,5 +1,14 @@
 
-<marko-web-gam-display-ad id="gpt-ad-rail1" />
+$ const { GAM } = out.global;
+
+$ const { aliases } = input;
+
+<marko-web-gam-define-display-ad
+  ...GAM.getAdUnit({ name: "rail1", aliases })
+  modifiers=["paid"]
+  collapse-before-ad-fetch=true
+  with-wrapper=true
+/>
 
 <a
   class="twitter-timeline btn btn-primary btn-block"
@@ -12,4 +21,8 @@
 </a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<marko-web-gam-display-ad id="gpt-ad-rail2" />
+<marko-web-gam-define-display-ad
+  ...GAM.getAdUnit({ name: "rail2", aliases })
+  collapse-before-ad-fetch=true
+  with-wrapper=true
+/>

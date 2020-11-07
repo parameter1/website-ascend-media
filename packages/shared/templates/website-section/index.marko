@@ -10,37 +10,38 @@ $ const {
   pageNode,
 } = input;
 
-$ const adSlots = ({ aliases }) => ({
-  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
-});
-
 <marko-web-website-section-page-layout id=id alias=alias name=name>
   <@head>
     <marko-web-gtm-website-section-context|{ context }| alias=alias>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-website-section-context>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </marko-web-resolve-page>
   </@head>
 
   <@page>
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
+    <marko-web-gam-define-display-ad
+      ...GAM.getAdUnit({ name: "lb1", aliases })
+      modifiers=["top-of-page", "max-width-970", "center", "paid"]
+      collapse-before-ad-fetch=true
+      with-wrapper=true
+    />
 
     <marko-web-query|{ nodes }|
       name="website-optioned-content"
       params={ sectionId: id, optionName: "Pinned", limit: 15, skip: 0, requiresImage: true, queryFragment }
     >
       <shared-standard-hero-block nodes=nodes.slice(0, 5) />
-      <shared-content-card-deck-flow nodes=nodes.slice(5, 10) cols=3 ad-index=4 ad-name="rail1">
+      <shared-content-card-deck-flow nodes=nodes.slice(5, 10) cols=3 ad-index=4 ad-name="rail1" ad-modifiers=["paid"]>
         <@native-x index=3 name="default" />
       </shared-content-card-deck-flow>
       <shared-content-card-deck-flow nodes=nodes.slice(10, 15) cols=3 ad-index=4 ad-name="rail2" />
     </marko-web-query>
 
-    <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
+    <marko-web-gam-define-display-ad
+      ...GAM.getAdUnit({ name: "lb2", aliases })
+      modifiers=["max-width-970", "center", "paid"]
+      collapse-before-ad-fetch=true
+      with-wrapper=true
+    />
 
   </@page>
   <@below-page>
