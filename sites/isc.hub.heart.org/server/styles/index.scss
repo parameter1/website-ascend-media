@@ -1,7 +1,6 @@
 @import "../../node_modules/@ascend-media/package-shared/scss/variables";
 
 $theme-site-navbar-primary-bg-color: $black;
-$theme-site-navbar-secondary-type: dark;
 
 @import "../../node_modules/@ascend-media/package-shared/scss/theme";
 
@@ -15,12 +14,6 @@ $theme-site-navbar-secondary-type: dark;
 
     .page {
       background-color: transparent;
-    }
-  }
-
-  .site-navbar {
-    &--secondary {
-      background: linear-gradient(90deg, $black 0%, $primary 100%);
     }
   }
 }
