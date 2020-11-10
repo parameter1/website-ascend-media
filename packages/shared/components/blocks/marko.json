@@ -66,6 +66,10 @@
     "template": "./section-list.marko",
     "<list>": {}
   },
+  "<shared-standard-section-list-block>": {
+    "template": "./standard-section-list.marko",
+    "<list>": {}
+  },
   "<shared-watch-listen-block>": {
     "template": "./watch-listen.marko"
   },
