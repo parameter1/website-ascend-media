@@ -56,4 +56,25 @@
       }
     }
   }
+
+  &--sponsored {
+    #{ $self } {
+      &__header {
+        background-color: $gray-600;
+      }
+      &__nodes {
+        background-color: $gray-200;
+      }
+      &__node {
+        border-bottom: 1px solid rgba(0, 0, 0, .5);
+        &:last-child {
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+      }
+    }
+    .node {
+      background-color: transparent;
+    }
+  }
 }
