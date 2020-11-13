@@ -12,7 +12,7 @@ const userTools = [
 
 const topics = [
   { href: '/late-breaking-science', label: 'Late-Breaking Science' },
-  { href: '/daily-coverage', label: 'Daily Coverage' },
+  { href: '/isc-news', label: 'ISC News' },
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
   { href: '#', label: 'Program' },
   { href: '#', label: 'Claim CME', target: '_blank' },
