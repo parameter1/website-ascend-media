@@ -51,7 +51,12 @@ $ const { linkAttrs } = input;
       <@header>
         <@left|{ blockName }|>
           <if(withSection)>
-            <marko-web-website-section-name obj=primarySection link=true />
+            <if(getAsArray(content, "labels").includes("Sponsored"))>
+              <marko-web-website-section-name obj={ name: "Supported Content" } link=false />
+            </if>
+            <else>
+              <marko-web-website-section-name obj=primarySection link=true />
+            </else>
           </if>
           <else-if(isEvent)>
             <marko-web-element tag="span" name="upcoming-archived" block-name=blockName>
