@@ -105,7 +105,7 @@ $ const displayCompanyHeader = (content) => {
                 <hr>
               </marko-web-element>
 
-              <if(displaySocialShare)>
+              <if(displaySocialShare && !getAsArray(content, "labels").includes("Sponsored"))>
                 <marko-web-social-sharing
                   path=content.siteContext.path
                   providers=["facebook", "twitter", "pinterest", "linkedin", "email"]
