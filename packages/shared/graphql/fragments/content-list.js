@@ -11,6 +11,7 @@ fragment WebsiteContentListFragment on Content {
     path
   }
   published
+  labels
   company {
     id
     type

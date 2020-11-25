@@ -45,17 +45,19 @@ $ const displayCompanyHeader = (content) => {
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-
-    <if(displayCompanyHeader(content))>
-      <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
-        <@section>
-          <shared-company-header-block company=content.company />
-        </@section>
-      </marko-web-page-wrapper>
-    </if>
-    <else>
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
-    </else>
+      <if(getAsArray(content, "labels").includes("Sponsored"))>
+        <div class="content-page-sponsored-header mb-3">Supported Content</div>
+      </if>
+      <else-if(displayCompanyHeader(content))>
+        <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
+          <@section>
+            <shared-company-header-block company=content.company />
+          </@section>
+        </marko-web-page-wrapper>
+      </else-if>
+      <else>
+        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
+      </else>
 
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
@@ -103,7 +105,7 @@ $ const displayCompanyHeader = (content) => {
                 <hr>
               </marko-web-element>
 
-              <if(displaySocialShare)>
+              <if(displaySocialShare && !getAsArray(content, "labels").includes("Sponsored"))>
                 <marko-web-social-sharing
                   path=content.siteContext.path
                   providers=["facebook", "twitter", "pinterest", "linkedin", "email"]
@@ -191,6 +193,9 @@ $ const displayCompanyHeader = (content) => {
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
+              <if(getAsArray(content, "labels").includes("Sponsored"))>
+                <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              </if>
               <if(displayInquiry(content))>
                 <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
                   <@header>Request More Information</@header>
@@ -213,7 +218,9 @@ $ const displayCompanyHeader = (content) => {
         </@section>
 
       </marko-web-page-wrapper>
-       <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
+      <if(!getAsArray(content, "labels").includes("Sponsored"))>
+        <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
+      </if>
     </marko-web-resolve-page>
   </@page>
 </marko-web-content-page-layout>
