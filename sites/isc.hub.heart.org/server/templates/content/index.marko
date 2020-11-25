@@ -191,6 +191,9 @@ $ const displayCompanyHeader = (content) => {
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
+              <if(getAsArray(content, "labels").includes("Sponsored"))>
+                <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              </if>
               <if(displayInquiry(content))>
                 <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
                   <@header>Request More Information</@header>
