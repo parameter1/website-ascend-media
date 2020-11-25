@@ -45,17 +45,19 @@ $ const displayCompanyHeader = (content) => {
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-
-    <if(displayCompanyHeader(content))>
-      <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
-        <@section>
-          <shared-company-header-block company=content.company />
-        </@section>
-      </marko-web-page-wrapper>
-    </if>
-    <else>
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
-    </else>
+      <if(getAsArray(content, "labels").includes("Sponsored"))>
+        <div class="content-page-sponsored-header mb-3">Supported Content</div>
+      </if>
+      <else-if(displayCompanyHeader(content))>
+        <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
+          <@section>
+            <shared-company-header-block company=content.company />
+          </@section>
+        </marko-web-page-wrapper>
+      </else-if>
+      <else>
+        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
+      </else>
 
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
