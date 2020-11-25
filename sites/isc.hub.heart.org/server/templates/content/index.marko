@@ -218,7 +218,9 @@ $ const displayCompanyHeader = (content) => {
         </@section>
 
       </marko-web-page-wrapper>
-       <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
+      <if(!getAsArray(content, "labels").includes("Sponsored"))>
+        <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
+      </if>
     </marko-web-resolve-page>
   </@page>
 </marko-web-content-page-layout>
