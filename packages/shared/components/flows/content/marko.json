@@ -32,7 +32,8 @@
     "<native-x>": {
       "@index": "number",
       "@name": "string",
-      "@aliases": "array"
+      "@aliases": "array",
+      "@section-name": "string"
     },
     "@nodes": "array",
     "@display-ads": "boolean",
