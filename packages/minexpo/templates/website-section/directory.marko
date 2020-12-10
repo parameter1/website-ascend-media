@@ -1,0 +1,63 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "../../graphql/fragments/content-list";
+import { retrieveSections } from "../../utils/retrieve-sections";
+import categorySectionsFragment from "../../graphql/fragments/category-sections"
+
+$ const directoryIds = [51709, 51710, 51711, 51712, 51713, 51714, 51715, 51716, 51717];
+
+$ const { apollo, GAM } = out.global;
+
+$ const {
+  id,
+  alias,
+  name,
+  pageNode,
+} = input;
+
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+  </@head>
+
+  <@page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      $ console.log(id);
+      <div class="col-lg-4 page-rail mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-sections"
+          params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
+        >
+          <directory-facets title="Categories" facets=nodes active-id=id />
+        </marko-web-query>
+        
+      </div>
+      <div class="col-lg-8 mb-block">
+        <marko-web-query|{ nodes }| name="all-published-content" params={ limit: 5, queryFragment }>
+          <shared-content-list-flow nodes=nodes inner-justified=false>
+            <@header>Latest</@header>
+            <@nodes image-position="left" with-teaser=true />
+          </shared-content-list-flow>
+        </marko-web-query>
+    </div>
+
+    </marko-web-resolve-page>
+  </@page>
+  <@below-page>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-load-more
+        component-name="shared-content-list-flow"
+        component-input={ aliases,}
+        fragment-name="shared-content-list"
+        query-name="all-published-content"
+        query-params={ sectionId: id, limit: 12, skip: 5 }
+        max-pages=3
+        page-input={ for: "website-section", id }
+      />
+    </marko-web-resolve-page>
+  </@below-page>
+</marko-web-website-section-page-layout>
