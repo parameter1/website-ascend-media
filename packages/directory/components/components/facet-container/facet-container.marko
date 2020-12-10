@@ -1,4 +1,4 @@
-$ const { facets, title } = input;
+$ const { facets, title, aliases } = input;
 
 <if(facets.length)>
   <div class="directory-facets">
@@ -7,8 +7,8 @@ $ const { facets, title } = input;
     </if>
     <facet-list
       facets=facets
+      aliases=aliases
       active-id=input.activeId
-      active-ids=input.activeIds
     />
   </div>
 </if>

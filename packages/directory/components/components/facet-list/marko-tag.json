@@ -7,7 +7,7 @@
     "type": "string",
     "required": true
   },
-  "@active-ids": {
+  "@aliases": {
     "type": "array",
     "required": true
   }

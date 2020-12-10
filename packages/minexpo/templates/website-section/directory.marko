@@ -24,19 +24,30 @@ $ const {
 
   <@page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <marko-web-page-wrapper class="mb-block">
+        <@section>
+          <div class="row">
+            <div class="col">
+              <default-theme-website-section-breadcrumbs section=section display-self=false />
+              <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+              <marko-web-website-section-description tag="p" class="page-wrapper__deck" obj=section />
+            </div>
+          </div>
+        </@section>
+      </marko-web-page-wrapper>
       $ const aliases = hierarchyAliases(section);
-      $ console.log(id);
+      $ console.log('directory', id, aliases);
       <div class="col-lg-4 page-rail mb-block">
         <marko-web-query|{ nodes }|
           name="website-sections"
           params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
         >
-          <directory-facets title="Categories" facets=nodes active-id=id />
+          <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases />
         </marko-web-query>
         
       </div>
       <div class="col-lg-8 mb-block">
-        <marko-web-query|{ nodes }| name="all-published-content" params={ limit: 5, queryFragment }>
+        <marko-web-query|{ nodes }| name="website-scheduled-content" params={ sectionId: id, limit: 5, queryFragment }>
           <shared-content-list-flow nodes=nodes inner-justified=false>
             <@header>Latest</@header>
             <@nodes image-position="left" with-teaser=true />
@@ -51,9 +62,9 @@ $ const {
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
         component-name="shared-content-list-flow"
-        component-input={ aliases,}
+        component-input={ aliases }
         fragment-name="shared-content-list"
-        query-name="all-published-content"
+        query-name="website-scheduled-content"
         query-params={ sectionId: id, limit: 12, skip: 5 }
         max-pages=3
         page-input={ for: "website-section", id }

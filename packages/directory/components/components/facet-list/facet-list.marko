@@ -5,18 +5,17 @@ $ const block = "directory-facets";
 $ const {
   facets,
   activeId,
-  activeIds,
+  aliases,
 } = input;
 
-$ const isActiveId = (id) => (activeId && (`${activeId}` === `${id}`));
-
+$ const isActiveId = ({id}) => (activeId && (`${activeId}` === `${id}`));
+$ facets.sort((a, b) => a.name.localeCompare(b.name))
 <if(facets && facets.length)>
   <div class=`${block}__list`>
     <for|facet| of=facets>
       $ const children = getAsArray(facet, "children.edges").map(({ node }) => node);
-      $ children.sort((a, b) => a.name.localeCompare(b.name));
-      $ const isOpen = activeIds.includes(facet.id);
-      $ const isActive = isActiveId(facet.id);
+      $ const isOpen = aliases.includes(facet.alias);
+      $ const isActive = isActiveId(facet);
 
       $ const classNames = [`${block}__item`, `${block}__item--${facet.id}`];
       $ const linkClasses = [`${block}__link`]
@@ -48,7 +47,7 @@ $ const isActiveId = (id) => (activeId && (`${activeId}` === `${id}`));
             }
           />
         </if>
-        <facet-list facets=children active-id=activeId active-ids=activeIds />
+        <facet-list facets=children active-id=activeId aliases=aliases/>
       </div>
     </for>
   </div>

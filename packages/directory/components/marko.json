@@ -2,6 +2,7 @@
   "<directory-facets>": {
     "template": "./facets.marko",
     "@facets": "array",
+    "@aliases": "array",
     "@active-id": "expression",
     "@title": "string"
   }
