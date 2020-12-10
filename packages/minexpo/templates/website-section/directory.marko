@@ -34,27 +34,29 @@ $ const {
             </div>
           </div>
         </@section>
+        <@section>
+          $ const aliases = hierarchyAliases(section);
+          <div class="row">
+            <div class="col-lg-4 page-rail mb-block">
+              <marko-web-query|{ nodes }|
+                name="website-sections"
+                params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
+              >
+                <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases />
+              </marko-web-query>
+              
+            </div>
+            <div class="col-lg-8 mb-block">
+              <marko-web-query|{ nodes }| name="website-scheduled-content" params={ sectionId: id, limit: 5, queryFragment }>
+                <shared-content-list-flow nodes=nodes inner-justified=false>
+                  <@header>Latest</@header>
+                  <@nodes image-position="left" with-teaser=true />
+                </shared-content-list-flow>
+              </marko-web-query>
+            </div>
+          </div>
+        </@section>
       </marko-web-page-wrapper>
-      $ const aliases = hierarchyAliases(section);
-      $ console.log('directory', id, aliases);
-      <div class="col-lg-4 page-rail mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-sections"
-          params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
-        >
-          <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases />
-        </marko-web-query>
-        
-      </div>
-      <div class="col-lg-8 mb-block">
-        <marko-web-query|{ nodes }| name="website-scheduled-content" params={ sectionId: id, limit: 5, queryFragment }>
-          <shared-content-list-flow nodes=nodes inner-justified=false>
-            <@header>Latest</@header>
-            <@nodes image-position="left" with-teaser=true />
-          </shared-content-list-flow>
-        </marko-web-query>
-    </div>
-
     </marko-web-resolve-page>
   </@page>
   <@below-page>
