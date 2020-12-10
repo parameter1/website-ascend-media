@@ -38,3 +38,11 @@
     background-color: $white;
   }
 }
+
+.directory-facets {
+  > .directory-facets {
+    &__list {
+      max-height: 300px;
+    }
+  }
+}
