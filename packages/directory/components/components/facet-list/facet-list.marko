@@ -9,7 +9,7 @@ $ const {
 } = input;
 
 $ const isActiveId = ({id}) => (activeId && (`${activeId}` === `${id}`));
-$ facets.sort((a, b) => a.name.localeCompare(b.name))
+$ facets.sort((a, b) => a.name.localeCompare(b.name));
 <if(facets && facets.length)>
   <div class=`${block}__list`>
     <for|facet| of=facets>
