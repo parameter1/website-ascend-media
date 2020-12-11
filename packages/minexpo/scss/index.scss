@@ -1,5 +1,5 @@
 @import "../../node_modules/@ascend-media/package-directory/scss/index";
-
+// @import "./components/node";
 .inquiry-form {
   $self: &;
   padding: $block-spacer;
@@ -42,7 +42,7 @@
 .directory-facets {
   > .directory-facets {
     &__list {
-      max-height: 300px;
+      max-height: 600px;
     }
   }
 }
