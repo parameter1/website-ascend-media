@@ -5,7 +5,8 @@ import categorySectionsFragment from "../../graphql/fragments/category-sections"
 
 $ const directoryIds = [51709, 51710, 51711, 51712, 51713, 51714, 51715, 51716, 51717];
 
-$ const { apollo, GAM } = out.global;
+$ const { apollo, GAM, pagination: p, req } = out.global;
+$ console.log(req);
 
 $ const {
   id,
@@ -13,16 +14,31 @@ $ const {
   name,
   pageNode,
 } = input;
+$ const perPage = 20;
 
-<marko-web-website-section-page-layout id=id alias=alias name=name>
-  <@head>
-    <marko-web-gtm-website-section-context|{ context }| alias=alias>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-website-section-context>
-  </@head>
+<marko-web-resolve-page|{ data: section }| node=pageNode>
+  $ let queryParams = {
+    sectionId: section.id,
+    optionName: ["Standard"],
+    queryFragment,
+  };
+  <marko-web-website-section-page-layout id=id alias=alias name=name>
+    <@head>
+      <marko-web-gtm-website-section-context|{ context }| alias=alias>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-website-section-context>
+      <query-total-count|data| name="website-scheduled-content" params=queryParams>
+        $ console.log(data);
+        <pagination-controls
+          per-page=perPage
+          total-count=data.totalCount
+          path=section.alias
+          as-rels=true
+        />
+      </query-total-count>
+    </@head>
 
-  <@page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
+    <@page>
       <marko-web-page-wrapper class="mb-block">
         <@section>
           <div class="row">
@@ -46,14 +62,11 @@ $ const {
               
             </div>
             <div class="col-lg-8 mb-block">
+              $ queryParams.limit = 4;
+              $ queryParams.skip = p.skip({perPage})
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
-                params={
-                  sectionId: section.id,
-                  optionName: ["Standard"],
-                  limit: 4,
-                  queryFragment,
-                }
+                params=queryParams
               >
                 <marko-web-node-list
                   inner-justified=true
@@ -62,7 +75,8 @@ $ const {
                   modifiers=['content-list']
                 >
                   <@header>
-                    Latest
+                    <if(p.page > 1)>${section.name}: Page ${p.page}</if>
+                    <else>Latest in ${section.name}</else>
                   </@header>
                   <@nodes nodes=nodes>
                     <@slot|{ node }|>
@@ -80,15 +94,11 @@ $ const {
           </div>
           <div class="row">
             <div class="col-lg-12 mb-block">
+              $ queryParams.limit = 16;
+              $ queryParams.skip = p.skip({perPage}) + 4;
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
-                params={
-                  sectionId: section.id,
-                  optionName: ["Standard"],
-                  limit: 16,
-                  skip: 4,
-                  queryFragment,
-                }
+                params=queryParams
               >
                 <marko-web-node-list
                   inner-justified=true
@@ -111,7 +121,18 @@ $ const {
             </div>
           </div>
         </@section>
+        <@section>
+        $ delete queryParams.limit;
+        $ delete queryParams.skip;
+        <query-total-count|data| name="website-scheduled-content" params=queryParams>
+          <pagination-controls
+            per-page=perPage
+            total-count=data.totalCount
+            path=section.alias
+          />
+        </query-total-count>
+        </@section>
       </marko-web-page-wrapper>
-    </marko-web-resolve-page>
-  </@page>
-</marko-web-website-section-page-layout>
+    </@page>
+  </marko-web-website-section-page-layout>
+</marko-web-resolve-page> 
