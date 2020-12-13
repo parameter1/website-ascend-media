@@ -17,7 +17,8 @@
   }
 }
 
-.directory-facets {
+.directory-facets,
+.content-type-facets {
   @include theme-card();
   $color: $gray-200;
   $self: &;
