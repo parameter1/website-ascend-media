@@ -1,14 +1,18 @@
+import { getAsArray } from "@base-cms/object-path";
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
 
-$ const directoryIds = [51709, 51710, 51711, 51712, 51713, 51714, 51715, 51716, 51717];
-
 $ const { apollo, GAM, pagination: p, req } = out.global;
-
 $ const contentType = defaultValue(req.query.type, null);
+$ const supportedContendTypes = { 
+  Company: 'Company',
+  PressRelease: 'Press Release',
+  Product: 'Product',
+  News: 'News' 
+};
 
 $ const {
   id,
@@ -56,86 +60,86 @@ $ const includeContentTypes = (req.query.type) ? req.query.type : null;
           $ const aliases = hierarchyAliases(section);
           <div class="row">
             <div class="col-lg-4 mb-block">
-              <marko-web-query|{ nodes }|
-                name="website-sections"
-                params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
+              <div class="content-type-facets">
+                <h3 class="content-type-facets__title">Content Types</h3>
+                <div class="content-type-facets__list">
+                  <for|key,value| in=supportedContendTypes>
+                    <if(key == contentType)>
+                      <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                        <a class=`content-type-facets__link content-type-facets__link--active` href=`/${section.alias}`>
+                          ${value}
+                        </a>
+                      </div>
+                    </if>
+                    <else>
+                      <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                        <a class=`content-type-facets__link content-type-facets__link` href=`/${section.alias}?type=${key}`>
+                          ${value}
+                        </a>
+                      </div>
+                    </else>
+                  </for>
+                </div>                  
+              </div>
+              <marko-web-query|{ node }|
+                name="website-section"
+                params={ alias: 'directory', queryFragment: categorySectionsFragment }
               >
-                <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases content-type=contentType />
+                $ const children = getAsArray(node, "children.edges").map(({ node }) => node);
+                <directory-facets title="Categories" facets=children active-id=id aliases=aliases content-type=contentType />
               </marko-web-query>
-              
+
             </div>
             <div class="col-lg-8 mb-block">
-              $ queryParams.limit = 4;
-              $ queryParams.skip = p.skip({perPage})
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params=queryParams
-              >
-                <marko-web-node-list
-                  inner-justified=true
-                  flush-x=false
-                  flush-y=false
-                  modifiers=['content-list']
-                >
-                  <@header>
-                    <if(p.page > 1)>${section.name}: Page ${p.page}</if>
-                    <else>Latest in ${section.name}</else>
-                  </@header>
-                  <@nodes nodes=nodes>
-                    <@slot|{ node }|>
-                      <shared-company-node
-                        node=node
-                        modifiers=["content-list"]
-                      >
-                        <@image width=250 ar="3:2" use-placeholder=true />
-                      </shared-company-node>
-                    </@slot>
-                  </@nodes>
-                </marko-web-node-list>
-              </marko-web-query>
+              <div class="row">
+                <div class="col">
+                  $ queryParams.limit = 20;
+                  $ queryParams.skip = p.skip({perPage})
+                  <marko-web-query|{ nodes }|
+                    name="website-scheduled-content"
+                    params=queryParams
+                  >
+                    <marko-web-node-list
+                      inner-justified=true
+                      flush-x=false
+                      flush-y=false
+                      modifiers=['content-list']
+                    >
+                      <@header>
+                        <if(p.page > 1)>${section.name}: Page ${p.page}</if>
+                        <else>Latest in ${section.name}</else>
+                      </@header>
+                      <@nodes nodes=nodes>
+                        <@slot|{ node }|>
+                          <shared-company-node
+                            node=node
+                            modifiers=["content-list"]
+                          >
+                            <@image width=250 ar="3:2" use-placeholder=true />
+                          </shared-company-node>
+                        </@slot>
+                      </@nodes>
+                    </marko-web-node-list>
+                  </marko-web-query>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  $ delete queryParams.limit;
+                  $ delete queryParams.skip;
+                  <query-total-count|data| name="website-scheduled-content" params=queryParams>
+                    <pagination-controls
+                      per-page=perPage
+                      total-count=data.totalCount
+                      path=section.alias
+                    />
+                  </query-total-count>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12 mb-block">
-              $ queryParams.limit = 16;
-              $ queryParams.skip = p.skip({perPage}) + 4;
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params=queryParams
-              >
-                <marko-web-node-list
-                  inner-justified=true
-                  flush-x=false
-                  flush-y=false
-                  modifiers=['content-list']
-                >
-                  <@nodes nodes=nodes>
-                    <@slot|{ node }|>
-                      <shared-company-node
-                        node=node
-                        modifiers=["content-list"]
-                      >
-                        <@image width=250 ar="3:2" use-placeholder=true />
-                      </shared-company-node>
-                    </@slot>
-                  </@nodes>
-                </marko-web-node-list>
-              </marko-web-query>
-            </div>
-          </div>
-        </@section>
-        <@section>
-        $ delete queryParams.limit;
-        $ delete queryParams.skip;
-        <query-total-count|data| name="website-scheduled-content" params=queryParams>
-          <pagination-controls
-            per-page=perPage
-            total-count=data.totalCount
-            path=section.alias
-          />
-        </query-total-count>
         </@section>
       </marko-web-page-wrapper>
     </@page>
   </marko-web-website-section-page-layout>
-</marko-web-resolve-page> 
+</marko-web-resolve-page>
