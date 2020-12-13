@@ -1,3 +1,5 @@
+@import "../../node_modules/@ascend-media/package-directory/scss/index";
+// @import "./components/node";
 .inquiry-form {
   $self: &;
   padding: $block-spacer;
@@ -34,5 +36,13 @@
     padding: 0;
     margin-bottom: 0;
     background-color: $white;
+  }
+}
+
+.directory-facets {
+  > .directory-facets {
+    &__list {
+      max-height: 600px;
+    }
   }
 }

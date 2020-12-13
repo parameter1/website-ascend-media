@@ -1,0 +1,15 @@
+$ const { facets, title, aliases } = input;
+
+<if(facets.length)>
+  <div class="directory-facets">
+    <if(title)>
+      <h3 class="directory-facets__title">${title}</h3>
+    </if>
+    <facet-list
+      facets=facets
+      aliases=aliases
+      content-type=input.contentType
+      active-id=input.activeId
+    />
+  </div>
+</if>

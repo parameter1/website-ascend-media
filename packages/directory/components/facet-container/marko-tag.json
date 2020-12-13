@@ -1,0 +1,16 @@
+{
+  "@facets": {
+    "type": "array",
+    "required": true
+  },
+  "@title": "string",
+  "@content-type": "string",
+  "@active-id": {
+    "type": "string",
+    "required": true
+  },
+  "@aliases": {
+    "type": "array",
+    "required": true
+  }
+}

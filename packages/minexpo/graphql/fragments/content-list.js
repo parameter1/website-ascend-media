@@ -2,7 +2,7 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment WebsiteContentListFragment on Content {
+fragment ContentListFragment on Content {
   id
   type
   labels
@@ -50,6 +50,12 @@ fragment WebsiteContentListFragment on Content {
         }
       }
     }
+  }
+  ... on Addressable {
+    address1
+    address2
+    cityStateZip
+    country
   }
   ... on ContentPromotion {
     linkText
