@@ -6,7 +6,7 @@ import categorySectionsFragment from "../../graphql/fragments/category-sections"
 $ const directoryIds = [51709, 51710, 51711, 51712, 51713, 51714, 51715, 51716, 51717];
 
 $ const { apollo, GAM, pagination: p, req } = out.global;
-$ console.log(req);
+<!-- $ console.log(req); -->
 
 $ const {
   id,
@@ -28,7 +28,7 @@ $ const perPage = 20;
         <marko-web-gtm-push data=context />
       </marko-web-gtm-website-section-context>
       <query-total-count|data| name="website-scheduled-content" params=queryParams>
-        $ console.log(data);
+        <!-- $ console.log(data); -->
         <pagination-controls
           per-page=perPage
           total-count=data.totalCount
