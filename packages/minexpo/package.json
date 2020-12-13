@@ -12,7 +12,6 @@
   "dependencies": {
     "@ascend-media/package-common": "^0.3.0",
     "@ascend-media/package-directory": "^0.3.0",
-    "@ascend-media/package-shared": "^0.3.0",
     "@base-cms/marko-core": "^1.38.0",
     "@base-cms/marko-web": "^1.37.0",
     "@base-cms/marko-web-gtm": "^1.37.0",
