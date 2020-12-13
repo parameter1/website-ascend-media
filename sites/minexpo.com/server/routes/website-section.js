@@ -6,20 +6,6 @@ const contactUs = require('../templates/website-section/contact-us');
 const leaders = require('../templates/website-section/leaders');
 const queryFragment = require('../graphql/fragments/website-section-page');
 
-let directoryAliases = [
-  'auxiliary-equipment-and-supplies',
-  'components-and-replacement-equipment',
-  'electrical-equipment-and-supplies',
-  'engineering-construction-consulting-and-mining-related-services',
-  'material-handling-equipment',
-  'mining-equipment',
-  'other-related-equipment-products-and-services',
-  'power-and-power-transmission-equipment',
-  'processingpreparation-equipment',
-];
-
-directoryAliases = directoryAliases.map(alias => `${alias}|${alias}/[a-z0-9-/]+`);
-
 module.exports = (app) => {
   app.get('/:alias(leaders)', withWebsiteSection({
     template: leaders,
@@ -29,8 +15,11 @@ module.exports = (app) => {
     template: contactUs,
     queryFragment,
   }));
-  // map directory allias to use directory templates
-  app.get(`/:alias(${directoryAliases.join('|')})`, withWebsiteSection({
+  app.get('/:alias(directory)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
+  app.get('/:alias(directory/[a-z0-9-/]+)', withWebsiteSection({
     template: directory,
     queryFragment,
   }));
