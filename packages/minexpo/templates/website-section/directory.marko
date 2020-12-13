@@ -111,12 +111,12 @@ $ const includeContentTypes = (req.query.type) ? req.query.type : null;
                       </@header>
                       <@nodes nodes=nodes>
                         <@slot|{ node }|>
-                          <shared-company-node
+                          <minexpo-company-node
                             node=node
                             modifiers=["content-list"]
                           >
                             <@image width=250 ar="3:2" use-placeholder=true />
-                          </shared-company-node>
+                          </minexpo-company-node>
                         </@slot>
                       </@nodes>
                     </marko-web-node-list>
