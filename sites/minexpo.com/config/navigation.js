@@ -1,6 +1,15 @@
+const topics = [
+  { href: '/directory', label: 'Directory' },
+];
+
 module.exports = {
+  primary: {
+    items: [
+    ],
+  },
   secondary: {
     items: [
+      ...topics
     ],
   },
   tertiary: {
@@ -21,8 +30,7 @@ module.exports = {
   menu: [
     {
       label: 'Topics',
-      items: [
-      ],
+      items: [...topics],
     },
     {
       label: 'Resources',
