@@ -8,9 +8,7 @@ module.exports = {
     ],
   },
   secondary: {
-    items: [
-      ...topics
-    ],
+    items: [...topics],
   },
   tertiary: {
     items: [

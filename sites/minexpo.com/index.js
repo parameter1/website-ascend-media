@@ -23,7 +23,7 @@ module.exports = startServer({
   version,
   onStart: (app) => {
     app.set('trust proxy', 'loopback, linklocal, uniquelocal');
-    app.use(paginated())
+    app.use(paginated());
   },
   onAsyncBlockError: e => newrelic.noticeError(e),
   redirectHandler,
