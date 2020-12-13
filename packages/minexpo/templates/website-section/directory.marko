@@ -55,14 +55,14 @@ $ const perPage = 20;
             <div class="col-lg-4 mb-block">
               <marko-web-query|{ nodes }|
                 name="website-sections"
-                params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
+                params={ parentId: 66293, limit: 0, queryFragment: categorySectionsFragment }
               >
                 <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases />
               </marko-web-query>
-              
+
             </div>
             <div class="col-lg-8 mb-block">
-              $ queryParams.limit = 4;
+              $ queryParams.limit = 20;
               $ queryParams.skip = p.skip({perPage})
               <marko-web-query|{ nodes }|
                 name="website-scheduled-content"
@@ -90,49 +90,20 @@ $ const perPage = 20;
                   </@nodes>
                 </marko-web-node-list>
               </marko-web-query>
+
+              $ delete queryParams.limit;
+              $ delete queryParams.skip;
+              <query-total-count|data| name="website-scheduled-content" params=queryParams>
+                <pagination-controls
+                  per-page=perPage
+                  total-count=data.totalCount
+                  path=section.alias
+                />
+              </query-total-count>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12 mb-block">
-              $ queryParams.limit = 16;
-              $ queryParams.skip = p.skip({perPage}) + 4;
-              <marko-web-query|{ nodes }|
-                name="website-scheduled-content"
-                params=queryParams
-              >
-                <marko-web-node-list
-                  inner-justified=true
-                  flush-x=false
-                  flush-y=false
-                  modifiers=['content-list']
-                >
-                  <@nodes nodes=nodes>
-                    <@slot|{ node }|>
-                      <shared-company-node
-                        node=node
-                        modifiers=["content-list"]
-                      >
-                        <@image width=250 ar="3:2" use-placeholder=true />
-                      </shared-company-node>
-                    </@slot>
-                  </@nodes>
-                </marko-web-node-list>
-              </marko-web-query>
-            </div>
-          </div>
-        </@section>
-        <@section>
-        $ delete queryParams.limit;
-        $ delete queryParams.skip;
-        <query-total-count|data| name="website-scheduled-content" params=queryParams>
-          <pagination-controls
-            per-page=perPage
-            total-count=data.totalCount
-            path=section.alias
-          />
-        </query-total-count>
         </@section>
       </marko-web-page-wrapper>
     </@page>
   </marko-web-website-section-page-layout>
-</marko-web-resolve-page> 
+</marko-web-resolve-page>
