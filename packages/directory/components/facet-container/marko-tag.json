@@ -4,6 +4,7 @@
     "required": true
   },
   "@title": "string",
+  "@content-type": "string",
   "@active-id": {
     "type": "string",
     "required": true

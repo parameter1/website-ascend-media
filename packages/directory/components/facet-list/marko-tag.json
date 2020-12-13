@@ -3,6 +3,9 @@
     "type": "array",
     "required": true
   },
+  "@content-type": {
+    "type": "string"
+  },
   "@active-id": {
     "type": "string",
     "required": true

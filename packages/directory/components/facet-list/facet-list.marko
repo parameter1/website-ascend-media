@@ -4,6 +4,7 @@ $ const block = "directory-facets";
 
 $ const {
   facets,
+  contentType,
   activeId,
   aliases,
 } = input;
@@ -21,9 +22,9 @@ $ facets.sort((a, b) => a.name.localeCompare(b.name));
       $ const linkClasses = [`${block}__link`]
       $ if (isOpen) classNames.push(`${block}__item--open`);
       $ if (isActive) linkClasses.push(`${block}__link--active`);
-
+      $ const facetLink = (contentType) ? `/${facet.alias}?type=${contentType}` : `/${facet.alias}`;
       <div class=classNames>
-        <a class=linkClasses href=`/${facet.alias}`>
+        <a class=linkClasses href=facetLink>
           ${facet.name}
         </a>
         <if(children.length)>
@@ -47,7 +48,7 @@ $ facets.sort((a, b) => a.name.localeCompare(b.name));
             }
           />
         </if>
-        <facet-list facets=children active-id=activeId aliases=aliases/>
+        <facet-list facets=children active-id=activeId aliases=aliases content-type=contentType/>
       </div>
     </for>
   </div>

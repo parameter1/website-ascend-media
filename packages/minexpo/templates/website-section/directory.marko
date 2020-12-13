@@ -1,4 +1,5 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
@@ -6,7 +7,8 @@ import categorySectionsFragment from "../../graphql/fragments/category-sections"
 $ const directoryIds = [51709, 51710, 51711, 51712, 51713, 51714, 51715, 51716, 51717];
 
 $ const { apollo, GAM, pagination: p, req } = out.global;
-$ console.log(req);
+
+$ const contentType = defaultValue(req.query.type, null);
 
 $ const {
   id,
@@ -15,6 +17,7 @@ $ const {
   pageNode,
 } = input;
 $ const perPage = 20;
+$ const includeContentTypes = (req.query.type) ? req.query.type : null;
 
 <marko-web-resolve-page|{ data: section }| node=pageNode>
   $ let queryParams = {
@@ -22,13 +25,13 @@ $ const perPage = 20;
     optionName: ["Standard"],
     queryFragment,
   };
+  $ if (includeContentTypes) queryParams.includeContentTypes = [includeContentTypes];
   <marko-web-website-section-page-layout id=id alias=alias name=name>
     <@head>
       <marko-web-gtm-website-section-context|{ context }| alias=alias>
         <marko-web-gtm-push data=context />
       </marko-web-gtm-website-section-context>
       <query-total-count|data| name="website-scheduled-content" params=queryParams>
-        $ console.log(data);
         <pagination-controls
           per-page=perPage
           total-count=data.totalCount
@@ -57,7 +60,7 @@ $ const perPage = 20;
                 name="website-sections"
                 params={ includeIds: directoryIds, limit: 0, queryFragment: categorySectionsFragment }
               >
-                <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases />
+                <directory-facets title="Categories" facets=nodes active-id=id aliases=aliases content-type=contentType />
               </marko-web-query>
               
             </div>

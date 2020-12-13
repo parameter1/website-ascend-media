@@ -3,14 +3,18 @@ import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { perPage, totalCount, path } = input;
 $ const asRels = defaultValue(input.asRels, false);
-$ const { pagination: p } = out.global;
+$ const { pagination: p, req } = out.global;
 
 $ const totalPages = p.totalPages({ perPage, totalCount });
+$ const reqQueryParams = defaultValue(req.query, {});
+$ delete reqQueryParams.page;
+$ const reqQueryParamsStr = Object.keys(reqQueryParams).map((key) => `${key}=${reqQueryParams[key]}`).join('&');
 $ const nextPage = p.nextPage({ perPage, totalCount });
 $ const prevPage = p.prevPage();
 
-$ const nextHref = `/${cleanPath(path)}?page=${nextPage}`;
-$ const prevHref = `/${cleanPath(path)}?page=${prevPage}`;
+
+$ const nextHref = (reqQueryParamsStr) ? `/${cleanPath(path)}?page=${nextPage}&${reqQueryParamsStr}` : `/${cleanPath(path)}?page=${nextPage}`;
+$ const prevHref = (reqQueryParamsStr) ? `/${cleanPath(path)}?page=${prevPage}&${reqQueryParamsStr}` : `/${cleanPath(path)}?page=${prevPage}`;
 
 $ const blockName = "pagination-controls";
 

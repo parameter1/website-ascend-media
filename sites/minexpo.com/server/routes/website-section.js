@@ -7,15 +7,15 @@ const leaders = require('../templates/website-section/leaders');
 const queryFragment = require('../graphql/fragments/website-section-page');
 
 let directoryAliases = [
-  'auxiliary-equipment-and-supplies',
-  'components-and-replacement-equipment',
-  'electrical-equipment-and-supplies',
-  'engineering-construction-consulting-and-mining-related-services',
-  'material-handling-equipment',
-  'mining-equipment',
-  'other-related-equipment-products-and-services',
-  'power-and-power-transmission-equipment',
-  'processingpreparation-equipment',
+  'directory/auxiliary-equipment-and-supplies',
+  'directory/components-and-replacement-equipment',
+  'directory/electrical-equipment-and-supplies',
+  'directory/engineering-construction-consulting-and-mining-related-services',
+  'directory/material-handling-equipment',
+  'directory/mining-equipment',
+  'directory/other-related-equipment-products-and-services',
+  'directory/power-and-power-transmission-equipment',
+  'directory/processingpreparation-equipment',
 ];
 
 directoryAliases = directoryAliases.map(alias => `${alias}|${alias}/[a-z0-9-/]+`);
