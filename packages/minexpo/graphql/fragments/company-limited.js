@@ -4,7 +4,7 @@ const contentListFragment = require('./content-list');
 module.exports = gql`
 
 fragment LimitedCompanyProfileFragment on Content {
-  ...WebsiteContentListFragment
+  ...ContentListFragment
 
   name
 
