@@ -46,3 +46,11 @@
     }
   }
 }
+
+.node {
+  &__image-wrapper {
+    a {
+      box-shadow: none;
+    }
+  }
+}
