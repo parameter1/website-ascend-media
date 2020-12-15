@@ -4,7 +4,7 @@ import latestIssueFragment from "../graphql/fragments/magazine-latest-issue";
 import GAM from "../../config/gam";
 import nxConfig from "../../config/native-x";
 
-$ const { site } = out.global;
+$ const { site, config } = out.global;
 $ const { id, alias, name, pageNode } = data;
 
 <marko-web-website-section-page-layout id=id alias=alias name=name>
@@ -26,136 +26,76 @@ $ const { id, alias, name, pageNode } = data;
     <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-top-below-head" modifiers=["above-container"] />
   </@above-container>
   <@page>
-
     <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 5, requiresImage: true, queryFragment }
+      name="all-published-content"
+      params={ limit: 5, requiresImage: true, queryFragment }
     >
       <website-content-hero-flow nodes=nodes />
     </marko-web-query>
-
-    <div class="row">
-      <div class="col-lg-8 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-optioned-content"
-          params={ sectionAlias: "home", optionName: "Pinned", limit: 4, skip: 5, requiresImage: true, queryFragment }
-        >
-          <default-theme-card-deck-flow cols=2 nodes=nodes>
-            <@slot|{ node, index }|>
-              <website-content-card-node
-                image-width=340
-                node=node
-              />
-            </@slot>
-          </default-theme-card-deck-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block page-rail">
-        <marko-web-gam-display-ad id="gpt-ad-home-skyscraper" modifiers=["in-card"] />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-8 mb-block">
-        <common-leaders-home-page />
-      </div>
-      <div class="col-lg-4 mb-block page-rail">
-        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-leaders-vote-btn" />
-        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-02-right" />
-        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-03-right" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "machinery", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/machinery">Machinery</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "design", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/design">Design</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "issues", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/issues">Issues</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 page-rail">
-        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-04-tall-left" modifiers=["in-card"] />
-      </div>
-      <div class="col-lg-8 mb-block">
-        <marko-web-query|{ nodes }|
-          name="all-published-content"
-          params={ contentTypes: ["Video"], limit: 5, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/videos">Videos</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-    </div>
-
     <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionAlias: "home", optionName: "Pinned", limit: 5, skip: 9, requiresImage: true, queryFragment }
+      name="all-published-content"
+      params={ limit: 6, skip: 5, requiresImage: true, queryFragment }
     >
-      <website-content-card-deck-flow nodes=nodes ad-index=1 ad-position="after" ad-name="imu1" >
-        <@native-x index=2 name="load-more" />
+      <default-theme-card-deck-flow cols=3 nodes=nodes>
+        <@slot|{ node, index }|>
+          <website-content-card-node
+            image-width=340
+            node=node
+          />
+        </@slot>
+      </default-theme-card-deck-flow>
+    </marko-web-query>
+    <marko-web-page-wrapper>
+      <@section>
+        <div class="row">
+          <div class="col">
+            <div class="leaders-index-page__header-wrapper">
+              <div class="leaders-index-page__logo">
+                <marko-web-img
+                  src=site.get("leaders.header.imgSrc")
+                  alt=site.get("leaders.title")
+                />
+              </div>
+              <div class="leaders-index-page__header">
+                <h1 class="leaders-index-page__title">
+                  ${site.get("leaders.title")}
+                </h1>
+                <div class="leaders-index-page__description">
+                  <p>Welcome to <em>${config.siteName()}'s</em> ${site.get("leaders.title")} program.</p>
+                </div>
+              </div>
+              <div class="leaders-index-page__body">
+                <!-- <p>We hope you'll find this directory of packaging machinery and materials vendors to be a helpful resource. For each participating supplier, you'll find a comprehensive company and product profile page to help you make more informed decisions.</p>
+                <p>You'll be pleased to know that our annual Leaders in Packaging program also supports packaging education via a tuition scholarship for students pursuing degrees that will prepare them for a career in packaging. Scholarships have been awarded to students at <a href="/13359570">Clemson University</a>, <a href="/13361275">Missouri University of Science and Technology</a>, <a href="/13363639">Virginia Tech</a>, <a href="/13366329">Michigan State</a>, <a href="/13368828">Cal Poly</a>, <a href="/13371963">Rutgers</a>, <a href="/13374554">Rochester Institute of Technology</a> and the <a href="/21109517">University of Florida, Packaging Engineering Program</a>. 2020 will be our tenth year of supporting education with the “Future Leaders in Packaging Scholarship.” For more information about this scholarship, please contact Publisher Joe Angel at <a href="mailto:jangel@pmmimediagroup.com">jangel@pmmimediagroup.com</a>.</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <common-leaders-all />
+      </@section>
+    </marko-web-page-wrapper>
+    <marko-web-query|{ nodes }|
+      name="all-published-content"
+      params={ limit: 12, skip: 11, requiresImage: true, queryFragment }
+    >
+      <website-content-card-deck-flow nodes=nodes >
       </website-content-card-deck-flow>
     </marko-web-query>
-
-    <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionAlias: "home", optionName: "Pinned", limit: 5, skip: 14, requiresImage: true, queryFragment }
-    >
-      <website-content-card-deck-flow nodes=nodes ad-index=2 ad-name="imu2" >
-        <@native-x index=1 name="load-more" />
-      </website-content-card-deck-flow>
-    </marko-web-query>
-
     <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
 
   </@page>
-  <@below-page>
+  <!-- <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
         component-name="content-load-more-flow"
         component-input={ aliases }
         fragment-name="content-list"
-        query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 19, requiresImage: true }
+        query-name="all-published-content"
+        query-params={ limit: 12, skip: 23, requiresImage: true }
         max-pages=0
         page-input={ for: "website-section", id }
       />
     </marko-web-resolve-page>
-  </@below-page>
+  </@below-page> -->
 </marko-web-website-section-page-layout>
