@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Lato+Sans:300,400,500,600,700|Source+Serif+Pro:400,600,700&display=swap");
+
+$theme-font-family-sans-serif: "Lato", sans-serif;
+$theme-font-family-serif: "Source Serif Pro", serif;
+
 $primary: #3155fc;
 $secondary: #495057;
 $light: #e9ecef;
@@ -7,6 +12,12 @@ $dark-bg-color: #00337b;
 $light-bg-color: #0a6fff;
 $background: $dark-bg-color;
 $link-color: $light-bg-color;
+
+// $theme-site-navbar-secondary-bg-color: $light-bg-color;
+$theme-site-navbar-primary-bg-color: $dark-bg-color;
+$theme-site-navbar-primary-font-size: 14px;
+
+$theme-site-navbar-secondary-font-size: 12px;
 
 $theme-site-footer-primary-bg-color: $light-bg-color;
 $theme-site-footer-secondary-bg-color: $dark-bg-color;
