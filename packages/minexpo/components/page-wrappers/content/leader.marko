@@ -91,49 +91,33 @@ $ const { id, type, content } = input;
       </marko-web-node-list>
     </marko-web-query>
 
-  </div>
-  <div class="col-lg-4 mb-3 mb-lg-0">
-    <marko-web-node-list collapsible=false class="mt-block">
-      <@header>Request More Information</@header>
-      <@body>
-        <shared-inquiry-block content=content with-header=false modifiers=["block"] />
-      </@body>
-    </marko-web-node-list>
-
-    $ const contacts = getAsArray(content, "contacts.edges").map(({ node }) => node);
-    <marko-web-node-list class="mt-block">
-      <@header>
-        Key Contact<if(contacts.length > 1)>s</if>
-      </@header>
-      <@nodes|{ nodes }| nodes=contacts>
-        <for|node| of=nodes>
-          <common-author-card-node node=node with-email=true />
-        </for>
-      </@nodes>
-    </marko-web-node-list>
-
-    $ const videos = getAsArray(content, "videos.edges").map(({ node }) => node);
-    <marko-web-node-list class="mt-block">
-      <@header>
-        Featured Videos
-      </@header>
-      <@nodes|{ nodes }| nodes=videos>
-        <for|node| of=nodes>
-          <div class="node-list__node">
-            <common-youtube-card-node node=node link-attrs={
-              'data-company-id': content.id,
-              'data-company-name': content.name,
-            } />
+    $ const allVideos = getAsArray(content, "videos.edges").map(({ node }) => node);
+    <if(allVideos.length !== 0)>
+      $ const videos = allVideos.slice(0, 3);
+      <marko-web-node-list class="mt-block">
+        <@header>
+          Featured Videos
+        </@header>
+        <@nodes|{ nodes }| nodes=videos>
+          <div class=`card-deck-flow card-deck-flow--${videos.length}-cols`>
+            <for|node| of=nodes>
+              <div class="card-deck-flow__node">
+                <common-youtube-card-node node=node link-attrs={
+                  'data-company-id': content.id,
+                  'data-company-name': content.name,
+                } />
+              </div>
+            </for>
           </div>
-        </for>
-      </@nodes>
-      <@footer>
-        $ const url = get(content, "youtube.url");
-        <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
-          View all videos &gt;
-        </a>
-      </@footer>
-    </marko-web-node-list>
+        </@nodes>
+        <@footer>
+          $ const url = get(content, "youtube.url");
+          <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
+            View all videos &gt;
+          </a>
+        </@footer>
+      </marko-web-node-list>
+    </if>
 
     <marko-web-query|{ nodes }|
       name="all-company-content"
@@ -156,5 +140,28 @@ $ const { id, type, content } = input;
         </@header>
       </shared-content-list-flow>
     </marko-web-query>
+
+  </div>
+  <div class="col-lg-4 page-rail mb-3 mb-lg-0">
+    <marko-web-node-list collapsible=false class="mt-block">
+      <@header>Request More Information</@header>
+      <@body>
+        <shared-inquiry-block content=content with-header=false modifiers=["block"] />
+      </@body>
+    </marko-web-node-list>
+
+    $ const contacts = getAsArray(content, "contacts.edges").map(({ node }) => node);
+    <marko-web-node-list class="mt-block">
+      <@header>
+        Key Contact<if(contacts.length > 1)>s</if>
+      </@header>
+      <@nodes|{ nodes }| nodes=contacts>
+        <for|node| of=nodes>
+          <common-author-card-node node=node with-email=true />
+        </for>
+      </@nodes>
+    </marko-web-node-list>
+
+    
   </div>
 </div>
