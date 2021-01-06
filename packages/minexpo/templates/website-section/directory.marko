@@ -81,13 +81,7 @@ $ const includeContentTypes = (req.query.type) ? req.query.type : null;
                   </for>
                 </div>                  
               </div>
-              <marko-web-query|{ node }|
-                name="website-section"
-                params={ alias: 'directory', queryFragment: categorySectionsFragment }
-              >
-                $ const children = getAsArray(node, "children.edges").map(({ node }) => node);
-                <directory-facets title="Categories" facets=children active-id=id aliases=aliases content-type=contentType />
-              </marko-web-query>
+              <shared-directory-categories-block aliases=aliases active-id=id content-type=contentType />
 
             </div>
             <div class="col-lg-8 mb-block">

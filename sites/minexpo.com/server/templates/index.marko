@@ -32,69 +32,156 @@ $ const { id, alias, name, pageNode } = data;
     >
       <website-content-hero-flow nodes=nodes />
     </marko-web-query>
-    <marko-web-query|{ nodes }|
-      name="all-published-content"
-      params={ limit: 6, skip: 5, requiresImage: true, queryFragment }
-    >
-      <default-theme-card-deck-flow cols=3 nodes=nodes>
-        <@slot|{ node, index }|>
-          <website-content-card-node
-            image-width=340
-            node=node
-          />
-        </@slot>
-      </default-theme-card-deck-flow>
-    </marko-web-query>
-    <!-- <marko-web-page-wrapper>
-      <@section>
-        <div class="row">
-          <div class="col">
-            <div class="leaders-index-page__header-wrapper">
-              <div class="leaders-index-page__logo">
-                <marko-web-img
-                  src=site.get("leaders.header.imgSrc")
-                  alt=site.get("leaders.title")
-                />
-              </div>
-              <div class="leaders-index-page__header">
-                <h1 class="leaders-index-page__title">
-                  ${site.get("leaders.title")}
-                </h1>
-                <div class="leaders-index-page__description">
-                  <p>Welcome to <em>${config.siteName()}'s</em> ${site.get("leaders.title")} program.</p>
-                </div>
-              </div>
-              <div class="leaders-index-page__body">
-                <p>Description</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <common-leaders-all />
-      </@section>
-    </marko-web-page-wrapper> -->
-    <marko-web-query|{ nodes }|
-      name="all-published-content"
-      params={ limit: 12, skip: 11, requiresImage: true, queryFragment }
-    >
-      <website-content-card-deck-flow nodes=nodes >
-      </website-content-card-deck-flow>
-    </marko-web-query>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <marko-web-query|{ nodes }|
+          name="all-published-content"
+          params={ limit: 4, skip: 5, requiresImage: true, queryFragment }
+        >
+          <default-theme-card-deck-flow cols=2 nodes=nodes>
+            <@slot|{ node, index }|>
+              <website-content-card-node
+                image-width=340
+                node=node
+              />
+            </@slot>
+          </default-theme-card-deck-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block page-rail">
+        <shared-directory-categories-block aliases=[] />
+      </div>
+
+      <div class="col-lg-8 mb-block">
+        <common-leaders-home-page expanded=true />
+      </div>
+      <div class="col-lg-4 mb-block page-rail">
+        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-leaders-vote-btn" />
+        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-02-right" />
+        <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-03-right" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/auxiliary-equipment-and-supplies", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/auxiliary-equipment-and-supplies">Auxiliary</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/components-and-replacement-equipment", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/components-and-replacement-equipment">Components</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/electrical-equipment-and-supplies", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/electrical-equipment-and-supplies">Electrical</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/engineering-construction-consulting-and-mining-related-services", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/engineering-construction-consulting-and-mining-related-services">Engineering, Construction</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/material-handling-equipment", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/material-handling-equipment">Material Handling</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/mining-equipment", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/mining-equipment">Mining</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/other-related-equipment-products-and-services", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/other-related-equipment-products-and-services">Other</marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/power-and-power-transmission-equipment", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/power-and-power-transmission-equipment">Power & Power Transmission </marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+      <div class="col-lg-4 mb-block">
+        <marko-web-query|{ nodes }|
+          name="website-scheduled-content"
+          params={ sectionAlias: "directory/processingpreparation-equipment", limit: 4, queryFragment }
+        >
+          <website-content-list-flow nodes=nodes>
+            <@header>
+              <marko-web-link href="/directory/processingpreparation-equipment">Processing/Preparation </marko-web-link>
+            </@header>
+          </website-content-list-flow>
+        </marko-web-query>
+      </div>
+    </div>
+
     <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="home-bottom-wide" />
 
   </@page>
-  <!-- <@below-page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-load-more
-        component-name="content-load-more-flow"
-        component-input={ aliases }
-        fragment-name="content-list"
-        query-name="all-published-content"
-        query-params={ limit: 12, skip: 23, requiresImage: true }
-        max-pages=0
-        page-input={ for: "website-section", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page> -->
+  
 </marko-web-website-section-page-layout>
