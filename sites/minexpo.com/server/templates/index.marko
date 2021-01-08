@@ -64,118 +64,19 @@ $ const { id, alias, name, pageNode } = data;
     </div>
 
     <div class="row">
-      <div class="col-lg-4 mb-block">
+      <div class="col">
         <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/auxiliary-equipment-and-supplies", limit: 4, queryFragment }
+          name="all-published-content"
+          params={ limit: 9, skip: 9, requiresImage: true, queryFragment }
         >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/auxiliary-equipment-and-supplies">Auxiliary</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/components-and-replacement-equipment", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/components-and-replacement-equipment">Components</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/electrical-equipment-and-supplies", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/electrical-equipment-and-supplies">Electrical</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/engineering-construction-consulting-and-mining-related-services", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/engineering-construction-consulting-and-mining-related-services">Engineering, Construction</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/material-handling-equipment", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/material-handling-equipment">Material Handling</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/mining-equipment", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/mining-equipment">Mining</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/other-related-equipment-products-and-services", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/other-related-equipment-products-and-services">Other</marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/power-and-power-transmission-equipment", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/power-and-power-transmission-equipment">Power & Power Transmission </marko-web-link>
-            </@header>
-          </website-content-list-flow>
-        </marko-web-query>
-      </div>
-      <div class="col-lg-4 mb-block">
-        <marko-web-query|{ nodes }|
-          name="website-scheduled-content"
-          params={ sectionAlias: "directory/processingpreparation-equipment", limit: 4, queryFragment }
-        >
-          <website-content-list-flow nodes=nodes>
-            <@header>
-              <marko-web-link href="/directory/processingpreparation-equipment">Processing/Preparation </marko-web-link>
-            </@header>
-          </website-content-list-flow>
+          <default-theme-card-deck-flow cols=3 nodes=nodes>
+            <@slot|{ node, index }|>
+              <website-content-card-node
+                image-width=340
+                node=node
+              />
+            </@slot>
+          </default-theme-card-deck-flow>
         </marko-web-query>
       </div>
     </div>
