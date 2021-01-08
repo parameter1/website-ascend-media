@@ -6,9 +6,9 @@ import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
 
 $ const { apollo, GAM, pagination: p, req } = out.global;
-$ const contentType = defaultValue(req.query.type, null);
+$ const contentType = defaultValue(req.query.type, 'Company');
 $ const supportedContendTypes = { 
-  Company: 'Company',
+  Company: 'Exhibitor',
   PressRelease: 'Press Release',
   Product: 'Product',
   News: 'News' 
@@ -21,15 +21,15 @@ $ const {
   pageNode,
 } = input;
 $ const perPage = 20;
-$ const includeContentTypes = (req.query.type) ? req.query.type : null;
 
 <marko-web-resolve-page|{ data: section }| node=pageNode>
   $ let queryParams = {
     sectionId: section.id,
     optionName: ["Standard"],
     queryFragment,
+    includeContentTypes: [contentType]
   };
-  $ if (includeContentTypes) queryParams.includeContentTypes = [includeContentTypes];
+  $ if ('Company' === contentType) queryParams.sort = { field: 'name', order: 'asc' };
   <marko-web-website-section-page-layout id=id alias=alias name=name>
     <@head>
       <marko-web-gtm-website-section-context|{ context }| alias=alias>
@@ -64,13 +64,21 @@ $ const includeContentTypes = (req.query.type) ? req.query.type : null;
                 <h3 class="content-type-facets__title">Content Types</h3>
                 <div class="content-type-facets__list">
                   <for|key,value| in=supportedContendTypes>
-                    <if(key == contentType)>
+                    <if(key === 'Company')>
+                    $ const activeModifier = ('Company' === contentType) ? '--active' : '';
+                    <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                      <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=`/${section.alias}`>
+                        ${value}
+                      </a>
+                    </div>
+                    </if>
+                    <else-if(key == contentType)>
                       <div class=`content-type-facets__item content-type-facets__item--${key}`>
                         <a class=`content-type-facets__link content-type-facets__link--active` href=`/${section.alias}`>
                           ${value}
                         </a>
                       </div>
-                    </if>
+                    </else-if>
                     <else>
                       <div class=`content-type-facets__item content-type-facets__item--${key}`>
                         <a class=`content-type-facets__link content-type-facets__link` href=`/${section.alias}?type=${key}`>
@@ -100,8 +108,14 @@ $ const includeContentTypes = (req.query.type) ? req.query.type : null;
                       modifiers=['content-list']
                     >
                       <@header>
-                        <if(p.page > 1)>${section.name}: Page ${p.page}</if>
-                        <else>Latest in ${section.name}</else>
+                        <if('Company' === contentType)>
+                          <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
+                          <else>${supportedContendTypes[contentType]} in ${section.name}</else>
+                        </if>
+                        <else>
+                          <if(p.page > 1)>${section.name}: Page ${p.page}</if>
+                          <else>Latest ${supportedContendTypes[contentType]} in ${section.name}</else>
+                        </else>
                       </@header>
                       <@nodes nodes=nodes>
                         <@slot|{ node }|>
