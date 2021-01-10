@@ -1,6 +1,6 @@
 const GAMConfiguration = require('@base-cms/marko-web-gam/config');
 
-const config = new GAMConfiguration('6407152');
+const config = new GAMConfiguration('6407152', { basePath: 'minexpo' });
 
 config
   .setTemplate('leaderboard', {
@@ -14,12 +14,9 @@ config
 
 config
   .setAliasAdUnits('default', [
-    { name: 'leaderboard', templateName: 'leaderboard', path: 'pw_leaderboard' },
-    { name: 'article-top-below-head', templateName: 'leaderboard', path: 'pw-article-top-below-head' },
-    { name: 'home-top-below-head', templateName: 'leaderboard', path: 'pw-home-top-below-head' },
-    { name: 'imu1', size: [300, 250], path: 'pw_imu_1' },
-    { name: 'imu2', size: [300, 250], path: 'pw_imu_3' },
-    { name: 'skyscraper', options: { size: [300, 600] }, path: 'pw_skyscraper' },
+    { name: 'lb1', templateName: 'leaderboard', path: 'lb1' },
+    { name: 'rail1', options: { size: [300, 250] }, path: 'rail1' },
+    { name: 'rail2', options: { size: [300, 600] }, path: 'rail1' },
   ]);
 
 module.exports = config;
