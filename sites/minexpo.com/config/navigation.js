@@ -1,11 +1,18 @@
-const topics = [
-  { href: '/directory/auxiliary-equipment-and-supplies', label: 'Auxiliary' },
-  { href: '/directory/components-and-replacement-equipment', label: 'Components' },
-  { href: '/directory/electrical-equipment-and-supplies', label: 'Electrical' },
-  { href: 'material-handling-equipment', label: 'Material Handling' },
-  { href: '/directory/power-and-power-transmission-equipment', label: 'Power' },
-  { href: '/directory/processingpreparation-equipment', label: 'Processing/Preparation' },
-  { href: '/directory', label: 'More...' },
+// const topics = [
+//   { href: '/directory/auxiliary-equipment-and-supplies', label: 'Auxiliary' },
+//   { href: '/directory/components-and-replacement-equipment', label: 'Components' },
+//   { href: '/directory/electrical-equipment-and-supplies', label: 'Electrical' },
+//   { href: 'material-handling-equipment', label: 'Material Handling' },
+//   { href: '/directory/power-and-power-transmission-equipment', label: 'Power' },
+//   { href: '/directory/processingpreparation-equipment', label: 'Processing/Preparation' },
+//   { href: '/directory', label: 'More...' },
+// ];
+const primary = [
+  { href: '/directory', label: 'Directory' },
+  { href: '/directory?type="News', label: 'News' },
+  { href: '?javascript:void(0)', label: 'Maps' },
+  { href: '?javascript:void(0)', label: 'Export Directory' },
+  { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
 ];
 
 const resources = [
@@ -16,7 +23,7 @@ const resources = [
 
 module.exports = {
   primary: {
-    items: [...topics],
+    items: [...primary],
   },
   secondary: {
     items: [...resources],
@@ -32,6 +39,10 @@ module.exports = {
   menu: [
     {
       label: 'Topics',
+      items: [...primary],
+    },
+    {
+      label: 'Exhibitors By Category',
       items: [
         { href: '/directory/auxiliary-equipment-and-supplies', label: 'Auxiliary Equipment and Supplies' },
         { href: '/directory/components-and-replacement-equipment', label: 'Components & Replacement Equipment' },

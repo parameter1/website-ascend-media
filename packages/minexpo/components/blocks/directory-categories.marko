@@ -7,11 +7,12 @@ $ const aliases = defaultValue(input.aliases, []);
 $ const contentType = defaultValue(input.contentType, "");
 $ const primaryAlias = defaultValue(input.primaryAlias, "directory");
 $ const title = defaultValue(input.title, "Categories");
+$ const description = defaultValue(input.description, "");
 
 <marko-web-query|{ node }|
   name="website-section"
   params={ alias: primaryAlias, queryFragment: categorySectionsFragment }
 >
   $ const children = getAsArray(node, "children.edges").map(({ node }) => node);
-  <directory-facets title=title facets=children active-id=activeId aliases=aliases content-type=contentType />
+  <directory-facets title=title description=description facets=children active-id=activeId aliases=aliases content-type=contentType />
 </marko-web-query>
