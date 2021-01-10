@@ -16,7 +16,7 @@ config
   .setAliasAdUnits('default', [
     { name: 'lb1', templateName: 'leaderboard', path: 'lb1' },
     { name: 'rail1', options: { size: [300, 250] }, path: 'rail1' },
-    { name: 'rail2', options: { size: [300, 600] }, path: 'rail1' },
+    { name: 'rail2', options: { size: [300, 600] }, path: 'rail2' },
   ]);
 
 module.exports = config;
