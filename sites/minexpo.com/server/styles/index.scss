@@ -13,14 +13,17 @@ $light-bg-color: #51659e;
 $background: $dark-bg-color;
 $link-color: $light-bg-color;
 
-$theme-site-navbar-secondary-bg-color: $dark-bg-color;
+$theme-site-navbar-secondary-bg-color: #fff;
 $theme-site-navbar-primary-bg-color: $light-bg-color;
 $theme-site-navbar-primary-font-size: 14px;
 
 $theme-site-navbar-secondary-font-size: 12px;
+$theme-site-navbar-secondary-color: $light-bg-color;
+$theme-site-navbar-secondary-link-color: $light-bg-color;
+$theme-site-navbar-secondary-link-hover-color: $light-bg-color;
 
 $theme-site-footer-primary-bg-color: $light-bg-color;
-$theme-site-footer-secondary-bg-color: $dark-bg-color;
+$theme-site-footer-secondary-bg-color: #fff;
 
 $theme-load-more-button-background-color: $dark-bg-color;
 $theme-load-more-button-border-color: $dark-bg-color;
@@ -67,6 +70,14 @@ $theme-site-header-breakpoints: (
     padding: 10px;
     margin: 10px 0;
     border-bottom: solid $gray-100;
+  }
+}
+
+.hero-flow{
+  &__list {
+    .directory-facets {
+      height: 100%;
+    }
   }
 }
 
