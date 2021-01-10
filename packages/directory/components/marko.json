@@ -5,6 +5,7 @@
     "@content-type": "string",
     "@aliases": "array",
     "@active-id": "expression",
-    "@title": "string"
+    "@title": "string",
+    "@description": "string"
   }
 }
