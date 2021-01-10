@@ -11,9 +11,9 @@ module.exports = {
   company: 'MINExpo Show Directory',
   logos: {
     navbar: {
-      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
+      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90',
       srcset: [
-        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90 2x',
+        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=`180 2x',
       ],
     },
     footer: {

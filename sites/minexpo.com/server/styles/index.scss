@@ -15,6 +15,7 @@ $link-color: $light-bg-color;
 
 $theme-site-navbar-secondary-bg-color: #fff;
 $theme-site-navbar-primary-bg-color: $light-bg-color;
+$theme-site-navbar-primary-link-color: #fff;
 $theme-site-navbar-primary-font-size: 14px;
 
 $theme-site-navbar-secondary-font-size: 12px;
@@ -41,6 +42,12 @@ $theme-site-header-breakpoints: (
 
 @import "../../node_modules/@ascend-media/package-common/scss/common";
 @import "../../node_modules/@ascend-media/package-minexpo/scss/index";
+
+.site-navbar {
+  &__logo {
+    height: 60px;
+  }
+}
 
 .load-more-trigger > button:hover {
   background-color: $light-bg-color;
