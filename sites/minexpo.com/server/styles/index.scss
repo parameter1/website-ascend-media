@@ -73,6 +73,14 @@ $theme-site-header-breakpoints: (
   }
 }
 
+.hero-flow{
+  &__list {
+    .directory-facets {
+      height: 100%;
+    }
+  }
+}
+
 .leaders-section{
   &--with-parent{
     .leaders-section{
