@@ -1,8 +1,10 @@
+const gam = require('./gam');
 const navigation = require('./navigation');
 const leaders = require('./leaders');
 const nativeX = require('./native-x');
 
 module.exports = {
+  gam,
   leaders,
   navigation,
   nativeX,

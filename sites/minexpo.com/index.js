@@ -1,5 +1,6 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@base-cms/marko-web');
+const { set, getAsObject } = require('@base-cms/object-path');
 const paginated = require('@ascend-media/package-minexpo/middleware/paginated');
 const { version } = require('./package.json');
 const routes = require('./server/routes');
@@ -23,6 +24,11 @@ module.exports = startServer({
   version,
   onStart: (app) => {
     app.set('trust proxy', 'loopback, linklocal, uniquelocal');
+
+    // Setup GAM.
+    const gamConfig = getAsObject(siteConfig, 'gam');
+    if (gamConfig) set(app.locals, 'GAM', gamConfig);
+
     app.use(paginated());
   },
   onAsyncBlockError: e => newrelic.noticeError(e),
