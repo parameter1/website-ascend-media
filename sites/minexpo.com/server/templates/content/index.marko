@@ -17,16 +17,15 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-resolve-page|{ data: content }| node=pageNode>
       $ const aliases = hierarchyAliases(content.primarySection);
       $ const adSlots = {
-        "gpt-ad-leaderboard": GAM.getAdUnit({ name: "leaderboard", aliases }),
-        "gpt-ad-imu1": GAM.getAdUnit({ name: "imu1", aliases, size: [300, 250]}),
-        "gpt-ad-skyscraper": GAM.getAdUnit({ name: "skyscraper", aliases, size: [300, 600] }),
+        "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
       <common-gam-content-targeting obj=content />
     </marko-web-resolve-page>
   </@head>
   <@above-container>
-    <marko-web-gam-display-ad id="gpt-ad-leaderboard" modifiers=["above-container"] />
+    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
     <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-top-below-head" modifiers=["above-container"] />
   </@above-container>
   <@page>
@@ -103,30 +102,15 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
                 <common-featured-companies content-id=content.id />
               </if>
 
-              <!-- Div for BI Library -->
-              <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-bilibrary" class="mt-3" />
-
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
               <shared-inquiry-block content=content />
 
-              <marko-web-gam-display-ad id="gpt-ad-imu1" />
-
-              <!-- Div for Leaders Button -->
-              <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-leaders-vote-btn" />
+              <marko-web-gam-display-ad id="gpt-ad-rail1" />
 
               <!-- Leaders block here -->
               <common-leaders-contextual content-id=content.id />
-
-              <!-- Div for Audience -->
-              <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-01-right" />
-
-              <!-- Div for Control Systems Integrators Report -->
-              <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-02-right" />
-
-              <!-- Div for Marketing -->
-              <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-03-right" />
 
             </aside>
           </div>
@@ -155,7 +139,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
           </marko-web-query>
         </div>
         <div class="col-lg-4 page-rail">
-          <marko-web-gam-display-ad id="gpt-ad-skyscraper" modifiers=["in-card"] />
+          <!-- <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["in-card"] /> -->
         </div>
       </div>
 
@@ -174,7 +158,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
 
       <div class="row">
         <div class="col-lg-4 page-rail">
-          <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-04-left" />
+          <!-- <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-04-left" /> -->
         </div>
         <div class="col-lg-8">
           <marko-web-query|{ nodes }|
@@ -203,13 +187,6 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               <@native-x index=2 name="load-more" />
             </website-content-card-deck-flow>
           </marko-web-query>
-        </div>
-      </div>
-
-      <!-- Div for Audience -->
-      <div class="row">
-        <div class="col-lg-12 mb-4">
-          <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-bottom-wide" />
         </div>
       </div>
 
