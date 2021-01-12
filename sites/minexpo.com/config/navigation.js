@@ -10,8 +10,10 @@
 const primary = [
   { href: '/directory', label: 'Directory' },
   { href: '/directory?type=News', label: 'News' },
-  { href: '?javascript:void(0)', label: 'Maps' },
-  { href: '?javascript:void(0)', label: 'Export Directory' },
+  // eslint-disable-next-line no-script-url
+  { href: 'javascript:void(0)', label: 'Maps' },
+  // eslint-disable-next-line no-script-url
+  { href: 'javascript:void(0)', label: 'Export Directory' },
   { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
 ];
 
