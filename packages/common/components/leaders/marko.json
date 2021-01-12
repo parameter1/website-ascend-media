@@ -8,7 +8,8 @@
     },
     "common-leaders-home-page": {
       "template": "./home-page.marko",
-      "@expanded": "boolean"
+      "@expanded": "boolean",
+      "@media-query-columns": "number"
     },
     "common-leaders-contextual": {
       "template": "./contextual.marko",
