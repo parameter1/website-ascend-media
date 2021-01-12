@@ -43,6 +43,10 @@ $theme-site-header-breakpoints: (
 @import "../../node_modules/@ascend-media/package-common/scss/common";
 @import "../../node_modules/@ascend-media/package-minexpo/scss/index";
 
+.document-container-header {
+  padding-top: 120px;
+}
+
 .site-navbar {
   &__logo {
     height: 60px;

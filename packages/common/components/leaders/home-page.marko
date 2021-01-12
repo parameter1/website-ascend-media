@@ -2,6 +2,7 @@ import defaultValue from "@base-cms/marko-core/utils/default-value";
 
 $ const { site } = out.global;
 $ const expanded = defaultValue(input.expanded, false);
+$ const mediaQueryColumns = defaultValue(input.mediaQueryColumns, 2);
 
 <marko-web-leaders props={
   sectionAlias: site.get("leaders.alias"),
@@ -15,7 +16,7 @@ $ const expanded = defaultValue(input.expanded, false);
   calloutValue: site.get('leaders.title'),
   mediaQueries: [
     { prop: "open", value: "right", query: "(min-width: 1490px)" },
-    { prop: "columns", value: 2, query: "(min-width: 700px)" },
+    { prop: "columns", value: mediaQueryColumns, query: "(min-width: 700px)" },
     { prop: "displayCallout", value: false, query: "(max-width: 660px)" },
   ],
 }/>
