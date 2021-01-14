@@ -207,3 +207,19 @@ services:
     ports:
       - "9818:80"
       - "19818:19818"
+
+  bulletin:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/bulletin.entnet.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9819
+      LIVERELOAD_PORT: 19819
+      TENANT_KEY: acbm_fl
+      SITE_ID: 53c95f4a1784f8066eb2c86a
+    ports:
+      - "9819:80"
+      - "19819:19819"
