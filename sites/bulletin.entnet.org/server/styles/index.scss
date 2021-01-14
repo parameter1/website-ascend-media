@@ -11,7 +11,17 @@ $theme-site-navbar-primary-font-weight: 600;
   flex-direction: column;
   height: auto;
 }
-
+.page {
+  &--magazine-issue {
+    .page-wrapper {
+      &__title {
+        font-size: 36px;
+        color: #be3426;
+        text-align: center;
+      }
+    }
+  }
+}
 .content-page-sponsored-header {
   font-size: 1.25rem;
   text-align: center;
