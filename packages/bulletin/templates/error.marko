@@ -11,7 +11,7 @@ $ const title = `${input.statusCode} ${input.statusMessage}`;
 
   <@above-page>
     <div class="error-page">
-      <div class="error-page__image">
+      <!-- <div class="error-page__image">
         <if(input.statusCode === 404)>
           <marko-web-page-image
             obj={
@@ -22,7 +22,7 @@ $ const title = `${input.statusCode} ${input.statusMessage}`;
             options={ ar: "4:3" }
           />
         </if>
-      </div>
+      </div> -->
 
       <h3 class="error-page__title">${input.statusCode} - ${input.statusMessage}</h3>
       <h4 class="error-page__subtitle">Oh no! Something went wrong.</h4>

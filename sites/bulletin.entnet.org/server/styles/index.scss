@@ -2,6 +2,7 @@
 
 $primary-color: #be3426;
 $theme-site-navbar-primary-bg-color: #694d6b;
+$theme-site-navbar-primary-font-weight: 600;
 
 @import "../../node_modules/@ascend-media/package-bulletin/scss/theme";
 
@@ -9,14 +10,6 @@ $theme-site-navbar-primary-bg-color: #694d6b;
   display: block;
   flex-direction: column;
   height: auto;
-
-  @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
-    background: url("https://img.hub.heart.org/files/base/ascend/hearthub/image/static/isc_background.png?w=1850&auto=format,compress&q=70") no-repeat 50% 150px;
-
-    .page {
-      background-color: transparent;
-    }
-  }
 }
 
 .content-page-sponsored-header {

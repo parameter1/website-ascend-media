@@ -1,5 +1,5 @@
 {
-  "<shared-website-section-page-default-layout>": {
+  "<bulletin-website-section-page-default-layout>": {
     "template": "./default.marko",
     "<head>": {},
     "<in-head>": {},

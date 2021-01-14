@@ -100,7 +100,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                   <@header>${cardNodes[0].shortName}</@header>
                 </marko-web-node-list>
 
-                <shared-content-card-node
+                <bulletin-content-card-node
                   with-dates=false
                   node=cardNodes[0]
                   full-height=false
@@ -108,9 +108,9 @@ $ const promise = websiteSectionContentLoader(apollo, {
                 >
                   <@image width=630 />
                   <@teaser modifiers=["large"] />
-                </shared-content-card-node>
+                </bulletin-content-card-node>
 
-                <shared-content-list-flow
+                <bulletin-content-list-flow
                   nodes=listNodes
                   flush-x=false
                   flush-y=false
@@ -118,7 +118,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                   class="mt-block"
                 >
                   <@header>Featured</@header>
-                </shared-content-list-flow>
+                </bulletin-content-list-flow>
 
               </marko-web-query>
             </div>
@@ -134,7 +134,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                   queryFragment
                 }
               >
-                <shared-content-list-flow
+                <bulletin-content-list-flow
                   nodes=nodes
                   flush-x=false
                   flush-y=false
@@ -146,7 +146,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                       REVIEW ePOSTERS
                     </a>
                   </@footer>
-                </shared-content-list-flow>
+                </bulletin-content-list-flow>
               </marko-web-query>
 
               <marko-web-query|{ nodes }|
@@ -159,14 +159,14 @@ $ const promise = websiteSectionContentLoader(apollo, {
                   queryFragment
                 }
               >
-                <shared-content-card-node
+                <bulletin-content-card-node
                   with-dates=true
                   node=nodes[0]
                   full-height=false
                 >
                   <@image width=320 />
                   <@teaser />
-                </shared-content-card-node>
+                </bulletin-content-card-node>
               </marko-web-query>
 
               <a
@@ -177,7 +177,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                 Early Career Blog <marko-web-icon name="link-external" modifiers=["shadow", "light"] />
               </a>
 <!--
-              <shared-content-list-flow
+              <bulletin-content-list-flow
                 nodes=standard.nodes
                 inner-justified=false
               >
@@ -185,7 +185,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                 <@node>
                   <@title modifiers=["small"] />
                 </@node>
-              </shared-content-list-flow>
+              </bulletin-content-list-flow>
 
               <marko-web-gam-display-ad
                 id="gpt-ad-rail1"
@@ -216,7 +216,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
                       limit: 12,
                     };
                     $ if (alias === "home") delete loadMoreParams.sectionId;
-                    <shared-latest-content-feed-load-more-block max-pages=4>
+                    <bulletin-latest-content-feed-load-more-block max-pages=4>
                       <@query
                         name="website-scheduled-content"
                         params=loadMoreParams
@@ -226,12 +226,12 @@ $ const promise = websiteSectionContentLoader(apollo, {
                         ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
                         modifiers=["max-width-300", "margin-auto-x"]
                       />
-                    </shared-latest-content-feed-load-more-block>
+                    </bulletin-latest-content-feed-load-more-block>
                   </div>
 
                   <aside class="col-lg-4 page-rail">
-                    <shared-follow-us-block />
-                    <shared-most-recent-block />
+                    <bulletin-follow-us-block />
+                    <bulletin-most-recent-block />
 
                     <marko-web-gam-display-ad
                       id="gpt-ad-rail-infinite"

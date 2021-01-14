@@ -4,7 +4,7 @@ import queryFragment from "../../graphql/fragments/related-content-block";
   name="related-published-content"
   params={ contentId: input.contentId, limit: 4, queryFragment }
 >
-  <shared-content-list-flow
+  <bulletin-content-list-flow
     nodes=nodes
     inner-justified=false
     flush-y=true
@@ -15,5 +15,5 @@ import queryFragment from "../../graphql/fragments/related-content-block";
     <@node modifiers=["related-content"]>
       <@title modifiers=["small"] />
     </@node>
-  </shared-content-list-flow>
+  </bulletin-content-list-flow>
 </marko-web-query>

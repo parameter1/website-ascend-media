@@ -1,34 +1,34 @@
 {
-  "<shared-company-page-overview>": {
+  "<bulletin-company-page-overview>": {
     "template": "./overview.marko",
     "@content": "object",
     "@class": "string"
   },
-  "<shared-company-page-details>": {
+  "<bulletin-company-page-details>": {
     "template": "./details.marko",
     "@content": "object",
     "@class": "string"
   },
-  "<shared-company-page-at-a-glance>": {
+  "<bulletin-company-page-at-a-glance>": {
     "template": "./at-a-glance.marko",
     "<header>": {},
     "@content": "object"
   },
-  "<shared-company-page-logo>": {
+  "<bulletin-company-page-logo>": {
     "template": "./logo.marko",
     "@content": "object"
   },
-  "<shared-company-page-label>": {
+  "<bulletin-company-page-label>": {
     "template": "./label.marko",
     "@tag": "string",
     "@modifiers": "array"
   },
-  "<shared-company-page-key-contacts>": {
+  "<bulletin-company-page-key-contacts>": {
     "template": "./key-contacts.marko",
     "@contacts": "array",
     "@class": "string"
   },
-  "<shared-company-page-featured-videos>": {
+  "<bulletin-company-page-featured-videos>": {
     "template": "./featured-videos.marko",
     "<company>": {
       "@id": "number",
@@ -38,12 +38,12 @@
     "@class": "string",
     "@href": "string"
   },
-  "<shared-company-page-social-link>": {
+  "<bulletin-company-page-social-link>": {
     "template": "./social-link.marko",
     "@company": "object",
     "@item": "object"
   },
-  "<shared-company-page-website-link>": {
+  "<bulletin-company-page-website-link>": {
     "template": "./website-link.marko",
     "@company": "object"
   }

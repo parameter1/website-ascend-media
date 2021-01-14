@@ -4,7 +4,7 @@ import queryFragment from "../../graphql/fragments/most-recent-block";
   name="all-published-content"
   params={ excludeContentTypes: ["Contact", "Company", "Document"], limit: 5, queryFragment }
 >
-  <shared-content-list-flow
+  <bulletin-content-list-flow
     nodes=nodes
     inner-justified=false
   >
@@ -12,5 +12,5 @@ import queryFragment from "../../graphql/fragments/most-recent-block";
     <@node with-dates=false>
       <@title modifiers=["small"] />
     </@node>
-  </shared-content-list-flow>
+  </bulletin-content-list-flow>
 </marko-web-query>

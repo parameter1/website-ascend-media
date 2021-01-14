@@ -5,7 +5,7 @@ $ const hasImage = Boolean(get(input, "node.primaryImage.src"));
 $ const modifiers = [...getAsArray(input, "modifiers"), "content-card"];
 $ if (!hasImage) modifiers.push("zoomed");
 
-<shared-content-list-node
+<bulletin-content-list-node
   node=input.node
   image-position=defaultValue(input.imagePosition, "top")
   display-image=defaultValue(input.displayImage, true)
@@ -30,4 +30,4 @@ $ if (!hasImage) modifiers.push("zoomed");
     ...input.image
     fluid=true
   />
-</shared-content-list-node>
+</bulletin-content-list-node>

@@ -1,5 +1,5 @@
 {
-  "<shared-magazine-page-layout>": {
+  "<bulletin-magazine-page-layout>": {
     "template": "./index.marko",
     "<head>": {},
     "<in-head>": {},

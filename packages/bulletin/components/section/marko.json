@@ -1,5 +1,5 @@
 {
-  "<shared-section-header>": {
+  "<bulletin-section-header>": {
     "template": "./header.marko",
     "<above-nav>": {},
     "<below-nav>": {},
@@ -18,7 +18,7 @@
     "@reg-enabled": "boolean",
     "@tag": "string"
   },
-  "<shared-section-menu>": {
+  "<bulletin-section-menu>": {
     "template": "./menu.marko"
   }
 }

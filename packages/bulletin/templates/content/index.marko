@@ -46,12 +46,12 @@ $ const displayCompanyHeader = (content) => {
     <if(displayCompanyHeader(content))>
       <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
         <@section>
-          <shared-company-header-block company=content.company />
+          <bulletin-company-header-block company=content.company />
         </@section>
       </marko-web-page-wrapper>
     </if>
     <else>
-      <shared-leaderboard-block />
+      <bulletin-leaderboard-block />
     </else>
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
 
@@ -198,7 +198,7 @@ $ const displayCompanyHeader = (content) => {
                 </marko-web-node-list>
               </if>
               <else>
-                <shared-global-right-rail-block aliases=aliases no-shadow=true />
+                <bulletin-global-right-rail-block aliases=aliases no-shadow=true />
               </else>
             </aside>
 

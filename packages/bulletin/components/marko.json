@@ -8,7 +8,7 @@
     "./section/marko.json",
     "./nodes/marko.json"
   ],
-  "<shared-document>": {
+  "<bulletin-document>": {
     "template": "./document.marko",
     "<head>": {},
     "<above-container>": {},
@@ -20,7 +20,7 @@
     "<below-container>": {},
     "<foot>": {}
   },
-  "<shared-site-header>": {
+  "<bulletin-site-header>": {
     "template": "./site-header.marko"
   }
 }

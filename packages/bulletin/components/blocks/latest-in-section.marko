@@ -14,10 +14,10 @@ $ const section = getAsObject(input, "section");
     queryFragment,
   }
 >
-  <shared-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
+  <bulletin-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
     <@header>Latest in ${section.name}</@header>
     <@node>
       <@title modifiers=["small"] />
     </@node>
-  </shared-content-list-flow>
+  </bulletin-content-list-flow>
 </marko-web-query>

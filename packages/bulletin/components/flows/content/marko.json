@@ -1,5 +1,5 @@
 {
-  "<shared-content-list-flow>": {
+  "<bulletin-content-list-flow>": {
     "template": "./list.marko",
     "<header>": {},
     "<footer>": {},
@@ -15,7 +15,7 @@
     "@class": "string",
     "@modifiers": "array"
   },
-  "<shared-content-featured-flow>": {
+  "<bulletin-content-featured-flow>": {
     "template": "./featured.marko",
     "<card>": {},
     "<card-deck>": {
@@ -23,7 +23,7 @@
     },
     "@nodes": "array"
   },
-  "<shared-content-card-deck-flow>": {
+  "<bulletin-content-card-deck-flow>": {
     "template": "./card-deck.marko",
     "<node>": {
       "<image>": {},
@@ -49,7 +49,7 @@
     "@aliases": "array",
     "@with-teaser": "boolean"
   },
-  "<shared-content-list-feed-flow>": {
+  "<bulletin-content-list-feed-flow>": {
     "template": "./list-feed.marko",
     "<adunit>": {},
     "@nodes": "array",
@@ -57,7 +57,7 @@
     "@with-header": "boolean",
     "@modifiers": "array"
   },
-  "<shared-content-card-deck-feed-flow>": {
+  "<bulletin-content-card-deck-feed-flow>": {
     "template": "./card-deck-feed.marko",
     "<card-deck>": {},
     "<adunit>": {},

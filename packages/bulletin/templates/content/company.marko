@@ -21,42 +21,42 @@ $ const adSlots = ({ aliases }) => ({
   </@head>
 
   <@page>
-    <!-- <shared-leaderboard-block /> -->
+    <!-- <bulletin-leaderboard-block /> -->
     <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
         <@section>
-          <shared-company-header-block company=content />
+          <bulletin-company-header-block company=content />
         </@section>
       </marko-web-page-wrapper>
 
       <div class="row">
         <div class="col-lg-8 mb-block">
-          <!-- <shared-company-page-overview content=content class="mb-block" /> -->
-          <shared-company-page-details content=content class="mb-block" />
+          <!-- <bulletin-company-page-overview content=content class="mb-block" /> -->
+          <bulletin-company-page-details content=content class="mb-block" />
 
-          <shared-company-content-list-block company-id=id>
+          <bulletin-company-content-list-block company-id=id>
             <@header>Videos & Resources</@header>
             <@list class="mb-block" />
             <@query-params include-content-types=["Video", "Whitepaper", "Webinar", "Document", "MediaGallery", "Podcast"] />
-          </shared-company-content-list-block>
+          </bulletin-company-content-list-block>
 
-          <shared-company-content-list-block company-id=id>
+          <bulletin-company-content-list-block company-id=id>
             <@header>Products & Press Releases</@header>
             <@list class="mb-block" />
             <@query-params include-content-types=["Product", "PressRelease"] />
-          </shared-company-content-list-block>
+          </bulletin-company-content-list-block>
 
-          <shared-company-content-list-block company-id=id>
+          <bulletin-company-content-list-block company-id=id>
             <@header>Articles & News</@header>
             <@list class="mb-block" />
             <@query-params include-content-types=["Article", "Blog", "News"] />
-          </shared-company-content-list-block>
+          </bulletin-company-content-list-block>
         </div>
 
         <div class="col-lg-4 mb-block page-rail">
-          <shared-company-page-key-contacts
+          <bulletin-company-page-key-contacts
             contacts=resolved.getEdgeNodesFor("publicContacts")
             class="mb-block"
           />

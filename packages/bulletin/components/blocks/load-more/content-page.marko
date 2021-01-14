@@ -69,7 +69,7 @@ $ const createAttrs = () => {
 };
 $ const attrs = createAttrs();
 
-<shared-latest-content-feed-load-more-block header=attrs.header max-pages=4>
+<bulletin-latest-content-feed-load-more-block header=attrs.header max-pages=4>
   <@query
     name=attrs.queryName
     params=attrs.queryParams
@@ -79,4 +79,4 @@ $ const attrs = createAttrs();
     ...GAM.getAdUnit({ name: "infinite-interstitial", aliases })
     modifiers=["max-width-300", "margin-auto-x"]
   />
-</shared-latest-content-feed-load-more-block>
+</bulletin-latest-content-feed-load-more-block>

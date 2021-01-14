@@ -12,12 +12,12 @@ $ const hasValues = needs.map(field => get(content, field)).some(v => v);
     <@header>Company Overview</@header>
     <@body>
       <marko-web-content-teaser|{ value }| tag="p" obj=content>
-        <shared-company-page-label>About $!{content.name}</shared-company-page-label>
+        <bulletin-company-page-label>About $!{content.name}</bulletin-company-page-label>
         $!{value}
       </marko-web-content-teaser>
 
       <marko-web-obj-text|{ value }| tag="p" obj=content field="productSummary" type="content" html=true>
-        <shared-company-page-label>Product Summary</shared-company-page-label>
+        <bulletin-company-page-label>Product Summary</bulletin-company-page-label>
         $!{value}
       </marko-web-obj-text>
     </@body>

@@ -2,7 +2,7 @@
   "taglib-imports": [
     "./load-more/marko.json"
   ],
-  "<shared-latest-content-feed-block>": {
+  "<bulletin-latest-content-feed-block>": {
     "template": "./latest-content-feed.marko",
     "<query-params>": {},
     "<flow>": {},
@@ -11,7 +11,7 @@
       "required": true
     }
   },
-  "<shared-latest-content-card-deck-block>": {
+  "<bulletin-latest-content-card-deck-block>": {
     "template": "./latest-content-card-deck.marko",
     "<query-params>": {},
     "<flow>": {},
@@ -20,21 +20,21 @@
       "required": true
     }
   },
-  "<shared-follow-us-block>": {
+  "<bulletin-follow-us-block>": {
     "template": "./follow-us.marko"
   },
-  "<shared-most-recent-block>": {
+  "<bulletin-most-recent-block>": {
     "template": "./most-recent.marko"
   },
-  "<shared-magazine-publications-block>": {
+  "<bulletin-magazine-publications-block>": {
     "template": "./magazine-publications.marko",
     "<publication-params>": {}
   },
-  "<shared-related-content-block>": {
+  "<bulletin-related-content-block>": {
     "template": "./related-content.marko",
     "@content-id": "number"
   },
-  "<shared-latest-in-section-block>": {
+  "<bulletin-latest-in-section-block>": {
     "template": "./latest-in-section.marko",
     "<content>": {
       "@id": "number"
@@ -44,81 +44,81 @@
       "@name": "string"
     }
   },
-  "<shared-site-footer>": {
+  "<bulletin-site-footer>": {
     "template": "./site-footer.marko"
   },
-  "<shared-leaderboard-block>": {
+  "<bulletin-leaderboard-block>": {
     "template": "./leaderboard.marko"
   },
-  "<shared-announcements-block>": {
+  "<bulletin-announcements-block>": {
     "template": "./announcements.marko"
   },
-  "<shared-message-block>": {
+  "<bulletin-message-block>": {
     "template": "./message.marko"
   },
-  "<shared-content-hero-card-block>": {
+  "<bulletin-content-hero-card-block>": {
     "template": "./content-hero-card.marko"
   },
-  "<shared-content-featured-block>": {
+  "<bulletin-content-featured-block>": {
     "template": "./content-featured.marko"
   },
-  "<shared-section-list-block>": {
+  "<bulletin-section-list-block>": {
     "template": "./section-list.marko",
     "<list>": {}
   },
-  "<shared-standard-section-list-block>": {
+  "<bulletin-standard-section-list-block>": {
     "template": "./standard-section-list.marko",
     "<list>": {}
   },
-  "<shared-watch-listen-block>": {
+  "<bulletin-watch-listen-block>": {
     "template": "./watch-listen.marko"
   },
-  "<shared-exhibits-mr-block>": {
+  "<bulletin-exhibits-mr-block>": {
     "template": "./exhibits-mr.marko"
   },
-  "<shared-eposters-mr-block>": {
+  "<bulletin-eposters-mr-block>": {
     "template": "./eposters-mr.marko"
   },
-  "<shared-exhibitors-banner-block>": {
+  "<bulletin-exhibitors-banner-block>": {
     "template": "./exhibitors-banner.marko"
   },
-  "<shared-early-career-block>": {
+  "<bulletin-early-career-block>": {
     "template": "./early-career.marko"
   },
-  "<shared-event-schedule-block>": {
+  "<bulletin-event-schedule-block>": {
     "template": "./event-schedule.marko"
   },
-  "<shared-featured-exhibitors-full-block>": {
+  "<bulletin-featured-exhibitors-full-block>": {
     "template": "./featured-exhibitors-full.marko"
   },
-  "<shared-company-content-list-block>": {
+  "<bulletin-company-content-list-block>": {
     "template": "./company-content-list.marko"
   },
-  "<shared-company-header-block>": {
+  "<bulletin-company-header-block>": {
     "template": "./company-header.marko"
   },
-  "<shared-featured-exhibitors-block>": {
+  "<bulletin-featured-exhibitors-block>": {
     "template": "./featured-exhibitors.marko"
   },
-  "<shared-content-hero-block>": {
+  "<bulletin-content-hero-block>": {
     "template": "./content-hero.marko"
   },
-  "<shared-hero-block>": {
+  "<bulletin-hero-block>": {
     "template": "./hero.marko"
   },
-  "<shared-standard-hero-block>": {
+  "<bulletin-standard-hero-block>": {
     "template": "./standard-hero.marko"
   },
-  "<shared-qcor-chat-button-block>": {
+  "<bulletin-qcor-chat-button-block>": {
     "template": "./qcor-chat-button.marko"
   },
-  "<shared-qcor-early-career-plenary-buttons-block>": {
+  "<bulletin-qcor-early-career-plenary-buttons-block>": {
     "template": "./qcor-early-career-plenary-buttons.marko"
   },
-  "<shared-global-right-rail-block>": {
+  "<bulletin-global-right-rail-block>": {
     "template": "./global-right-rail.marko"
   },
-  "<shared-science-news-block>": {
+  "<bulletin-science-news-block>": {
     "template": "./science-news.marko"
   }
 }

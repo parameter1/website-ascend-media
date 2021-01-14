@@ -1,5 +1,5 @@
 {
-  "<shared-content-list-node>": {
+  "<bulletin-content-list-node>": {
     "template": "./content-list.marko",
     "<image>": {},
     "<title>": {},
@@ -25,7 +25,7 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
-  "<shared-content-card-node>": {
+  "<bulletin-content-card-node>": {
     "template": "./content-card.marko",
     "<image>": {},
     "<title>": {},
@@ -50,10 +50,10 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
-  "<shared-content-hero-node>": {
+  "<bulletin-content-hero-node>": {
     "template": "./content-hero.marko"
   },
-  "<shared-magazine-latest-issue-node>": {
+  "<bulletin-magazine-latest-issue-node>": {
     "template": "./magazine-latest-issue.marko",
     "@node": "object",
     "@flush": "boolean",
@@ -63,7 +63,7 @@
       "default-value": 300
     }
   },
-  "<shared-magazine-issue-archive-node>": {
+  "<bulletin-magazine-issue-archive-node>": {
     "template": "./magazine-issue-archive.marko",
     "@node": "object",
     "@image-width": "number",
@@ -72,16 +72,16 @@
     "@card": "boolean",
     "@with-title": "boolean"
   },
-  "<shared-contact-us-list-node>": {
+  "<bulletin-contact-us-list-node>": {
     "template": "./contact-us-list.marko",
     "@node": "object"
   },
-  "<shared-key-contact-card-node>": {
+  "<bulletin-key-contact-card-node>": {
     "template": "./key-contact-card.marko",
     "@node": "object",
     "@with-email": "boolean"
   },
-  "<shared-youtube-card-node>": {
+  "<bulletin-youtube-card-node>": {
     "template": "./youtube-card.marko",
     "@node": "object",
     "@link-attrs": "object"

@@ -2,7 +2,7 @@
   "taglib-imports": [
     "./content/marko.json"
   ],
-  "<shared-magazine-issue-archive-flow>": {
+  "<bulletin-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",
     "@nodes": "array",
     "@flush": {
@@ -15,7 +15,7 @@
     },
     "@modifiers": "array"
   },
-  "<shared-magazine-latest-issue-flow>": {
+  "<bulletin-magazine-latest-issue-flow>": {
     "template": "./magazine-latest-issue.marko",
     "<header>": {},
     "@issue-node": "object"

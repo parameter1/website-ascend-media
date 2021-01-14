@@ -10,7 +10,7 @@ $ if (issueNode) nodes.push(issueNode);
   </if>
   <@nodes nodes=nodes>
     <@slot|{ node: issue }| position="at" index=0>
-      <shared-magazine-latest-issue-node node=issue />
+      <bulletin-magazine-latest-issue-node node=issue />
     </@slot>
   </@nodes>
 </marko-web-node-list>

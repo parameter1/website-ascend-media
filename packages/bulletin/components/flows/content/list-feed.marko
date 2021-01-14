@@ -10,7 +10,7 @@ $ const adunit = getAsObject(input, "adunit");
   <marko-web-gam-define-display-ad ...adunit class="mb-block" />
 </if>
 
-<shared-content-list-flow
+<bulletin-content-list-flow
   nodes=nodes
   inner-justified=false
   modifiers=["padding-large", ...getAsArray(input, "modifiers")]
@@ -21,4 +21,4 @@ $ const adunit = getAsObject(input, "adunit");
   <@node image-position="left" with-attribution=true with-teaser=true>
     <@image ar="16:9" width=260 />
   </@node>
-</shared-content-list-flow>
+</bulletin-content-list-flow>
