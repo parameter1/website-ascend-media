@@ -26,6 +26,16 @@ $ const adSlots = {
             modifiers=["max-width-970", "center"]
           />
         </@section>
+        <@section>
+          <div class="row">
+            <div class="col">
+              <h1 class="page-wrapper__title">${issue.name}</h1>
+              <if(issue.description)>
+                <p class="page-wrapper__deck">${issue.description}</p>
+              </if>
+            </div>
+          </div>
+        </@section>
 
         <@section>
           <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: 5, queryFragment: contentListFragment }>
