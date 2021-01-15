@@ -25,10 +25,6 @@ $ const { id, pageNode } = data;
         <div class="row">
           <div class="col">
             <marko-web-resolve-page|{ data: publication }| node=pageNode>
-              <default-theme-breadcrumbs-with-home>
-                <@item><marko-web-link href="/magazine">Magazines</marko-web-link></@item>
-                <@item><marko-web-magazine-publication-name tag=null obj=publication /></@item>
-              </default-theme-breadcrumbs-with-home>
               <h1 class="page-wrapper__title">${publication.name} Issue Archive</h1>
               <if(publication.description)>
                 <p class="page-wrapper__deck">${publication.description}</p>
