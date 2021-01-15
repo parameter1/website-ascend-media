@@ -3,10 +3,6 @@ import queryFragment from "@ascend-media/package-bulletin/graphql/fragments/cont
 import { get } from "@base-cms/object-path";
 import magazineFragment from "@ascend-media/package-bulletin/graphql/fragments/magazine-latest-issue"
 
-$ const { publicationId } = input;
-
-
-
 $ const { GAM } = out.global;
 
 $ const {
@@ -23,8 +19,8 @@ $ const adSlots = ({ aliases }) => ({
 });
 <marko-web-query|{ node: issue }|
   name="magazine-latest-issue"
-  params={ publicationId: "53c95f861784f8066eb2c882", queryFragment: magazineFragment }
-> 
+  params={ publicationId: "6001dfb8a982a33b138b4589", queryFragment: magazineFragment }
+>
   $ const id = issue.id;
   <marko-web-magazine-issue-page-layout id=id>
     <@head>

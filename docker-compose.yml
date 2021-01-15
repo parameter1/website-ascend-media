@@ -218,8 +218,8 @@ services:
       PORT: 80
       EXPOSED_PORT: 9819
       LIVERELOAD_PORT: 19819
-      TENANT_KEY: acbm_fl
-      SITE_ID: 53c95f4a1784f8066eb2c86a
+      TENANT_KEY: ascend_hh
+      SITE_ID: 6001de6ce8e95f05158b4577
     ports:
       - "9819:80"
       - "19819:19819"
