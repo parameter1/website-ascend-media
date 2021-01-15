@@ -19,5 +19,12 @@
       "required": true
     },
     "@publication-ids": "array"
+  },
+  "<bulletin-magazine-issue-page-layout>": {
+    "template": "./issue.marko",
+    "@issue": {
+      "type": "object",
+      "required": true
+    }
   }
 }
