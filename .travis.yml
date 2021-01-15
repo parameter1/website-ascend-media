@@ -148,6 +148,18 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: bulletin.entnet.org
+      script: npx @base-cms/website-deployment-tool deploy bulletin.entnet.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: bulletin.entnet.org
+    #   script: npx @base-cms/website-deployment-tool deploy bulletin.entnet.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################
