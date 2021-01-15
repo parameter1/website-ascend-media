@@ -1,10 +1,15 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import queryFragment from "@ascend-media/package-bulletin/graphql/fragments/content-list";
+import { get } from "@base-cms/object-path";
+import magazineFragment from "@ascend-media/package-bulletin/graphql/fragments/magazine-latest-issue"
+
+$ const { publicationId } = input;
+
+
 
 $ const { GAM } = out.global;
 
 $ const {
-  id,
   alias,
   name,
   pageNode,
@@ -14,41 +19,20 @@ $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
   "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
 });
-
-<marko-web-website-section-page-layout id=id alias=alias name=name>
-  <@head>
-    <marko-web-gtm-website-section-context|{ context }| alias=alias>
-      <marko-web-gtm-push data=context />
-    </marko-web-gtm-website-section-context>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </marko-web-resolve-page>
-  </@head>
-
-  <@page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-970", "center"] />
-
-      
-      <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-790", "center"] />
-
-    </marko-web-resolve-page>
-  </@page>
-  <@below-page>
-    <marko-web-resolve-page|{ data: section }| node=pageNode>
-      $ const aliases = hierarchyAliases(section);
-      <marko-web-load-more
-        component-name="bulletin-content-card-deck-flow"
-        component-input={ aliases, cols: 3, withTeaser: false }
-        fragment-name="bulletin-content-list"
-        query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 10, skip: 16, requiresImage: true }
-        max-pages=3
-        page-input={ for: "website-section", id }
-      />
-    </marko-web-resolve-page>
-  </@below-page>
-</marko-web-website-section-page-layout>
+<marko-web-query|{ node: issue }|
+  name="magazine-latest-issue"
+  params={ publicationId: "53c95f861784f8066eb2c882", queryFragment: magazineFragment }
+> 
+  $ const id = issue.id;
+  <marko-web-magazine-issue-page-layout id=id>
+    <@head>
+      <marko-web-gtm-magazine-issue-context|{ context }| id=id>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-magazine-issue-context>
+      <marko-web-gam-slots slots=adSlots />
+    </@head>
+    <@page>
+      <bulletin-magazine-issue-page-layout issue=issue />
+    </@page>
+  </marko-web-magazine-issue-page-layout>
+</marko-web-query>
