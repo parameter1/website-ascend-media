@@ -1,0 +1,57 @@
+import { getAsObject, getAsArray, get } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const content = getAsObject(input, "node");
+$ const primaryImage = getAsObject(content, "primaryImage");
+
+$ const withTeaser = defaultValue(input.withTeaser, false);
+$ const withAttribution = defaultValue(input.withAttribution, true);
+
+$ let aspectRatio = get(input, "image.ar", "1:1");
+
+$ const { linkAttrs } = input;
+
+<marko-web-node
+  type=`${content.type}-content`
+  image-position=defaultValue(input.imagePosition, "right")
+  card=defaultValue(input.card, false)
+  flush=defaultValue(input.flush, true)
+  full-height=defaultValue(input.fullHeight, false)
+  attrs=input.attrs
+  modifiers=[...getAsArray(input, "modifiers")]
+>
+  <if(defaultValue(input.displayImage, true))>
+    <@image
+      width=100
+      align="top"
+      use-placeholder=false
+      fluid=false
+      ...input.image
+      ar=aspectRatio
+      src=primaryImage.src
+      alt=primaryImage.alt
+      is-logo=primaryImage.isLogo
+      link={ href: get(content, "siteContext.path"), attrs: linkAttrs }
+    />
+  </if>
+  <@body>
+    <@title tag="h5" ...input.title>
+      <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
+    </@title>
+    <@text
+      modifiers=["teaser", ...getAsArray(input, "teaser.modifiers").map(mod => `teaser-${mod}`)]
+      show=(Boolean(withTeaser && content.teaser))
+    >
+      <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
+    </@text>
+    <if(withAttribution)>
+      <@footer>
+        <if(withAttribution)>
+          <@left>
+            <attribution ...input.attribution content=content />
+          </@left>
+        </if>
+      </@footer>
+    </if>
+  </@body>
+</marko-web-node>

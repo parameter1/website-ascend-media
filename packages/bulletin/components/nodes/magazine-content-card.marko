@@ -1,0 +1,30 @@
+import { get, getAsArray } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const hasImage = Boolean(get(input, "node.primaryImage.src"));
+$ const modifiers = [...getAsArray(input, "modifiers"), "content-card"];
+$ if (!hasImage) modifiers.push("zoomed");
+
+<bulletin-magazine-content-list-node
+  node=input.node
+  image-position=defaultValue(input.imagePosition, "top")
+  display-image=defaultValue(input.displayImage, true)
+  flush=defaultValue(input.flush, false)
+  card=true
+  full-height=defaultValue(input.fullHeight, true)
+  attrs=input.attrs
+  link-attrs=input.linkAttrs
+  modifiers=modifiers
+  with-teaser=defaultValue(input.withTeaser, true)
+  with-attribution=defaultValue(input.withAttribution, true)
+  title=input.title
+  teaser=input.teaser
+  attribution=input.attribution
+>
+  <@image
+    ar="16:9"
+    width=340
+    ...input.image
+    fluid=true
+  />
+</bulletin-magazine-content-list-node>

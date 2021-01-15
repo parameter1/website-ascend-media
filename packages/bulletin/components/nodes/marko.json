@@ -50,6 +50,51 @@
     "@attrs": "object",
     "@link-attrs": "object"
   },
+  "<bulletin-magazine-content-list-node>": {
+    "template": "./magazine-content-list.marko",
+    "<image>": {},
+    "<title>": {},
+    "<teaser>": {
+      "@modifiers": "array"
+    },
+    "<attribution>": {},
+    "@node": "object",
+
+    "@display-image": "boolean",
+    "@image-position": "string",
+    "@card": "boolean",
+    "@flush": "boolean",
+    "@full-height": "boolean",
+
+    "@with-teaser": "boolean",
+    "@with-attribution": "boolean",
+
+    "@modifiers": "array",
+    "@attrs": "object",
+    "@link-attrs": "object"
+  },
+  "<bulletin-magazine-content-card-node>": {
+    "template": "./magazine-content-card.marko",
+    "<image>": {},
+    "<title>": {},
+    "<teaser>": {
+      "@modifiers": "array"
+    },
+    "<attribution>": {},
+    "@node": "object",
+
+    "@display-image": "boolean",
+    "@image-position": "string",
+    "@flush": "boolean",
+    "@full-height": "boolean",
+
+    "@with-teaser": "boolean",
+    "@with-attribution": "boolean",
+
+    "@modifiers": "array",
+    "@attrs": "object",
+    "@link-attrs": "object"
+  },
   "<bulletin-content-hero-node>": {
     "template": "./content-hero.marko"
   },
