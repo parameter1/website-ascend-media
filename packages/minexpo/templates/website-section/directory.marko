@@ -124,7 +124,7 @@ $ const perPage = 20;
                       <@header>
                         <if('Company' === contentType)>
                           <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
-                          <else>${supportedContendTypes[contentType]} in ${section.name}</else>
+                          <else>All ${supportedContendTypes[contentType]}s Alphabetically</else>
                         </if>
                         <else>
                           <if(p.page > 1)>${section.name}: Page ${p.page}</if>
@@ -134,6 +134,7 @@ $ const perPage = 20;
                       <@nodes nodes=nodes>
                         <@slot|{ node }|>
                           <minexpo-company-node
+                            with-section=false
                             node=node
                             modifiers=["content-list"]
                           >
