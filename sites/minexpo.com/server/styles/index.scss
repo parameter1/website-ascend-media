@@ -29,11 +29,13 @@ $theme-site-footer-secondary-bg-color: #fff;
 $theme-load-more-button-background-color: $dark-bg-color;
 $theme-load-more-button-border-color: $dark-bg-color;
 
-$leaders-primary-color: #51659e;
+$leaders-primary-color: $primary;
 $leaders-primary-color-light: $light-bg-color;
 $leaders-accent-color: $dark-bg-color;
 
-$leaders-header-bg-color: #51659e;
+$leaders-header-bg-color: $primary;
+
+$theme-card-header-background-color: $primary;
 
 $theme-site-header-breakpoints: (
   hide-secondary: 790px,
@@ -80,7 +82,7 @@ $theme-site-header-breakpoints: (
   &__description {
     padding: 10px;
     margin: 10px 0;
-    border-bottom: solid $gray-100;
+    border-bottom: solid $primary 2px;
   }
 }
 
