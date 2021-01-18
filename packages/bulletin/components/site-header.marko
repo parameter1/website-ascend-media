@@ -22,11 +22,22 @@ $ if (navigation.secondary.length) tertiaryMods.push("no-left-margin");
   <${input.aboveNav} />
   <default-theme-site-navbar modifiers=["secondary"]>
     <default-theme-site-navbar-brand title=`${config.website("name")} Homepage`>
-      <default-theme-site-navbar-logo
-        alt=config.website("name")
-        src=site.get("logos.navbar.src")
-        srcset=site.getAsArray("logos.navbar.srcset").join(",")
-      />
+      <div class="row">
+        <div class="col association">
+          <default-theme-site-navbar-logo
+            alt=site.get("logos.association.title")
+            src=site.get("logos.association.src")
+            srcset=site.getAsArray("logos.association.srcset").join(",")
+          />
+        </div>
+        <div class="col logo">
+          <default-theme-site-navbar-logo
+            alt=config.website("name")
+            src=site.get("logos.navbar.src")
+            srcset=site.getAsArray("logos.navbar.srcset").join(",")
+          />
+        </div>
+      </div>
     </default-theme-site-navbar-brand>
     <default-theme-site-navbar-items
       items=navigation.secondary

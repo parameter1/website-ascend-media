@@ -147,3 +147,24 @@ $pswp__root-z-index: $theme-site-header-z-index + 1 !default;
     max-width: 600px;
   }
 }
+.site-navbar{
+  &__brand {
+    flex-grow: 1;
+  }
+}
+.association {
+  flex-shrink: 0;
+  flex-grow: unset;
+  margin: auto;
+
+  .site-navbar {
+    &__logo{
+      max-height: 50px;
+    }
+  }
+}
+
+.logo {
+  flex-grow: 1;
+  align-content: center;
+}
