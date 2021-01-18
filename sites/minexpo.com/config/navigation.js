@@ -8,10 +8,10 @@
 //   { href: '/directory', label: 'More...' },
 // ];
 const primary = [
-  { href: '/directory', label: 'Directory' },
+  { href: '/directory', label: 'Exhibitor Directory' },
   { href: '/directory?type=News', label: 'News' },
   // eslint-disable-next-line no-script-url
-  { href: 'javascript:void(0)', label: 'Maps' },
+  { href: 'javascript:void(0)', label: 'Exhibit Hall Map' },
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Export Directory' },
   { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
