@@ -1,6 +1,6 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
 import queryFragment from "../../../graphql/fragments/content-list";
-import { get } from "@base-cms/object-path";
+import { get, getAsObject } from "@base-cms/object-path";
 
 $ const { issue } = input;
 $ const { GAM } = out.global;
@@ -31,38 +31,32 @@ $ const adSlots = ({ aliases }) => ({
   </@section>
 
   <@section>
-    <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, limit: 1, queryFragment }>
-      <default-theme-featured-flow>
-        <@featured node=issue>
-          <bulletin-magazine-latest-issue-node card=true flush=true node=issue />
-        </@featured>
-        <@list nodes=issueContent>
-          <default-theme-card-deck-flow cols=1 nodes=issueContent>
+    <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, limit: 3, queryFragment }>
+      <default-theme-hero-flow nodes=nodes>
+        <@hero|{ node }|>
+          <default-theme-card-deck-flow cols=1 nodes=[node]>
             <@slot|{ node, index }|>
-              <bulletin-magazine-content-card-node node=node with-attribution=false />
+              <bulletin-content-hero-node node=node with-attribution=true />
             </@slot>
           </default-theme-card-deck-flow>
-          <!-- <default-theme-card-deck-flow cols=2 nodes=issueContent.slice(1)>
-            <@slot|{ node, index }|>
-              <bulletin-magazine-content-card-node node=node with-attribution=false />
-            </@slot>
-          </default-theme-card-deck-flow> -->
-        </@list>
-      </default-theme-featured-flow>
-    </marko-web-query>
+        </@hero>
+        <@list|{ nodes }|>
+          <div class="node-list__header">
+            The Leading Edge
+          </div>
+          <if(nodes.length)>
+            <default-theme-card-deck-flow cols=1 nodes=nodes>
+              <@slot|{ node, index }|>
+                <bulletin-content-list-node node=node with-attribution=true image-position="right" with-teaser=true />
+              </@slot>
+            </default-theme-card-deck-flow>
 
-    <marko-web-query|{ nodes }|
-      name="magazine-scheduled-content"
-      params={ issueId: issue.id, limit: 2, skip: 1, queryFragment }
-    >
-      <default-theme-card-deck-flow cols=2 nodes=nodes>
-        <@slot|{ node, index }|>
-          <bulletin-magazine-content-card-node node=node with-attribution=false />
-        </@slot>
-      </default-theme-card-deck-flow>
+          </if>
+        </@list>
+      </default-theme-hero-flow>
     </marko-web-query>
   </@section>
-  
+
   <@section>
     <marko-web-gam-display-ad
       id="gpt-ad-lb1"
@@ -79,7 +73,7 @@ $ const adSlots = ({ aliases }) => ({
       >
         <default-theme-card-deck-flow cols=3 nodes=nodes>
           <@slot|{ node, index }|>
-            <bulletin-magazine-content-card-node node=node with-attribution=false />
+            <bulletin-content-card-node node=node with-attribution=false />
           </@slot>
           <@slot position="after" index=0>
             <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
@@ -87,7 +81,7 @@ $ const adSlots = ({ aliases }) => ({
         </default-theme-card-deck-flow>
       </marko-web-query>
     </@section>
-    
+
     <@section>
       <marko-web-gam-display-ad
         id="gpt-ad-lb1"
@@ -103,7 +97,7 @@ $ const adSlots = ({ aliases }) => ({
       >
         <default-theme-card-deck-flow cols=3 nodes=nodes>
           <@slot|{ node, index }|>
-            <bulletin-magazine-content-card-node node=node with-attribution=false />
+            <bulletin-content-card-node node=node with-attribution=false />
           </@slot>
           <@slot position="after" index=3>
             <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
@@ -120,7 +114,7 @@ $ const adSlots = ({ aliases }) => ({
         >
           <default-theme-card-deck-flow cols=3 nodes=nodes>
             <@slot|{ node, index }|>
-              <bulletin-magazine-content-card-node node=node with-attribution=false />
+              <bulletin-content-card-node node=node with-attribution=false />
             </@slot>
           </default-theme-card-deck-flow>
         </marko-web-query>
