@@ -27,15 +27,9 @@ $ const aboveContainer = get(input, "aboveContainer.renderBody");
     <bulletin-site-header />
     <default-theme-site-menu modifiers=["right"] />
   </@above-container>
-  <!-- <@below-container>
+
+  <@below-container>
     <${input.belowContainer} />
-    <footer id="aha-footer" class="l-footer" />
-    <script>
-      $.getScript('https://static.heart.org/ahaanywhere/sitecore/dist/ahaHeaderFooterSitecore.js', function() {
-        if ($.prototype.ahaHeaderFooterSitecore) {
-          $('.body-wrapper').ahaHeaderFooterSitecore();
-        }
-      });
-    </script>
-  </@below-container> -->
+    <default-theme-site-footer />
+  </@below-container>
 </marko-web-document>
