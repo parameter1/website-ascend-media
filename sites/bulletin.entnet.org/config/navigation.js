@@ -33,7 +33,7 @@ module.exports = {
     items: [...secondary],
   },
   tertiary: {
-    items: [searchItem],
+    items: [],
   },
   menu: [
     {
