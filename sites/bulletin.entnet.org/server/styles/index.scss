@@ -20,6 +20,13 @@ $theme-card-header-background-color: #fff;
     }
   }
 }
+.node {
+  &__text {
+    &--teaser {
+      font-size: 14px;
+    }
+  }
+}
 
 .page-rail {
   .node-list {
@@ -45,13 +52,29 @@ $theme-card-header-background-color: #fff;
   }
 }
 .page-wrapper {
+  &__title {
+    &--issue-name {
+      font-size: 36px;
+      color: #be3426;
+      text-align: center;
+    }
+  }
+}
+.page-wrapper {
   box-shadow: none;
 
   &__published {
     font-weight: 600;
   }
 
+  &__section {
+    .node-list {
+      box-shadow: none;
+    }
+  }
+
 }
+
 .content-page-sponsored-header {
   font-size: 1.25rem;
   text-align: center;
