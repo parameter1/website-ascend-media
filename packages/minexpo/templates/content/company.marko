@@ -11,12 +11,7 @@ $ const { id, type, pageNode } = data;
   </@head>
   <@page>
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-      <if(content.isLeader)>
-        <shared-content-leader-page-wrapper id=id type=type content=content />
-      </if>
-      <else>
-        <shared-content-company-page-wrapper id=id type=type />
-      </else>
+      <shared-content-leader-page-wrapper id=id type=type content=content />
     </marko-web-resolve-page>
   </@page>
   <@below-page>
