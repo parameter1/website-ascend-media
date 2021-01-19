@@ -47,7 +47,7 @@ $ const adSlots = ({ aliases }) => ({
           <if(nodes.length)>
             <default-theme-card-deck-flow cols=1 nodes=nodes>
               <@slot|{ node, index }|>
-                <bulletin-content-list-node node=node with-attribution=true image-position="right" with-teaser=true />
+                <bulletin-content-list-node node=node image-position="right" with-section=false with-dates=false with-teaser=true />
               </@slot>
             </default-theme-card-deck-flow>
 
@@ -97,7 +97,7 @@ $ const adSlots = ({ aliases }) => ({
       >
         <default-theme-card-deck-flow cols=3 nodes=nodes>
           <@slot|{ node, index }|>
-            <bulletin-content-card-node node=node with-attribution=false />
+            <bulletin-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
           </@slot>
           <@slot position="after" index=3>
             <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
@@ -114,7 +114,7 @@ $ const adSlots = ({ aliases }) => ({
         >
           <default-theme-card-deck-flow cols=3 nodes=nodes>
             <@slot|{ node, index }|>
-              <bulletin-content-card-node node=node with-attribution=false />
+              <bulletin-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
             </@slot>
           </default-theme-card-deck-flow>
         </marko-web-query>
