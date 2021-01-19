@@ -1,10 +1,13 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import contentLatestIssueWithContentLoader from "@ascend-media/package-bulletin/loaders/content-latest-issue-with-content";
+
 import { getAsArray, getAsObject, get } from "@base-cms/object-path";
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
 import { asArray } from "@base-cms/utils";
 
-$ const { site, req, GAM } = out.global;
+$ const { site, req, GAM, apollo } = out.global;
 $ const { id, type, pageNode } = data;
+$ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: id });
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
@@ -57,14 +60,16 @@ $ const displayCompanyHeader = (content) => {
               attrs={ "data-gallery-id": id }
             >
               <marko-web-element name="content-header" block-name=blockName>
+                <div class="page-wrapper__published">
+                  Published:
+                  <marko-web-content-published tag="span" obj=content />
+                </div>
                 <hr class="page-wrapper__above-title">
                 <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
                 <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
                 <default-theme-content-attribution obj=content />
                 <hr>
               </marko-web-element>
-
-
               $ const isLogo = get(content, "primaryImage.isLogo");
               <if(isLogo || type === "contact")>
                 <marko-web-page-image
@@ -89,15 +94,38 @@ $ const displayCompanyHeader = (content) => {
 
             <aside class="col-lg-4 page-rail">
               <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              <marko-web-resolve|{ resolved }| promise=issuePromise>
+                $ const { issue, issueContent } = resolved;
+                <bulletin-content-list-flow
+                  nodes=issueContent.nodes.slice(0,3)
+                  inner-justified=false
+                >
+                  <@header>More Articles</@header>
+                  <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
+                  <@title modifiers=["small"] />
+                  </@node>
+                </bulletin-content-list-flow>
+                <bulletin-magazine-latest-issue-node card=true flush=true node=issue />
+              </marko-web-resolve>
               <!-- <bulletin-related-issue-content-feed-block content-id=content.id /> -->
             </aside>
           </div>
         </@section>
+        <@section>
+          <marko-web-resolve|{ resolved }| promise=issuePromise>
+            $ const { issueContent } = resolved;
+              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+                <@slot|{ node, index }|>
+                  <bulletin-content-card-node node=node with-section=false with-attribution=false />
+                </@slot>
+                <@slot position="after" index=0>
+                  <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+                </@slot>
+              </default-theme-card-deck-flow>
+          </marko-web-resolve>
+        </@section>
 
       </marko-web-page-wrapper>
-      <if(!getAsArray(content, "labels").includes("Sponsored"))>
-        <marko-web-gam-display-ad id="gpt-ad-lb2" class="mt-4" modifiers=["max-width-790", "center"] />
-      </if>
     </marko-web-resolve-page>
   </@page>
 </marko-web-content-page-layout>
