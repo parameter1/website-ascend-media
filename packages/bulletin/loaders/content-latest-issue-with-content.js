@@ -41,11 +41,12 @@ const getIssue = async (apolloClient, {
   return nodes[0].issue;
 };
 
-const loadIssueContent = async (apolloClient, params = {}) => {
-  return magazineScheduledContent(apolloClient, {
-    ...params,
-  });
-};
+const loadIssueContent = async (
+  apolloClient,
+  params = {},
+) => magazineScheduledContent(apolloClient, {
+  ...params,
+});
 
 module.exports = async (apolloClient, {
   contentId,
