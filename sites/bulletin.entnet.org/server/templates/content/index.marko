@@ -113,15 +113,18 @@ $ const displayCompanyHeader = (content) => {
         </@section>
         <@section>
           <marko-web-resolve|{ resolved }| promise=issuePromise>
-            $ const { issueContent } = resolved;
-              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
-                <@slot|{ node, index }|>
-                  <bulletin-content-card-node node=node with-section=false with-attribution=false />
-                </@slot>
-                <@slot position="after" index=0>
-                  <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
-                </@slot>
-              </default-theme-card-deck-flow>
+            $ const { issue, issueContent } = resolved;
+            <hr />
+            <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
+            <hr class="page-wrapper__above-title">
+            <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+              <@slot|{ node, index }|>
+                <bulletin-content-card-node node=node with-section=false with-attribution=false />
+              </@slot>
+              <@slot position="after" index=0>
+                <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+              </@slot>
+            </default-theme-card-deck-flow>
           </marko-web-resolve>
         </@section>
 
