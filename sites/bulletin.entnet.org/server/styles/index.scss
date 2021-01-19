@@ -21,11 +21,18 @@ $theme-card-header-background-color: #fff;
   }
 }
 
+.page-rail {
+  .node-list {
+    box-shadow: none;
+  }
+}
+
 .body-wrapper {
   display: block;
   flex-direction: column;
   height: auto;
 }
+
 .page {
   &--magazine-issue {
     .page-wrapper {
@@ -39,6 +46,11 @@ $theme-card-header-background-color: #fff;
 }
 .page-wrapper {
   box-shadow: none;
+
+  &__published {
+    font-weight: 600;
+  }
+
 }
 .content-page-sponsored-header {
   font-size: 1.25rem;
