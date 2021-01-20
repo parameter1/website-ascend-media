@@ -1,12 +1,3 @@
-// const topics = [
-//   { href: '/directory/auxiliary-equipment-and-supplies', label: 'Auxiliary' },
-//   { href: '/directory/components-and-replacement-equipment', label: 'Components' },
-//   { href: '/directory/electrical-equipment-and-supplies', label: 'Electrical' },
-//   { href: 'material-handling-equipment', label: 'Material Handling' },
-//   { href: '/directory/power-and-power-transmission-equipment', label: 'Power' },
-//   { href: '/directory/processingpreparation-equipment', label: 'Processing/Preparation' },
-//   { href: '/directory', label: 'More...' },
-// ];
 const primary = [
   { href: '/directory', label: 'Exhibitor Directory' },
   { href: '/directory?type=News', label: 'Exhibitor News' },
@@ -17,11 +8,7 @@ const primary = [
   { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
 ];
 
-const resources = [
-  // { href: 'https://ratecards.ascendeventmedia.com/minexpo2020/', label: 'Advertise', target: '_blank' },
-  // { href: 'https://ratecards.ascendeventmedia.com/minexpo2020/', label: 'About', target: '_blank' },
-  // { href: 'https://ratecards.ascendeventmedia.com/minexpo2020/#contact', label: 'Contact', target: '_blank' },
-];
+const resources = [];
 
 module.exports = {
   primary: {
@@ -32,7 +19,8 @@ module.exports = {
   },
   tertiary: {
     items: [
-      // { href: '/search', label: 'Search', icon: 'search' },
+      // eslint-disable-next-line no-script-url
+      // { href: 'javascript:alert(\'Search Not Yet Available\')', label: 'Search', icon: 'search' },
     ],
   },
   footer: {
