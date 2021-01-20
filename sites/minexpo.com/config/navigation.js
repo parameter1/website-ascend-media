@@ -18,10 +18,7 @@ module.exports = {
     items: [...resources],
   },
   tertiary: {
-    items: [
-      // eslint-disable-next-line no-script-url
-      // { href: 'javascript:alert(\'Search Not Yet Available\')', label: 'Search', icon: 'search' },
-    ],
+    items: [],
   },
   footer: {
     items: [],
