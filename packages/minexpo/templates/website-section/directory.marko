@@ -65,6 +65,16 @@ $ const perPage = 20;
           </div>
         </@section>
         <@section>
+          <form method="GET" action="javascript:alert('Search Functionality Coming Soon!')" class="search-form row">
+            <div class="col form-group search-form__group search-form__group--phrase">
+              <label for="search-phrase" class="sr-only">Enter search phrase</label>
+              <input id="search-phrase" name="phrase" type="search" class="form-control" value="" placeholder="Enter search phrase...">
+            </div>
+            <button type="submit" class="col btn btn-primary search-form__btn search-form__btn--search">Search</button>
+          </form>
+        </@section>
+
+        <@section>
           $ const aliases = hierarchyAliases(section);
           <div class="row">
             <div class="col-lg-4">
