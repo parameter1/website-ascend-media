@@ -77,7 +77,24 @@ $theme-site-header-breakpoints: (
     line-height: 1;
   }
 }
+.search-form {
+  margin-right: 0;
 
+  &__btn{
+    &--search {
+      flex-shrink: 1;
+      flex-grow: 0;
+    }
+  }
+
+  &__group {
+    margin-bottom: 0;
+
+    &--phrase {
+      flex-grow: 1;
+    }
+  }
+}
 .directory-facets {
   &__description {
     padding: 10px;
