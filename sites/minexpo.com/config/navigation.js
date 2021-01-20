@@ -9,7 +9,7 @@
 // ];
 const primary = [
   { href: '/directory', label: 'Exhibitor Directory' },
-  { href: '/directory?type=News', label: 'News' },
+  { href: '/directory?type=News', label: 'Exhibitor News' },
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Exhibit Hall Map' },
   // eslint-disable-next-line no-script-url

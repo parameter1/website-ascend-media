@@ -124,7 +124,7 @@ $ const perPage = 20;
                       <@header>
                         <if('Company' === contentType)>
                           <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
-                          <else>All ${supportedContendTypes[contentType]}s Alphabetically</else>
+                          <else>${supportedContendTypes[contentType]}s Alphabetically</else>
                         </if>
                         <else>
                           <if(p.page > 1)>${section.name}: Page ${p.page}</if>
