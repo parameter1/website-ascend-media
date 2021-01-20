@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/minexpo.com",
-  "version": "0.3.22",
+  "version": "0.3.23",
   "author": "Brandon Krigbaum <brandonbk@gmail.com>",
   "repository": "https://github.com/parameter1/ascend-media-websites/tree/master/sites/minexpo.com",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ascend-media/package-common": "^0.3.20",
-    "@ascend-media/package-minexpo": "^0.3.21",
+    "@ascend-media/package-minexpo": "^0.3.23",
     "@base-cms/marko-core": "^1.38.0",
     "@base-cms/marko-web": "^1.37.0",
     "@base-cms/marko-web-gam": "^1.37.0",
