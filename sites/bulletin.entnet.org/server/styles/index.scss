@@ -11,6 +11,28 @@ $theme-card-header-background-color: #fff;
 
 @import "../../node_modules/@ascend-media/package-shared/scss/theme";
 
+.site-navbar{
+  &__brand {
+    flex-grow: 1;
+  }
+}
+.association {
+  flex-shrink: 0;
+  flex-grow: unset;
+  margin: auto;
+
+  .site-navbar {
+    &__logo{
+      max-height: 50px;
+    }
+  }
+}
+
+.logo {
+  flex-grow: 1;
+  text-align: center;
+}
+
 .node {
   &__text {
     &--teaser {
