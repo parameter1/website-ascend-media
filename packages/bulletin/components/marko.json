@@ -1,11 +1,8 @@
 {
   "taglib-imports": [
     "./blocks/marko.json",
-    "./company-page/marko.json",
-    "./elements/marko.json",
     "./flows/marko.json",
     "./layouts/marko.json",
-    "./section/marko.json",
     "./nodes/marko.json"
   ],
   "<bulletin-document>": {

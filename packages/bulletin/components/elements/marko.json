@@ -1,8 +1,0 @@
-{
-  "<bulletin-content-dates>": {
-    "template": "./content-dates.marko"
-  },
-  "<bulletin-early-career-blogs-button>": {
-    "template": "./early-career-blogs-button.marko"
-  }
-}

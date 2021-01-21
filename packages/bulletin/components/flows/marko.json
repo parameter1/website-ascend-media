@@ -1,7 +1,4 @@
 {
-  "taglib-imports": [
-    "./content/marko.json"
-  ],
   "<bulletin-magazine-issue-archive-flow>": {
     "template": "./magazine-issue-archive.marko",
     "@nodes": "array",

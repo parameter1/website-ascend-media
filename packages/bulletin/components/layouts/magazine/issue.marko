@@ -1,5 +1,5 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
-import queryFragment from "../../../graphql/fragments/content-list";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
 import { get, getAsObject } from "@base-cms/object-path";
 
 $ const { issue } = input;
@@ -34,13 +34,13 @@ $ const adSlots = ({ aliases }) => ({
     <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, limit: 3, queryFragment }>
       <default-theme-hero-flow nodes=nodes>
         <@hero|{ node }|>
-          <bulletin-content-hero-node node=node with-attribution=true flush-y=true />
+          <shared-content-hero-node node=node with-attribution=true flush-y=true />
         </@hero>
         <@list|{ nodes }|>
-          <bulletin-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
+          <shared-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
             <@header>Leading Edge</@header>
             <@node image-position="right" with-section=false with-dates=false with-teaser=true />
-          </bulletin-content-list-flow>
+          </shared-content-list-flow>
         </@list>
       </default-theme-hero-flow>
     </marko-web-query>
@@ -62,7 +62,7 @@ $ const adSlots = ({ aliases }) => ({
       >
         <default-theme-card-deck-flow cols=3 nodes=nodes>
           <@slot|{ node, index }|>
-            <bulletin-content-card-node node=node with-attribution=false />
+            <shared-content-card-node node=node with-attribution=false />
           </@slot>
           <@slot position="after" index=0>
             <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
@@ -86,7 +86,7 @@ $ const adSlots = ({ aliases }) => ({
       >
         <default-theme-card-deck-flow cols=3 nodes=nodes>
           <@slot|{ node, index }|>
-            <bulletin-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
+            <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
           </@slot>
           <@slot position="after" index=3>
             <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
@@ -103,7 +103,7 @@ $ const adSlots = ({ aliases }) => ({
         >
           <default-theme-card-deck-flow cols=3 nodes=nodes>
             <@slot|{ node, index }|>
-              <bulletin-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
+              <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
             </@slot>
           </default-theme-card-deck-flow>
         </marko-web-query>

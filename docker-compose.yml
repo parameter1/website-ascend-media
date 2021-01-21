@@ -216,10 +216,10 @@ services:
       <<: *env
       <<: *env-tauron
       PORT: 80
-      EXPOSED_PORT: 9819
-      LIVERELOAD_PORT: 19819
+      EXPOSED_PORT: 9919
+      LIVERELOAD_PORT: 19919
       TENANT_KEY: ascend_hh
       SITE_ID: 6001de6ce8e95f05158b4577
     ports:
-      - "9819:80"
-      - "19819:19819"
+      - "9919:80"
+      - "19919:19919"

@@ -1,13 +1,19 @@
 import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import contentLatestIssueWithContentLoader from "../../loaders/content-latest-issue-with-content";
+
 import { getAsArray, getAsObject, get } from "@base-cms/object-path";
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
 import { asArray } from "@base-cms/utils";
 
-$ const { site, req, GAM } = out.global;
+$ const { site, req, GAM, apollo } = out.global;
 $ const { id, type, pageNode } = data;
+$ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: id });
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video", "event"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
@@ -42,18 +48,7 @@ $ const displayCompanyHeader = (content) => {
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-
-    <if(displayCompanyHeader(content))>
-      <marko-web-page-wrapper modifiers=["shadow"] class="mb-block">
-        <@section>
-          <bulletin-company-header-block company=content.company />
-        </@section>
-      </marko-web-page-wrapper>
-    </if>
-    <else>
-      <bulletin-leaderboard-block />
-    </else>
-    <!-- <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] /> -->
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
 
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
@@ -65,149 +60,73 @@ $ const displayCompanyHeader = (content) => {
               attrs={ "data-gallery-id": id }
             >
               <marko-web-element name="content-header" block-name=blockName>
-                <default-theme-page-dates|{ blockName }|>
-                  <if(type === "event")>
-                    <marko-web-content-start-date
-                      class=`${blockName}__event-day`
-                      format="dddd"
-                      obj=content
-                    />
-                  </if>
-                  <else>
-                    <marko-web-element tag="span" name="content-type" block-name=blockName>
-                      ${content.typeTitled}
-                    </marko-web-element>
-                  </else>
-                  <if(content.type === "event")>
-                    <div class=`${blockName}__content-event-times`>
-                      <marko-web-content-start-date tag="span" format="h:mm a" block-name=blockName obj=content />
-                      <marko-web-content-end-date tag="span" format="h:mm a" block-name=blockName obj=content />
-                      <span> (CDT) </span>
-                      <marko-web-content-start-date tag="span" format="MMM D, YYYY" block-name=blockName obj=content />
-                    </div>
-                  </if>
-                  <if(content.type === "webinar")>
-                    <marko-web-content-start-date block-name=blockName obj=content />
-                  </if>
-                  <if(displayPublishedDate)>
-                    <marko-web-content-published block-name=blockName obj=content />
-                  </if>
-                </default-theme-page-dates>
-
+                <div class="page-wrapper__published">
+                  Published:
+                  <marko-web-content-published tag="span" obj=content />
+                </div>
                 <hr class="page-wrapper__above-title">
                 <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
                 <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
                 <default-theme-content-attribution obj=content />
                 <hr>
               </marko-web-element>
-
-              <if(displaySocialShare)>
-                <marko-web-social-sharing
-                  path=content.siteContext.path
-                  providers=["facebook", "twitter", "pinterest", "linkedin", "email"]
-                />
-              </if>
-
-              <if(content.embedCode)>
-                <marko-web-content-embed-code block-name=blockName obj=content />
-              </if>
-              <else-if(content.type === "whitepaper" || content.type === "document" || type === "company")>
+              $ const isLogo = get(content, "primaryImage.isLogo");
+              <if(isLogo || type === "contact")>
                 <marko-web-page-image
                   obj=content.primaryImage
-                  modifiers=["primary-image-inline"]
+                  modifiers=(type === "contact" ? [] : ["primary-image-inline"])
                   fluid=false
                   width=250
                 />
-              </else-if>
-              <else-if(displayPrimaryImage)>
-                $ const isLogo = get(content, "primaryImage.isLogo");
-                <if(isLogo || type === "contact")>
-                  <marko-web-page-image
-                    obj=content.primaryImage
-                    modifiers=(type === "contact" ? [] : ["primary-image-inline"])
-                    fluid=false
-                    width=250
-                  />
-                </if>
-                <else>
-                  <marko-web-page-image
-                    obj=content.primaryImage
-                    modifiers=["fluid-16by9"]
-                    options={ w: 700, h: 394, fit: "crop" }
-                  />
-                </else>
-              </else-if>
-              $ const companyImage = getAsObject(content, "company.primaryImage");
-              <if(displayCompanyImage && companyImage.src)>
-                <marko-web-link href=get(content, "company.siteContext.path")>
-                  <marko-web-page-image
-                    obj=companyImage
-                    modifiers=["primary-image-inline"]
-                    fluid=false
-                    width=250
-                  />
-                </marko-web-link>
               </if>
-              <default-theme-content-contact-details obj=content />
-
-              <if(type === "podcast")>
-                <marko-web-content-audio class="my-block" block-name=blockName obj=content />
-              </if>
-
-              <if(type === "event" && ["2020-program"].includes(get(content, "primarySection.alias")))>
-                $ const accessSessionsHref = site.get("blocks.access-sessions.href");
-                <if(accessSessionsHref)>
-                  <a
-                    href=accessSessionsHref
-                    target="_blank"
-                    class="mt-1 mb-3 btn btn-primary"
-                  >
-                    Access Sessions
-                  </a>
-                </if>
-              </if>
+              <else>
+                <marko-web-page-image
+                  obj=content.primaryImage
+                  modifiers=["fluid-16by9"]
+                  options={ w: 700, h: 394, fit: "crop" }
+                />
+              </else>
 
               $ const bodyId = `content-body-${id}`;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
-
               <marko-web-content-sidebars block-name=blockName obj=content />
-
-              <if(type === "document" || type === "whitepaper")>
-                <default-theme-content-download obj=content>
-                  <@wufoo user-name=site.get("wufoo.userName") />
-                  <@link class="btn btn-lg btn-primary" />
-                </default-theme-content-download>
-              </if>
-              <if(type === "webinar")>
-                $ const isUpcoming = content.startDate > Date.now();
-                <default-theme-content-link-url
-                  obj=content
-                  label=(isUpcoming ? "Register for Webinar" : "View Webinar")
-                  target="_blank"
-                />
-              </if>
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <if(displayInquiry(content))>
-                <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
-                  <@header>Request More Information</@header>
-                  <@body>
-                    <marko-web-inquiry-form content=content with-header=false modifiers=["right-rail"] />
-                  </@body>
-                </marko-web-node-list>
-              </if>
-              <else>
-                <bulletin-global-right-rail-block aliases=aliases no-shadow=true />
-              </else>
+              <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              <marko-web-resolve|{ resolved }| promise=issuePromise>
+                $ const { issue, issueContent } = resolved;
+                <shared-content-list-flow
+                  nodes=issueContent.nodes.slice(0,3)
+                  inner-justified=false
+                  flush-x=false
+                  flush-y=false
+                >
+                  <@header>More Articles</@header>
+                  <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
+                  <@title modifiers=["small"] />
+                  </@node>
+                </shared-content-list-flow>
+                <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
+              </marko-web-resolve>
             </aside>
-
-            <if(displayPhotoswipe)>
-              <marko-web-photoswipe-images images=resolved.getEdgeNodesFor("images")>
-                <@props thumbnail-click-selectors=`[data-gallery-id="${id}"] [data-image-id]` />
-              </marko-web-photoswipe-images>
-            </if>
           </div>
+        </@section>
+        <@section>
+          <marko-web-resolve|{ resolved }| promise=issuePromise>
+            $ const { issue, issueContent } = resolved;
+            <hr />
+            <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
+            <hr class="page-wrapper__above-title">
+            <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+              <@slot|{ node, index }|>
+                <shared-content-card-node node=node with-section=false with-attribution=false />
+              </@slot>
+              <@slot position="after" index=0>
+                <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+              </@slot>
+            </default-theme-card-deck-flow>
+          </marko-web-resolve>
         </@section>
 
       </marko-web-page-wrapper>

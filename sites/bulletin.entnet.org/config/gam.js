@@ -1,4 +1,4 @@
-const configureGAM = require('@ascend-media/package-bulletin/config/gam');
+const configureGAM = require('@ascend-media/package-shared/config/gam');
 
 const config = configureGAM({ basePath: 'isc' });
 
