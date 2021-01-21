@@ -84,6 +84,10 @@ $theme-card-header-background-color: #fff;
     }
   }
   .hero-flow {
+    &__hero,
+    &__list {
+      margin-bottom: 1rem;
+    }
     .node-list {
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
     }
