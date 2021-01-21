@@ -1,6 +1,6 @@
 {
   "name": "@ascend-media/package-shared",
-  "version": "0.3.12",
+  "version": "0.4.0",
   "author": "Josh Worden <josh@limit0.io>",
   "repository": "https://github.com/parameter1/ascend-media-websites/tree/master/packages/shared",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "test": "yarn lint"
   },
   "dependencies": {
-    "@ascend-media/package-contact-us": "^0.3.0",
+    "@ascend-media/package-contact-us": "^0.4.0",
     "@base-cms/env": "^1.37.0",
     "@base-cms/image": "^1.37.0",
     "@base-cms/marko-core": "^1.38.0",
