@@ -5,16 +5,10 @@ import { getAsArray, getAsObject, get } from "@base-cms/object-path";
 import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
 import { asArray } from "@base-cms/utils";
 
-$ const { site, req, GAM, apollo } = out.global;
+$ const { site, req, apollo } = out.global;
 $ const { id, type, pageNode } = data;
 $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: id });
 
-$ const adSlots = ({ aliases }) => ({
-  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
-  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
-  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
-});
 $ const displayPrimaryImage = ["whitepaper", "media-gallery", "video", "event"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
 $ const displayFeatured = ["company", "product", "contact"].includes(type) ? false : true;
@@ -48,8 +42,6 @@ $ const displayCompanyHeader = (content) => {
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
-
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
@@ -93,7 +85,6 @@ $ const displayCompanyHeader = (content) => {
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
               <marko-web-resolve|{ resolved }| promise=issuePromise>
                 $ const { issue, issueContent } = resolved;
                 <shared-content-list-flow
@@ -121,9 +112,6 @@ $ const displayCompanyHeader = (content) => {
             <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
               <@slot|{ node, index }|>
                 <shared-content-card-node node=node with-section=false with-attribution=false />
-              </@slot>
-              <@slot position="after" index=0>
-                <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
               </@slot>
             </default-theme-card-deck-flow>
           </marko-web-resolve>
