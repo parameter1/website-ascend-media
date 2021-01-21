@@ -9,17 +9,7 @@ $theme-card-header-color: #694d6b;
 $theme-card-header-background-color: #fff;
 
 @import "../../node_modules/@ascend-media/package-bulletin/scss/theme";
-.hero-flow {
-  &__list {
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
-  }
 
-  .node-list {
-    &__header {
-      padding-left: 0;
-    }
-  }
-}
 .node {
   &__text {
     &--teaser {
@@ -59,8 +49,6 @@ $theme-card-header-background-color: #fff;
       text-align: center;
     }
   }
-}
-.page-wrapper {
   box-shadow: none;
 
   &__published {
@@ -70,6 +58,11 @@ $theme-card-header-background-color: #fff;
   &__section {
     .node-list {
       box-shadow: none;
+    }
+  }
+  .hero-flow {
+    .node-list {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
     }
   }
 

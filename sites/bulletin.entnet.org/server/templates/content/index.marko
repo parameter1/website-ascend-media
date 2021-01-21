@@ -99,13 +99,15 @@ $ const displayCompanyHeader = (content) => {
                 <bulletin-content-list-flow
                   nodes=issueContent.nodes.slice(0,3)
                   inner-justified=false
+                  flush-x=false
+                  flush-y=false
                 >
                   <@header>More Articles</@header>
                   <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
                   <@title modifiers=["small"] />
                   </@node>
                 </bulletin-content-list-flow>
-                <bulletin-magazine-latest-issue-node card=true flush=true node=issue />
+                <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
               </marko-web-resolve>
               <!-- <bulletin-related-issue-content-feed-block content-id=content.id /> -->
             </aside>
