@@ -1,0 +1,36 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
+import { get } from "@base-cms/object-path";
+import magazineFragment from "@ascend-media/package-bulletin/graphql/fragments/magazine-latest-issue"
+
+$ const { GAM } = out.global;
+
+$ const {
+  alias,
+  name,
+  pageNode,
+} = input;
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
+});
+<marko-web-query|{ node: issue }|
+  name="magazine-latest-issue"
+  params={ publicationId: "6001dfb8a982a33b138b4589", queryFragment: magazineFragment }
+>
+  $ const id = issue.id;
+  <marko-web-magazine-issue-page-layout id=id>
+    <@head>
+      <marko-web-gtm-magazine-issue-context|{ context }| id=id>
+        <marko-web-gtm-push data=context />
+      </marko-web-gtm-magazine-issue-context>
+      <marko-web-gam-slots slots=adSlots />
+    </@head>
+    <@page>
+      <bulletin-magazine-issue-page-layout issue=issue />
+    </@page>
+  </marko-web-magazine-issue-page-layout>
+</marko-web-query>

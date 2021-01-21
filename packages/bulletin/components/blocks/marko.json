@@ -1,0 +1,6 @@
+{
+  "<bulletin-magazine-publications-block>": {
+    "template": "./magazine-publications.marko",
+    "<publication-params>": {}
+  }
+}

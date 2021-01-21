@@ -1,0 +1,102 @@
+@import "../../node_modules/@ascend-media/package-shared/scss/variables";
+
+$primary-color: #be3426;
+$theme-site-navbar-primary-bg-color: #694d6b;
+$theme-site-navbar-primary-font-weight: 600;
+$marko-web-node-list-border-color: rgba(0, 0, 0, .1);
+
+$theme-card-header-color: #694d6b;
+
+$theme-card-header-background-color: #fff;
+
+@import "../../node_modules/@ascend-media/package-shared/scss/theme";
+
+.site-navbar{
+  &__brand {
+    flex-grow: 1;
+  }
+}
+.association {
+  flex-shrink: 0;
+  flex-grow: unset;
+  margin: auto;
+
+  .site-navbar {
+    &__logo{
+      max-height: 50px;
+    }
+  }
+}
+
+.logo {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.node {
+  &__text {
+    &--teaser {
+      font-size: 14px;
+    }
+  }
+}
+
+.page-rail {
+  .node-list {
+    box-shadow: none;
+  }
+}
+
+.body-wrapper {
+  display: block;
+  flex-direction: column;
+  height: auto;
+}
+
+.page {
+  &--magazine-issue {
+    .page-wrapper {
+      &__title {
+        font-size: 36px;
+        color: #be3426;
+        text-align: center;
+      }
+    }
+  }
+}
+.page-wrapper {
+  &__title {
+    &--issue-name {
+      font-size: 36px;
+      color: #be3426;
+      text-align: center;
+    }
+  }
+  box-shadow: none;
+
+  &__published {
+    font-weight: 600;
+  }
+
+  &__section {
+    .node-list {
+      box-shadow: none;
+    }
+  }
+  .hero-flow {
+    &__hero,
+    &__list {
+      margin-bottom: 1rem;
+    }
+    .node-list {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, .15);
+    }
+  }
+
+}
+
+.content-page-sponsored-header {
+  font-size: 1.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}

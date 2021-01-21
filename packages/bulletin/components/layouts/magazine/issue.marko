@@ -1,0 +1,47 @@
+import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
+import { get, getAsObject } from "@base-cms/object-path";
+
+$ const { issue } = input;
+
+<marko-web-page-wrapper class="mb-block">
+  <@section>
+    <div class="row">
+      <div class="col">
+        <h1 class="page-wrapper__title">${issue.name}</h1>
+        <if(issue.description)>
+          <p class="page-wrapper__deck">${issue.description}</p>
+        </if>
+      </div>
+    </div>
+  </@section>
+
+  <@section>
+    <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, limit: 3, queryFragment }>
+      <default-theme-hero-flow nodes=nodes>
+        <@hero|{ node }|>
+          <shared-content-hero-node node=node with-attribution=true flush-y=true />
+        </@hero>
+        <@list|{ nodes }|>
+          <shared-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
+            <@header>Leading Edge</@header>
+            <@node image-position="right" with-section=false with-dates=false with-teaser=true />
+          </shared-content-list-flow>
+        </@list>
+      </default-theme-hero-flow>
+    </marko-web-query>
+  </@section>
+
+  <@section>
+    <marko-web-query|{ nodes }|
+      name="magazine-scheduled-content"
+      params={ issueId: issue.id, limit: 100, skip: 3, queryFragment }
+    >
+      <default-theme-card-deck-flow cols=3 nodes=nodes>
+        <@slot|{ node, index }|>
+          <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
+        </@slot>
+      </default-theme-card-deck-flow>
+    </marko-web-query>
+  </@section>
+</marko-web-page-wrapper>

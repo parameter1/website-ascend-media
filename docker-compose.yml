@@ -207,3 +207,19 @@ services:
     ports:
       - "9818:80"
       - "19818:19818"
+
+  bulletin:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/bulletin.entnet.org
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9919
+      LIVERELOAD_PORT: 19919
+      TENANT_KEY: ascend_hh
+      SITE_ID: 6001de6ce8e95f05158b4577
+    ports:
+      - "9919:80"
+      - "19919:19919"
