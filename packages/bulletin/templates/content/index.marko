@@ -1,31 +1,9 @@
-import hierarchyAliases from "@base-cms/marko-web/utils/hierarchy-aliases";
+import { get } from "@base-cms/object-path";
 import contentLatestIssueWithContentLoader from "../../loaders/content-latest-issue-with-content";
 
-import { getAsArray, getAsObject, get } from "@base-cms/object-path";
-import isActiveLink from "@base-cms/marko-web-theme-default/components/site-navbar/utils/is-active-link";
-import { asArray } from "@base-cms/utils";
-
-$ const { site, req, apollo } = out.global;
+$ const { apollo } = out.global;
 $ const { id, type, pageNode } = data;
 $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: id });
-
-$ const displayPrimaryImage = ["whitepaper", "media-gallery", "video", "event"].includes(type) ? false : true;
-$ const displayPublishedDate = ["event", "webinar", "company", "contact"].includes(type) ? false : true;
-$ const displayFeatured = ["company", "product", "contact"].includes(type) ? false : true;
-$ const displayInquiry = (content) => {
-  if (type === "company" && get(content, "enableRmi")) return true;
-  if (get(content, "company.enableRmi")) return true;
-  return false;
-}
-$ const displayCompanyImage = ["product", "press-release"].includes(type) ? true : false;
-$ const displaySocialShare = ["contact"].includes(type) ? false : true;
-$ const displayPhotoswipe = ["contact"].includes(type) ? false : true;
-
-$ const displayCompanyHeader = (content) => {
-  const company = get(content, "company");
-  if (get(content, "company")) return true;
-  return false;
-}
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -33,16 +11,11 @@ $ const displayCompanyHeader = (content) => {
       <marko-web-gtm-push data=context />
     </marko-web-gtm-content-context>
     <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      <marko-web-gam-slots slots=adSlots({ aliases }) />
-    </marko-web-resolve-page>
   </@head>
 
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
