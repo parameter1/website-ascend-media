@@ -30,22 +30,24 @@ $ const { id, alias, name, pageNode } = data;
       <website-content-hero-flow nodes=nodes />
     </marko-web-query>
 
+    <div class="row">
+      <div class="col mb-block">
+        <common-leaders-home-page media-query-columns=3 expanded=true />
+      </div>
+    </div>
+
     <marko-web-query|{ nodes }|
       name="website-optioned-content"
       params={ sectionId: id, optionName: "Pinned", limit: 5, skip: 5, requiresImage: true, queryFragment }
     >
-      <website-content-card-deck-flow nodes=nodes ad-index=1 ad-name="imu1" >
-        <@native-x index=2 name="load-more" />
-      </website-content-card-deck-flow>
+      <website-content-card-deck-flow nodes=nodes />
     </marko-web-query>
 
     <marko-web-query|{ nodes }|
       name="website-optioned-content"
       params={ sectionId: id, optionName: "Pinned", limit: 5, skip: 10, requiresImage: true, queryFragment }
     >
-      <website-content-card-deck-flow nodes=nodes ad-index=2 ad-name="imu2" >
-        <@native-x index=1 name="load-more" />
-      </website-content-card-deck-flow>
+      <website-content-card-deck-flow nodes=nodes />
     </marko-web-query>
   </@page>
   <@below-page>
