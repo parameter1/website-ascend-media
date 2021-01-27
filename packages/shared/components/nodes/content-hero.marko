@@ -15,7 +15,7 @@ $ const { linkAttrs } = input;
   full-height=true
   attrs=input.attrs
 >
-  <if(displayImage)>
+  <if(primaryImage.src && displayImage)>
     <@image
       src=primaryImage.src
       alt=primaryImage.alt
