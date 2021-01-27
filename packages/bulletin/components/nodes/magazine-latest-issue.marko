@@ -25,32 +25,7 @@ $ const linkTitle = `${publication.name} ${issue.name}`;
     </@title>
     <@footer>
       <@left>
-        <marko-web-block
-          name="magazine-publication-buttons"
-        >
-          $ const link = { class: 'magazine-publication-buttons__button' }
-          <marko-web-magazine-publication-subscribe-url tag=null obj=publication link=link>
-            Subscribe
-          </marko-web-magazine-publication-subscribe-url>
-          <marko-web-link href=issue.fileSrc title=`Download ${issue.name}!` class="magazine-publication-buttons__button">
-            Download PDF
-          </marko-web-link>
-          <marko-web-magazine-issue-digital-edition-url tag=null obj=issue link=link>
-            Digital Edition
-          </marko-web-magazine-issue-digital-edition-url>
-          <marko-web-magazine-publication-name tag=null obj=publication link=link>
-            Archives
-          </marko-web-magazine-publication-name>
-          <marko-web-magazine-publication-renewal-url tag=null obj=publication link=link>
-            Renewal
-          </marko-web-magazine-publication-renewal-url>
-          <marko-web-magazine-publication-reprints-url tag=null obj=publication link=link>
-            Reprints
-          </marko-web-magazine-publication-reprints-url>
-          <marko-web-magazine-publication-einquiry-url tag=null obj=publication link=link>
-            E-Inquiry
-          </marko-web-magazine-publication-einquiry-url>
-        </marko-web-block>
+        <default-theme-magazine-publication-buttons publication=publication issue=issue />
       </@left>
     </@footer>
   </@body>
