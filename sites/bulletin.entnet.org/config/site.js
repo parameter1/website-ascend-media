@@ -9,7 +9,7 @@ module.exports = {
   company: 'Ascend Media',
   socialMediaLinks: [],
   gtm: {
-    containerId: 'GTM-TV97VDV',
+    containerId: 'GTM-5XS5Z5K',
   },
   gcse: {
     id: '8fda9b5d0e7f9c0d5',
