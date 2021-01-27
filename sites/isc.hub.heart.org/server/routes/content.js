@@ -1,4 +1,4 @@
-const { withContent } = require('@base-cms/marko-web/middleware');
+const { withContent } = require('@parameter1/base-cms-marko-web/middleware');
 const companyFragment = require('@ascend-media/package-shared/graphql/fragments/company-page');
 const queryFragment = require('@ascend-media/package-shared/graphql/fragments/content-page');
 const company = require('@ascend-media/package-shared/templates/content/company');

@@ -1,4 +1,4 @@
-const loadInquiry = require('@base-cms/marko-web-inquiry');
+const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 const home = require('./home');
 const content = require('./content');
 const dynamicPages = require('./dynamic-page');

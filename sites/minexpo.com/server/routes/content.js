@@ -1,4 +1,4 @@
-const { withContent } = require('@base-cms/marko-web/middleware');
+const { withContent } = require('@parameter1/base-cms-marko-web/middleware');
 const queryFragment = require('@ascend-media/package-common/graphql/fragments/content-page');
 const companyQueryFragment = require('@ascend-media/package-minexpo/graphql/fragments/content-company');
 const contactQueryFragment = require('@ascend-media/package-minexpo/graphql/fragments/content-contact');

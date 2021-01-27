@@ -1,4 +1,4 @@
-const { withWebsiteSection } = require('@base-cms/marko-web/middleware');
+const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
 const leadersFragment = require('@ascend-media/package-common/graphql/fragments/leaders-section');
 const directory = require('@ascend-media/package-minexpo/templates/website-section/directory');
 const section = require('../templates/website-section');
