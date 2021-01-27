@@ -35,23 +35,6 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
                 <default-theme-content-attribution obj=content />
                 <hr>
               </marko-web-element>
-              $ const isLogo = get(content, "primaryImage.isLogo");
-              <if(isLogo || type === "contact")>
-                <marko-web-page-image
-                  obj=content.primaryImage
-                  modifiers=(type === "contact" ? [] : ["primary-image-inline"])
-                  fluid=false
-                  width=250
-                />
-              </if>
-              <else>
-                <marko-web-page-image
-                  obj=content.primaryImage
-                  modifiers=["fluid-16by9"]
-                  options={ w: 700, h: 394, fit: "crop" }
-                />
-              </else>
-
               $ const bodyId = `content-body-${id}`;
               <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
               <marko-web-content-sidebars block-name=blockName obj=content />
