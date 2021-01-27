@@ -1,4 +1,4 @@
-const { withMagazineIssue, withMagazinePublication } = require('@base-cms/marko-web/middleware');
+const { withMagazineIssue, withMagazinePublication } = require('@parameter1/base-cms-marko-web/middleware');
 const index = require('@ascend-media/package-bulletin/templates/magazine');
 const publication = require('@ascend-media/package-bulletin/templates/magazine/publication');
 const publicationFragment = require('@ascend-media/package-bulletin/graphql/fragments/magazine-publication-page');

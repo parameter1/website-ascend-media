@@ -1,6 +1,6 @@
 const newrelic = require('newrelic');
-const { startServer } = require('@base-cms/marko-web');
-const { set, getAsObject } = require('@base-cms/object-path');
+const { startServer } = require('@parameter1/base-cms-marko-web');
+const { set, getAsObject } = require('@parameter1/base-cms-object-path');
 const paginated = require('@ascend-media/package-minexpo/middleware/paginated');
 const { version } = require('./package.json');
 const routes = require('./server/routes');

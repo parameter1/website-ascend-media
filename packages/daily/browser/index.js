@@ -1,14 +1,14 @@
-import Vue from '@base-cms/marko-web/browser/vue';
+import Vue from '@parameter1/base-cms-marko-web/browser/vue';
 import VModal from 'vue-js-modal/dist/index.nocss';
-import jQuery from '@base-cms/marko-web/browser/jquery-full';
+import jQuery from '@parameter1/base-cms-marko-web/browser/jquery-full';
 
-import Inquiry from '@base-cms/marko-web-inquiry/browser';
-import DefaultTheme from '@base-cms/marko-web-theme-default/browser';
-import GTM from '@base-cms/marko-web-gtm/browser';
-import GAM from '@base-cms/marko-web-gam/browser';
-import GCSE from '@base-cms/marko-web-gcse/browser';
-import SocialSharing from '@base-cms/marko-web-social-sharing/browser';
-import PhotoSwipe from '@base-cms/marko-web-photoswipe/browser';
+import Inquiry from '@parameter1/base-cms-marko-web-inquiry/browser';
+import DefaultTheme from '@parameter1/base-cms-marko-web-theme-default/browser';
+import GTM from '@parameter1/base-cms-marko-web-gtm/browser';
+import GAM from '@parameter1/base-cms-marko-web-gam/browser';
+import GCSE from '@parameter1/base-cms-marko-web-gcse/browser';
+import SocialSharing from '@parameter1/base-cms-marko-web-social-sharing/browser';
+import PhotoSwipe from '@parameter1/base-cms-marko-web-photoswipe/browser';
 
 Vue.use(VModal);
 

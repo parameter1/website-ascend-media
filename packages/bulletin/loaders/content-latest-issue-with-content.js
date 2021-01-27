@@ -1,5 +1,5 @@
 const gql = require('graphql-tag');
-const { magazineScheduledContent } = require('@base-cms/web-common/block-loaders');
+const { magazineScheduledContent } = require('@parameter1/base-cms-web-common/block-loaders');
 const queryFragment = require('@ascend-media/package-shared/graphql/fragments/content-list');
 
 const getIssue = async (apolloClient, {
@@ -16,6 +16,7 @@ const getIssue = async (apolloClient, {
               name
               digitalEditionUrl
               canonicalPath
+              fileSrc
               coverImage {
                 id
                 src

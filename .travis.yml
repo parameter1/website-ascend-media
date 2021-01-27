@@ -26,13 +26,13 @@ jobs:
 
     - stage: production-started
       name: Deployment Started
-      script: npx @base-cms/website-deployment-tool notify-started
+      script: npx @parameter1/base-cms-website-deployment-tool notify-started
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging-started
     #   name: Deployment Started
-    #   script: npx @base-cms/website-deployment-tool notify-started
+    #   script: npx @parameter1/base-cms-website-deployment-tool notify-started
     #   install: skip
     #   env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
 
@@ -42,121 +42,121 @@ jobs:
 
     - stage: production
       name: hearthubs.org
-      script: npx @base-cms/website-deployment-tool deploy hearthubs.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy hearthubs.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: hearthubs.org
-    #   script: npx @base-cms/website-deployment-tool deploy hearthubs.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy hearthubs.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: qcor.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy qcor.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy qcor.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: qcor.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy qcor.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy qcor.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: bcvs.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy bcvs.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy bcvs.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: bcvs.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy bcvs.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy bcvs.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: vasculardiscovery.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: vasculardiscovery.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy vasculardiscovery.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: hypertension.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy hypertension.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy hypertension.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: hypertension.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy hypertension.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy hypertension.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: sessions.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy sessions.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy sessions.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: sessions.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy sessions.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy sessions.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: isc.hub.heart.org
-      script: npx @base-cms/website-deployment-tool deploy isc.hub.heart.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy isc.hub.heart.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: isc.hub.heart.org
-    #   script: npx @base-cms/website-deployment-tool deploy isc.hub.heart.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy isc.hub.heart.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: minexpo.com
-      script: npx @base-cms/website-deployment-tool deploy minexpo.com leonis-websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com leonis-websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: minexpo.com
-    #   script: npx @base-cms/website-deployment-tool deploy minexpo.com leonis-websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com leonis-websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: imex.ascendmedia.com
-      script: npx @base-cms/website-deployment-tool deploy imex.ascendmedia.com websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy imex.ascendmedia.com websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: imex.ascendmedia.com
-    #   script: npx @base-cms/website-deployment-tool deploy imex.ascendmedia.com websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy imex.ascendmedia.com websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
       name: bulletin.entnet.org
-      script: npx @base-cms/website-deployment-tool deploy bulletin.entnet.org websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy bulletin.entnet.org websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: bulletin.entnet.org
-    #   script: npx @base-cms/website-deployment-tool deploy bulletin.entnet.org websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy bulletin.entnet.org websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
@@ -166,12 +166,12 @@ jobs:
 
     - stage: production-finished
       name: Deployment Finished
-      script: npx @base-cms/website-deployment-tool notify-finished
+      script: npx @parameter1/base-cms-website-deployment-tool notify-finished
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging-finished
     #   name: Deployment Finished
-    #   script: npx @base-cms/website-deployment-tool notify-finished
+    #   script: npx @parameter1/base-cms-website-deployment-tool notify-finished
     #   install: skip
     #   env: [ENVIRONMENT=staging RANCHER_CLUSTERID=c-rc5kp]
