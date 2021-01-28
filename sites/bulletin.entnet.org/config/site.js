@@ -6,7 +6,7 @@ module.exports = {
   logos,
   navigation,
   gam,
-  company: 'Ascend Media',
+  company: 'American Academy of Otolaryngology–Head and Neck Surgery',
   socialMediaLinks: [],
   gtm: {
     containerId: 'GTM-5XS5Z5K',
