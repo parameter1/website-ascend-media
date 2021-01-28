@@ -35,7 +35,10 @@ const getIssue = async (apolloClient, {
   `;
   const variables = { input };
   const { data } = await apolloClient.query({ query, variables });
-  if (!data || !data.contentMagazineSchedules) return { nodes: [] };
+  if (!data
+      || !data.contentMagazineSchedules
+      || !data.contentMagazineSchedules.edges.length
+  ) return null;
   const nodes = data.contentMagazineSchedules.edges
     .map(edge => (edge && edge.node ? edge.node : null))
     .filter(c => c);
@@ -53,6 +56,7 @@ module.exports = async (apolloClient, {
   contentId,
 } = {}) => {
   const issue = await getIssue(apolloClient, { contentId });
+  if (!issue) return { issue: null, issueContent: { nodes: [] } };
   const latestIssueId = issue.id;
   const issueContent = await loadIssueContent(apolloClient, {
     limit: 100,

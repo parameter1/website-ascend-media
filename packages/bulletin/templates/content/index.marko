@@ -1,5 +1,6 @@
 import { get } from "@parameter1/base-cms-object-path";
 import contentLatestIssueWithContentLoader from "../../loaders/content-latest-issue-with-content";
+import queryFragment from "@ascend-media/package-shared/graphql/fragments/content-list";
 
 $ const { apollo } = out.global;
 $ const { id, type, pageNode } = data;
@@ -14,7 +15,6 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
   </@head>
 
   <@page>
-
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       <marko-web-page-wrapper>
         <@section>
@@ -25,11 +25,13 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
               attrs={ "data-gallery-id": id }
             >
               <marko-web-element name="content-header" block-name=blockName>
-                <div class="page-wrapper__published">
-                  Published:
-                  <marko-web-content-published tag="span" obj=content />
-                </div>
-                <hr class="page-wrapper__above-title">
+                <if('contact' !== type)>
+                  <div class="page-wrapper__published">
+                    Published:
+                    <marko-web-content-published tag="span" obj=content />
+                  </div>
+                  <hr class="page-wrapper__above-title">
+                </if>
                 <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
                 <marko-web-content-teaser tag="p" class="page-wrapper__deck" obj=content />
                 <default-theme-content-attribution obj=content />
@@ -41,39 +43,124 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-resolve|{ resolved }| promise=issuePromise>
-                $ const { issue, issueContent } = resolved;
+              <if('contact' === type)>
+              <marko-web-query|{ nodes }|
+                name="all-author-content"
+                params={
+                  contactId: content.id,
+                  limit: 2,
+                  queryFragment,
+                  withSite: true,
+                }
+              >
                 <shared-content-list-flow
-                  nodes=issueContent.nodes.slice(0,3)
+                  nodes=nodes
                   inner-justified=false
+                  flush-y=true
                   flush-x=false
-                  flush-y=false
+                  modifiers=["rows", "related-content"]
                 >
-                  <@header>More Articles</@header>
-                  <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
-                  <@title modifiers=["small"] />
+                  <@header>Latest by ${content.name}</@header>
+
+                  <@node
+                    modifiers=["related-content"]
+                    with-dates=false
+                    with-teaser=true
+                    display-image=false
+                    with-attribution=false
+                    with-section=false
+                  >
+                    <@title modifiers=["small"] />
                   </@node>
                 </shared-content-list-flow>
-                <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
-              </marko-web-resolve>
+              </marko-web-query>
+              </if>
+              <else>
+                <marko-web-resolve|{ resolved }| promise=issuePromise>
+                  $ const { issue, issueContent } = resolved;
+                  <if(issue)>
+                    <shared-content-list-flow
+                      nodes=issueContent.nodes.slice(0,3)
+                      inner-justified=false
+                      flush-x=false
+                      flush-y=false
+                    >
+                      <@header>More Articles</@header>
+                      <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
+                        <@title modifiers=["small"] />
+                      </@node>
+                    </shared-content-list-flow>
+                    <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
+                  </if>
+                </marko-web-resolve>
+              </else>
             </aside>
           </div>
         </@section>
         <@section>
-          <marko-web-resolve|{ resolved }| promise=issuePromise>
-            $ const { issue, issueContent } = resolved;
-            <hr />
-            <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
-            <hr class="page-wrapper__above-title">
-            <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
-              <@slot|{ node, index }|>
-                <shared-content-card-node node=node with-section=false with-attribution=false />
-              </@slot>
-            </default-theme-card-deck-flow>
-          </marko-web-resolve>
+          <if('contact' === type)>
+            <marko-web-query|{ nodes }|
+              name="all-author-content"
+              params={
+                contactId: content.id,
+                limit: 12,
+                skip: 2,
+                queryFragment,
+                withSite: true,
+              }
+            >
+              <hr />
+              <div class="page-wrapper__title--issue-name">More by ${content.name}</div>
+              <hr class="page-wrapper__above-title">
+              <default-theme-card-deck-flow cols=3 nodes=nodes>
+                <@slot|{ node, index }|>
+                  <shared-content-card-node node=node with-section=false with-attribution=false />
+                </@slot>
+              </default-theme-card-deck-flow>
+            </marko-web-query>
+          </if>
+          <else>
+            <marko-web-resolve|{ resolved }| promise=issuePromise>
+              $ const { issue, issueContent } = resolved;
+              <if(issue)>
+                <hr />
+                <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
+                <hr class="page-wrapper__above-title">
+                <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+                  <@slot|{ node, index }|>
+                    <shared-content-card-node node=node with-section=false with-attribution=false />
+                  </@slot>
+                </default-theme-card-deck-flow>
+              </if>
+            </marko-web-resolve>
+          </else>
         </@section>
-
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>
+  <@below-page>
+    <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      <if('contact' === type)>
+        <marko-web-query|{ nodes }|
+          name="all-author-content"
+          params={
+            contactId: content.id,
+            limit: 12,
+            skip: 14,
+            queryFragment,
+            withSite: true,
+          }
+        >
+          <hr />
+          <div class="page-wrapper__title--issue-name">More by ${content.name}</div>
+          <hr class="page-wrapper__above-title">
+          <default-theme-card-deck-flow cols=3 nodes=nodes>
+            <@slot|{ node, index }|>
+              <shared-content-card-node node=node with-section=false with-attribution=false />
+            </@slot>
+          </default-theme-card-deck-flow>
+        </marko-web-query>
+      </if>
+    </marko-web-resolve-page>
+  </@below-page>
 </marko-web-content-page-layout>
