@@ -14,7 +14,6 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
   </@head>
 
   <@page>
-
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       <marko-web-page-wrapper>
         <@section>
@@ -43,18 +42,20 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
             <aside class="col-lg-4 page-rail">
               <marko-web-resolve|{ resolved }| promise=issuePromise>
                 $ const { issue, issueContent } = resolved;
-                <shared-content-list-flow
-                  nodes=issueContent.nodes.slice(0,3)
-                  inner-justified=false
-                  flush-x=false
-                  flush-y=false
-                >
-                  <@header>More Articles</@header>
-                  <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
-                  <@title modifiers=["small"] />
-                  </@node>
-                </shared-content-list-flow>
-                <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
+                <if(issue)>
+                  <shared-content-list-flow
+                    nodes=issueContent.nodes.slice(0,3)
+                    inner-justified=false
+                    flush-x=false
+                    flush-y=false
+                  >
+                    <@header>More Articles</@header>
+                    <@node with-dates=false with-teaser=false display-image=false with-attribution=false with-section=false>
+                      <@title modifiers=["small"] />
+                    </@node>
+                  </shared-content-list-flow>
+                  <bulletin-magazine-latest-issue-node card=true flush=false card=false node=issue />
+                </if>
               </marko-web-resolve>
             </aside>
           </div>
@@ -62,17 +63,18 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
         <@section>
           <marko-web-resolve|{ resolved }| promise=issuePromise>
             $ const { issue, issueContent } = resolved;
-            <hr />
-            <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
-            <hr class="page-wrapper__above-title">
-            <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
-              <@slot|{ node, index }|>
-                <shared-content-card-node node=node with-section=false with-attribution=false />
-              </@slot>
-            </default-theme-card-deck-flow>
+            <if(issue)>
+              <hr />
+              <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
+              <hr class="page-wrapper__above-title">
+              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+                <@slot|{ node, index }|>
+                  <shared-content-card-node node=node with-section=false with-attribution=false />
+                </@slot>
+              </default-theme-card-deck-flow>
+            </if>
           </marko-web-resolve>
         </@section>
-
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>

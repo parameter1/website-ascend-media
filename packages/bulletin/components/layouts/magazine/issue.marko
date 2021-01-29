@@ -20,12 +20,12 @@ $ const { issue } = input;
     <marko-web-block name="hero-flow">
       <marko-web-element name="hero" block-name="hero-flow">
         <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, includeSectionNames: ["Cover Story"], limit: 1, queryFragment }>
-          <shared-content-hero-node use-placehoder=false block-name="hero-flow" node=nodes[0] with-attribution=true flush-y=true />
+          <shared-content-hero-node use-placehoder=false block-name="hero-flow" node=nodes[0] with-attribution=false flush-y=true />
         </marko-web-query>
       </marko-web-element>
       <marko-web-element name="list" block-name="hero-flow">
         <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, includeSectionNames: ["The Leading Edge"], queryFragment }>
-          <shared-content-list-flow nodes=nodes inner-justified=false flush-x=false flush-y=false>
+          <shared-content-list-flow nodes=nodes inner-justified=true flush-x=false flush-y=false>
             <@header>Leading Edge</@header>
             <@node image-position="right" with-section=false with-dates=false with-teaser=true />
           </shared-content-list-flow>
@@ -37,7 +37,7 @@ $ const { issue } = input;
   <@section>
     <marko-web-query|{ nodes }|
       name="magazine-scheduled-content"
-      params={ issueId: issue.id, excludeSectionNames: ["Cover Stroy", "The Leading Edge"], limit: 100, queryFragment }
+      params={ issueId: issue.id, excludeSectionNames: ["Cover Story", "The Leading Edge"], limit: 100, queryFragment }
     >
       <default-theme-card-deck-flow cols=3 nodes=nodes>
         <@slot|{ node, index }|>
