@@ -15,6 +15,11 @@ module.exports = (app) => {
     queryFragment: publicationFragment,
   }));
 
+  app.get('/magazine/48620', (req, res) => {
+    const to = 'https://bulletin.entnet.org/books/2021-january-aao-hns-bulletin-special-edition/';
+    res.redirect(301, to);
+  });
+
   app.get('/magazine/:id(\\d+)', withMagazineIssue({
     template: issue,
     queryFragment: issueFragment,
