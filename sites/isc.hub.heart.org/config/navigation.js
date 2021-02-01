@@ -12,17 +12,17 @@ const userTools = [
 
 const topics = [
   { href: '/late-breaking-science', label: 'Late-Breaking Science' },
-  { href: '/isc-news', label: 'ISC News' },
+  // { href: '/isc-news', label: 'ISC News' },
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
-  { href: '#', label: 'Program' },
+  { href: 'https://professional.heart.org/en/meetings/international-stroke-conference/programming', label: 'Program' },
   { href: '#', label: 'Claim CME', target: '_blank' },
-  { href: '#', label: 'OnDemand' },
+  // { href: '#', label: 'OnDemand' },
   { href: '/previews', label: 'Previews' },
 ];
 
 const secondary = [
-  { href: 'https://AHAsessions.heart.org', label: 'Virtual Experience Access', target: '_blank' },
-  { href: 'https://aha.apprisor.org/epsWelcome.cfm?CFID=7614838&CFTOKEN=f427dce13daa111b-374EED08-CF40-A033-D6066C65AA7B755D', label: 'Posters Access', target: '_blank' },
+  // { href: 'https://AHAsessions.heart.org', label: 'Virtual Experience Access', target: '_blank' },
+  // { href: 'https://aha.apprisor.org/epsWelcome.cfm?CFID=7614838&CFTOKEN=f427dce13daa111b-374EED08-CF40-A033-D6066C65AA7B755D', label: 'Posters Access', target: '_blank' },
 ];
 
 module.exports = {
