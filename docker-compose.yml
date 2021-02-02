@@ -150,7 +150,7 @@ services:
     working_dir: /root/sites/minexpo.com
     environment:
       <<: *env
-      <<: *env-leonis
+      <<: *env-tauron
       PORT: 80
       EXPOSED_PORT: 9815
       LIVERELOAD_PORT: 19815

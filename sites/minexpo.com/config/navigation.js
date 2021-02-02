@@ -1,8 +1,12 @@
 const primary = [
   { href: '/directory', label: 'Exhibitor Directory' },
   { href: '/exhibitor-news', label: 'Exhibitor News' },
+  { href: '/featured-products', label: 'Featured Products' },
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Exhibit Hall Map' },
+];
+
+const secondary = [
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Export Directory' },
   { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
@@ -15,7 +19,7 @@ module.exports = {
     items: [...primary],
   },
   secondary: {
-    items: [...resources],
+    items: [...secondary, ...resources],
   },
   tertiary: {
     items: [],
@@ -27,6 +31,12 @@ module.exports = {
     {
       label: 'Topics',
       items: [...primary],
+    },
+    {
+      label: 'Resources',
+      items: [
+        ...secondary,
+      ],
     },
     {
       label: 'Exhibitors By Category',
