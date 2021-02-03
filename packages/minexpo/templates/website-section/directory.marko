@@ -1,12 +1,14 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
+import { buildContentQuery } from "../../components/search/queries";
 
-$ const { apollo, GAM, pagination: p, req } = out.global;
+$ const { $algolia, apollo, GAM, pagination: p, req } = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
+$ const phrase = defaultValue(req.query.phrase, '');
 $ const supportedContendTypes = {
   Company: 'Exhibitor',
   Product: 'Product',
@@ -64,10 +66,10 @@ $ const perPage = 20;
           </div>
         </@section>
         <@section>
-          <form method="GET" action="javascript:alert('Search Functionality Coming Soon!')" class="search-form row">
+          <form method="GET" action=req.path class="search-form row">
             <div class="col form-group search-form__group search-form__group--phrase">
               <label for="search-phrase" class="sr-only">Enter search phrase</label>
-              <input id="search-phrase" name="phrase" type="search" class="form-control" value="" placeholder="Enter search phrase...">
+              <input id="search-phrase" name="phrase" type="search" class="form-control" value=phrase placeholder="Enter search phrase...">
             </div>
             <button type="submit" class="col btn btn-primary search-form__btn search-form__btn--search">Search</button>
           </form>
@@ -118,40 +120,58 @@ $ const perPage = 20;
             <div class="col-lg-8 mb-block">
               <div class="row">
                 <div class="col">
-                  $ queryParams.limit = 20;
-                  $ queryParams.skip = p.skip({perPage})
-                  <marko-web-query|{ nodes }|
-                    name="website-scheduled-content"
-                    params=queryParams
+                  <marko-web-query|{ node: sectionWithChildren }|
+                    name="website-section"
+                    params={ alias: section.alias, queryFragment: categorySectionsFragment }
                   >
-                    <marko-web-node-list
-                      inner-justified=true
-                      flush-x=false
-                      flush-y=false
-                      modifiers=['content-list']
+                    $ const getChildIds = (section, ids) => {
+                      ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
+                      const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
+
+                      children.forEach((child) => {
+                        ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
+                      })
+                      return ids;
+                    };
+
+                    $ const sectionIds = getChildIds(section, [section.id]);
+                    <minexpo-content-search-query|{ nodes, totalCount }|
+                      phrase=phrase
+                      limit=perPage
+                      skip=p.skip({ perPage })
+                      content-type=contentType
+                      section-ids=sectionIds
+                      query-fragment=queryFragment
                     >
-                      <@header>
-                        <if('Company' === contentType)>
-                          <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
-                          <else>${supportedContendTypes[contentType]}s Alphabetically</else>
-                        </if>
-                        <else>
-                          <if(p.page > 1)>${section.name}: Page ${p.page}</if>
-                          <else>Latest ${supportedContendTypes[contentType]} in ${section.name}</else>
-                        </else>
-                      </@header>
-                      <@nodes nodes=nodes>
-                        <@slot|{ node }|>
-                          <minexpo-company-node
-                            with-section=false
-                            node=node
-                            modifiers=["content-list"]
-                          >
-                            <@image width=250 ar="3:2" use-placeholder=true />
-                          </minexpo-company-node>
-                        </@slot>
-                      </@nodes>
-                    </marko-web-node-list>
+                      <marko-web-node-list
+                          inner-justified=true
+                          flush-x=false
+                          flush-y=false
+                          modifiers=['content-list']
+                        >
+                        <@header>
+                          <if('Company' === contentType)>
+                            <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
+                            <else>${supportedContendTypes[contentType]}s Alphabetically</else>
+                          </if>
+                          <else>
+                            <if(p.page > 1)>${section.name}: Page ${p.page}</if>
+                            <else>Latest ${supportedContendTypes[contentType]} in ${section.name}</else>
+                          </else>
+                        </@header>
+                        <@nodes nodes=nodes>
+                          <@slot|{ node }|>
+                            <minexpo-company-node
+                              with-section=false
+                              node=node
+                              modifiers=["content-list"]
+                            >
+                              <@image width=250 ar="3:2" use-placeholder=true />
+                            </minexpo-company-node>
+                          </@slot>
+                        </@nodes>
+                      </marko-web-node-list>
+                    </minexpo-content-search-query>
                   </marko-web-query>
                 </div>
               </div>

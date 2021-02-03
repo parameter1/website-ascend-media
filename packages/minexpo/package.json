@@ -21,6 +21,7 @@
     "@parameter1/base-cms-marko-web-theme-default": "^2.2.2",
     "@parameter1/base-cms-object-path": "^2.0.0",
     "@parameter1/base-cms-utils": "^2.0.0",
+    "algoliasearch": "^4.8.3",
     "graphql-tag": "^2.10.1"
   },
   "devDependencies": {
