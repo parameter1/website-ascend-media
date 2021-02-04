@@ -70,6 +70,10 @@ $ const perPage = 20;
             <div class="col form-group search-form__group search-form__group--phrase">
               <label for="search-phrase" class="sr-only">Enter search phrase</label>
               <input id="search-phrase" name="phrase" type="search" class="form-control" value=phrase placeholder="Enter search phrase...">
+              <if(contentType !== 'Company')>
+                <label for="content-type" class="sr-only">Content Type</label>
+                <input id="content-type" name="type" type="hidden" class="form-control" value=contentType placeholder="">
+              </if>
             </div>
             <button type="submit" class="col btn btn-primary search-form__btn search-form__btn--search">Search</button>
           </form>
@@ -83,31 +87,39 @@ $ const perPage = 20;
                 <marko-web-gam-display-ad id="gpt-ad-rail1" />
               </div>
               <div class="mb-block">
-                <shared-directory-categories-block title="Category Filters" aliases=aliases active-id=id content-type=contentType />
+                <shared-directory-categories-block
+                  title="Category Filters"
+                  aliases=aliases
+                  active-id=id
+                  content-type=contentType
+                  phrase=phrase
+                />
               </div>
               <div class="mb-block">
                 <div class="content-type-facets">
                   <h3 class="content-type-facets__title">Content Filters</h3>
+                  $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `${section.alias}`;
                   <div class="content-type-facets__list">
                     <for|key,value| in=supportedContendTypes>
                       <if(key === 'Company')>
                       $ const activeModifier = ('Company' === contentType) ? '--active' : '';
                       <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                        <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=`/${section.alias}`>
+                        <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
                           ${value}
                         </a>
                       </div>
                       </if>
                       <else-if(key == contentType)>
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link--active` href=`/${section.alias}`>
+                          <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
                             ${value}
                           </a>
                         </div>
                       </else-if>
                       <else>
+                        $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `${section.alias}?type=${key}`;
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link` href=`/${section.alias}?type=${key}`>
+                          <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
                             ${value}
                           </a>
                         </div>

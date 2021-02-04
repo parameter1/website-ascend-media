@@ -6,6 +6,9 @@
   "@content-type": {
     "type": "string"
   },
+  "@phrase": {
+    "type": "string"
+  },
   "@active-id": {
     "type": "string",
     "required": true
