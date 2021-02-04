@@ -20,7 +20,7 @@ $ const { issue } = input;
     <marko-web-block name="hero-flow">
       <marko-web-element name="hero" block-name="hero-flow">
         <marko-web-query|{ nodes }| name="magazine-scheduled-content" collapsible=false params={ issueId: issue.id, includeSectionNames: ["Cover Story"], limit: 1, queryFragment }>
-          <shared-content-hero-node use-placehoder=false block-name="hero-flow" node=nodes[0] with-attribution=false flush-y=true />
+          <shared-content-hero-node use-placehoder=false block-name="hero-flow" image-width=1200 node=nodes[0] with-attribution=false flush-y=true />
         </marko-web-query>
       </marko-web-element>
       <marko-web-element name="list" block-name="hero-flow">
