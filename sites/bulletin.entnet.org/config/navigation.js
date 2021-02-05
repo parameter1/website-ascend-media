@@ -1,9 +1,9 @@
-// const searchItem = {
-//   href: '/search',
-//   label: 'Search',
-//   icon: 'search',
-//   modifiers: ['search-icon'],
-// };
+const searchItem = {
+  href: '/search',
+  label: 'Search',
+  icon: 'search',
+  modifiers: ['search-icon'],
+};
 
 const userTools = [
   // { href: '/page/privacy-policy', label: 'Privacy Policy' },
@@ -33,7 +33,7 @@ module.exports = {
     items: [...secondary],
   },
   tertiary: {
-    items: [],
+    items: [searchItem],
   },
   menu: [
     {
