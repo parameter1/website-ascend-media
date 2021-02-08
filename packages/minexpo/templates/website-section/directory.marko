@@ -98,7 +98,7 @@ $ const perPage = 20;
               <div class="mb-block">
                 <div class="content-type-facets">
                   <h3 class="content-type-facets__title">Content Filters</h3>
-                  $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `${section.alias}`;
+                  $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
                   <div class="content-type-facets__list">
                     <for|key,value| in=supportedContendTypes>
                       <if(key === 'Company')>
@@ -109,7 +109,7 @@ $ const perPage = 20;
                         </a>
                       </div>
                       </if>
-                      <else-if(key == contentType)>
+                      <else-if(key === contentType)>
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
                           <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
                             ${value}
@@ -117,7 +117,7 @@ $ const perPage = 20;
                         </div>
                       </else-if>
                       <else>
-                        $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `${section.alias}?type=${key}`;
+                        $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
                           <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
                             ${value}
