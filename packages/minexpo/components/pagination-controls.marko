@@ -36,9 +36,11 @@ $ const blockName = "pagination-controls";
         Previous Page
       </marko-web-link>
     </if>
-    <marko-web-element block-name=blockName name="pages">
-      Page ${p.page} of ${totalPages}
-    </marko-web-element>
+    <if(totalPages > 1)>
+      <marko-web-element block-name=blockName name="pages">
+        <marko-web-browser-component name="PaginationPageNumberInput" props={ page: p.page, totalPages, path: cleanPath(path), queryStr: reqQueryParamsStr } />
+      </marko-web-element>
+    </if>
     <if(nextPage)>
       <marko-web-link
         class=`btn btn-primary ${blockName}__next`
