@@ -130,31 +130,32 @@ $ const perPage = 20;
               </div>
             </div>
             <div class="col-lg-8 mb-block">
-              <div class="row">
-                <div class="col">
-                  <marko-web-query|{ node: sectionWithChildren }|
-                    name="website-section"
-                    params={ alias: section.alias, queryFragment: categorySectionsFragment }
-                  >
-                    $ const getChildIds = (section, ids) => {
-                      ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
-                      const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
+              <marko-web-query|{ node: sectionWithChildren }|
+                name="website-section"
+                params={ alias: section.alias, queryFragment: categorySectionsFragment }
+              >
 
-                      children.forEach((child) => {
-                        ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
-                      })
-                      return ids;
-                    };
+                $ const getChildIds = (section, ids) => {
+                  ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
+                  const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
 
-                    $ const sectionIds = getChildIds(section, [section.id]);
-                    <minexpo-content-search-query|{ nodes, totalCount }|
-                      phrase=phrase
-                      limit=perPage
-                      skip=p.skip({ perPage })
-                      content-type=contentType
-                      section-ids=sectionIds
-                      query-fragment=queryFragment
-                    >
+                  children.forEach((child) => {
+                    ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
+                  })
+                  return ids;
+                };
+
+                $ const sectionIds = getChildIds(section, [section.id]);
+                <minexpo-content-search-query|{ nodes, totalCount }|
+                  phrase=phrase
+                  limit=perPage
+                  skip=p.skip({ perPage })
+                  content-type=contentType
+                  section-ids=sectionIds
+                  query-fragment=queryFragment
+                >
+                  <div class="row">
+                    <div class="col">
                       <marko-web-node-list
                           inner-justified=true
                           flush-x=false
@@ -183,23 +184,19 @@ $ const perPage = 20;
                           </@slot>
                         </@nodes>
                       </marko-web-node-list>
-                    </minexpo-content-search-query>
-                  </marko-web-query>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  $ delete queryParams.limit;
-                  $ delete queryParams.skip;
-                  <query-total-count|data| name="website-scheduled-content" params=queryParams>
-                    <pagination-controls
-                      per-page=perPage
-                      total-count=data.totalCount
-                      path=section.alias
-                    />
-                  </query-total-count>
-                </div>
-              </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <pagination-controls
+                        per-page=perPage
+                        total-count=totalCount
+                        path=section.alias
+                      />
+                    </div>
+                  </div>
+                </minexpo-content-search-query>
+              </marko-web-query>
             </div>
           </div>
         </@section>
