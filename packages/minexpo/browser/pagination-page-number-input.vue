@@ -4,6 +4,9 @@
       Page
       <input
         class="pagination-page-number__input"
+        type="number"
+        min=1
+        :max="totalPages"
         :value="userPage"
         placeholder="Enter page number"
         @input="setPage($event)"
@@ -52,8 +55,8 @@ export default {
     setPage(e) {
       const value = parseInt(e.target.value, 10);
       console.log(value);
-      if (isNaN(value) || value < 0) {
-        this.userPage = 0;
+      if (isNaN(value) || value <= 0) {
+        this.userPage = 1;
       } else if (value > this.totalPages) {
         this.userPage = this.totalPages;
       } else {
