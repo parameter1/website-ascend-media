@@ -13,8 +13,10 @@ $ const {
 $ const reqParamsObj = {};
 $ if (phrase) reqParamsObj.phrase = phrase;
 $ if (contentType) reqParamsObj.type = contentType;
-$ const reqParamsStr = (reqParamsObj) ? Object.keys(reqParamsObj).map((key) => [encodeURIComponent(key), encodeURIComponent(reqParamsObj[key])].join('=')).join('&') : null;
-
+$ const reqParamsStr = Object.keys(reqParamsObj || {}).map((key) => [
+    encodeURIComponent(key),
+    encodeURIComponent(reqParamsObj[key]),
+  ].join('=')).join('&');
 $ const isActiveId = ({id}) => (activeId && (`${activeId}` === `${id}`));
 $ facets.sort((a, b) => a.name.localeCompare(b.name));
 <if(facets && facets.length)>
