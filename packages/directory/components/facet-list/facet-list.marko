@@ -5,10 +5,18 @@ $ const block = "directory-facets";
 $ const {
   facets,
   contentType,
+  phrase,
   activeId,
   aliases,
 } = input;
 
+$ const reqParamsObj = {};
+$ if (phrase) reqParamsObj.phrase = phrase;
+$ if (contentType) reqParamsObj.type = contentType;
+$ const reqParamsStr = Object.keys(reqParamsObj || {}).map((key) => [
+    encodeURIComponent(key),
+    encodeURIComponent(reqParamsObj[key]),
+  ].join('=')).join('&');
 $ const isActiveId = ({id}) => (activeId && (`${activeId}` === `${id}`));
 $ facets.sort((a, b) => a.name.localeCompare(b.name));
 <if(facets && facets.length)>
@@ -22,7 +30,7 @@ $ facets.sort((a, b) => a.name.localeCompare(b.name));
       $ const linkClasses = [`${block}__link`]
       $ if (isOpen) classNames.push(`${block}__item--open`);
       $ if (isActive) linkClasses.push(`${block}__link--active`);
-      $ const facetLink = (contentType) ? `/${facet.alias}?type=${contentType}` : `/${facet.alias}`;
+      $ const facetLink = (reqParamsStr) ? `/${facet.alias}?${reqParamsStr}` : `/${facet.alias}`;
       <div class=classNames>
         <a class=linkClasses href=facetLink>
           ${facet.name}
@@ -48,7 +56,13 @@ $ facets.sort((a, b) => a.name.localeCompare(b.name));
             }
           />
         </if>
-        <facet-list facets=children active-id=activeId aliases=aliases content-type=contentType/>
+        <facet-list
+          facets=children
+          active-id=activeId
+          aliases=aliases
+          content-type=contentType
+          phrase=phrase
+        />
       </div>
     </for>
   </div>

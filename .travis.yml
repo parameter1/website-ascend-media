@@ -126,13 +126,13 @@ jobs:
 
     - stage: production
       name: minexpo.com
-      script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com leonis-websites
+      script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 
     # - stage: staging
     #   name: minexpo.com
-    #   script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com leonis-websites
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy minexpo.com websites
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 

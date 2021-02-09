@@ -1,12 +1,14 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
+import { buildContentQuery } from "../../components/search/queries";
 
-$ const { apollo, GAM, pagination: p, req } = out.global;
+$ const { $algolia, apollo, GAM, pagination: p, req } = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
+$ const phrase = defaultValue(req.query.phrase, '');
 $ const supportedContendTypes = {
   Company: 'Exhibitor',
   Product: 'Product',
@@ -64,10 +66,14 @@ $ const perPage = 20;
           </div>
         </@section>
         <@section>
-          <form method="GET" action="javascript:alert('Search Functionality Coming Soon!')" class="search-form row">
+          <form method="GET" action=req.path class="search-form row">
             <div class="col form-group search-form__group search-form__group--phrase">
               <label for="search-phrase" class="sr-only">Enter search phrase</label>
-              <input id="search-phrase" name="phrase" type="search" class="form-control" value="" placeholder="Enter search phrase...">
+              <input id="search-phrase" name="phrase" type="search" class="form-control" value=phrase placeholder="Enter search phrase...">
+              <if(contentType !== 'Company')>
+                <label for="content-type" class="sr-only">Content Type</label>
+                <input id="content-type" name="type" type="hidden" class="form-control" value=contentType placeholder="">
+              </if>
             </div>
             <button type="submit" class="col btn btn-primary search-form__btn search-form__btn--search">Search</button>
           </form>
@@ -81,31 +87,39 @@ $ const perPage = 20;
                 <marko-web-gam-display-ad id="gpt-ad-rail1" />
               </div>
               <div class="mb-block">
-                <shared-directory-categories-block title="Category Filters" aliases=aliases active-id=id content-type=contentType />
+                <shared-directory-categories-block
+                  title="Category Filters"
+                  aliases=aliases
+                  active-id=id
+                  content-type=contentType
+                  phrase=phrase
+                />
               </div>
               <div class="mb-block">
                 <div class="content-type-facets">
                   <h3 class="content-type-facets__title">Content Filters</h3>
+                  $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
                   <div class="content-type-facets__list">
                     <for|key,value| in=supportedContendTypes>
                       <if(key === 'Company')>
                       $ const activeModifier = ('Company' === contentType) ? '--active' : '';
                       <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                        <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=`/${section.alias}`>
+                        <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
                           ${value}
                         </a>
                       </div>
                       </if>
-                      <else-if(key == contentType)>
+                      <else-if(key === contentType)>
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link--active` href=`/${section.alias}`>
+                          <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
                             ${value}
                           </a>
                         </div>
                       </else-if>
                       <else>
+                        $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link` href=`/${section.alias}?type=${key}`>
+                          <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
                             ${value}
                           </a>
                         </div>
@@ -116,58 +130,73 @@ $ const perPage = 20;
               </div>
             </div>
             <div class="col-lg-8 mb-block">
-              <div class="row">
-                <div class="col">
-                  $ queryParams.limit = 20;
-                  $ queryParams.skip = p.skip({perPage})
-                  <marko-web-query|{ nodes }|
-                    name="website-scheduled-content"
-                    params=queryParams
-                  >
-                    <marko-web-node-list
-                      inner-justified=true
-                      flush-x=false
-                      flush-y=false
-                      modifiers=['content-list']
-                    >
-                      <@header>
-                        <if('Company' === contentType)>
-                          <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
-                          <else>${supportedContendTypes[contentType]}s Alphabetically</else>
-                        </if>
-                        <else>
-                          <if(p.page > 1)>${section.name}: Page ${p.page}</if>
-                          <else>Latest ${supportedContendTypes[contentType]} in ${section.name}</else>
-                        </else>
-                      </@header>
-                      <@nodes nodes=nodes>
-                        <@slot|{ node }|>
-                          <minexpo-company-node
-                            with-section=false
-                            node=node
-                            modifiers=["content-list"]
-                          >
-                            <@image width=250 ar="3:2" use-placeholder=true />
-                          </minexpo-company-node>
-                        </@slot>
-                      </@nodes>
-                    </marko-web-node-list>
-                  </marko-web-query>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  $ delete queryParams.limit;
-                  $ delete queryParams.skip;
-                  <query-total-count|data| name="website-scheduled-content" params=queryParams>
-                    <pagination-controls
-                      per-page=perPage
-                      total-count=data.totalCount
-                      path=section.alias
-                    />
-                  </query-total-count>
-                </div>
-              </div>
+              <marko-web-query|{ node: sectionWithChildren }|
+                name="website-section"
+                params={ alias: section.alias, queryFragment: categorySectionsFragment }
+              >
+
+                $ const getChildIds = (section, ids) => {
+                  ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
+                  const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
+
+                  children.forEach((child) => {
+                    ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
+                  })
+                  return ids;
+                };
+
+                $ const sectionIds = getChildIds(section, [section.id]);
+                <minexpo-content-search-query|{ nodes, totalCount }|
+                  phrase=phrase
+                  limit=perPage
+                  skip=p.skip({ perPage })
+                  content-type=contentType
+                  section-ids=sectionIds
+                  query-fragment=queryFragment
+                >
+                  <div class="row">
+                    <div class="col">
+                      <marko-web-node-list
+                          inner-justified=true
+                          flush-x=false
+                          flush-y=false
+                          modifiers=['content-list']
+                        >
+                        <@header>
+                          <if('Company' === contentType)>
+                            <if(p.page > 1)>${supportedContendTypes[contentType]} in ${section.name}: Page ${p.page}</if>
+                            <else>${supportedContendTypes[contentType]}s Alphabetically</else>
+                          </if>
+                          <else>
+                            <if(p.page > 1)>${section.name}: Page ${p.page}</if>
+                            <else>Latest ${supportedContendTypes[contentType]} in ${section.name}</else>
+                          </else>
+                        </@header>
+                        <@nodes nodes=nodes>
+                          <@slot|{ node }|>
+                            <minexpo-company-node
+                              with-section=false
+                              node=node
+                              modifiers=["content-list"]
+                            >
+                              <@image width=250 ar="3:2" use-placeholder=true />
+                            </minexpo-company-node>
+                          </@slot>
+                        </@nodes>
+                      </marko-web-node-list>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <pagination-controls
+                        per-page=perPage
+                        total-count=totalCount
+                        path=section.alias
+                      />
+                    </div>
+                  </div>
+                </minexpo-content-search-query>
+              </marko-web-query>
             </div>
           </div>
         </@section>

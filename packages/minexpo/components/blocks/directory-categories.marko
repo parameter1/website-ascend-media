@@ -5,6 +5,7 @@ import categorySectionsFragment from "../../graphql/fragments/category-sections"
 $ const activeId = defaultValue(input.activeId, null);
 $ const aliases = defaultValue(input.aliases, []);
 $ const contentType = defaultValue(input.contentType, "");
+$ const phrase = defaultValue(input.phrase, null);
 $ const primaryAlias = defaultValue(input.primaryAlias, "directory");
 $ const title = defaultValue(input.title, "Categories");
 $ const description = defaultValue(input.description, "");
@@ -14,5 +15,13 @@ $ const description = defaultValue(input.description, "");
   params={ alias: primaryAlias, queryFragment: categorySectionsFragment }
 >
   $ const children = getAsArray(node, "children.edges").map(({ node }) => node);
-  <directory-facets title=title description=description facets=children active-id=activeId aliases=aliases content-type=contentType />
+  <directory-facets
+    title=title
+    description=description
+    facets=children
+    active-id=activeId
+    aliases=aliases
+    content-type=contentType
+    phrase=phrase
+  />
 </marko-web-query>

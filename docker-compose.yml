@@ -35,6 +35,7 @@ x-env-tauron: &env-tauron
   OEMBED_URI: ${OEMBED_URI-https://tauron.oembed.base.parameter1.com}
   RSS_URI: ${RSS_URI-https://tauron.rss.base.parameter1.com}
   SITEMAPS_URI: ${SITEMAPS_URI-https://tauron.sitemaps.base.parameter1.com}
+  BASE_BROWSE_GRAPHQL_URI: ${BASE_BROWSE_GRAPHQL_URI-https://base-browse.tauron.base.parameter1.com/graphql}
 
 x-env-development: &env-development
   GRAPHQL_URI: ${GRAPHQL_URI-http://host.docker.internal:10002}
@@ -154,6 +155,9 @@ services:
       PORT: 80
       EXPOSED_PORT: 9815
       LIVERELOAD_PORT: 19815
+      ALGOLIA_API_KEY: ${ALGOLIA_API_KEY}
+      ALGOLIA_APP_ID: ${ALGOLIA_APP_ID}
+      ALGOLIA_DEFAULT_INDEX: ${ALGOLIA_DEFAULT_INDEX}
       TENANT_KEY: ascend_minex
       SITE_ID: 5f2c4e7900d6f47b4ca70040
     ports:
