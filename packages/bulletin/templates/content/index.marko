@@ -26,7 +26,7 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
               <marko-web-element name="content-header" block-name=blockName>
                 <div class="page-wrapper__published">
                   Published:
-                  <marko-web-content-published tag="span" obj=content />
+                  <marko-web-content-published tag="span" format="MMMM D, YYYY" obj=content />
                 </div>
                 <hr class="page-wrapper__above-title">
                 <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
@@ -69,7 +69,7 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
               <hr class="page-wrapper__above-title">
               <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
                 <@slot|{ node, index }|>
-                  <shared-content-card-node node=node with-section=false with-attribution=false />
+                  <shared-content-card-node node=node with-section=false with-dates=false with-attribution=false />
                 </@slot>
               </default-theme-card-deck-flow>
             </if>
