@@ -54,8 +54,7 @@ export default {
   methods: {
     setPage(e) {
       const value = parseInt(e.target.value, 10);
-      console.log(value);
-      if (isNaN(value) || value <= 0) {
+      if (Number.isNaN(value) || value <= 0) {
         this.userPage = 1;
       } else if (value > this.totalPages) {
         this.userPage = this.totalPages;
