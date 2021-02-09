@@ -5,7 +5,7 @@
       <input
         class="pagination-page-number__input"
         type="number"
-        min=1
+        min="1"
         :max="totalPages"
         :value="userPage"
         placeholder="Enter page number"
