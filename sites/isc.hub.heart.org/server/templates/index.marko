@@ -51,22 +51,14 @@ $ const adSlots = ({ aliases }) => ({
 
         <marko-web-query|{ nodes }|
           name="website-optioned-content"
-          params={ sectionId: id, optionName: "Pinned", limit: 6, skip: 10, requiresImage: true, queryFragment }
+          params={ sectionId: id, optionName: "Pinned", limit: 7, skip: 10, requiresImage: true, queryFragment }
         >
-          <div class="col-lg-8 mb-block">
-            <shared-content-card-deck-flow nodes=nodes.slice(0, 2) cols=2 with-teaser=false />
-          </div>
-          <div class="col-lg-4 mb-block-lg">
-            <shared-standard-section-list-block
-              section-alias="industry-resources"
-              query-params={ limit: 2 }
-              display-image=false
-              modifiers=["sponsored"]
-            />
+          <div class="col-lg-12 mb-block">
+            <shared-content-card-deck-flow nodes=nodes.slice(0, 3) cols=3 with-teaser=false />
           </div>
 
           <div class="col-lg-8 mb-block">
-            <shared-content-card-deck-flow nodes=nodes.slice(2, 6) cols=2 with-teaser=false />
+            <shared-content-card-deck-flow nodes=nodes.slice(3, 7) cols=2 with-teaser=false />
           </div>
           <div class="col-lg-4 mb-block page-rail">
             <a
@@ -95,7 +87,7 @@ $ const adSlots = ({ aliases }) => ({
         component-input={ aliases, cols: 3, withTeaser: false }
         fragment-name="shared-content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 10, skip: 16, requiresImage: true }
+        query-params={ sectionId: id, limit: 10, skip: 17, requiresImage: true }
         max-pages=3
         page-input={ for: "website-section", id }
       />
