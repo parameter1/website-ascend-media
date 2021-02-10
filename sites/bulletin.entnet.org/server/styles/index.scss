@@ -63,6 +63,15 @@ $theme-card-header-background-color: #fff;
       }
     }
   }
+  &--content {
+    .page-attribution {
+      &__content-authors {
+        &::before {
+          content: "";
+        }
+      }
+    }
+  }
 }
 .page-wrapper {
   &__title {
