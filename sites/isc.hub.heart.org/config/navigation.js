@@ -14,10 +14,11 @@ const topics = [
   { href: '/late-breaking-science', label: 'Late-Breaking Science' },
   // { href: '/isc-news', label: 'ISC News' },
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
-  { href: 'https://professional.heart.org/en/meetings/international-stroke-conference/programming', label: 'Program' },
-  { href: '#', label: 'Claim CME', target: '_blank' },
+  { href: 'https://eventpilotadmin.com/web/planner.php?id=ISC21', label: 'Program' },
+  // { href: '#', label: 'Claim CME', target: '_blank' },
   // { href: '#', label: 'OnDemand' },
   { href: '/previews', label: 'Previews' },
+  { href: '/archives', label: 'Archives' },
 ];
 
 const secondary = [
