@@ -9,6 +9,7 @@
     "common-leaders-home-page": {
       "template": "./home-page.marko",
       "@expanded": "boolean",
+      "@display-view-all": "boolean",
       "@media-query-columns": "number"
     },
     "common-leaders-contextual": {

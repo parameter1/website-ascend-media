@@ -24,10 +24,27 @@ $ const { id, alias, name, pageNode } = data;
   </@above-container>
   <@page>
     <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 5, requiresImage: true, queryFragment }
+      name="website-scheduled-content"
+      params={ sectionId: id, limit: 5, requiresImage: true, queryFragment }
     >
       <website-content-hero-flow nodes=nodes />
+    </marko-web-query>
+
+    <marko-web-query|{ nodes }|
+      name="website-scheduled-content"
+      params={ sectionId: id, limit: 5, skip: 5, requiresImage: true, queryFragment }
+    >
+      <default-theme-card-deck-flow cols=3 nodes=nodes>
+        <@slot|{ node, index }|>
+          <website-content-card-node
+            image-width=340
+            node=node
+          />
+        </@slot>
+        <@slot position="after" index=1>
+          <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+        </@slot>
+      </default-theme-card-deck-flow>
     </marko-web-query>
 
     <div class="row">
@@ -36,16 +53,30 @@ $ const { id, alias, name, pageNode } = data;
       </div>
     </div>
 
-    <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 5, skip: 5, requiresImage: true, queryFragment }
-    >
-      <website-content-card-deck-flow nodes=nodes />
-    </marko-web-query>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-block">
+        <marko-web-gam-display-ad id="gpt-ad-rail2" />
+      </div>
+      <div class="col-lg-8 col-md-6 mb-block">
+        <marko-web-query|{ nodes }|
+          name="all-published-content"
+          params={ limit: 4, skip: 10, requiresImage: true, queryFragment }
+        >
+        <default-theme-card-deck-flow cols=2 nodes=nodes>
+          <@slot|{ node, index }|>
+            <website-content-card-node
+              image-width=340
+              node=node
+            />
+          </@slot>
+        </default-theme-card-deck-flow>
+        </marko-web-query>
+      </div>
+    </div>
 
     <marko-web-query|{ nodes }|
-      name="website-optioned-content"
-      params={ sectionId: id, optionName: "Pinned", limit: 5, skip: 10, requiresImage: true, queryFragment }
+      name="website-scheduled-content"
+      params={ sectionId: id, limit: 5, skip: 14, requiresImage: true, queryFragment }
     >
       <website-content-card-deck-flow nodes=nodes />
     </marko-web-query>
@@ -58,7 +89,7 @@ $ const { id, alias, name, pageNode } = data;
         component-input={ aliases }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 15, requiresImage: true }
+        query-params={ sectionId: id, limit: 12, skip: 19, requiresImage: true }
         max-pages=3
         page-input={ for: "website-section", id }
       />

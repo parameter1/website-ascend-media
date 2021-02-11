@@ -6,6 +6,8 @@ import GAM from "../../../config/gam";
 $ const { site } = out.global;
 $ const { id, type, pageNode } = data;
 
+$ const displayAds = ["news", "press-release", "product", "company"].includes(type) ? false : true;
+
 $ const displayCarousel = ["whitepaper", "media-gallery", "contact"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
 
@@ -14,20 +16,24 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-gtm-content-context|{ context }| id=id>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-content-context>
-    <marko-web-resolve-page|{ data: content }| node=pageNode>
-      $ const aliases = hierarchyAliases(content.primarySection);
-      $ const adSlots = {
-        "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-        "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
-      };
-      <marko-web-gam-slots slots=adSlots />
-      <common-gam-content-targeting obj=content />
-    </marko-web-resolve-page>
+    <if(displayAds)>
+      <marko-web-resolve-page|{ data: content }| node=pageNode>
+        $ const aliases = hierarchyAliases(content.primarySection);
+        $ const adSlots = {
+          "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+          "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+        };
+        <marko-web-gam-slots slots=adSlots />
+        <common-gam-content-targeting obj=content />
+      </marko-web-resolve-page>
+    </if>
   </@head>
-  <@above-container>
-    <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-    <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-top-below-head" modifiers=["above-container"] />
-  </@above-container>
+  <if(displayAds)>
+    <@above-container>
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
+      <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-top-below-head" modifiers=["above-container"] />
+    </@above-container>
+  </if>
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
@@ -106,8 +112,9 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
 
             <aside class="col-lg-4 page-rail">
               <shared-inquiry-block content=content />
-
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
+              <if(displayAds)>
+                <marko-web-gam-display-ad id="gpt-ad-rail1" />
+            </if>
 
               <!-- Leaders block here -->
               <common-leaders-contextual content-id=content.id />
