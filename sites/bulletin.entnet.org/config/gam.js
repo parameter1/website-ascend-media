@@ -1,6 +1,6 @@
 const configureGAM = require('@ascend-media/package-shared/config/gam');
 
-const config = configureGAM({ basePath: 'isc' });
+const config = configureGAM({ basePath: 'bulletin' });
 
 config
   .setAliasAdUnits('default', [
