@@ -2,6 +2,7 @@ const startServer = require('@ascend-media/package-shared/start-server');
 const document = require('@ascend-media/package-bulletin/components/document');
 const components = require('@ascend-media/package-bulletin/components');
 const fragments = require('@ascend-media/package-bulletin/fragments');
+const errorTemplate = require('@ascend-media/package-bulletin/templates/error');
 
 const routes = require('./server/routes');
 const siteConfig = require('./config/site');
@@ -16,5 +17,6 @@ module.exports = startServer({
   document,
   components,
   fragments,
+  errorTemplate,
   routes,
 }).then(() => log('Website started!')).catch(e => setImmediate(() => { throw e; }));
