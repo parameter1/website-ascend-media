@@ -16,7 +16,7 @@ module.exports = (app) => {
   }));
 
   app.get('/magazine/48620', (req, res) => {
-    const to = 'https://bulletin.entnet.org/books/2021-january-aao-hns-bulletin-special-edition/';
+    const to = 'https://bulletin-books.ascendmedia.com/2021-january-aao-hns-bulletin-special-edition/index.html';
     res.redirect(301, to);
   });
 
