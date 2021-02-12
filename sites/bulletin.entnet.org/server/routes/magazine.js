@@ -20,6 +20,7 @@ module.exports = (app) => {
     res.redirect(301, to);
   });
 
+
   app.get('/magazine/:id(\\d+)', withMagazineIssue({
     template: issue,
     queryFragment: issueFragment,
