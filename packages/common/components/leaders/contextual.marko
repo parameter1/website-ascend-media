@@ -1,5 +1,10 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
 $ const { site } = out.global;
 $ const { contentId } = input;
+$ const viewAllText = defaultValue(site.get("leaders.viewAllText"), 'View All Companies &gt;');
+$ const displayViewAll = defaultValue(input.displayViewAll, true);
+
 
 <if(contentId)>
   <marko-web-leaders props={
@@ -9,6 +14,8 @@ $ const { contentId } = input;
     headerImgSrc: site.get("leaders.header.imgSrc"),
     headerImgAlt: site.get("leaders.title"),
     displayCallout: false,
+    viewAllText,
+    displayViewAll,
     offsetTop: 50,
     viewAllHref: '/leaders',
     mediaQueries: [

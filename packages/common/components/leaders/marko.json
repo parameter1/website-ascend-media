@@ -4,7 +4,9 @@
       "template": "./dropdown-portal.marko"
     },
     "common-leaders-all": {
-      "template": "./all.marko"
+      "template": "./all.marko",
+      "@contextual": "bolean",
+      "@display-view-all": "boolean"
     },
     "common-leaders-home-page": {
       "template": "./home-page.marko",
