@@ -6,7 +6,12 @@ const issue = require('@ascend-media/package-bulletin/templates/magazine/issue')
 const issueFragment = require('@ascend-media/package-bulletin/graphql/fragments/magazine-issue-page');
 
 module.exports = (app) => {
-  app.get('/magazine', (req, res) => {
+  app.get('/books/:alias([a-zA-Z0-9-_/]+)', (req, res) => {
+    const { alias } = req.params;
+    res.redirect(301, `https://bulletin-books.ascendmedia.com/${alias}/index.html`);
+  });
+
+  app.get('/magazine', (res) => {
     res.marko(index);
   });
 
@@ -15,7 +20,7 @@ module.exports = (app) => {
     queryFragment: publicationFragment,
   }));
 
-  app.get('/magazine/48620', (req, res) => {
+  app.get('/magazine/48620', (res) => {
     const to = 'https://bulletin-books.ascendmedia.com/2021-january-aao-hns-bulletin-special-edition/index.html';
     res.redirect(301, to);
   });
