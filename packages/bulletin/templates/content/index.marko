@@ -1,9 +1,17 @@
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import { get } from "@parameter1/base-cms-object-path";
 import contentLatestIssueWithContentLoader from "../../loaders/content-latest-issue-with-content";
 
-$ const { apollo } = out.global;
+$ const { apollo, GAM } = out.global;
 $ const { id, type, pageNode } = data;
 $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: id });
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+});
+
+$ console.log(GAM)
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -11,10 +19,15 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
       <marko-web-gtm-push data=context />
     </marko-web-gtm-content-context>
     <marko-web-gam-targeting key-values={ cont_id: id, cont_type: type } />
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
+      <marko-web-gam-slots slots=adSlots({ aliases }) />
+    </marko-web-resolve-page>
   </@head>
 
   <@page>
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
       <marko-web-page-wrapper>
         <@section>
           <div class="row">
@@ -40,6 +53,7 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
+              <marko-web-gam-display-ad id="gpt-ad-rail1" />
               <marko-web-resolve|{ resolved }| promise=issuePromise>
                 $ const { issue, issueContent } = resolved;
                 <if(issue)>
