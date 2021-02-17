@@ -8,6 +8,7 @@ import { buildContentQuery } from "../../components/search/queries";
 
 $ const { $algolia, apollo, GAM, pagination: p, req } = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
+$ const selectedCountry = defaultValue(req.query.country, '');
 $ const phrase = defaultValue(req.query.phrase, '');
 $ const supportedContendTypes = {
   Company: 'Exhibitor',
@@ -42,14 +43,6 @@ $ const perPage = 20;
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
-      <query-total-count|data| name="website-scheduled-content" params=queryParams>
-        <pagination-controls
-          per-page=perPage
-          total-count=data.totalCount
-          path=section.alias
-          as-rels=true
-        />
-      </query-total-count>
     </@head>
     <@above-container>
       <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
@@ -81,81 +74,128 @@ $ const perPage = 20;
 
         <@section>
           $ const aliases = hierarchyAliases(section);
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="mb-block">
-                <marko-web-gam-display-ad id="gpt-ad-rail1" />
-              </div>
-              <div class="mb-block">
-                <shared-directory-categories-block
-                  title="Category Filters"
-                  aliases=aliases
-                  active-id=id
-                  content-type=contentType
-                  phrase=phrase
-                />
-              </div>
-              <div class="mb-block">
-                <div class="content-type-facets">
-                  <h3 class="content-type-facets__title">Content Filters</h3>
-                  $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
-                  <div class="content-type-facets__list">
-                    <for|key,value| in=supportedContendTypes>
-                      <if(key === 'Company')>
-                      $ const activeModifier = ('Company' === contentType) ? '--active' : '';
-                      <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                        <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
-                          ${value}
-                        </a>
-                      </div>
-                      </if>
-                      <else-if(key === contentType)>
+          <marko-web-query|{ node: sectionWithChildren }|
+            name="website-section"
+            params={ alias: section.alias, queryFragment: categorySectionsFragment }
+          >
+
+            $ const getChildIds = (section, ids) => {
+              ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
+              const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
+
+              children.forEach((child) => {
+                ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
+              })
+              return ids;
+            };
+
+            $ const sectionIds = getChildIds(section, [section.id]);
+            <div class="row">
+              <div class="col-lg-4">
+
+                <div class="mb-block">
+                  <marko-web-gam-display-ad id="gpt-ad-rail1" />
+                </div>
+                <div class="mb-block">
+                  <shared-directory-categories-block
+                    title="Category Filters"
+                    aliases=aliases
+                    active-id=id
+                    content-type=contentType
+                    phrase=phrase
+                  />
+                </div>
+                <div class="mb-block">
+                  <div class="content-type-facets">
+                    <h3 class="content-type-facets__title">Content Filters</h3>
+                    $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
+                    <div class="content-type-facets__list">
+                      <for|key,value| in=supportedContendTypes>
+                        <if(key === 'Company')>
+                        $ const activeModifier = ('Company' === contentType) ? '--active' : '';
                         <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
+                          <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
                             ${value}
                           </a>
                         </div>
-                      </else-if>
-                      <else>
-                        $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
-                        <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
-                            ${value}
-                          </a>
-                        </div>
-                      </else>
-                    </for>
+                        </if>
+                        <else-if(key === contentType)>
+                          <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                            <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
+                              ${value}
+                            </a>
+                          </div>
+                        </else-if>
+                        <else>
+                          $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
+                          <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                            <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
+                              ${value}
+                            </a>
+                          </div>
+                        </else>
+                      </for>
+                    </div>
                   </div>
                 </div>
+                <if('Company' === contentType)>
+                  <minexpo-country-facets|{ countries }|
+                  phrase=phrase
+                  section-ids=sectionIds
+                >
+                  <div class="directory-country-facets">
+                    <h3 class="directory-country-facets__title">Country Filters</h3>
+                    <div class="directory-country-facets__list">
+                      <for|country| of=countries>
+                        <if(selectedCountry === country)>
+                        <marko-web-browser-component
+                            name="DirectoryAutoScroll"
+                            props={
+                              containerTarget: '.directory-country-facets > .directory-country-facets__list',
+                              elementTarget: `.directory-country-facets__link--active`,
+                              offset: -12,
+                            }
+                          />
+                          $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
+                          <div class="directory-country-facets__item directory-country-facets__item--51709">
+                            <a
+                              class="directory-country-facets__link directory-country-facets__link--active"
+                              href=countryFilterLink
+                            >
+                              ${country}
+                            </a>
+                          </div>
+                        </if>
+                        <else>
+                          $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}&country=${encodeURI(country)}` : `/${section.alias}?country=${encodeURI(country)}`;
+                          <div class="directory-country-facets__item directory-country-facets__item--51709">
+                            <a
+                              class="directory-country-facets__link"
+                              href=countryFilterLink
+                            >
+                              ${country}
+                            </a>
+                          </div>
+                        </else>
+                      </for>
+                    </div>
+                  </div>
+                </minexpo-country-facets>
+              </if>
               </div>
-            </div>
-            <div class="col-lg-8 mb-block">
-              <marko-web-query|{ node: sectionWithChildren }|
-                name="website-section"
-                params={ alias: section.alias, queryFragment: categorySectionsFragment }
-              >
-
-                $ const getChildIds = (section, ids) => {
-                  ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
-                  const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
-
-                  children.forEach((child) => {
-                    ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
-                  })
-                  return ids;
-                };
-
-                $ const sectionIds = getChildIds(section, [section.id]);
-                <minexpo-content-search-query|{ nodes, totalCount }|
+              <div class="col-lg-8 mb-block">
+                <minexpo-content-search-query|{ nodes, totalCount, facets }|
                   phrase=phrase
                   limit=perPage
                   skip=p.skip({ perPage })
                   content-type=contentType
+                  country=selectedCountry
                   section-ids=sectionIds
                   query-fragment=queryFragment
                 >
                   <div class="row">
                     <div class="col">
+                      <!-- $ console.log(facets.country); -->
                       <marko-web-node-list
                           inner-justified=true
                           flush-x=false
@@ -196,9 +236,9 @@ $ const perPage = 20;
                     </div>
                   </div>
                 </minexpo-content-search-query>
-              </marko-web-query>
+              </div>
             </div>
-          </div>
+          </marko-web-query>
         </@section>
       </marko-web-page-wrapper>
     </@page>

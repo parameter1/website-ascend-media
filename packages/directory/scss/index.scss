@@ -18,6 +18,7 @@
 }
 
 .directory-facets,
+.directory-country-facets,
 .content-type-facets {
   @include theme-card();
   $color: $gray-200;
@@ -110,5 +111,11 @@
     & > .icon {
       @include theme-navbar-link-color(( active: $primary, hover: $primary, default: $black ));
     }
+  }
+}
+
+.directory-country-facets {
+  &__list {
+    max-height: 200px;
   }
 }
