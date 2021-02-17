@@ -11,7 +11,7 @@ module.exports = (app) => {
     res.redirect(301, `https://bulletin-books.ascendmedia.com/${alias}/index.html`);
   });
 
-  app.get('/magazine', (res) => {
+  app.get('/magazine', (req, res) => {
     res.marko(index);
   });
 
