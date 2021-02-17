@@ -43,6 +43,9 @@ $ const { issue } = input;
         <@slot|{ node, index }|>
           <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
         </@slot>
+        <@slot position="after" index=0>
+          <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+        </@slot>
       </default-theme-card-deck-flow>
     </marko-web-query>
   </@section>
