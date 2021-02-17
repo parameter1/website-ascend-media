@@ -1,14 +1,20 @@
-const configureGAM = require('@ascend-media/package-shared/config/gam');
+const GAMConfiguration = require('@parameter1/base-cms-marko-web-gam/config');
 
-const config = configureGAM({ basePath: 'bulletin' });
+const config = new GAMConfiguration('6407152', { basePath: 'bulletin' });
+
+config
+  .setTemplate('leaderboard', {
+    size: [[970, 90], [320, 50], [300, 50], [300, 100]],
+    sizeMapping: [
+      { viewport: [980, 0], size: [[970, 90]] },
+      { viewport: [320, 0], size: [[300, 50], [320, 50], [300, 100]] },
+    ],
+  });
 
 config
   .setAliasAdUnits('default', [
-    { name: 'lb1', templateName: 'LB', path: 'lb1' },
-    { name: 'lb2', templateName: 'LB', path: 'lb2' },
-    { name: 'rail1', templateName: 'RAIL1', path: 'rail1' },
-    { name: 'rail2', templateName: 'RAIL1', path: 'rail2' },
-    { name: 'load-more', templateName: 'RAIL1', path: 'load-more' },
+    { name: 'lb1', templateName: 'leaderboard', path: 'lb1' },
+    { name: 'rail1', options: { size: [300, 250] }, path: 'rail1' },
   ]);
 
 module.exports = config;
