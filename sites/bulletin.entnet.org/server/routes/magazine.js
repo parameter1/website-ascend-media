@@ -8,7 +8,8 @@ const issueFragment = require('@ascend-media/package-bulletin/graphql/fragments/
 module.exports = (app) => {
   app.get('/books/:alias([a-zA-Z0-9-_/]+)', (req, res) => {
     const { alias } = req.params;
-    res.redirect(301, `https://bulletin-books.ascendmedia.com/${alias}/index.html`);
+    const cleanAlias = (alias.substr(-1) === '/') ? alias.substr(0, alias.length - 1) : alias;
+    res.redirect(301, `https://bulletin-books.ascendmedia.com/${cleanAlias}/index.html`);
   });
 
   app.get('/magazine', (req, res) => {
