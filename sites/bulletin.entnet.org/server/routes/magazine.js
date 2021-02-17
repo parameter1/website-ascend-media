@@ -1,4 +1,5 @@
 const { withMagazineIssue, withMagazinePublication } = require('@parameter1/base-cms-marko-web/middleware');
+const { cleanPath } = require('@parameter1/base-cms-utils');
 const index = require('@ascend-media/package-bulletin/templates/magazine');
 const publication = require('@ascend-media/package-bulletin/templates/magazine/publication');
 const publicationFragment = require('@ascend-media/package-bulletin/graphql/fragments/magazine-publication-page');
@@ -8,8 +9,7 @@ const issueFragment = require('@ascend-media/package-bulletin/graphql/fragments/
 module.exports = (app) => {
   app.get('/books/:alias([a-zA-Z0-9-_/]+)', (req, res) => {
     const { alias } = req.params;
-    const cleanAlias = (alias.substr(-1) === '/') ? alias.substr(0, alias.length - 1) : alias;
-    res.redirect(301, `https://bulletin-books.ascendmedia.com/${cleanAlias}/index.html`);
+    res.redirect(301, `https://bulletin-books.ascendmedia.com/${cleanPath(alias)}/index.html`);
   });
 
   app.get('/magazine', (req, res) => {
