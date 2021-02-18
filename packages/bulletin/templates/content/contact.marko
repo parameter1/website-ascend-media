@@ -9,7 +9,10 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-lb3": GAM.getAdUnit({ name: "lb3", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
 
 <marko-web-content-page-layout id=id type=type>
@@ -47,7 +50,6 @@ $ const adSlots = ({ aliases }) => ({
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
               <marko-web-query|{ nodes }|
                 name="all-author-content"
                 params={

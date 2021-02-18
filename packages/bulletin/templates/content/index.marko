@@ -8,10 +8,11 @@ $ const issuePromise = contentLatestIssueWithContentLoader(apollo, { contentId: 
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-lb3": GAM.getAdUnit({ name: "lb3", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
-
-$ console.log(GAM)
 
 <marko-web-content-page-layout id=id type=type>
   <@head>
@@ -53,7 +54,6 @@ $ console.log(GAM)
             </default-theme-page-contents>
 
             <aside class="col-lg-4 page-rail">
-              <marko-web-gam-display-ad id="gpt-ad-rail1" />
               <marko-web-resolve|{ resolved }| promise=issuePromise>
                 $ const { issue, issueContent } = resolved;
                 <if(issue)>
@@ -74,6 +74,11 @@ $ console.log(GAM)
             </aside>
           </div>
         </@section>
+
+        <@section>
+          <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-970", "center"] />
+        </@section>
+
         <@section>
           <marko-web-resolve|{ resolved }| promise=issuePromise>
             $ const { issue, issueContent } = resolved;
@@ -81,14 +86,38 @@ $ console.log(GAM)
               <hr />
               <div class="page-wrapper__title--issue-name">More from ${issue.name}</div>
               <hr class="page-wrapper__above-title">
-              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3)>
+              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(3, 11)>
                 <@slot|{ node, index }|>
                   <shared-content-card-node node=node with-section=false with-dates=false with-attribution=false />
+                </@slot>
+                <@slot position="after" index=3>
+                  <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
                 </@slot>
               </default-theme-card-deck-flow>
             </if>
           </marko-web-resolve>
         </@section>
+
+        <@section>
+          <marko-web-gam-display-ad id="gpt-ad-lb3" modifiers=["max-width-970", "center"] />
+        </@section>
+
+        <@section>
+          <marko-web-resolve|{ resolved }| promise=issuePromise>
+            $ const { issue, issueContent } = resolved;
+            <if(issue)>
+              <default-theme-card-deck-flow cols=3 nodes=issueContent.nodes.slice(11)>
+                <@slot|{ node, index }|>
+                  <shared-content-card-node node=node with-section=false with-dates=false with-attribution=false />
+                </@slot>
+                <@slot position="after" index=7>
+                  <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["in-card"] />
+                </@slot>
+              </default-theme-card-deck-flow>
+            </if>
+          </marko-web-resolve>
+        </@section>
+
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
   </@page>

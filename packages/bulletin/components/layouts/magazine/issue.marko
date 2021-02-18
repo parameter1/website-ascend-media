@@ -35,16 +35,40 @@ $ const { issue } = input;
   </@section>
 
   <@section>
+    <marko-web-gam-display-ad id="gpt-ad-lb2" modifiers=["max-width-970", "center"] />
+  </@section>
+
+  <@section>
     <marko-web-query|{ nodes }|
       name="magazine-scheduled-content"
-      params={ issueId: issue.id, excludeSectionNames: ["Cover Story", "The Leading Edge"], limit: 100, queryFragment }
+      params={ issueId: issue.id, excludeSectionNames: ["Cover Story", "The Leading Edge"], limit: 8, queryFragment }
     >
       <default-theme-card-deck-flow cols=3 nodes=nodes>
         <@slot|{ node, index }|>
           <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
         </@slot>
-        <@slot position="after" index=0>
+        <@slot position="after" index=3>
           <marko-web-gam-display-ad id="gpt-ad-rail1" modifiers=["in-card"] />
+        </@slot>
+      </default-theme-card-deck-flow>
+    </marko-web-query>
+  </@section>
+
+  <@section>
+    <marko-web-gam-display-ad id="gpt-ad-lb3" modifiers=["max-width-970", "center"] />
+  </@section>
+
+  <@section>
+    <marko-web-query|{ nodes }|
+      name="magazine-scheduled-content"
+      params={ issueId: issue.id, excludeSectionNames: ["Cover Story", "The Leading Edge"], limit: 100, skip: 8, queryFragment }
+    >
+      <default-theme-card-deck-flow cols=3 nodes=nodes>
+        <@slot|{ node, index }|>
+          <shared-content-card-node node=node with-attribution=false with-section=false with-dates=false with-teaser=true />
+        </@slot>
+        <@slot position="after" index=7>
+          <marko-web-gam-display-ad id="gpt-ad-rail2" modifiers=["in-card"] />
         </@slot>
       </default-theme-card-deck-flow>
     </marko-web-query>

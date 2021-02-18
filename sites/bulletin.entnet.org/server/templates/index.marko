@@ -13,9 +13,11 @@ $ const {
 
 $ const adSlots = ({ aliases }) => ({
   "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-lb3": GAM.getAdUnit({ name: "lb3", aliases }),
   "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
 });
-
 <marko-web-query|{ node: issue }|
   name="magazine-latest-issue"
   params={ publicationId: "6001dfb8a982a33b138b4589", queryFragment: magazineFragment }
