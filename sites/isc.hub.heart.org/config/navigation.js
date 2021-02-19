@@ -12,7 +12,7 @@ const userTools = [
 
 const topics = [
   { href: '/late-breaking-science', label: 'Late-Breaking Science' },
-  // { href: '/isc-news', label: 'ISC News' },
+  { href: '/isc-news', label: 'ISC News' },
   { href: '/exhibit-hall', label: 'Exhibit Hall' },
   { href: 'https://eventpilotadmin.com/web/planner.php?id=ISC21', label: 'Program' },
   // { href: '#', label: 'Claim CME', target: '_blank' },
