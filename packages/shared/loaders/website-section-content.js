@@ -3,8 +3,8 @@ const defaultFragment = require('../graphql/fragments/content-list');
 
 const loadFeaturedContent = async (apolloClient, params = {}) => {
   const defaults = {
-    limit: 3,
-    optionName: 'Featured Content',
+    limit: 5,
+    optionName: 'Pinned',
     queryFragment: defaultFragment,
   };
 
@@ -16,8 +16,8 @@ const loadFeaturedContent = async (apolloClient, params = {}) => {
 
 const loadStandardContent = async (apolloClient, params = {}) => {
   const defaults = {
-    limit: 4,
-    optionName: ['Featured Content', 'Standard'],
+    limit: 5,
+    optionName: ['Standard'],
     queryFragment: defaultFragment,
   };
 
