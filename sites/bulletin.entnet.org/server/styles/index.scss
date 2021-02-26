@@ -118,3 +118,9 @@ $theme-card-header-background-color: #fff;
     }
   }
 }
+
+.ad-container {
+  &--top-of-page {
+    margin-bottom: map-get($spacers, block);
+  }
+}

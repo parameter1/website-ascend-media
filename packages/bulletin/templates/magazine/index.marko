@@ -1,8 +1,17 @@
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 $ const { site, GAM } = out.global;
 
 $ const type = "magazines";
 $ const title = "Magazines";
 $ const description = site.get("magazines.description");
+
+$ const adSlots = ({ aliases }) => ({
+  "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+  "gpt-ad-lb2": GAM.getAdUnit({ name: "lb2", aliases }),
+  "gpt-ad-lb3": GAM.getAdUnit({ name: "lb3", aliases }),
+  "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+  "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
+});
 
 <marko-web-default-page-layout type=type title=title description=description>
   <@head>
@@ -12,6 +21,9 @@ $ const description = site.get("magazines.description");
   </@head>
   <@page>
     <marko-web-page-wrapper>
+      <@section>
+        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["top-of-page", "max-width-790", "center"] />
+      </@section>
       <@section>
         <div class="row">
           <div class="col">
