@@ -5,7 +5,7 @@ module.exports = {
   },
   exhibits: {
     src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
-    href: 'https://www.hearthubs.org/vascular/exhibitors',
+    href: 'https://vasculardiscovery.hub.heart.org/exhibitors',
   },
   eposters: {
     src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
