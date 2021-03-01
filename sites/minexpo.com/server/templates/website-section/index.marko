@@ -19,13 +19,13 @@ $ const { id, alias, name, pageNode } = data;
         "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
+      <marko-web-gam-targeting
+        key-values={
+          currentCategoryId: id,
+          superCategoryIds: hierarchyIds(section).filter(sectionId => sectionId !== id)
+        }
+      />
     </marko-web-resolve-page>
-    <marko-web-gam-targeting
-      key-values={
-        currentCategoryId: id,
-        superCategoryIds: hierarchyIds(section).filter(sectionId => sectionId !== id)
-      }
-    />
   </@head>
   <@above-container>
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
