@@ -1,4 +1,5 @@
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+import hierarchyIds from "@parameter1/base-cms-marko-web/utils/hierarchy-ids";
 import queryFragment from "../../graphql/fragments/content-list";
 import GAM from "../../../config/gam";
 
@@ -19,6 +20,12 @@ $ const { id, alias, name, pageNode } = data;
       };
       <marko-web-gam-slots slots=adSlots />
     </marko-web-resolve-page>
+    <marko-web-gam-targeting
+      key-values={
+        currentCategoryId: id,
+        superCategoryIds: hierarchyIds(section).filter(sectionId => sectionId !== id)
+      }
+    />
   </@head>
   <@above-container>
     <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />

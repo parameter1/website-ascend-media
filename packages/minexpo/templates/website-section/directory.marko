@@ -1,5 +1,6 @@
 import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+import hierarchyIds from "@parameter1/base-cms-marko-web/utils/hierarchy-ids";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
@@ -43,6 +44,20 @@ $ const perPage = 20;
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
+      <query-total-count|data| name="website-scheduled-content" params=queryParams>
+        <pagination-controls
+          per-page=perPage
+          total-count=data.totalCount
+          path=section.alias
+          as-rels=true
+        />
+      </query-total-count>
+      <marko-web-gam-targeting
+        key-values={
+          currentCategoryId: id,
+          superCategoryIds: hierarchyIds(section).filter(sectionId => sectionId !== id)
+        }
+      />
     </@head>
     <@above-container>
       <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
