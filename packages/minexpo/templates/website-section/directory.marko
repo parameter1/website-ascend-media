@@ -44,14 +44,6 @@ $ const perPage = 20;
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
-      <query-total-count|data| name="website-scheduled-content" params=queryParams>
-        <pagination-controls
-          per-page=perPage
-          total-count=data.totalCount
-          path=section.alias
-          as-rels=true
-        />
-      </query-total-count>
       <marko-web-gam-targeting
         key-values={
           currentCategoryId: id,
