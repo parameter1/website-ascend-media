@@ -1,0 +1,8 @@
+{
+  "tags": {
+    "minexpo-gam-content-targeting": {
+      "template": "./gam-content-targeting.marko",
+      "@obj": "object"
+    }
+  }
+}

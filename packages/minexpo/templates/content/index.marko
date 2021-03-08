@@ -1,13 +1,11 @@
 import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
 import { getAsObject, get, getAsArray } from "@parameter1/base-cms-object-path";
 import queryFragment from "../../graphql/fragments/content-list";
-import GAM from "../../../config/gam";
 
-$ const { site } = out.global;
+$ const { site, GAM } = out.global;
 $ const { id, type, pageNode } = data;
 
 $ const displayAds = ["news", "press-release", "product", "company"].includes(type) ? false : true;
-
 $ const displayCarousel = ["whitepaper", "media-gallery", "contact"].includes(type) ? false : true;
 $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? false : true;
 
@@ -16,28 +14,32 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-gtm-content-context|{ context }| id=id>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-content-context>
-    <if(displayAds)>
       <marko-web-resolve-page|{ data: content }| node=pageNode>
         $ const aliases = hierarchyAliases(content.primarySection);
-        $ const adSlots = {
-          "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
-          "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
-        };
-        <marko-web-gam-slots slots=adSlots />
-        <common-gam-content-targeting obj=content />
+        $ const displayAds = getAsArray(content, "labels").includes('Exhibitor Content') ? false : true;
+        <if(displayAds)>
+          $ const adSlots = {
+            "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
+            "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
+          };
+          <marko-web-gam-slots slots=adSlots />
+          <minexpo-gam-content-targeting obj=content />
+        </if>
       </marko-web-resolve-page>
-    </if>
   </@head>
-  <if(displayAds)>
-    <@above-container>
-      <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
-      <marko-web-gtm-slot prefix=site.get("gtm.slotPrefix") name="article-top-below-head" modifiers=["above-container"] />
-    </@above-container>
-  </if>
+  <@above-container>
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const displayAds = getAsArray(content, "labels").includes('Exhibitor Content') ? false : true;
+      <if(displayAds)>
+        <marko-web-gam-display-ad id="gpt-ad-lb1" modifiers=["above-container"] />
+      </if>
+    </marko-web-resolve-page>
+  </@above-container>
   <@page>
 
     <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
+      $ const displayAds = getAsArray(content, "labels").includes('Exhibitor Content') ? false : true;
       $ const aliases = hierarchyAliases(content.primarySection);
       <marko-web-page-wrapper>
         <@section>
@@ -114,7 +116,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
               <shared-inquiry-block content=content />
               <if(displayAds)>
                 <marko-web-gam-display-ad id="gpt-ad-rail1" />
-            </if>
+              </if>
 
               <!-- Leaders block here -->
               <common-leaders-contextual content-id=content.id />
@@ -130,7 +132,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
     <marko-web-resolve-page|{ resolved, data: content }| node=pageNode>
       $ const section = resolved.getAsObject("primarySection");
       $ const aliases = hierarchyAliases(section);
-      <website-content-load-more-block
+      <minexpo-content-load-more-block
         id=id
         type=type
         name=content.name
@@ -138,7 +140,7 @@ $ const displayPublishedDate = ["event", "webinar", "contact"].includes(type) ? 
         section-id=section.id
         section-name=section.name
       >
-      </website-content-load-more-block>
+      </minexpo-content-load-more-block>
     </marko-web-resolve-page>
   </@below-page>
   <@foot>
