@@ -3,11 +3,7 @@ const queryFragment = require('@ascend-media/package-common/graphql/fragments/co
 const companyQueryFragment = require('@ascend-media/package-minexpo/graphql/fragments/content-company');
 const contactQueryFragment = require('@ascend-media/package-minexpo/graphql/fragments/content-contact');
 const company = require('@ascend-media/package-minexpo/templates/content/company');
-const content = require('../templates/content');
-const contact = require('../templates/content/contact');
-const podcast = require('../templates/content/podcast');
-const webinar = require('../templates/content/webinar');
-const document = require('../templates/content/document');
+const content = require('@ascend-media/package-minexpo/templates/content');
 
 module.exports = (app) => {
   app.get('/*?company/:id(\\d{8})*', withContent({
@@ -15,20 +11,8 @@ module.exports = (app) => {
     queryFragment: companyQueryFragment,
   }));
   app.get('/*?contact/:id(\\d{8})*', withContent({
-    template: contact,
+    template: content,
     queryFragment: contactQueryFragment,
-  }));
-  app.get('/*?webinar/:id(\\d{8})*', withContent({
-    template: webinar,
-    queryFragment,
-  }));
-  app.get('/*?podcast/:id(\\d{8})*', withContent({
-    template: podcast,
-    queryFragment,
-  }));
-  app.get('/*?document/:id(\\d{8})*', withContent({
-    template: document,
-    queryFragment,
   }));
   app.get('/*?:id(\\d{8})*', withContent({
     template: content,
