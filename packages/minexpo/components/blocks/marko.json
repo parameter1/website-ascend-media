@@ -17,5 +17,22 @@
     "@primary-alias": "string",
     "@title": "string",
     "@description": "string"
+  },
+  "<minexpo-content-load-more-block>": {
+    "template": "./content-load-more.marko",
+    "<native-x>": {
+      "@index": "number",
+      "@name": "string",
+      "@aliases": "array"
+    },
+    "@adIndex" : "number",
+    "@adName" : "string",
+    "@id": "number",
+    "@type": "string",
+    "@name": "string",
+    "@aliases": "array",
+    "@section-id": "number",
+    "@section-name": "string",
+    "@section-skip": "number"
   }
 }
