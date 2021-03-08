@@ -18,6 +18,9 @@ $ const getfacetFilters = () => {
   if (input.contentType) {
     filters.push(`type:${input.contentType}`)
   }
+  if (input.country) {
+    filters.push(`country:${input.country}`)
+  }
   return filters;
 }
 $ const ranking = (input.contnetType === 'Company') ? 'name' : 'published';
