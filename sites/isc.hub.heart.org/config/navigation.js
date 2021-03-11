@@ -18,7 +18,7 @@ const topics = [
   // { href: '#', label: 'Claim CME', target: '_blank' },
   // { href: '#', label: 'OnDemand' },
   { href: '/previews', label: 'Previews' },
-  { href: '/archives', label: 'Archives' },
+  // { href: '/archives', label: 'Archives' },
 ];
 
 const secondary = [
