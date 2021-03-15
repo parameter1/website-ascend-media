@@ -62,7 +62,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           id="gpt-ad-lb1"
           slots=slots
           class="mt-block"
-          modifiers=["max-width-970", "margin-auto-x", "center"]
+          modifiers=["max-width-970", "margin-auto-x", "center", "paid"]
         />
       </@above-page>
       <@page>
@@ -90,9 +90,9 @@ $ const promise = websiteSectionContentLoader(apollo, {
             </div>
         </div>
 
-        <marko-web-gam-display-ad id="gpt-ad-lb2" class="mb-block" modifiers=["max-width-970", "margin-auto-x", "center"] />
+        <marko-web-gam-display-ad id="gpt-ad-lb2" class="mb-block" modifiers=["max-width-970", "margin-auto-x", "center", "paid"]/>
 
-        <shared-content-card-deck-flow nodes=getAsArray(standard, "nodes").slice(12) cols=3 ad-index=4 ad-name="rail2" />
+        <shared-content-card-deck-flow nodes=getAsArray(standard, "nodes").slice(12) cols=3 ad-index=4 ad-name="rail2" ad-modifiers=["paid"] />
       </@page>
 
       <@below-page>
