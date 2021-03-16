@@ -14,7 +14,11 @@ $ const { id, type, content } = input;
           </div>
           <div class="ldp__title">
             <marko-web-content-name tag="h1" class="page-wrapper__title" obj=content />
-            <marko-web-content-city-state-zip tag="p" class="text-small text-muted" obj=content />
+            <if(content.boothNumber)>
+              <marko-web-block tag="p" class="text-small text-muted">
+                Booth Number ${content.boothNumber}
+              </marko-web-block>
+            </if>
           </div>
         </div>
       </div>

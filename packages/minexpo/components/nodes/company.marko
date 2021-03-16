@@ -69,7 +69,15 @@ $ const imageLink = primaryImage.src ? { href: content.siteContext.path, attrs: 
       modifiers=["company-details"]
       show=true
     >
-      <if(content.address1)>
+      <if(content.boothNumber)>
+        <marko-web-block>
+          Booth# ${content.boothNumber}
+        </marko-web-block>
+      </if>
+      <if(content.website)>
+        <marko-web-content-website obj=content link={ href: content.website, title: content.website } />
+      </if>
+      <!-- <if(content.address1)>
         <div class=`${blockName}__content-company-address`>
           <marko-web-content-address1 tag="span" block-name=blockName obj=content />
         </div>
@@ -78,7 +86,7 @@ $ const imageLink = primaryImage.src ? { href: content.siteContext.path, attrs: 
         <div class=`${blockName}__content-company-address`>
           <marko-web-content-city-state-zip tag="span" block-name=blockName obj=content />
         </div>
-      </if>
+      </if>  -->
     </@text>
     <@text
       modifiers=["teaser", ...getAsArray(input, "teaser.modifiers").map(mod => `teaser-${mod}`)]
