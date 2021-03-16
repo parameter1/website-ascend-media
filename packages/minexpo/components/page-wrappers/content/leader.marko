@@ -149,12 +149,15 @@ $ const { id, type, content } = input;
 
   </div>
   <div class="col-lg-4 page-rail mb-3 mb-lg-0">
-    <marko-web-node-list collapsible=false class="mt-block">
+    <!-- <marko-web-node-list collapsible=false class="mt-block">
       <@header>Request More Information</@header>
       <@body>
         <shared-inquiry-block content=content with-header=false modifiers=["block"] />
       </@body>
-    </marko-web-node-list>
+    </marko-web-node-list> -->
+    <div class="mt-block">
+      <shared-directory-categories-block aliases=[] title="Search Product Categories" description="Select a category below:" />
+    </div>
 
     $ const contacts = getAsArray(content, "contacts.edges").map(({ node }) => node);
     <marko-web-node-list class="mt-block">

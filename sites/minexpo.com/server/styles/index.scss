@@ -77,6 +77,13 @@ $theme-site-header-breakpoints: (
     line-height: 1;
   }
 }
+.ldp {
+  &__social {
+    a:not([href]):not([tabindex]) {
+      color: $white;
+    }
+  }
+}
 .search-form {
   margin-right: 0;
 
