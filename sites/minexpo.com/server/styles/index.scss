@@ -79,7 +79,7 @@ $theme-site-header-breakpoints: (
 }
 .ldp {
   &__social {
-    > .btn-primary {
+    a:not([href]):not([tabindex]) {
       color: $white;
     }
   }
