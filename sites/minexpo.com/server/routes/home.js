@@ -1,13 +1,15 @@
-const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
+// const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
 // const home = require('../templates/index');
-// const home = require('../templates/index');
-const directory = require('@ascend-media/package-minexpo/templates/website-section/directory');
-const queryFragment = require('../graphql/fragments/website-section-page');
+// const queryFragment = require('../graphql/fragments/website-section-page');
 
 module.exports = (app) => {
-  app.get('/', withWebsiteSection({
-    aliasResolver: () => 'home',
-    template: directory,
-    queryFragment,
-  }));
+  // app.get('/', withWebsiteSection({
+  //   aliasResolver: () => 'home',
+  //   template: home,
+  //   queryFragment,
+  // }));
+  app.get('/', (req, res) => {
+    const to = '/directory';
+    res.redirect(301, to);
+  });
 };

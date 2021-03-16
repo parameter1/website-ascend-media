@@ -25,11 +25,6 @@ $ const {
 } = input;
 $ const perPage = 20;
 
-<!-- If Loaded on the homepage reset the alias to the default directory alias -->
-$ if (alias === 'home') {
-  pageNode.variables.input.alias = 'directory'
-}
-
 <marko-web-resolve-page|{ data: section }| node=pageNode>
   $ let queryParams = {
     sectionId: section.id,
