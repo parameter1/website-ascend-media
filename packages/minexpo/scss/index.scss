@@ -60,3 +60,23 @@
     }
   }
 }
+
+.site-navbar {
+  &__items {
+    &--secondary {
+      flex-grow: 1;
+    }
+  }
+}
+
+.site-menu {
+  $self: &;
+  top: 120px;
+  &--right {
+    right: 0;
+    transform: translateX(#{$theme-site-navbar-menu-width});
+    &#{ $self }--open {
+      transform: translateX(0);
+    }
+  }
+}
