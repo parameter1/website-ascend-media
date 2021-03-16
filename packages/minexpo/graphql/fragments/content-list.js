@@ -73,6 +73,10 @@ fragment ContentListFragment on Content {
     startDate
     endDate
   }
+  ... on ContentCompany {
+    boothNumber: customAttribute(input: { path: "boothNumber" })
+    website
+  }
 }
 
 `;
