@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_316906_QCOR-Scientific-Sessions.jsp',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-exhibits.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/qcor-exhibits.png',
     href: '/exhibitors',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-eposters.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/qcor-eposters.png',
     href: 'https://qcor.apprisor.org',
   },
   'early-career': {

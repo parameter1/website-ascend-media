@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-billboard-2.png',
     href: 'https://aha.ondemand.org/aha/login',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
     href: 'https://www.hearthubs.org/hypertension/exhibitors',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
     href: 'https://htn.apprisor.org',
   },
   'early-career': {
@@ -25,7 +25,7 @@ module.exports = {
     href: 'https://professional.heart.org/en/meetings/hypertension/science-news-from-hypertension-2020',
   },
   'exhibitors-banner': {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-exhibitors-banner.png',
     href: '/exhibitors',
   },
 };

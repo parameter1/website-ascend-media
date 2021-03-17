@@ -34,7 +34,7 @@ module.exports = {
   contactUs: {
     to: 'DSanford@ascendintegratedmedia.com',
     branding: {
-      logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=60',
+      logo: 'https://img.hub.heart.org/files/base/ascend/hearthub/AHA_icon.svg?h=60',
     },
     support: {
       email: 'reply@hearthubs.org',
@@ -45,7 +45,7 @@ module.exports = {
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
     sendFrom: 'HeartHubs <reply@hearthubs.org>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/footer.svg?h=90',
+    logo: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/footer.svg?h=90',
     bgColor: '#ffffff',
   },
 };
