@@ -1,73 +1,73 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-billboard.png',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
     contexts: [
       {
         when: ['/qcor'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/qcor-billboard-2.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/QCOR/UCM_316906_QCOR-Scientific-Sessions.jsp',
       },
       {
         when: ['/vascular'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
       },
       {
         when: ['/bcvs'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-billboard.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-billboard.png',
         href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/BCVS/UCM_316903_BCVS-Scientific-Sessions.jsp',
       },
       {
         when: ['/hypertension'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-billboard.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-billboard.png',
         href: '/',
       },
     ],
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
     href: 'https://www.hearthubs.org/vascular/exhibitors',
     contexts: [
       {
         when: ['/vascular'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
         href: 'https://www.hearthubs.org/vascular/exhibitors',
       },
       {
         when: ['/bcvs'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-exhibits.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-exhibits.png',
         href: 'https://www.hearthubs.org/bcvs/exhibitors',
       },
       {
         when: ['/hypertension'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-exhibits.png',
         href: 'https://www.hearthubs.org/hypertension/exhibitors',
       },
     ],
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-eposters.png',
     href: 'https://atvb.apprisor.org',
     contexts: [
       {
         when: ['/qcor'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/qcor-eposters.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/qcor-eposters.png',
         href: 'https://qcor.apprisor.org',
       },
       {
         when: ['/vascular'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-eposters.png',
         href: 'https://atvb.apprisor.org',
       },
       {
         when: ['/bcvs'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
         href: 'https://bcvs.apprisor.org',
       },
       {
         when: ['/hypertension'],
-        src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
+        src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/hypertension-eposters.png',
         href: '/',
       },
     ],

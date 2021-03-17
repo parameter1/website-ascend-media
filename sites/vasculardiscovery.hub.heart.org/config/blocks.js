@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-billboard.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-billboard.png',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/ATVBPVD/UCM_316902_Vascular-Discovery-From-Genes-to-Medicine.jsp',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-exhibits.png',
     href: 'https://vasculardiscovery.hub.heart.org/exhibitors',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/vascular-eposters.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/vascular-eposters.png',
     href: 'https://atvb.apprisor.org',
   },
   'early-career': {

@@ -32,7 +32,7 @@ module.exports = {
   contactUs: {
     to: 'DSanford@ascendintegratedmedia.com',
     branding: {
-      logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/AHA_icon.svg?h=60',
+      logo: 'https://img.ascendmedia.com/files/base/ascend/hearthub/AHA_icon.svg?h=60',
     },
     support: {
       email: 'reply@hearthubs.org',
@@ -43,7 +43,7 @@ module.exports = {
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
     sendFrom: 'IMEX <noreply@ascendintegratedmedia.com>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=90',
+    logo: 'https://img.ascendmedia.com/files/base/ascend/hearthub/image/static/planet-imex-logo.png?h=90',
     bgColor: '#ffffff',
   },
 };

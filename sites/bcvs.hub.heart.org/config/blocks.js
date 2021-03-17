@@ -1,14 +1,14 @@
 module.exports = {
   leaderboard: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-billboard-2.jpg',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-billboard-2.jpg',
     href: 'https://professional.heart.org/professional/EducationMeetings/MeetingsLiveCME/BCVS/UCM_316903_BCVS-Scientific-Sessions.jsp',
   },
   exhibits: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-exhibits.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-exhibits.png',
     href: '/exhibitors',
   },
   eposters: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-eposters.png',
     href: 'https://bcvs.apprisor.org',
   },
   'early-career': {
@@ -25,7 +25,7 @@ module.exports = {
     href: 'https://professional.heart.org/professional/EducationMeetings/EducationMeetings/UCM_505357_Science-News-for-BCVS-2020.jsp',
   },
   'exhibitors-banner': {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/bcvs-exhibitors-banner.jpg',
+    src: 'https://img.hub.heart.org/files/base/ascend/hearthub/image/static/bcvs-exhibitors-banner.jpg',
     href: '/exhibitors',
   },
 };

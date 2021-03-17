@@ -23,7 +23,7 @@ module.exports = {
   contactUs: {
     to: 'DSanford@ascendintegratedmedia.com',
     branding: {
-      logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/bulletin/image/static/bulletin.png',
+      logo: 'https://img.ascendmedia.com/files/base/ascend/bulletin/image/static/bulletin.png',
     },
     support: {
       email: 'reply@hearthubs.org',

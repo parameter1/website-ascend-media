@@ -11,15 +11,15 @@ module.exports = {
   company: 'MINExpo Show Directory',
   logos: {
     navbar: {
-      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90',
+      src: 'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90',
       srcset: [
-        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=`180 2x',
+        'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=`180 2x',
       ],
     },
     footer: {
-      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
+      src: 'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
       srcset: [
-        'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90 2x',
+        'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90 2x',
       ],
     },
   },
@@ -44,7 +44,7 @@ module.exports = {
     sendTo: 'support@parameter1.com',
     replyTo: 'support@parameter1.com',
     sendFrom: 'MINExpo Show Directory <noreply@parameter1.com>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
+    logo: 'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=45',
     bgColor: '#000',
   },
 };
