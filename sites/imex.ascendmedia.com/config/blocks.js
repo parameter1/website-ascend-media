@@ -29,12 +29,12 @@ module.exports = {
     href: '/exhibitors',
   },
   watch: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-watch-icon.png',
+    src: 'https://img.ascendmedia.com/files/base/ascend/hearthub/image/static/imex-watch-icon.png',
   },
   listen: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-listen-icon.png',
+    src: 'https://img.ascendmedia.com/files/base/ascend/hearthub/image/static/imex-listen-icon.png',
   },
   navigation: {
-    src: 'https://p1-cms-assets-ascend.imgix.net/files/base/ascend/hearthub/image/static/imex-navigation-icon.png',
+    src: 'https://img.ascendmedia.com/files/base/ascend/hearthub/image/static/imex-navigation-icon.png',
   },
 };
