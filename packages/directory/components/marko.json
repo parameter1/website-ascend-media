@@ -7,6 +7,10 @@
     "@aliases": "array",
     "@active-id": "expression",
     "@title": "string",
-    "@description": "string"
+    "@description": "string",
+    "@with-toggle": {
+      "type": "boolean",
+      "default-value": false
+    }
   }
 }

@@ -9,6 +9,7 @@ $ const phrase = defaultValue(input.phrase, null);
 $ const primaryAlias = defaultValue(input.primaryAlias, "directory");
 $ const title = defaultValue(input.title, "Categories");
 $ const description = defaultValue(input.description, "");
+$ const withToggle = defaultValue(input.withToggle, false);
 
 <marko-web-query|{ node }|
   name="website-section"
@@ -23,5 +24,6 @@ $ const description = defaultValue(input.description, "");
     aliases=aliases
     content-type=contentType
     phrase=phrase
+    with-toggle=withToggle
   />
 </marko-web-query>
