@@ -45,6 +45,20 @@ $theme-site-header-breakpoints: (
 @import "../../node_modules/@ascend-media/package-common/scss/common";
 @import "../../node_modules/@ascend-media/package-minexpo/scss/index";
 
+.body-wrapper {
+  display: block;
+  flex-direction: column;
+  height: auto;
+
+  @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
+    background: #dde5f2;
+    background: url("https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-bg.jpg");
+    background: url(https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-bg.png) no-repeat 50% 120px,linear-gradient(180deg,#dde5f2 517px,#dfe3e2 631px,#c2ccd6 664px,#c7c6a7 680px,#8791c4 758px,#59659d 810px,#59659d 900px);
+    .page {
+      background-color: transparent;
+    }
+  }
+}
 .document-container-header {
   padding-top: 120px;
 }
