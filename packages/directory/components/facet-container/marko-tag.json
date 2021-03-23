@@ -7,6 +7,10 @@
   "@description": "string",
   "@content-type": "string",
   "@phrase": "string",
+  "@with-toggle": {
+    "type": "boolean",
+    "default-value": false
+  },
   "@active-id": {
     "type": "string",
     "required": true

@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     max-height: 600px;
-    padding: $marko-web-node-list-padding;
+    padding: 0;
     overflow: scroll;
 
     #{ $self } {
@@ -77,19 +77,9 @@
   &__item {
     position: relative;
     display: block;
-    padding-top: .375rem;
-    padding-right: 1.5rem;
-    padding-bottom: .375rem;
+    padding: $marko-web-node-list-padding;
     font-size: 14px;
     line-height: 1.25;
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:last-child {
-      padding-bottom: 0;
-    }
 
     &--open {
       > #{ $self } {
@@ -103,8 +93,8 @@
   &__toggle {
     @include theme-toggle-button();
     position: absolute;
-    top: 0;
-    right: 0;
+    top: .5rem;
+    right: .75rem;
     padding: 0;
     margin-left: auto;
 

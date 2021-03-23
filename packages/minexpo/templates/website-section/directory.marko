@@ -99,96 +99,131 @@ $ const perPage = 20;
             $ const sectionIds = getChildIds(section, [section.id]);
             <div class="row">
               <div class="col-lg-4">
-
                 <div class="mb-block">
                   <marko-web-gam-display-ad id="gpt-ad-rail1" />
                 </div>
-                <div class="mb-block">
-                  <shared-directory-categories-block
-                    title="Category Filters"
-                    aliases=aliases
-                    active-id=id
-                    content-type=contentType
-                    phrase=phrase
-                  />
-                </div>
-                <div class="mb-block">
-                  <div class="content-type-facets">
-                    <h3 class="content-type-facets__title">Content Filters</h3>
-                    $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
-                    <div class="content-type-facets__list">
-                      <for|key,value| in=supportedContendTypes>
-                        <if(key === 'Company')>
-                        $ const activeModifier = ('Company' === contentType) ? '--active' : '';
-                        <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                          <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
-                            ${value}
-                          </a>
+                <div class="directory-filters">
+                  <h3 class="directory-filters__title mb-block">
+                    Filters:
+                  </h3>
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-block">
+                        <shared-directory-categories-block
+                          title="Product Categories"
+                          aliases=aliases
+                          active-id=id
+                          content-type=contentType
+                          phrase=phrase
+                          with-toggle=true
+                        />
+                      </div>
+                      <div class="mb-block">
+                        <div class="content-type-facets">
+                          <h3 class="content-type-facets__title">
+                            Type
+                            <default-theme-menu-toggle-button
+                              class-name=`content-type-facets__toggle`
+                              targets=[`.content-type-facets__list`]
+                              toggle-class='content-type-facets__list--open'
+                              initially-expanded=false
+                              icon-modifiers=["sm"]
+                              icon-name="plus"
+                              expanded-icon-name="dash"
+                            />
+                          </h3>
+                          $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
+                          <div class='content-type-facets__list'>
+                            <for|key,value| in=supportedContendTypes>
+                              <if(key === 'Company')>
+                              $ const activeModifier = ('Company' === contentType) ? '--active' : '';
+                              <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                                <a class=`content-type-facets__link content-type-facets__link${activeModifier}` href=contentFilterAlias>
+                                  ${value}
+                                </a>
+                              </div>
+                              </if>
+                              <else-if(key === contentType)>
+                                <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                                  <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
+                                    ${value}
+                                  </a>
+                                </div>
+                              </else-if>
+                              <else>
+                                $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
+                                <div class=`content-type-facets__item content-type-facets__item--${key}`>
+                                  <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
+                                    ${value}
+                                  </a>
+                                </div>
+                              </else>
+                            </for>
+                          </div>
                         </div>
-                        </if>
-                        <else-if(key === contentType)>
-                          <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                            <a class=`content-type-facets__link content-type-facets__link--active` href=contentFilterAlias>
-                              ${value}
-                            </a>
-                          </div>
-                        </else-if>
-                        <else>
-                          $ contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}&type=${key}` : `/${section.alias}?type=${key}`;
-                          <div class=`content-type-facets__item content-type-facets__item--${key}`>
-                            <a class=`content-type-facets__link content-type-facets__link` href=contentFilterAlias>
-                              ${value}
-                            </a>
-                          </div>
-                        </else>
-                      </for>
+                      </div>
+                      <if('Company' === contentType)>
+                        <div class="mb-block">
+                          <minexpo-country-facets|{ countries }|
+                            phrase=phrase
+                            section-ids=sectionIds
+                          >
+                            <div class="directory-country-facets">
+                              <h3 class="directory-country-facets__title">
+                                Country
+                                <default-theme-menu-toggle-button
+                                  class-name=`directory-country-facets__toggle`
+                                  targets=[`.directory-country-facets__list`]
+                                  toggle-class=`directory-country-facets__list--open`
+                                  initially-expanded=false
+                                  icon-modifiers=["sm"]
+                                  icon-name="plus"
+                                  expanded-icon-name="dash"
+                                />
+                              </h3>
+                              <div class="directory-country-facets__list">
+                                <for|country| of=countries>
+                                  <if(selectedCountry === country)>
+                                  <marko-web-browser-component
+                                      name="DirectoryAutoScroll"
+                                      props={
+                                        containerTarget: '.directory-country-facets > .directory-country-facets__list',
+                                        elementTarget: `.directory-country-facets__link--active`,
+                                        offset: -12,
+                                      }
+                                    />
+                                    $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
+                                    <div class="directory-country-facets__item directory-country-facets__item--51709">
+                                      <a
+                                        class="directory-country-facets__link directory-country-facets__link--active"
+                                        href=countryFilterLink
+                                      >
+                                        ${country}
+                                      </a>
+                                    </div>
+                                  </if>
+                                  <else>
+                                    $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}&country=${encodeURI(country)}` : `/${section.alias}?country=${encodeURI(country)}`;
+                                    <div class="directory-country-facets__item directory-country-facets__item--51709">
+                                      <a
+                                        class="directory-country-facets__link"
+                                        href=countryFilterLink
+                                      >
+                                        ${country}
+                                      </a>
+                                    </div>
+                                  </else>
+                                </for>
+                              </div>
+                            </div>
+                          </minexpo-country-facets>
+                        </div>
+                      </if>
                     </div>
                   </div>
+
                 </div>
-                <if('Company' === contentType)>
-                  <minexpo-country-facets|{ countries }|
-                  phrase=phrase
-                  section-ids=sectionIds
-                >
-                  <div class="directory-country-facets">
-                    <h3 class="directory-country-facets__title">Country Filters</h3>
-                    <div class="directory-country-facets__list">
-                      <for|country| of=countries>
-                        <if(selectedCountry === country)>
-                        <marko-web-browser-component
-                            name="DirectoryAutoScroll"
-                            props={
-                              containerTarget: '.directory-country-facets > .directory-country-facets__list',
-                              elementTarget: `.directory-country-facets__link--active`,
-                              offset: -12,
-                            }
-                          />
-                          $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
-                          <div class="directory-country-facets__item directory-country-facets__item--51709">
-                            <a
-                              class="directory-country-facets__link directory-country-facets__link--active"
-                              href=countryFilterLink
-                            >
-                              ${country}
-                            </a>
-                          </div>
-                        </if>
-                        <else>
-                          $ const countryFilterLink = (phrase) ? `/${section.alias}?phrase=${phrase}&country=${encodeURI(country)}` : `/${section.alias}?country=${encodeURI(country)}`;
-                          <div class="directory-country-facets__item directory-country-facets__item--51709">
-                            <a
-                              class="directory-country-facets__link"
-                              href=countryFilterLink
-                            >
-                              ${country}
-                            </a>
-                          </div>
-                        </else>
-                      </for>
-                    </div>
-                  </div>
-                </minexpo-country-facets>
-              </if>
+
               </div>
               <div class="col-lg-8 mb-block">
                 <minexpo-content-search-query|{ nodes, totalCount, facets }|

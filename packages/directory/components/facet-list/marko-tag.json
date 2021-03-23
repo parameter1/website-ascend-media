@@ -16,5 +16,8 @@
   "@aliases": {
     "type": "array",
     "required": true
+  },
+  "@initial-expanded": {
+    "type": "boolean"
   }
 }

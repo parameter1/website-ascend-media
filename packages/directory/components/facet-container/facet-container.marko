@@ -1,9 +1,24 @@
-$ const { facets, title, description, aliases } = input;
+$ const { facets, title, description, aliases, withToggle } = input;
+
+$ const className = (withToggle) ? "directory-facets directory-facets--with-toggle" : 'directory-facets';
 
 <if(facets.length)>
-  <div class="directory-facets">
+  <div class=className>
     <if(title)>
-      <h3 class="directory-facets__title">${title}</h3>
+      <h3 class="directory-facets__title">
+        ${title}
+        <if(withToggle)>
+          <default-theme-menu-toggle-button
+            class-name=`directory-facets__toggle`
+            targets=[`.directory-facets__list`]
+            toggle-class=`directory-facets__list--open`
+            initially-expanded=false
+            icon-modifiers=["sm"]
+            icon-name="plus"
+            expanded-icon-name="dash"
+          />
+        </if>
+      </h3>
     </if>
     <if(description)>
       <div class="directory-facets__description">

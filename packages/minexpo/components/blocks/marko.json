@@ -16,7 +16,11 @@
     "@phrase": "string",
     "@primary-alias": "string",
     "@title": "string",
-    "@description": "string"
+    "@description": "string",
+    "@with-toggle": {
+      "type": "boolean",
+      "default-value": false
+    }
   },
   "<minexpo-content-load-more-block>": {
     "template": "./content-load-more.marko",
