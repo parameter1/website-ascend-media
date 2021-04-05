@@ -65,6 +65,9 @@
   &__items {
     &--secondary {
       flex-grow: 1;
+      flex-direction: row-reverse;
+      margin-bottom: auto;
+      padding-right: map-get($spacers, block);;
     }
   }
 }
