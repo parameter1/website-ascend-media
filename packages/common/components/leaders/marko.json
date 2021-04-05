@@ -8,6 +8,11 @@
       "@contextual": "bolean",
       "@display-view-all": "boolean"
     },
+    "common-leaders-directory-page": {
+      "template": "./directory-page.marko",
+      "@expanded": "boolean",
+      "@display-view-all": "boolean"
+    },
     "common-leaders-home-page": {
       "template": "./home-page.marko",
       "@expanded": "boolean",
