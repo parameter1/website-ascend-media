@@ -46,7 +46,7 @@ $theme-site-header-breakpoints: (
 @import "../../node_modules/@ascend-media/package-minexpo/scss/index";
 
 .body-wrapper {
-  display: block;
+  display: flex;
   flex-direction: column;
   height: auto;
 
