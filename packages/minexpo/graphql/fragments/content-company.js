@@ -34,6 +34,14 @@ fragment WebsiteContentCompanyFragment on Content {
       url
     }
 
+    websiteSchedules {
+      section {
+        id
+        name
+        fullName
+      }
+    }
+
     # kv data
     yearsInOperation
     numberOfEmployees
