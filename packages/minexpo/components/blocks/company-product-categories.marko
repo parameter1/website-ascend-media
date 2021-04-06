@@ -1,0 +1,24 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { getChildSectionIds } from "../../utils/get-child-section-ids";
+import categorySectionsFragment from "../../graphql/fragments/category-sections"
+
+$ const alias = defaultValue(input.alias, 'directory');
+$ const schedules = defaultValue(input.schedules, []);
+
+<marko-web-query|{ node }|
+  name="website-section"
+  params={ alias, queryFragment: categorySectionsFragment }
+>
+  $ const ids = getChildSectionIds(node, []);
+  $ const productCategorySchedules = schedules.filter(schedule => ids.includes(schedule.section.id)).map(schedule => schedule.section.name ).sort();
+    <marko-web-node-list collapsible=false class="mt-block" modifiers=["product-categories"]>
+      <@header>
+        Product Categories
+      </@header>
+      <@body>
+        <for|category| of=productCategorySchedules>
+          <marko-web-block class="node-list__node">${category}</marko-web-block>
+        </for>
+      </@body>
+    </marko-web-node-list>
+</marko-web-query>
