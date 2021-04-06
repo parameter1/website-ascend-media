@@ -161,7 +161,7 @@ $ const { id, type, content } = input;
       </@body>
     </marko-web-node-list> -->
     <div class="mt-block">
-      <shared-directory-categories-block aliases=[] title="Search Product Categories" description="Select a category below:" />
+      <minexpo-company-product-categories-block content-id=id schedules=content.websiteSchedules />
     </div>
 
     $ const contacts = getAsArray(content, "contacts.edges").map(({ node }) => node);
