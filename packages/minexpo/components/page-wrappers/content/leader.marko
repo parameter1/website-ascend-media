@@ -45,8 +45,8 @@ $ const { id, type, content } = input;
       <@body>
         <label class="content-section-header">About ${content.name}</label>
         <marko-web-content-teaser tag="p" obj=content />
-        <label class="content-section-header">Product Summary</label>
-        <marko-web-obj-text tag="p" obj=content field="productSummary" type="content" html=true />
+        <!-- <label class="content-section-header">Product Summary</label>
+        <marko-web-obj-text tag="p" obj=content field="productSummary" type="content" html=true /> -->
       </@body>
     </marko-web-node-list>
 
@@ -62,15 +62,16 @@ $ const { id, type, content } = input;
           </marko-web-block>
         </if>
 
-        <label class="content-section-header content-section-header--border">At-a-glance</label>
-        <common-company-details company=content />
+        <!-- <label class="content-section-header content-section-header--border">At-a-glance</label>
+        <common-company-details company=content /> -->
 
         <label class="content-section-header content-section-header--border">Contact</label>
         $ const { socialLinks, ...contentSansSocial } = content;
-        <default-theme-content-contact-details obj=contentSansSocial />
+        <minexpo-company-contact-details obj=contentSansSocial />
+        <!-- <default-theme-content-contact-details obj=contentSansSocial /> -->
 
-        <label class="content-section-header content-section-header--border">More info on ${content.name}</label>
-        <marko-web-content-body obj=content />
+        <!-- <label class="content-section-header content-section-header--border">More info on ${content.name}</label>
+        <marko-web-content-body obj=content /> -->
       </@body>
     </marko-web-node-list>
 
