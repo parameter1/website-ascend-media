@@ -6,6 +6,8 @@ import queryFragment from "../../graphql/fragments/content-list";
 import { retrieveSections } from "../../utils/retrieve-sections";
 import categorySectionsFragment from "../../graphql/fragments/category-sections"
 import { buildContentQuery } from "../../components/search/queries";
+import { getChildSectionIds } from "../../utils/get-child-section-ids";
+
 
 $ const { $algolia, apollo, GAM, pagination: p, req } = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
@@ -85,18 +87,7 @@ $ const perPage = 20;
             name="website-section"
             params={ alias: section.alias, queryFragment: categorySectionsFragment }
           >
-
-            $ const getChildIds = (section, ids) => {
-              ids.push(...getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node.id));
-              const children = getAsArray(sectionWithChildren, "children.edges").map(({ node }) => node);
-
-              children.forEach((child) => {
-                ids.push(...getAsArray(child, "children.edges").map(({ node }) => node.id));
-              })
-              return ids;
-            };
-
-            $ const sectionIds = getChildIds(section, [section.id]);
+            $ const sectionIds = getChildSectionIds(sectionWithChildren, [sectionWithChildren.id]);
             <div class="row">
               <div class="col-lg-4">
                 <div class="directory-filters mb-block">

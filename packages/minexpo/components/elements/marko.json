@@ -3,6 +3,23 @@
     "minexpo-gam-content-targeting": {
       "template": "./gam-content-targeting.marko",
       "@obj": "object"
+    },
+    "minexpo-company-contact-details": {
+      "template": "./company-contact-details.marko",
+      "@obj": "object",
+      "@show-email": {
+        "type": "boolean",
+        "default-value": true
+      },
+      "@tag": {
+        "type": "string",
+        "default-value": "div"
+      },
+      "@class": "string",
+      "@modifiers": "array",
+      "@attrs": "object",
+      "@website-link-attrs": "object",
+      "@social-link-attrs": "object"
     }
   }
 }

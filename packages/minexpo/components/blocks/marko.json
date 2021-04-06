@@ -22,6 +22,11 @@
       "default-value": false
     }
   },
+  "<minexpo-company-product-categories-block>": {
+    "template": "./company-product-categories.marko",
+    "@alias": "array",
+    "@schedules": "array"
+  },
   "<minexpo-content-load-more-block>": {
     "template": "./content-load-more.marko",
     "<native-x>": {
