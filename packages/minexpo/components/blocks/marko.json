@@ -20,6 +20,10 @@
     "@with-toggle": {
       "type": "boolean",
       "default-value": false
+    },
+    "@initially-expanded": {
+      "type": "boolean",
+      "default-value": false
     }
   },
   "<minexpo-company-product-categories-block>": {

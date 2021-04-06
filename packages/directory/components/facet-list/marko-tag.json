@@ -17,7 +17,8 @@
     "type": "array",
     "required": true
   },
-  "@initial-expanded": {
-    "type": "boolean"
+  "@initially-expanded": {
+    "type": "boolean",
+    "default-value": false
   }
 }

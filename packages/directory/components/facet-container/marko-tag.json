@@ -11,6 +11,10 @@
     "type": "boolean",
     "default-value": false
   },
+  "@initially-expanded": {
+    "type": "boolean",
+    "default-value": false
+  },
   "@active-id": {
     "type": "string",
     "required": true
