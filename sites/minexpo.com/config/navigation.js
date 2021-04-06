@@ -1,14 +1,15 @@
 const primary = [
   { href: '/directory', label: 'Exhibitor Directory' },
   { href: '/exhibitor-news', label: 'Exhibitor News' },
-  { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
+  { href: '/leaders', label: 'Featured Exhibitors' },
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Exhibit Hall Map' },
+  // eslint-disable-next-line no-script-url
+  { href: 'javascript:void(0)', label: 'Export Directory' },
 ];
 
 const secondary = [
-  // eslint-disable-next-line no-script-url
-  { href: 'javascript:void(0)', label: 'Export Directory' },
+  { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
 ];
 
 const resources = [];

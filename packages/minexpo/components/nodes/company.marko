@@ -75,7 +75,9 @@ $ const imageLink = primaryImage.src ? { href: content.siteContext.path, attrs: 
         </marko-web-block>
       </if>
       <if(content.website)>
-        <marko-web-content-website obj=content link={ href: content.website, title: content.website } />
+        <marko-web-link href=content.website>
+          website
+        </marko-web-link>
       </if>
       <!-- <if(content.address1)>
         <div class=`${blockName}__content-company-address`>

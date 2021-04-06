@@ -99,10 +99,7 @@ $ const perPage = 20;
             $ const sectionIds = getChildIds(section, [section.id]);
             <div class="row">
               <div class="col-lg-4">
-                <div class="mb-block">
-                  <marko-web-gam-display-ad id="gpt-ad-rail1" />
-                </div>
-                <div class="directory-filters">
+                <div class="directory-filters mb-block">
                   <h3 class="directory-filters__title mb-block">
                     Filters:
                   </h3>
@@ -223,7 +220,12 @@ $ const perPage = 20;
                   </div>
 
                 </div>
-
+                <div class="mb-block">
+                  <marko-web-gam-display-ad id="gpt-ad-rail1" />
+                </div>
+                <div class="mb-block">
+                  <common-leaders-directory-page expanded=false />
+                </div>
               </div>
               <div class="col-lg-8 mb-block">
                 <minexpo-content-search-query|{ nodes, totalCount, facets }|
@@ -258,6 +260,7 @@ $ const perPage = 20;
                           <@slot|{ node }|>
                             <minexpo-company-node
                               with-section=false
+                              with-teaser=false
                               node=node
                               modifiers=["content-list"]
                             >
