@@ -140,8 +140,10 @@
   }
   &__item {
     padding: 0;
-    border-bottom: $theme-card-header-border;
-    border-bottom-color: #f1f1f1;
+    border-bottom: 3px solid #f1f1f1;
+    &:last-of-type {
+      border-bottom: none;
+    }
     #{ $self } {
       &__link {
         display: block;
@@ -153,8 +155,7 @@
     &--open > {
       #{ $self } {
         &__link {
-          border-bottom: $theme-card-header-border;
-          border-bottom-color: #f1f1f1;
+          border-bottom: 3px solid #f1f1f1;
         }
       }
     }

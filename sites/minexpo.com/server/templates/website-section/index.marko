@@ -17,6 +17,8 @@ $ const { id, alias, name, pageNode } = data;
         "gpt-ad-lb1": GAM.getAdUnit({ name: "lb1", aliases }),
         "gpt-ad-rail1": GAM.getAdUnit({ name: "rail1", aliases }),
         "gpt-ad-rail2": GAM.getAdUnit({ name: "rail2", aliases }),
+        "gpt-ad-rail3": GAM.getAdUnit({ name: "rail3", aliases }),
+        "gpt-ad-rail4": GAM.getAdUnit({ name: "rail4", aliases }),
       };
       <marko-web-gam-slots slots=adSlots />
       <marko-web-gam-targeting
@@ -81,20 +83,36 @@ $ const { id, alias, name, pageNode } = data;
         </marko-web-query>
       </div>
     </div>
+
+    <marko-web-query|{ nodes }|
+      name="website-scheduled-content"
+      params={ sectionId: id, limit: 16, skip: 14, requiresImage: true, queryFragment }
+    >
+      <default-theme-card-deck-flow cols=3 nodes=nodes>
+        <@slot|{ node, index }|>
+          <website-content-card-node
+            image-width=340
+            node=node
+          />
+        </@slot>
+        <@slot position="after" index=1>
+          <marko-web-gam-display-ad id="gpt-ad-rail3" modifiers=["in-card"] />
+        </@slot>
+        <@slot position="after" index=9>
+          <marko-web-gam-display-ad id="gpt-ad-rail4" modifiers=["in-card"] />
+        </@slot>
+      </default-theme-card-deck-flow>
+    </marko-web-query>
+
   </@page>
   <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
         component-name="content-load-more-flow"
-        component-input={
-          aliases,
-          adIndex: 1,
-          adName: 'rail1'
-        }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 8, skip: 14, requiresImage: true }
+        query-params={ sectionId: id, limit: 12, skip: 30, requiresImage: true }
         max-pages=3
         page-input={ for: "website-section", id }
       />
