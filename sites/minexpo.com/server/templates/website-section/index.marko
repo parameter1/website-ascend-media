@@ -67,7 +67,7 @@ $ const { id, alias, name, pageNode } = data;
       </div>
       <div class="col-lg-8 col-md-6 mb-block">
         <marko-web-query|{ nodes }|
-          name="all-published-content"
+          name="website-scheduled-content"
           params={ limit: 4, skip: 10, requiresImage: true, queryFragment }
         >
         <default-theme-card-deck-flow cols=2 nodes=nodes>
@@ -81,23 +81,20 @@ $ const { id, alias, name, pageNode } = data;
         </marko-web-query>
       </div>
     </div>
-
-    <marko-web-query|{ nodes }|
-      name="website-scheduled-content"
-      params={ sectionId: id, limit: 5, skip: 14, requiresImage: true, queryFragment }
-    >
-      <website-content-card-deck-flow nodes=nodes />
-    </marko-web-query>
   </@page>
   <@below-page>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
       $ const aliases = hierarchyAliases(section);
       <marko-web-load-more
         component-name="content-load-more-flow"
-        component-input={ aliases }
+        component-input={
+          aliases,
+          adIndex: 1,
+          adName: 'rail1'
+        }
         fragment-name="content-list"
         query-name="website-scheduled-content"
-        query-params={ sectionId: id, limit: 12, skip: 19, requiresImage: true }
+        query-params={ sectionId: id, limit: 8, skip: 14, requiresImage: true }
         max-pages=3
         page-input={ for: "website-section", id }
       />
