@@ -1,4 +1,4 @@
-$ const { facets, title, description, aliases, withToggle } = input;
+$ const { facets, title, description, aliases, withToggle, initiallyExpanded } = input;
 
 $ const className = (withToggle) ? "directory-facets directory-facets--with-toggle" : 'directory-facets';
 
@@ -12,7 +12,7 @@ $ const className = (withToggle) ? "directory-facets directory-facets--with-togg
             class-name=`directory-facets__toggle`
             targets=[`.directory-facets__list`]
             toggle-class=`directory-facets__list--open`
-            initially-expanded=false
+            initially-expanded=initiallyExpanded
             icon-modifiers=["sm"]
             icon-name="plus"
             expanded-icon-name="dash"
@@ -31,6 +31,7 @@ $ const className = (withToggle) ? "directory-facets directory-facets--with-togg
       content-type=input.contentType
       phrase=input.phrase
       active-id=input.activeId
+      initially-expanded=initiallyExpanded
     />
   </div>
 </if>

@@ -104,6 +104,7 @@ $ const perPage = 20;
                           content-type=contentType
                           phrase=phrase
                           with-toggle=true
+                          initially-expanded=(alias !== 'directory')
                         />
                       </div>
                       <div class="mb-block">
@@ -111,17 +112,18 @@ $ const perPage = 20;
                           <h3 class="content-type-facets__title">
                             Type
                             <default-theme-menu-toggle-button
-                              class-name=`content-type-facets__toggle`
-                              targets=[`.content-type-facets__list`]
+                              class-name='content-type-facets__toggle'
+                              targets=['.content-type-facets__list']
                               toggle-class='content-type-facets__list--open'
-                              initially-expanded=false
+                              initially-expanded=(contentType !== 'Company')
                               icon-modifiers=["sm"]
                               icon-name="plus"
                               expanded-icon-name="dash"
                             />
                           </h3>
                           $ let contentFilterAlias = (phrase) ? `/${section.alias}?phrase=${phrase}` : `/${section.alias}`;
-                          <div class='content-type-facets__list'>
+                          $ const contentTypeFilterClass = (contentType !== 'Company') ? 'content-type-facets__list content-type-facets__list--open' : 'content-type-facets__list';
+                          <div class=contentTypeFilterClass>
                             <for|key,value| in=supportedContendTypes>
                               <if(key === 'Company')>
                               $ const activeModifier = ('Company' === contentType) ? '--active' : '';
@@ -163,13 +165,14 @@ $ const perPage = 20;
                                   class-name=`directory-country-facets__toggle`
                                   targets=[`.directory-country-facets__list`]
                                   toggle-class=`directory-country-facets__list--open`
-                                  initially-expanded=false
+                                  initially-expanded=(selectedCountry !== '')
                                   icon-modifiers=["sm"]
                                   icon-name="plus"
                                   expanded-icon-name="dash"
                                 />
                               </h3>
-                              <div class="directory-country-facets__list">
+                              $ const countryFilterFacetClass = (selectedCountry !== '') ? "directory-country-facets__list directory-country-facets__list--open" : "directory-country-facets__list";
+                              <div class=countryFilterFacetClass>
                                 <for|country| of=countries>
                                   <if(selectedCountry === country)>
                                   <marko-web-browser-component

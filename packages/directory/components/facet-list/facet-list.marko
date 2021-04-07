@@ -8,6 +8,7 @@ $ const {
   phrase,
   activeId,
   aliases,
+  initiallyExpanded
 } = input;
 
 $ const reqParamsObj = {};
@@ -20,7 +21,8 @@ $ const reqParamsStr = Object.keys(reqParamsObj || {}).map((key) => [
 $ const isActiveId = ({id}) => (activeId && (`${activeId}` === `${id}`));
 $ facets.sort((a, b) => a.name.localeCompare(b.name));
 <if(facets && facets.length)>
-  <div class=`${block}__list`>
+  $ const expandedClass = (initiallyExpanded) ? `${block}__list ${block}__list--open` : `${block}__list`;
+  <div class=expandedClass>
     <for|facet| of=facets>
       $ const children = getAsArray(facet, "children.edges").map(({ node }) => node);
       $ const isOpen = aliases.includes(facet.alias);
