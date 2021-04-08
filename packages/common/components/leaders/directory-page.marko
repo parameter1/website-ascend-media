@@ -19,6 +19,7 @@ $ const displayViewAll = defaultValue(input.displayViewAll, true);
   displayCallout: false,
   calloutValue: site.get('leaders.title'),
   mediaQueries: [
+    { prop: "open", value: "right", query: "(min-width: 1490px)" },
     { prop: "columns", value: 1, query: "(min-width: 700px)" },
   ],
 }/>
