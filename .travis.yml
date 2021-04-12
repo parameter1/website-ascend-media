@@ -160,6 +160,18 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: aua.ascendmedia.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy aua.ascendmedia.com websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: aua.ascendmedia.com
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy aua.ascendmedia.com websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################

@@ -227,3 +227,19 @@ services:
     ports:
       - "9919:80"
       - "19919:19919"
+
+  aua:
+    <<: *node
+    <<: *site-cmd
+    working_dir: /root/sites/aua.ascendmedia.com
+    environment:
+      <<: *env
+      <<: *env-tauron
+      PORT: 80
+      EXPOSED_PORT: 9920
+      LIVERELOAD_PORT: 19920
+      TENANT_KEY: ascend_hh
+      SITE_ID: 5fa07807adb660cb238b45a9
+    ports:
+      - "9920:80"
+      - "19920:19920"
