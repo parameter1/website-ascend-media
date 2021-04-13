@@ -161,8 +161,8 @@ jobs:
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
     - stage: production
-      name: aua.ascendmedia.com
-      script: npx @parameter1/base-cms-website-deployment-tool deploy aua.ascendmedia.com websites
+      name: aua2021.ascendmedia.com
+      script: npx @parameter1/base-cms-website-deployment-tool deploy aua2021.ascendmedia.com websites
       install: skip
       env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
 

@@ -231,7 +231,7 @@ services:
   aua:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/aua.ascendmedia.com
+    working_dir: /root/sites/aua2021.ascendmedia.com
     environment:
       <<: *env
       <<: *env-tauron
@@ -239,7 +239,7 @@ services:
       EXPOSED_PORT: 9920
       LIVERELOAD_PORT: 19920
       TENANT_KEY: ascend_hh
-      SITE_ID: 5fa07807adb660cb238b45a9
+      SITE_ID: 60747a8880a4312e028b45d6
     ports:
       - "9920:80"
       - "19920:19920"
