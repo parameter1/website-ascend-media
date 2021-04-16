@@ -1,6 +1,6 @@
 const configureGAM = require('@ascend-media/package-global/config/gam');
 
-const config = configureGAM({ basePath: 'isc' });
+const config = configureGAM({ basePath: 'aua' });
 
 config
   .setAliasAdUnits('default', [
