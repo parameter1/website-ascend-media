@@ -14,9 +14,9 @@ module.exports = {
     { provider: 'youtube', href: 'https://www.youtube.com/channel/UCfBo9pjCePu7Wxn4j4fHyAw', target: '_blank' },
     { provider: 'linkedin', href: 'https://www.linkedin.com/company/american-urological-association/', target: '_blank' },
   ],
-  // gtm: {
-  //   containerId: 'NOT-SET',
-  // },
+  gtm: {
+    containerId: 'GTM-5LK3FQ6',
+  },
   // gcse: {
   //   id: 'NOT-SET',
   // },
