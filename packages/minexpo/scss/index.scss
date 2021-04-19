@@ -170,3 +170,14 @@
   //   }
   // }
 }
+// will be deleted once live.
+.callout2016 {
+  flex-grow: 100;
+  color: #a02413;
+  h2 {
+    font-size: 1.25rem;
+    @media (max-width: 600px) {
+      font-size: .75rem;
+    }
+  }
+}
