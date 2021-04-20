@@ -231,7 +231,7 @@ services:
   aua:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/aua2021.ascendmedia.com
+    working_dir: /root/sites/auadailynews.org
     environment:
       <<: *env
       <<: *env-tauron
