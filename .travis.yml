@@ -160,6 +160,18 @@ jobs:
     #   install: skip
     #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
 
+    - stage: production
+      name: auadailynews.org
+      script: npx @parameter1/base-cms-website-deployment-tool deploy auadailynews.org websites
+      install: skip
+      env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-njflm]
+
+    # - stage: staging
+    #   name: auadailynews.org
+    #   script: npx @parameter1/base-cms-website-deployment-tool deploy auadailynews.org websites
+    #   install: skip
+    #   env: [ENVIRONMENT=production RANCHER_CLUSTERID=c-rc5kp]
+
     #############################
     ### ^^^ ADD SITES HERE ^^^ ##
     #############################

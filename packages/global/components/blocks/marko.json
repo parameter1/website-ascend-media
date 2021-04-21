@@ -1,0 +1,62 @@
+{
+  "taglib-imports": [
+    "./load-more/marko.json"
+  ],
+  "<global-latest-content-feed-block>": {
+    "template": "./latest-content-feed.marko",
+    "<query-params>": {},
+    "<flow>": {},
+    "@section-id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "<global-latest-content-card-deck-block>": {
+    "template": "./latest-content-card-deck.marko",
+    "<query-params>": {},
+    "<flow>": {},
+    "@section-id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "<global-related-content-block>": {
+    "template": "./related-content.marko",
+    "@content-id": "number"
+  },
+  "<global-site-footer>": {
+    "template": "./site-footer.marko"
+  },
+  "<global-content-hero-card-block>": {
+    "template": "./content-hero-card.marko"
+  },
+  "<global-content-featured-block>": {
+    "template": "./content-featured.marko"
+  },
+  "<global-section-list-block>": {
+    "template": "./section-list.marko",
+    "<list>": {}
+  },
+  "<global-standard-section-list-block>": {
+    "template": "./standard-section-list.marko",
+    "<list>": {}
+  },
+  "<global-company-content-list-block>": {
+    "template": "./company-content-list.marko"
+  },
+  "<global-company-header-block>": {
+    "template": "./company-header.marko"
+  },
+  "<global-content-hero-block>": {
+    "template": "./content-hero.marko"
+  },
+  "<global-hero-block>": {
+    "template": "./hero.marko"
+  },
+  "<global-standard-hero-block>": {
+    "template": "./standard-hero.marko"
+  },
+  "<global-global-right-rail-block>": {
+    "template": "./global-right-rail.marko"
+  }
+}

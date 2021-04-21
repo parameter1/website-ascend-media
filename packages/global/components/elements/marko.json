@@ -1,0 +1,5 @@
+{
+  "<global-content-dates>": {
+    "template": "./content-dates.marko"
+  }
+}
