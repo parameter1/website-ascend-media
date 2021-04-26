@@ -130,7 +130,7 @@ $ const { linkAttrs } = input;
         </if>
         <if(withDates && !isEvent)>
           <@right|{ blockName }|>
-            <marko-web-content-published obj=content format="MM DD, YYYY" />
+            <marko-web-content-published obj=content />
           </@right>
         </if>
       </@footer>
