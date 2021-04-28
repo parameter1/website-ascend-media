@@ -7,7 +7,7 @@ module.exports = ({
   const config = new GAMConfiguration(accountId, { basePath });
 
   config
-    .setTemplate('LB', {
+    .setTemplate('leaderboard', {
       size: [[970, 250], [970, 90], [728, 90], [300, 50]],
       sizeMapping: [
         { viewport: [980, 0], size: [[970, 250], [970, 90], [728, 90]] },
@@ -15,7 +15,7 @@ module.exports = ({
         { viewport: [320, 0], size: [300, 50] },
       ],
     })
-    .setTemplate('RAIL1', { size: [[300, 250], [300, 600]] });
+    .setTemplate('rail', { size: [[300, 250]] });
 
   return config;
 };
