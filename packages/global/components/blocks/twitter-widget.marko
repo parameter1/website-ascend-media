@@ -1,0 +1,15 @@
+$ const { site } = out.global;
+$ const twitterFeedAccount = site.get('twitterFeedAccount');
+
+<if(twitterFeedAccount)>
+  <a
+    class="twitter-timeline btn btn-primary btn-block"
+    data-height="650"
+    data-theme="light"
+    href=`https://twitter.com/${twitterFeedAccount}?ref_src=twsrc%5Etfw`
+    target="_blank"
+  >
+    Tweets by ${twitterFeedAccount}
+  </a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</if>
