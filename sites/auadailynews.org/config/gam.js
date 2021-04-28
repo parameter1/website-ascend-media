@@ -4,9 +4,10 @@ const config = configureGAM({ basePath: 'aua' });
 
 config
   .setAliasAdUnits('default', [
-    { name: 'lb1', templateName: 'LB', path: 'lb1' },
-    { name: 'rail1', templateName: 'RAIL1', path: 'rail1' },
-    { name: 'rail2', templateName: 'RAIL1', path: 'rail2' },
+    { name: 'lb1', templateName: 'leaderboard', path: 'lb1' },
+    { name: 'rail1', templateName: 'rail', path: 'rail1' },
+    { name: 'rail2', templateName: 'rail', path: 'rail2' },
+    { name: 'rail3', templateName: 'rail', path: 'rail3' },
   ]);
 
 module.exports = config;

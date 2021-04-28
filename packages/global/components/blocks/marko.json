@@ -2,6 +2,9 @@
   "taglib-imports": [
     "./load-more/marko.json"
   ],
+  "<global-twitter-widget-block>": {
+    "template": "./twitter-widget.marko"
+  },
   "<global-latest-content-feed-block>": {
     "template": "./latest-content-feed.marko",
     "<query-params>": {},

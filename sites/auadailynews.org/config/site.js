@@ -17,6 +17,7 @@ module.exports = {
   gtm: {
     containerId: 'GTM-5LK3FQ6',
   },
+  twitterFeedAccount: 'AmerUrological',
   // gcse: {
   //   id: 'NOT-SET',
   // },

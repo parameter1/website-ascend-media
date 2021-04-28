@@ -11,9 +11,10 @@ const userTools = [
 ];
 
 const topics = [
-  { href: '/late-breaking-science', label: 'Late-Breaking Scinence' },
+  { href: '/late-breaking-science', label: 'Late-Breaking Science' },
   { href: '/meeting-coverage', label: 'Meeting Coverage' },
   { href: 'https://www.eventscribe.net//2021/AUA2021/', label: 'Program' },
+  { href: '/industry-events', label: 'Industry Events' },
   { href: '/science-technology-hall', label: 'Science & Technology Hall' },
   { href: '/previews', label: 'Previews' },
 ];
