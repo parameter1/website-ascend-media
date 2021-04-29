@@ -16,22 +16,11 @@ $theme-site-navbar-secondary-type: light;
 
 @import "../../node_modules/@ascend-media/package-global/scss/theme";
 
-// .body-wrapper {
-//   display: block;
-//   flex-direction: column;
-//   height: auto;
-
-//   @media (min-width: map-get($theme-site-header-breakpoints, small-text-primary)) {
-//     background: url("https://img.ascendmedia.com/files/base/ascend/hearthub/image/static/imex-background.jpg?w=1850") no-repeat 50% 85px;
-
-//     .page {
-//       background-color: transparent;
-//     }
-//   }
-// }
-
-// .site-navbar {
-//   &--secondary {
-//     background: linear-gradient(0deg, #082138 0%, $primary 100%);
-//   }
-// }
+.node {
+  &__footer-left a {
+    color: $secondary;
+  }
+  &__footer-right {
+    white-space: nowrap;
+  }
+}
