@@ -7,6 +7,7 @@ module.exports = {
   navigation,
   gam,
   company: 'Ascend Media',
+  sponsoredText: 'Paid Advertising Content',
   socialMediaLinks: [
     { provider: 'twitter', href: 'https://twitter.com/au_antigua?lang=en', target: '_blank' },
     { provider: 'facebook', href: 'https://www.facebook.com/AmerUrological/', target: '_blank' },

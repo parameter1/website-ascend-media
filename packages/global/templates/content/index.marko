@@ -194,12 +194,20 @@ $ const displayCompanyHeader = (content) => {
 
             <aside class="col-lg-4 page-rail">
               <if(displayInquiry(content))>
-                <marko-web-node-list collapsible=false modifiers=["sticky-top"]>
+                <marko-web-gam-define-display-ad
+                  ...GAM.getAdUnit({ name: 'rail1', aliases })
+                  class="mb-block"
+                />
+                <marko-web-node-list collapsible=false>
                   <@header>Request More Information</@header>
                   <@body>
                     <marko-web-inquiry-form content=content with-header=false modifiers=["right-rail"] />
                   </@body>
                 </marko-web-node-list>
+                <marko-web-gam-define-display-ad
+                ...GAM.getAdUnit({ name: 'rail2', aliases })
+                  class="mb-block"
+                />
               </if>
               <else>
                 <global-global-right-rail-block aliases=aliases no-shadow=true />
