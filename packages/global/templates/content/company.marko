@@ -36,21 +36,18 @@ $ const adSlots = ({ aliases }) => ({
           <!-- <global-company-page-overview content=content class="mb-block" /> -->
           <global-company-page-details content=content class="mb-block" />
 
-          <global-company-content-list-block company-id=id>
+          <global-company-content-list-block company-id=id class="mb-block">
             <@header>Videos & Resources</@header>
-            <@list class="mb-block" />
             <@query-params include-content-types=["Video", "Whitepaper", "Webinar", "Document", "MediaGallery", "Podcast"] />
           </global-company-content-list-block>
 
-          <global-company-content-list-block company-id=id>
+          <global-company-content-list-block company-id=id class="mb-block">
             <@header>Products & Press Releases</@header>
-            <@list class="mb-block" />
             <@query-params include-content-types=["Product", "PressRelease"] />
           </global-company-content-list-block>
 
-          <global-company-content-list-block company-id=id>
+          <global-company-content-list-block company-id=id class="mb-block">
             <@header>Articles & News</@header>
-            <@list class="mb-block" />
             <@query-params include-content-types=["Article", "Blog", "News"] />
           </global-company-content-list-block>
         </div>
@@ -73,4 +70,20 @@ $ const adSlots = ({ aliases }) => ({
       </div>
     </marko-web-resolve-page>
   </@page>
+  <@below-page>
+  <marko-web-resolve-page|{ resolved, data: content }| node=pageNode>
+    $ const section = resolved.getAsObject("primarySection");
+    $ const aliases = hierarchyAliases(section);
+    $ const includeContentTypes = ["Article", "Blog", "Product", "News", "PressRelease", "Webinar", "Whitepaper", "Video"];
+      <marko-web-load-more
+        header=`More from ${content.name}`
+        component-name="global-content-card-deck-flow"
+        component-input={ aliases, cols: 3 }
+        fragment-name="global-content-list"
+        query-name="all-company-content"
+        query-params={ companyId: id, limit: 24, includeContentTypes, withSite: false }
+        page-input={ for: "content", id, type }
+      />
+  </marko-web-resolve-page>
+</@below-page>
 </marko-web-content-page-layout>
