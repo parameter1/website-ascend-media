@@ -60,6 +60,6 @@
     "template": "./standard-hero.marko"
   },
   "<global-global-right-rail-block>": {
-    "template": "./global-right-rail.marko"
+    "template": "./right-rail.marko"
   }
 }
