@@ -1,15 +1,16 @@
 $ const { site } = out.global;
-$ const twitterFeedAccount = site.get('twitterFeedAccount');
+$ const href = site.get('twitterFeed.href');
+$ const tagline = site.get('twitterFeed.tagline');
 
-<if(twitterFeedAccount)>
+<if(href)>
   <a
     class="twitter-timeline btn btn-primary btn-block"
     data-height="650"
     data-theme="light"
-    href=`https://twitter.com/${twitterFeedAccount}?ref_src=twsrc%5Etfw`
+    href=href
     target="_blank"
   >
-    Tweets by ${twitterFeedAccount}
+    ${tagline}
   </a>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </if>

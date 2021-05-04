@@ -18,7 +18,10 @@ module.exports = {
   gtm: {
     containerId: 'GTM-5LK3FQ6',
   },
-  twitterFeedAccount: 'AmerUrological',
+  twitterFeed: {
+    href: 'https://twitter.com/AmerUrological?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor',
+    tagline: 'Tweets by AmerUrological',
+  },
   // gcse: {
   //   id: 'NOT-SET',
   // },
