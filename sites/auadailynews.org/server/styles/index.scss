@@ -24,3 +24,9 @@ $theme-site-navbar-secondary-type: light;
     white-space: nowrap;
   }
 }
+
+.site-footer {
+  &__container--secondary {
+    background-color: #fff;
+  }
+}

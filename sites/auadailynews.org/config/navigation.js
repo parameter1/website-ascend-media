@@ -20,9 +20,9 @@ const topics = [
 ];
 
 const secondary = [
-  { href: '#', label: 'Virtual AUA2021', target: '_blank' },
-  { href: '#', label: 'Abstracts', target: '_blank' },
-  { href: '#', label: 'Claim CME', target: '_blank' },
+  { href: 'https://aua2021.app.swapcard.com/event/aua-2021-annual-meeting-1', label: 'Virtual AUA2021', target: '_blank' },
+  // { href: '#', label: 'Abstracts', target: '_blank' },
+  // { href: '#', label: 'Claim CME', target: '_blank' },
 ];
 
 module.exports = {
