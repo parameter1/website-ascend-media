@@ -24,6 +24,7 @@
   }
   &__social-icons {
     margin: auto 0;
+    padding-bottom: map-get($spacers, block);
   }
 
   @include media-breakpoint-down(sm) {
