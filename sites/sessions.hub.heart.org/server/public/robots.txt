@@ -3,7 +3,7 @@
 
 User-agent: *
 Disallow: *
-Disallow: /__load-more
+Disallow: /__
 
 Sitemap: https://sessions.hub.heart.org/sitemap.xml
 Sitemap: https://sessions.hub.heart.org/sitemap-google-news.xml
