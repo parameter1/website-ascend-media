@@ -3,7 +3,7 @@
 
 User-agent: *
 Disallow: *
-Disallow: /__load-more
+Disallow: /__
 
 Sitemap: https://isc.hub.heart.org/sitemap.xml
 Sitemap: https://isc.hub.heart.org/sitemap-google-news.xml
