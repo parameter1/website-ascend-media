@@ -25,9 +25,6 @@ module.exports = {
   gcse: {
     id: '2d2e730087c2bd49e',
   },
-  // wufoo: {
-  //   userName: 'NOT-SET',
-  // },
   contactUs: {
     to: 'DSanford@ascendintegratedmedia.com',
     branding: {
