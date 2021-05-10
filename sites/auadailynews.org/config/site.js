@@ -22,9 +22,9 @@ module.exports = {
     href: 'https://twitter.com/AmerUrological?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor',
     tagline: 'Tweets by AmerUrological',
   },
-  // gcse: {
-  //   id: 'NOT-SET',
-  // },
+  gcse: {
+    id: '2d2e730087c2bd49e',
+  },
   // wufoo: {
   //   userName: 'NOT-SET',
   // },
