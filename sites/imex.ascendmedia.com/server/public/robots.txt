@@ -3,6 +3,7 @@
 
 User-agent: *
 Disallow: /__
+Disallow: /print/content
 
 Sitemap: https://imex.ascendmedia.com/sitemap.xml
 Sitemap: https://imex.ascendmedia.com/sitemap-google-news.xml

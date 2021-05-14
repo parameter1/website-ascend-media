@@ -4,6 +4,7 @@
 User-agent: *
 Disallow: *
 Disallow: /__
+Disallow: /print/content
 
 Sitemap: https://sessions.hub.heart.org/sitemap.xml
 Sitemap: https://sessions.hub.heart.org/sitemap-google-news.xml
