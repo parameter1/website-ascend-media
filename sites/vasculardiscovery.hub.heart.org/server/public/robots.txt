@@ -3,6 +3,7 @@
 
 User-agent: *
 Disallow: /__
+Disallow: /print/content
 
 Sitemap: https://vasculardiscovery.hub.heart.org/sitemap.xml
 Sitemap: https://vasculardiscovery.hub.heart.org/sitemap-google-news.xml

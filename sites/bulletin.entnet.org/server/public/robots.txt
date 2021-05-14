@@ -3,6 +3,7 @@
 
 User-agent: *
 Disallow: /__
+Disallow: /print/content
 
 Sitemap: https://bulletin.entnet.org/sitemap.xml
 Sitemap: https://bulletin.entnet.org/sitemap-google-news.xml
