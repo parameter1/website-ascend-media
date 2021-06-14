@@ -5,7 +5,7 @@ module.exports = {
       'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aad/AAD_Logo_Header.png?h=200 2x',
     ],
     href: '/',
-    title: 'aad Daily News',
+    title: 'AAD Meeting News',
   },
   footer: {
     src: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aad/AAD_Logo_Footer.png?h=100',
