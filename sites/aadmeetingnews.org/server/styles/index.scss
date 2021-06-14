@@ -3,9 +3,9 @@
 $primary: #1c7cd5;
 $secondary: #76bc43;
 
-$theme-site-navbar-logo-height: 50px;
-$theme-site-navbar-logo-height-sm: 50px;
-$theme-site-footer-logo-height: 50px;
+$theme-site-navbar-logo-height: 100px;
+$theme-site-navbar-logo-height-sm: 100px;
+$theme-site-footer-logo-height: 100px;
 $theme-site-footer-primary-bg-color: $primary;
 $theme-site-footer-secondary-bg-color: $primary;
 $theme-site-footer-copyright-color: #fff;
@@ -27,6 +27,6 @@ $theme-site-navbar-secondary-type: light;
 
 .site-footer {
   &__container--secondary {
-    background-color: #fff;
+    background-color: $primary;
   }
 }
