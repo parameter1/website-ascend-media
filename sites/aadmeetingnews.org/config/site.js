@@ -9,11 +9,9 @@ module.exports = {
   company: 'Ascend Media',
   sponsoredText: 'Paid Advertising Content',
   socialMediaLinks: [
-    { provider: 'twitter', href: 'https://twitter.com/AmerUrological?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor', target: '_blank' },
-    { provider: 'facebook', href: 'https://www.facebook.com/AmerUrological/', target: '_blank' },
-    { provider: 'instagram', href: 'https://www.instagram.com/amerurological/?hl=en', target: '_blank' },
-    { provider: 'youtube', href: 'https://www.youtube.com/channel/UCfBo9pjCePu7Wxn4j4fHyAw', target: '_blank' },
-    { provider: 'linkedin', href: 'https://www.linkedin.com/company/american-urological-association/', target: '_blank' },
+    { provider: 'facebook', href: 'https://www.facebook.com/AADmember', target: '_blank' },
+    { provider: 'instagram', href: 'hhttps://www.instagram.com/aadmember/', target: '_blank' },
+    { provider: 'twitter', href: 'https://twitter.com/AADmember', target: '_blank' },
   ],
   gtm: {
     containerId: 'GTM-5LK3FQ6',
