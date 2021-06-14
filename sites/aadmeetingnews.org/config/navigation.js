@@ -11,16 +11,15 @@ const userTools = [
 ];
 
 const topics = [
-  { href: '/late-breaking-science', label: 'Late-Breaking Science' },
-  { href: '/meeting-coverage', label: 'Meeting Coverage' },
-  { href: 'https://www.eventscribe.net//2021/AUA2021/', label: 'Program', target: '_blank' },
-  { href: '/industry-events', label: 'Industry Events' },
-  { href: '/science-technology-hall', label: 'Science & Technology Hall' },
+  { href: '/whats-new', label: 'What\'s New' },
+  { href: '/daily-coverage', label: 'Daily Coverage' },
+  { href: '/industry-programs', label: 'Industry Programs' },
+  { href: 'https://lms.aad.org/MeetingWebApp/Sessions/index/SM2021', label: 'Meeting Program', target: '_blank' },
   { href: '/previews', label: 'Previews' },
 ];
 
 const secondary = [
-  { href: 'https://aua2021.app.swapcard.com/event/aua-2021-annual-meeting-1', label: 'Virtual AUA2021', target: '_blank' },
+  { href: 'https://www.aad.org/member/meetings-education/sm21/registration', label: 'Registration', target: '_blank' },
   // { href: '#', label: 'Abstracts', target: '_blank' },
   // { href: '#', label: 'Claim CME', target: '_blank' },
 ];
