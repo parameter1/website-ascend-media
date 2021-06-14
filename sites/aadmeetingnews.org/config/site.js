@@ -17,8 +17,8 @@ module.exports = {
     containerId: 'GTM-5R9XFFX',
   },
   twitterFeed: {
-    href: 'https://twitter.com/AmerUrological?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor',
-    tagline: 'Tweets by AmerUrological',
+    href: 'https://twitter.com/AADmember?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor',
+    tagline: 'Tweets by AADMember',
   },
   gcse: {
     id: '32fecd94ba5f4160a',
@@ -26,7 +26,7 @@ module.exports = {
   contactUs: {
     to: 'DSanford@ascendintegratedmedia.com',
     branding: {
-      logo: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aua/site_logo.png?h=50',
+      logo: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aad/AAD_Logo_Header.png?h=50',
     },
     support: {
       email: 'reply@hearthubs.org',
@@ -37,7 +37,7 @@ module.exports = {
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
     sendFrom: 'AUA <noreply@ascendintegratedmedia.com>',
-    logo: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aua/site_logo.png?h=50',
+    logo: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aad/AAD_Logo_Header.pngh=50',
     bgColor: '#ffffff',
   },
 };
