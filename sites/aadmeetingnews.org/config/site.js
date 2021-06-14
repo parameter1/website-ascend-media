@@ -36,7 +36,7 @@ module.exports = {
     enabled: true,
     directSend: true,
     sendTo: 'DSanford@ascendintegratedmedia.com',
-    sendFrom: 'AUA <noreply@ascendintegratedmedia.com>',
+    sendFrom: 'AAD <noreply@ascendintegratedmedia.com>',
     logo: 'https://img.ascendmedia.com/files/base/ascend/hh/image/static/aad/AAD_Logo_Header.pngh=50',
     bgColor: '#ffffff',
   },
