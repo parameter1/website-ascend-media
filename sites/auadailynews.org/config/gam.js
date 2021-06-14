@@ -8,6 +8,7 @@ config
     { name: 'rail1', templateName: 'rail', path: 'rail1' },
     { name: 'rail2', templateName: 'rail', path: 'rail2' },
     { name: 'rail3', templateName: 'rail', path: 'rail3' },
+    { name: 'load-more', templateName: 'load-more', path: 'load-more' },
   ]);
 
 module.exports = config;
