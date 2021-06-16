@@ -1,11 +1,41 @@
-$ const { GAM } = out.global;
+import { getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+$ const { GAM, nativeX: nxConfig } = out.global;
 
 $ const { aliases } = input;
+$ const nativeX = getAsObject(input, "nativeX");
 
 <marko-web-gam-define-display-ad
   ...GAM.getAdUnit({ name: 'rail1', aliases })
   class="mb-block"
 />
+
+<default-theme-card-deck-flow
+  tag=input.tag
+  class=input.class
+  modifiers=input.modifiers
+  attrs=input.attrs
+  cols=defaultValue(input.cols, 1)
+  nodes=input.nodes
+>
+  <@slot|{ node, index }|>
+    <marko-web-native-x-render|{ node: nxNode, linkAttrs, containerAttrs }|
+      ...nativeX
+      when=(index === nativeX.index)
+      node=node
+      config=nxConfig
+    >
+      <global-content-card-node
+        with-teaser=input.withTeaser
+        ...input.node
+        node=nxNode
+        attrs=containerAttrs
+        link-attrs=linkAttrs
+      />
+    </marko-web-native-x-render>
+  </@slot>
+</default-theme-card-deck-flow>
 <global-twitter-widget-block />
 <marko-web-gam-define-display-ad
 ...GAM.getAdUnit({ name: 'rail2', aliases })

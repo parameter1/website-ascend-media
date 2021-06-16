@@ -208,9 +208,10 @@ $ const displayCompanyHeader = (content) => {
                 ...GAM.getAdUnit({ name: 'rail2', aliases })
                   class="mb-block"
                 />
+
               </if>
               <else>
-                <global-global-right-rail-block aliases=aliases no-shadow=true />
+                <global-global-right-rail-block aliases=aliases no-shadow=true native-x={ index: 0, name: "default"}/>
               </else>
             </aside>
 
