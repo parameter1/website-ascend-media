@@ -67,6 +67,15 @@ $theme-site-header-breakpoints: (
   &__logo {
     height: 60px;
   }
+  &__items {
+    &--secondary {
+      .site-navbar {
+        &__item {
+          padding: 4px 4px 0;
+        }
+      }
+    }
+  }
 }
 
 .load-more-trigger > button:hover {
