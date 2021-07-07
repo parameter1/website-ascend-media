@@ -231,7 +231,7 @@ $ const perPage = 20;
                 </div>
               </div>
               <div class="col-lg-8 mb-block">
-                <minexpo-content-search-non-algolia-query|{ nodes, totalCount, facets }|
+                <minexpo-content-search-query|{ nodes, totalCount, facets }|
                   phrase=phrase
                   limit=perPage
                   skip=p.skip({ perPage })
@@ -283,7 +283,7 @@ $ const perPage = 20;
                       />
                     </div>
                   </div>
-                </minexpo-content-search-non-algolia-query>
+                </minexpo-content-search-query>
               </div>
             </div>
           </marko-web-query>
