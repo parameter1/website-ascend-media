@@ -19,7 +19,6 @@ $ const {
 } = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
 $ const primaryAlias = req.path.replace(/^\/+/, '').split('/')[0];
-$ console.log(req.path)
 $ const selectedCountry = defaultValue(req.query.country, '');
 $ const phrase = defaultValue(req.query.phrase, '');
 $ const supportedContendTypes = {
