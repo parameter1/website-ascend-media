@@ -23,6 +23,14 @@ module.exports = (app) => {
     template: directory,
     queryFragment,
   }));
+  app.get('/:alias(export-directory)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
+  app.get('/:alias(export-directory/[a-z0-9-/]+)', withWebsiteSection({
+    template: directory,
+    queryFragment,
+  }));
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
     template: section,
     queryFragment,

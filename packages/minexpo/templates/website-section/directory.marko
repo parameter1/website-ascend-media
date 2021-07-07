@@ -9,8 +9,17 @@ import { buildContentQuery } from "../../components/search/queries";
 import { getChildSectionIds } from "../../utils/get-child-section-ids";
 
 
-$ const { $algolia, apollo, GAM, pagination: p, req } = out.global;
+$ const {
+  $algolia,
+  apollo,
+  GAM,
+  pagination:
+  p,
+  req,
+} = out.global;
 $ const contentType = defaultValue(req.query.type, 'Company');
+$ const primaryAlias = req.path.replace(/^\/+/, '').split('/')[0];
+$ console.log(req.path)
 $ const selectedCountry = defaultValue(req.query.country, '');
 $ const phrase = defaultValue(req.query.phrase, '');
 $ const supportedContendTypes = {
@@ -104,7 +113,8 @@ $ const perPage = 20;
                           content-type=contentType
                           phrase=phrase
                           with-toggle=true
-                          initially-expanded=(alias !== 'directory')
+                          primary-alias=primaryAlias
+                          initially-expanded=(alias !== primaryAlias)
                         />
                       </div>
                       <div class="mb-block">
@@ -222,7 +232,7 @@ $ const perPage = 20;
                 </div>
               </div>
               <div class="col-lg-8 mb-block">
-                <minexpo-content-search-query|{ nodes, totalCount, facets }|
+                <minexpo-content-search-non-algolia-query|{ nodes, totalCount, facets }|
                   phrase=phrase
                   limit=perPage
                   skip=p.skip({ perPage })
@@ -274,7 +284,7 @@ $ const perPage = 20;
                       />
                     </div>
                   </div>
-                </minexpo-content-search-query>
+                </minexpo-content-search-non-algolia-query>
               </div>
             </div>
           </marko-web-query>

@@ -5,7 +5,7 @@ const primary = [
   // eslint-disable-next-line no-script-url
   { href: 'javascript:void(0)', label: 'Exhibit Hall Map' },
   // eslint-disable-next-line no-script-url
-  { href: 'javascript:void(0)', label: 'Export Directory' },
+  { href: '/export-directory', label: 'Export Directory' },
 ];
 
 const secondary = [
