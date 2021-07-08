@@ -58,7 +58,7 @@ fragment WebsiteContentCompanyFragment on Content {
     # circle image
     primaryImage {
       id
-      src(input: { options: { auto: "format", fillColor: "fff", fit: "fill", h: 125, w: 125, pad: 5, mask: "ellipse" } })
+      src(input: { options: { auto: "format", fillColor: "fff", fit: "fill", h: 125, w: 125, } })
       alt
     }
 
