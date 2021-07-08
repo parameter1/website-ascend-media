@@ -106,6 +106,12 @@ $theme-site-header-breakpoints: (
       color: $white;
     }
   }
+  &__logo {
+    img {
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
 }
 .search-form {
   margin-right: 0;
