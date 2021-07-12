@@ -45,8 +45,6 @@ $ const { id, type, content } = input;
       <@body>
         <label class="content-section-header">About ${content.name}</label>
         <marko-web-content-body obj=content />
-        <!-- <label class="content-section-header">Product Summary</label>
-        <marko-web-obj-text tag="p" obj=content field="productSummary" type="content" html=true /> -->
       </@body>
     </marko-web-node-list>
 
@@ -61,17 +59,9 @@ $ const { id, type, content } = input;
             ${content.boothNumber}
           </marko-web-block>
         </if>
-
-        <!-- <label class="content-section-header content-section-header--border">At-a-glance</label>
-        <common-company-details company=content /> -->
-
         <label class="content-section-header content-section-header--border">Contact</label>
         $ const { socialLinks, ...contentSansSocial } = content;
         <minexpo-company-contact-details obj=contentSansSocial />
-        <!-- <default-theme-content-contact-details obj=contentSansSocial /> -->
-
-        <!-- <label class="content-section-header content-section-header--border">More info on ${content.name}</label>
-        <marko-web-content-body obj=content /> -->
       </@body>
     </marko-web-node-list>
 
@@ -154,28 +144,8 @@ $ const { id, type, content } = input;
 
   </div>
   <div class="col-lg-4 page-rail mb-3 mb-lg-0">
-    <!-- <marko-web-node-list collapsible=false class="mt-block">
-      <@header>Request More Information</@header>
-      <@body>
-        <shared-inquiry-block content=content with-header=false modifiers=["block"] />
-      </@body>
-    </marko-web-node-list> -->
     <div class="mt-block">
       <minexpo-company-product-categories-block schedules=content.websiteSchedules />
     </div>
-
-    <!-- $ const contacts = getAsArray(content, "contacts.edges").map(({ node }) => node);
-    <marko-web-node-list class="mt-block">
-      <@header>
-        Key Contact<if(contacts.length > 1)>s</if>
-      </@header>
-      <@nodes|{ nodes }| nodes=contacts>
-        <for|node| of=nodes>
-          <common-author-card-node node=node with-email=true />
-        </for>
-      </@nodes>
-    </marko-web-node-list> -->
-
-
   </div>
 </div>
