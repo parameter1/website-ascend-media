@@ -74,6 +74,62 @@ $ const displayExportDetails = (
         <minexpo-company-contact-details obj=contentSansSocial />
       </@body>
     </marko-web-node-list>
+
+    <marko-web-query|{ nodes }|
+      name="all-company-content"
+      params={
+        companyId: id,
+        includeContentTypes: ["Promotion"],
+        queryFragment,
+        limit: 4,
+        withSite: false,
+      }
+    >
+      <marko-web-node-list class="mt-block">
+        <@header>
+          Featured Products
+        </@header>
+        <@nodes|{ nodes: items }| nodes=nodes>
+          <default-theme-card-deck-flow cols=2 nodes=items>
+            <@slot|{ node, index }|>
+              <common-featured-products-card-node
+                image-width=340
+                node=node
+              />
+            </@slot>
+          </default-theme-card-deck-flow>
+        </@nodes>
+      </marko-web-node-list>
+    </marko-web-query>
+
+    $ const allVideos = getAsArray(content, "videos.edges").map(({ node }) => node);
+    <if(allVideos.length !== 0)>
+      $ const videos = allVideos.slice(0, 3);
+      <marko-web-node-list class="mt-block">
+        <@header>
+          Featured Videos
+        </@header>
+        <@nodes|{ nodes }| nodes=videos>
+          <div class=`card-deck-flow card-deck-flow--${videos.length}-cols`>
+            <for|node| of=nodes>
+              <div class="card-deck-flow__node">
+                <common-youtube-card-node node=node link-attrs={
+                  'data-company-id': content.id,
+                  'data-company-name': content.name,
+                } />
+              </div>
+            </for>
+          </div>
+        </@nodes>
+        <@footer>
+          $ const url = get(content, "youtube.url");
+          <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
+            View all videos &gt;
+          </a>
+        </@footer>
+      </marko-web-node-list>
+    </if>
+
     <if(displayExportDetails)>
       <marko-web-node-list collapsible=false class="mt-block">
         <@header>
@@ -144,61 +200,6 @@ $ const displayExportDetails = (
     </if>
 
     <minexpo-company-export-categories-block schedules=content.websiteSchedules />
-
-    <marko-web-query|{ nodes }|
-      name="all-company-content"
-      params={
-        companyId: id,
-        includeContentTypes: ["Promotion"],
-        queryFragment,
-        limit: 4,
-        withSite: false,
-      }
-    >
-      <marko-web-node-list class="mt-block">
-        <@header>
-          Featured Products
-        </@header>
-        <@nodes|{ nodes: items }| nodes=nodes>
-          <default-theme-card-deck-flow cols=2 nodes=items>
-            <@slot|{ node, index }|>
-              <common-featured-products-card-node
-                image-width=340
-                node=node
-              />
-            </@slot>
-          </default-theme-card-deck-flow>
-        </@nodes>
-      </marko-web-node-list>
-    </marko-web-query>
-
-    $ const allVideos = getAsArray(content, "videos.edges").map(({ node }) => node);
-    <if(allVideos.length !== 0)>
-      $ const videos = allVideos.slice(0, 3);
-      <marko-web-node-list class="mt-block">
-        <@header>
-          Featured Videos
-        </@header>
-        <@nodes|{ nodes }| nodes=videos>
-          <div class=`card-deck-flow card-deck-flow--${videos.length}-cols`>
-            <for|node| of=nodes>
-              <div class="card-deck-flow__node">
-                <common-youtube-card-node node=node link-attrs={
-                  'data-company-id': content.id,
-                  'data-company-name': content.name,
-                } />
-              </div>
-            </for>
-          </div>
-        </@nodes>
-        <@footer>
-          $ const url = get(content, "youtube.url");
-          <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
-            View all videos &gt;
-          </a>
-        </@footer>
-      </marko-web-node-list>
-    </if>
 
     <marko-web-query|{ nodes }|
       name="all-company-content"
