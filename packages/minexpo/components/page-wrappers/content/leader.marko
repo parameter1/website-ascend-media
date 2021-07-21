@@ -65,6 +65,77 @@ $ const { id, type, content } = input;
       </@body>
     </marko-web-node-list>
 
+    <marko-web-node-list collapsible=false class="mt-block">
+      <@header>
+        Export Details
+      </@header>
+      <@body>
+        $ const businessContacts = getAsArray(content, "businessContacts.edges").map(({ node }) => node);
+        <if(businessContacts.length)>
+          <label class="content-section-header content-section-header--border">Public Contact(s)</label>
+          <for|contact| of=businessContacts>
+            <marko-web-block>
+              ${contact.name}
+              <if(contact.title)>
+                (${contact.title})
+              </if>
+              <if(contact.publicEmail)>
+                :
+                <marko-web-link href=`mailto:${contact.publicEmail}` title=`Email ${contact.name}`>
+                  ${contact.publicEmail}
+                </marko-web-link>
+              </if>
+            </marko-web-block>
+          </for>
+        </if>
+        $ const marketingContacts = getAsArray(content, "marketingContacts.edges").map(({ node }) => node);
+        <if(marketingContacts.length)>
+          <label class="content-section-header content-section-header--border">Marketing Contact(s)</label>
+          <for|contact| of=marketingContacts>
+            <marko-web-block>
+              ${contact.name}
+              <if(contact.title)>
+                (${contact.title})
+              </if>
+              <if(contact.publicEmail)>
+                :
+                <marko-web-link href=`mailto:${contact.publicEmail}` title=`Email ${contact.name}`>
+                  ${contact.publicEmail}
+                </marko-web-link>
+              </if>
+            </marko-web-block>
+          </for>
+        </if>
+        <if(content.exportInterest)>
+          <label class="content-section-header content-section-header--border">Export Interest</label>
+          <marko-web-block>
+            ${content.exportInterest}
+          </marko-web-block>
+        </if>
+        <if(content.exportMarkets)>
+          <label class="content-section-header content-section-header--border">Currently exports to the following markets</label>
+          <marko-web-block>
+            ${content.exportMarkets}
+          </marko-web-block>
+        </if>
+        <if(content.internationalBusinessInterest)>
+          <label class="content-section-header content-section-header--border">International business in which your company is interested in</label>
+          <marko-web-block>
+            ${content.internationalBusinessInterest}
+          </marko-web-block>
+        </if>
+        <if(content.marketingInterest)>
+          <label class="content-section-header content-section-header--border">We are most interested in marketing our products/services to</label>
+          <marko-web-block>
+            ${content.marketingInterest}
+          </marko-web-block>
+        </if>
+
+      </@body>
+    </marko-web-node-list>
+
+    <minexpo-company-export-categories-block schedules=content.websiteSchedules />
+
     <marko-web-query|{ nodes }|
       name="all-company-content"
       params={
