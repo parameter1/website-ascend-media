@@ -11,17 +11,18 @@ $ const schedules = defaultValue(input.schedules, []);
 >
   $ const ids = getChildSectionIds(node, []);
   $ const productCategorySchedules = schedules.filter(schedule => ids.includes(schedule.section.id)).map(schedule => schedule.section.name ).sort();
-
-    <marko-web-node-list collapsible=false class="mt-block" modifiers=["product-categories"]>
-      <@header>
-        Export Categories
-      </@header>
-      <@body>
-        <default-theme-card-deck-flow cols=2 nodes=productCategorySchedules>
-          <@slot|{ node, index }|>
-            <marko-web-block class="node-list__node">${node}</marko-web-block>
-          </@slot>
-        </default-theme-card-deck-flow>
-      </@body>
-    </marko-web-node-list>
+    <if(productCategorySchedules.length)>
+      <marko-web-node-list collapsible=false class="mt-block" modifiers=["product-categories"]>
+        <@header>
+          Export Categories
+        </@header>
+        <@body>
+          <default-theme-card-deck-flow cols=2 nodes=productCategorySchedules>
+            <@slot|{ node, index }|>
+              <marko-web-block class="node-list__node">${node}</marko-web-block>
+            </@slot>
+          </default-theme-card-deck-flow>
+        </@body>
+      </marko-web-node-list>
+    </if>
 </marko-web-query>
