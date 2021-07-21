@@ -63,9 +63,30 @@ fragment WebsiteContentCompanyFragment on Content {
     }
 
     isLeader: hasWebsiteSchedule(input: { sectionAlias: "leaders" })
+    exportInterest: customAttribute(input: { path: "exportInterest" })
     boothNumber: customAttribute(input: { path: "boothNumber" })
+    exportMarkets: customAttribute(input: { path: "exportMarkets" })
+    marketingInterest: customAttribute(input: { path: "marketingInterest" })
+    internationalBusinessInterest: customAttribute(input: { path: "internationalBusinessInterest" })
+    alphaGroup: customAttribute(input: { path: "alphaGroup" })
+    boothLocation: customAttribute(input: { path: "boothLocation" })
 
-    contacts: publicContacts {
+    businessContacts: publicContacts {
+      edges {
+        node {
+          id
+          name
+          title
+          publicEmail
+          primaryImage {
+            id
+            src(input: { options: { auto: "format", h: 100, w: 100, mask: "ellipse", fit: "facearea", facepad: 3 } })
+          }
+        }
+      }
+    }
+
+    marketingContacts: marketingContacts {
       edges {
         node {
           id
