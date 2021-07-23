@@ -8,7 +8,7 @@ module.exports = {
   leaders,
   navigation,
   nativeX,
-  company: 'MINExpo Show Directory',
+  company: 'MINExpo International® 2021',
   logos: {
     navbar: {
       src: 'https://img.hub.heart.org/files/base/ascend/minexpo/image/static/minexpo-logo.png?h=90',
