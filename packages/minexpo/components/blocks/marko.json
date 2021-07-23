@@ -31,6 +31,11 @@
     "@alias": "array",
     "@schedules": "array"
   },
+  "<minexpo-company-export-categories-block>": {
+    "template": "./company-export-categories.marko",
+    "@alias": "array",
+    "@schedules": "array"
+  },
   "<minexpo-content-load-more-block>": {
     "template": "./content-load-more.marko",
     "<native-x>": {
