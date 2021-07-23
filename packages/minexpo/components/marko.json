@@ -6,5 +6,8 @@
     "./nodes/marko.json",
     "./page-wrappers/marko.json",
     "./search/marko.json"
-  ]
+  ],
+  "<minexpo-site-footer>": {
+    "template": "./site-footer.marko"
+  }
 }

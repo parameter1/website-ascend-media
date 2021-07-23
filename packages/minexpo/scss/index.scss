@@ -62,12 +62,16 @@
 }
 
 .site-navbar {
+  $self: &;
   &__items {
     &--secondary {
-      flex-grow: 1;
       flex-direction: row-reverse;
-      margin-bottom: auto;
+      flex-grow: 1;
       padding-right: map-get($spacers, block);;
+      margin-bottom: auto;
+      #{ $self }__item {
+        text-transform: initial;
+      }
     }
   }
 }
@@ -99,14 +103,15 @@
     &__list {
       display: none;
       &--open {
-        max-height: 500px;
         display: flex;
+        max-height: 500px;
       }
     }
   }
 }
 
-.directory-filters {
+.directory-filters,
+.legend {
   background-color: #f1f1f1;
   &__title {
     @include theme-card-header();
@@ -179,5 +184,42 @@
     @media (max-width: 600px) {
       font-size: .75rem;
     }
+  }
+}
+
+.legend {
+  // display: flex;
+  font-size: 11px;
+  &__body {
+    padding-right: map-get($spacers, block);
+    padding-left: map-get($spacers, block);
+  }
+  &__items {
+    display: flex;
+    justify-content: space-around;
+    padding-right: map-get($spacers, block) / 2;
+    padding-bottom: map-get($spacers, block) / 2;
+    padding-left: map-get($spacers, block) / 2;
+  }
+  // &__item {
+  //   &::before {
+  //     margin-left: .5em;
+  //     font-weight: initial;
+  //     content: "| ";
+  //   }
+  // }
+  &__title {
+    margin-bottom: map-get($spacers, block) / 2;
+  }
+  &__field-name {
+    font-weight: $font-weight-bold;
+  }
+  &__item:first-of-type {
+    &::before {
+      content: initial;
+    }
+  }
+  &__key {
+    font-weight: $font-weight-bold;
   }
 }
