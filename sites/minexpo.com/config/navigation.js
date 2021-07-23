@@ -10,7 +10,8 @@ const primary = [
 
 const secondary = [
   { href: 'https://www.MINExpo.com', label: 'MINExpo.com' },
-  { href: '/directory/other-related-equipment-products-and-services/publishers?type=Company', label: 'MINExpo Media Partners' },
+  { href: '/directory/other-related-equipment-products-and-services/publishers?type=Company', label: 'MINExpo MEDIA PARTNERS' },
+  { href: 'https://www.allintheloop.net/App/me/meMINExpo', label: 'Exhibit Hall Maps' },
 ];
 
 const resources = [];
